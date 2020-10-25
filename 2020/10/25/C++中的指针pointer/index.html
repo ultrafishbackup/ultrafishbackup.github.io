@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/10/25/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/10/25/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer/logo3.gif">
 <meta property="article:published_time" content="2020-10-25T01:58:14.000Z">
-<meta property="article:modified_time" content="2020-10-25T06:05:57.615Z">
+<meta property="article:modified_time" content="2020-10-25T06:09:08.296Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="指针">
@@ -224,7 +224,7 @@
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> * aPointer = &amp;a;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//输出整数型变量a的值</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *aPointer &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//输出整数型变量a所对应的指针所对应的值, 即为a</span></span><br><span class="line">    *aPointer = *aPointer + <span class="number">1</span>; <span class="comment">//使用指针改变原变量的值</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在这个例子中, 变量a和指针aPointer相当于一枚硬币的两面.<br>通过取地址运算符&amp;得到变量a的地址, 通过指针运算符<em>得到地址所对应的值.<br>所以说a和 <em>aPointer是完全一样的, aPointer对应的值为&amp;a. 还可以通过修改\</em>aPointer来修改a的值.<br><img src="/2020/10/25/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer/1.jpg" alt="Two sides of a coin"><br>*图源: Prata S - C++ Primer Plus 6th Edition - 2011</em></p>
 <hr>
-<p>引用:<br><a href="./C++中的指针pointer/Prata S. - C++ Primer Plus, 6th Edition - 2011.pdf" target="_blank">Prata S - C++ Primer Plus 6th Edition - 2011</a></p>
+<p>引用:<br>Prata S - C++ Primer Plus 6th Edition - 2011</p>
 <hr>
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>本文只讲了指针变量的简单内容, 之后会继续展开指针运算、指向空的指针和空类型指针、指向常量的指针和指针常量、指针与数组等内容, 会继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
