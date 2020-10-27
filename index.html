@@ -185,7 +185,7 @@
 <hr>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>先看一段代码, 这段代码引入了一个整数型变量a,并把它赋值为2, 最后输出. 看上去十分简单, 但仔细思考一下, 程序是怎么知道变量a中到底存了什么数据呢, 或者说怎么去得到变量a中的数据呢? 其实程序通过变量名所对应的内存单元来对数据进行读取. 简单来说, 你的一位朋友想找你, 他不是直接找到你, 而是通过你所对应的所在地址来找到你. 类似的, 程序也是通过变量相对应的内存地址来进行操作, 这时就需要引入一种新的数据类型–<strong>指针(pointer)</strong>.<br>在C/C++中, <strong>指针(pointer)</strong> 是一种特殊的数据类型, 它存储的是数值的内存地址, 指针也称指针变量.</p>
+<p>先看一段代码, 这段代码引入了一个整数型变量a,并把它赋值为2, 最后输出. 看上去十分简单, 但仔细思考一下, 程序是怎么知道变量a中到底存了什么数据呢, 或者说怎么去得到变量a中的数据呢? 其实程序通过变量名所对应的内存单元来对数据进行读取. 简单来说, 你的一位朋友想找你, 他不是直接找到你, 而是通过你所在的地址来找到你. 类似的, 程序也是通过变量相对应的内存地址来进行操作, 这时就需要引入一种新的数据类型–<strong>指针(pointer)</strong>.<br>在C/C++中, <strong>指针(pointer)</strong> 是一种特殊的数据类型, 它存储的是数值的内存地址, 指针也称指针变量.</p>
         
       
 
