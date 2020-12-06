@@ -158,6 +158,147 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C++中的指针pointer2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/">C++中的指针pointer2</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/" class="archive-article-date">
+  	<time datetime="2020-12-06T03:30:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>所有相关文章:<br><a href="http://ultrafish.cn/2020/10/25/C++中的指针pointer/" target="_blank" rel="noopener">C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符</a></p>
+</blockquote>
+<p>在<a href="http://ultrafish.cn/2020/10/25/C++中的指针pointer/" target="_blank" rel="noopener">之前的文章</a>中我已经介绍了C++中指针的基本内容, 包括声明, 取地址运算符号, 赋值和运算符. 接下来我会介绍<strong>指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量.</strong></p>
+<h3 id="指针运算"><a href="#指针运算" class="headerlink" title="指针运算"></a>指针运算</h3><p>指针运算就是对指针地址进行运算. 指针经过运算后, 其内存指向(地址)可能会发生变化, 其指向内存的内容(原值)也可能会发生变化. 以下举例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> * p = &amp;a; <span class="comment">//定义指针并赋值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p++; <span class="comment">//指针自加运算</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p++; <span class="comment">//指针自加运算</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p--; <span class="comment">//指针自减运算</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-446765300</span>, <span class="number">10</span></span><br><span class="line"><span class="number">-446765296</span>, <span class="number">-446765280</span></span><br><span class="line"><span class="number">-446765292</span>, <span class="number">32766</span></span><br><span class="line"><span class="number">-446765296</span>, <span class="number">-446765280</span></span><br></pre></td></tr></table></figure>
+<p>由此发现, 指针运算后会使指针地址变化, 相对应的指向内存的内容也会发生变化, 但是内存内容的变化规律是和地址变化规律没有直接联系的. 另外, 指针进行加1运算后, 其地址的值并不是简单的加一, 而是而是加上一个变量对应类型的字节宽度, int对应的宽度就是sizeof(int), 也就是4. long类型宽度就是sizeof(long), 也就是8. 举例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">long</span> * p = &amp;a;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p--;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-369174776</span>, <span class="number">10</span></span><br><span class="line"><span class="number">-369174768</span>, <span class="number">-369174752</span></span><br><span class="line"><span class="number">-369174760</span>, <span class="number">540288561</span></span><br><span class="line"><span class="number">-369174768</span>, <span class="number">-369174752</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="指向空的指针与空类型指针"><a href="#指向空的指针与空类型指针" class="headerlink" title="指向空的指针与空类型指针"></a>指向空的指针与空类型指针</h3><h4 id="指向空的指针"><a href="#指向空的指针" class="headerlink" title="指向空的指针"></a>指向空的指针</h4><p>指向空的指针表示为:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span>* p;</span><br></pre></td></tr></table></figure>
+<p>指向空的指针是有指向的, 即指向空类型void, 但是在后期使用时可以给其赋值不同类型的数据. 举例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> * p = &amp;a;</span><br><span class="line">    <span class="keyword">void</span>* p1 = <span class="literal">NULL</span>; <span class="comment">//定义指向空的指针 </span></span><br><span class="line">    p1 = p; <span class="comment">//给指向空的指针重新赋值指向</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="空类型指针"><a href="#空类型指针" class="headerlink" title="空类型指针"></a>空类型指针</h4><p>空类型的指针是指未初始化的指针, 不能直接使用, 需要赋值后才能使用, 在编写代码时需要注意. 举例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* p2 = <span class="literal">NULL</span>; <span class="comment">//定义空类型指针, 未初始化, 不能直接使用</span></span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">20</span>; </span><br><span class="line">    p2 = &amp;b; <span class="comment">//初始化p2</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="指向常量的指针与指针常量"><a href="#指向常量的指针与指针常量" class="headerlink" title="指向常量的指针与指针常量"></a>指向常量的指针与指针常量</h3><h4 id="指向常量的指针"><a href="#指向常量的指针" class="headerlink" title="指向常量的指针"></a>指向常量的指针</h4><p>指向常量的指针(pointer-to-const)说明<strong>指针内存指向的内容</strong>是一个常量, 使用const关键字表示, 如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p = &amp;a;</span><br></pre></td></tr></table></figure>
+<p>其中指针内存指向的内容(*p)是一个常量, 其无法修改内存数据, 也就是a, 做到了“只读”.<br>但是我们可以修改p, 也就是内存指向(地址). 举例如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> p = &amp;a;</span><br><span class="line">p = &amp;b; <span class="comment">//允许</span></span><br><span class="line">*p = <span class="number">20</span>; <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<p>总的来说, 使用指向常量的指针(pointer-to-const)可以防止我们改变指针指向的内容(*p), 做到“只读”, 但是不能防止我们改变指针的内存指向(地址p). 指向常量的指针也称常量指针.</p>
+<h4 id="指针常量"><a href="#指针常量" class="headerlink" title="指针常量"></a>指针常量</h4><p>指针常量(const pointer)说明这个<strong>指针本身</strong>是一个常量, 使用const关键字表示, 如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> p = &amp;a;</span><br></pre></td></tr></table></figure>
+<p>其中指针p是常量, 其无法修改, 也就是说我们无法修改它的内存指向, 也就是地址.<br>但是我们可以修改*p, 也就是说我们可以修改指针指向内存的内容. 举例如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> p = &amp;a;</span><br><span class="line">p = &amp;b; <span class="comment">//报错</span></span><br><span class="line">*p = <span class="number">20</span>; <span class="comment">//允许</span></span><br></pre></td></tr></table></figure>
+<p>总的来说, 使用指针常量(const pointer)可以防止我们改变指针的内存指向(地址p), 但不可以防止我们改变指向内存的内容(*p).</p>
+<p>两者可以用一张图总结:<br><img src="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/1.jpg" alt="Pointers-to-const and const pointers"><br><em>图源: Prata S - C++ Primer Plus 6th Edition - 2011</em></p>
+<h4 id="指向常量的指针常量"><a href="#指向常量的指针常量" class="headerlink" title="指向常量的指针常量"></a>指向常量的指针常量</h4><p>指向常量的指针常量, 它的指针指向(地址p)以及它内存指向的内容(*p)都是常量, 都不能改变, 如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> * <span class="keyword">const</span> p = &amp;a;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>引用:<br>Prata S - C++ Primer Plus 6th Edition - 2011</p>
+<hr>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>本文介绍了指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量, 之后会继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/logo3.gif" width height></center>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/c//" class="article-tag-list-link color4">c++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/c/指针//" class="article-tag-list-link color3">指针</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
     <article id="post-C++中的指针pointer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1068,115 +1209,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/08/05/josephus-problem/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-hexo+yilia主题中用本地图片设置背景" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/30/hexo+yilia%E4%B8%BB%E9%A2%98%E4%B8%AD%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF/">Hexo+yilia主题中用本地图片设置背景</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/07/30/hexo+yilia%E4%B8%BB%E9%A2%98%E4%B8%AD%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF/" class="archive-article-date">
-  	<time datetime="2020-07-30T04:03:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong><em>Made by Mike_Zhang</em></strong></p>
-<hr>
-<h2 id="1-准备一张背景图片"><a href="#1-准备一张背景图片" class="headerlink" title="1.准备一张背景图片"></a><strong>1.准备一张背景图片</strong></h2><p>准备一张背景图片，例如：bg.jpg。<br>把它放到themes/yilia/source路径下</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">背景</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo/yilia//" class="article-tag-list-link color1">yilia</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo/yilia/背景图片//" class="article-tag-list-link color5">背景图片</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/30/hexo+yilia%E4%B8%BB%E9%A2%98%E4%B8%AD%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF/">展开全文 >></a>
         </p>
       
 

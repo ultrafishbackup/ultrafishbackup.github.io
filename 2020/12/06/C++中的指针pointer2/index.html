@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | UltraFish</title>
+  <title>C++中的指针pointer2 | UltraFish</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="UltraFisher is made by Mike_Zhang">
-<meta property="og:type" content="website">
-<meta property="og:title" content="UltraFish">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="所有相关文章:C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符  在之前的文章中我已经介绍了C++中指针的基本内容, 包括声明, 取地址运算符号, 赋值和运算符. 接下来我会介绍指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量. 指针运算指针运算就是对指针地址进行运算. 指针经过运算后, 其内存指向(地址)可能会发生变化, 其指向内存的内">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++中的指针pointer2">
+<meta property="og:url" content="http://yoursite.com/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="UltraFisher is made by Mike_Zhang">
+<meta property="og:description" content="所有相关文章:C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符  在之前的文章中我已经介绍了C++中指针的基本内容, 包括声明, 取地址运算符号, 赋值和运算符. 接下来我会介绍指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量. 指针运算指针运算就是对指针地址进行运算. 指针经过运算后, 其内存指向(地址)可能会发生变化, 其指向内存的内">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/logo3.gif">
+<meta property="article:published_time" content="2020-12-06T03:30:41.000Z">
+<meta property="article:modified_time" content="2020-12-06T06:42:30.849Z">
 <meta property="article:author" content="Mike_Zhang">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="指针">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="UltraFish" type="application/atom+xml">
   
@@ -156,36 +163,119 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-C++中的指针pointer2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      C++中的指针pointer2
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/" class="archive-article-date">
+
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span >
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/" class="archive-article-date">
   	<time datetime="2020-12-06T03:30:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/">C++中的指针pointer2</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>所有相关文章:<br><a href="http://ultrafish.cn/2020/10/25/C++中的指针pointer/" target="_blank" rel="noopener">C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符</a></p>
+</blockquote>
+<p>在<a href="http://ultrafish.cn/2020/10/25/C++中的指针pointer/" target="_blank" rel="noopener">之前的文章</a>中我已经介绍了C++中指针的基本内容, 包括声明, 取地址运算符号, 赋值和运算符. 接下来我会介绍<strong>指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量.</strong></p>
+<h3 id="指针运算"><a href="#指针运算" class="headerlink" title="指针运算"></a>指针运算</h3><p>指针运算就是对指针地址进行运算. 指针经过运算后, 其内存指向(地址)可能会发生变化, 其指向内存的内容(原值)也可能会发生变化. 以下举例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> * p = &amp;a; <span class="comment">//定义指针并赋值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p++; <span class="comment">//指针自加运算</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p++; <span class="comment">//指针自加运算</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p--; <span class="comment">//指针自减运算</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-446765300</span>, <span class="number">10</span></span><br><span class="line"><span class="number">-446765296</span>, <span class="number">-446765280</span></span><br><span class="line"><span class="number">-446765292</span>, <span class="number">32766</span></span><br><span class="line"><span class="number">-446765296</span>, <span class="number">-446765280</span></span><br></pre></td></tr></table></figure>
+<p>由此发现, 指针运算后会使指针地址变化, 相对应的指向内存的内容也会发生变化, 但是内存内容的变化规律是和地址变化规律没有直接联系的. 另外, 指针进行加1运算后, 其地址的值并不是简单的加一, 而是而是加上一个变量对应类型的字节宽度, int对应的宽度就是sizeof(int), 也就是4. long类型宽度就是sizeof(long), 也就是8. 举例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">long</span> * p = &amp;a;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">    p--;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>, p, *p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-369174776</span>, <span class="number">10</span></span><br><span class="line"><span class="number">-369174768</span>, <span class="number">-369174752</span></span><br><span class="line"><span class="number">-369174760</span>, <span class="number">540288561</span></span><br><span class="line"><span class="number">-369174768</span>, <span class="number">-369174752</span></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<hr>
+<h3 id="指向空的指针与空类型指针"><a href="#指向空的指针与空类型指针" class="headerlink" title="指向空的指针与空类型指针"></a>指向空的指针与空类型指针</h3><h4 id="指向空的指针"><a href="#指向空的指针" class="headerlink" title="指向空的指针"></a>指向空的指针</h4><p>指向空的指针表示为:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span>* p;</span><br></pre></td></tr></table></figure>
+<p>指向空的指针是有指向的, 即指向空类型void, 但是在后期使用时可以给其赋值不同类型的数据. 举例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> * p = &amp;a;</span><br><span class="line">    <span class="keyword">void</span>* p1 = <span class="literal">NULL</span>; <span class="comment">//定义指向空的指针 </span></span><br><span class="line">    p1 = p; <span class="comment">//给指向空的指针重新赋值指向</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="空类型指针"><a href="#空类型指针" class="headerlink" title="空类型指针"></a>空类型指针</h4><p>空类型的指针是指未初始化的指针, 不能直接使用, 需要赋值后才能使用, 在编写代码时需要注意. 举例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* p2 = <span class="literal">NULL</span>; <span class="comment">//定义空类型指针, 未初始化, 不能直接使用</span></span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">20</span>; </span><br><span class="line">    p2 = &amp;b; <span class="comment">//初始化p2</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="指向常量的指针与指针常量"><a href="#指向常量的指针与指针常量" class="headerlink" title="指向常量的指针与指针常量"></a>指向常量的指针与指针常量</h3><h4 id="指向常量的指针"><a href="#指向常量的指针" class="headerlink" title="指向常量的指针"></a>指向常量的指针</h4><p>指向常量的指针(pointer-to-const)说明<strong>指针内存指向的内容</strong>是一个常量, 使用const关键字表示, 如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p = &amp;a;</span><br></pre></td></tr></table></figure>
+<p>其中指针内存指向的内容(*p)是一个常量, 其无法修改内存数据, 也就是a, 做到了“只读”.<br>但是我们可以修改p, 也就是内存指向(地址). 举例如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> p = &amp;a;</span><br><span class="line">p = &amp;b; <span class="comment">//允许</span></span><br><span class="line">*p = <span class="number">20</span>; <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<p>总的来说, 使用指向常量的指针(pointer-to-const)可以防止我们改变指针指向的内容(*p), 做到“只读”, 但是不能防止我们改变指针的内存指向(地址p). 指向常量的指针也称常量指针.</p>
+<h4 id="指针常量"><a href="#指针常量" class="headerlink" title="指针常量"></a>指针常量</h4><p>指针常量(const pointer)说明这个<strong>指针本身</strong>是一个常量, 使用const关键字表示, 如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> p = &amp;a;</span><br></pre></td></tr></table></figure>
+<p>其中指针p是常量, 其无法修改, 也就是说我们无法修改它的内存指向, 也就是地址.<br>但是我们可以修改*p, 也就是说我们可以修改指针指向内存的内容. 举例如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> p = &amp;a;</span><br><span class="line">p = &amp;b; <span class="comment">//报错</span></span><br><span class="line">*p = <span class="number">20</span>; <span class="comment">//允许</span></span><br></pre></td></tr></table></figure>
+<p>总的来说, 使用指针常量(const pointer)可以防止我们改变指针的内存指向(地址p), 但不可以防止我们改变指向内存的内容(*p).</p>
+<p>两者可以用一张图总结:<br><img src="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/1.jpg" alt="Pointers-to-const and const pointers"><br><em>图源: Prata S - C++ Primer Plus 6th Edition - 2011</em></p>
+<h4 id="指向常量的指针常量"><a href="#指向常量的指针常量" class="headerlink" title="指向常量的指针常量"></a>指向常量的指针常量</h4><p>指向常量的指针常量, 它的指针指向(地址p)以及它内存指向的内容(*p)都是常量, 都不能改变, 如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> * <span class="keyword">const</span> p = &amp;a;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>引用:<br>Prata S - C++ Primer Plus 6th Edition - 2011</p>
+<hr>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>本文介绍了指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量, 之后会继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/logo3.gif" width height></center>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢你的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,7 +291,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -218,543 +308,147 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫或长按分享</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://ultrafish.cn/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/25/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer/" class="archive-article-date">
-  	<time datetime="2020-10-25T01:58:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/25/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++中的指针pointer</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/25/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer/">C++中的指针pointer</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/c//" class="article-tag-list-link color4">c++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/c/指针//" class="article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#指针运算"><span class="toc-number">1.</span> <span class="toc-text">指针运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指向空的指针与空类型指针"><span class="toc-number">2.</span> <span class="toc-text">指向空的指针与空类型指针</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#指向空的指针"><span class="toc-number">2.1.</span> <span class="toc-text">指向空的指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#空类型指针"><span class="toc-number">2.2.</span> <span class="toc-text">空类型指针</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指向常量的指针与指针常量"><span class="toc-number">3.</span> <span class="toc-text">指向常量的指针与指针常量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#指向常量的指针"><span class="toc-number">3.1.</span> <span class="toc-text">指向常量的指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指针常量"><span class="toc-number">3.2.</span> <span class="toc-text">指针常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指向常量的指针常量"><span class="toc-number">3.3.</span> <span class="toc-text">指向常量的指针常量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写在最后"><span class="toc-number">4.</span> <span class="toc-text">写在最后</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/15/blog2/" class="archive-article-date">
-  	<time datetime="2020-10-15T11:44:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/15/blog2/">blog2.0-部署到阿里云服务器以及更新域名</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">部署</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">阿里云</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/19/Signed-binary-number-representation/" class="archive-article-date">
-  	<time datetime="2020-09-19T07:29:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/19/Signed-binary-number-representation/">有符号二进制数表示方法Signed binary number representation</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二进制</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/二进制//" class="article-tag-list-link color4">二进制</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/二进制/有符号二进制数//" class="article-tag-list-link color3">有符号二进制数</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/13/Java%E5%AD%A6%E4%B9%A0%E9%87%8D%E9%9A%BE%E7%82%B9%E8%AE%B0%E5%BD%952/" class="archive-article-date">
-  	<time datetime="2020-09-13T04:58:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/13/Java%E5%AD%A6%E4%B9%A0%E9%87%8D%E9%9A%BE%E7%82%B9%E8%AE%B0%E5%BD%952/">Java学习重难点记录2</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java/OOP//" class="article-tag-list-link color4">OOP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java/OOP/继承性-inheritance//" class="article-tag-list-link color1">继承性 inheritance</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/06/%E5%9B%A0%E4%B8%8A%E4%BC%A0%E8%BF%87%E5%A4%A7%E6%96%87%E4%BB%B6%E8%80%8C%E5%AF%BC%E8%87%B4hexo%E9%83%A8%E7%BD%B2%E6%97%B6Spawnfailed%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="archive-article-date">
-  	<time datetime="2020-09-06T02:27:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/06/%E5%9B%A0%E4%B8%8A%E4%BC%A0%E8%BF%87%E5%A4%A7%E6%96%87%E4%BB%B6%E8%80%8C%E5%AF%BC%E8%87%B4hexo%E9%83%A8%E7%BD%B2%E6%97%B6Spawnfailed%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">spawn_failed报错</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo/部署//" class="article-tag-list-link color3">部署</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo/部署/报错//" class="article-tag-list-link color3">报错</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/31/one-year/" class="archive-article-date">
-  	<time datetime="2020-08-31T08:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/31/one-year/">《一年》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">video</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/生活//" class="article-tag-list-link color3">生活</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/生活/一年//" class="article-tag-list-link color3">一年</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/23/%E5%9C%A8Hexo%E4%B8%AD%E7%94%A8Markdown%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%BB%9C%E6%88%96%E6%9C%AC%E5%9C%B0%E8%A7%86%E9%A2%91%E4%BB%A5%E5%8F%8AGIF%E5%8A%A8%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2020-08-23T12:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/23/%E5%9C%A8Hexo%E4%B8%AD%E7%94%A8Markdown%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%BB%9C%E6%88%96%E6%9C%AC%E5%9C%B0%E8%A7%86%E9%A2%91%E4%BB%A5%E5%8F%8AGIF%E5%8A%A8%E5%9B%BE/">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo/markdown//" class="article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/15/Java%E5%AD%A6%E4%B9%A0%E9%87%8D%E9%9A%BE%E7%82%B9%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2020-08-15T07:14:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/15/Java%E5%AD%A6%E4%B9%A0%E9%87%8D%E9%9A%BE%E7%82%B9%E8%AE%B0%E5%BD%95/">Java学习重难点记录1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java/数据类型//" class="article-tag-list-link color5">数据类型</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java/数据类型/数据类型转换//" class="article-tag-list-link color2">数据类型转换</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/05/josephus-problem/" class="archive-article-date">
-  	<time datetime="2020-08-05T04:45:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/05/josephus-problem/">Python对约瑟夫问题(Josephus Problem)的高效解决方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">josephus_problem</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">约瑟夫环</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/josephus-problem//" class="article-tag-list-link color2">josephus_problem</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/josephus-problem/约瑟夫环//" class="article-tag-list-link color5">约瑟夫环</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/"></a>
-    </nav>
   
+
+  
+
+  
+
+
+
+  
+      <section id="comments" class="comments">
+        <style>
+          .comments{margin:30px;padding:10px;background:#fff}
+          @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+        </style>
+        <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz",
+            app_key: "jVB4RsyHUFfRbEhhlssoxEVQ",
+            placeholder: "有话要说？",
+            avatar:""
+        });
+    }
+</script>
+    </section>
+  
+
 
 
           </div>
@@ -790,8 +484,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
