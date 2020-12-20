@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 约瑟夫环 | UltraFish</title>
+  <title>Floating point numbers representation | UltraFish</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="UltraFisher is made by Mike_Zhang">
-<meta property="og:type" content="website">
-<meta property="og:title" content="UltraFish">
-<meta property="og:url" content="http://yoursite.com/tags/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/index.html">
+  <meta name="description" content="Made by Mike_Zhang I have talked about the Signed binary number representation in a previous article. Then I am going to record the Floating point numbers (FPN) representation, including Floating poin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Floating point numbers representation">
+<meta property="og:url" content="http://yoursite.com/2020/12/20/floating%20point%20numbers%20representation/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="UltraFisher is made by Mike_Zhang">
+<meta property="og:description" content="Made by Mike_Zhang I have talked about the Signed binary number representation in a previous article. Then I am going to record the Floating point numbers (FPN) representation, including Floating poin">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/12/20/floating%20point%20numbers%20representation/logo3.gif">
+<meta property="article:published_time" content="2020-12-20T05:24:50.000Z">
+<meta property="article:modified_time" content="2020-12-20T08:26:12.824Z">
 <meta property="article:author" content="Mike_Zhang">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="data representation">
+<meta property="article:tag" content="floating point numbers">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/12/20/floating%20point%20numbers%20representation/logo3.gif">
   
     <link rel="alternative" href="/atom.xml" title="UltraFish" type="application/atom+xml">
   
@@ -156,87 +163,336 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-floating point numbers representation" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/05/josephus-problem/" class="archive-article-date">
-  	<time datetime="2020-08-05T04:45:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/05/josephus-problem/">Python对约瑟夫问题(Josephus Problem)的高效解决方法</a>
+    <h1 class="article-title" itemprop="name">
+      Floating point numbers representation
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span >
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2020/12/20/floating%20point%20numbers%20representation/" class="archive-article-date">
+  	<time datetime="2020-12-20T05:24:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<p>I have talked about the <a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener"><strong>Signed binary number representation</strong></a> in a previous article. Then I am going to record the <strong>Floating point numbers (FPN) representation</strong>, including <strong>Floating point numbers normalization, hidden bit, FPN representation in the computer, and IEEE 754 Standard</strong>.</p>
+<a id="more"></a>
+<hr>
+<h3 id="Floating-point-numbers-normalization"><a href="#Floating-point-numbers-normalization" class="headerlink" title="Floating point numbers normalization"></a>Floating point numbers normalization</h3><p>Usually, a floating point number can be represented by 3 parts: <strong>Sign, Exponent, and Fraction (aka Significand or Mantissa)</strong>.<br>Example:</p>
+<blockquote>
+<p>+1.23 * 10^45</p>
+</blockquote>
+<blockquote>
+<p><strong>“+” is the Sign</strong><br> <strong>45 is the Exponent</strong><br><strong>1.23 is the Fracrion</strong><br>10 is the Base</p>
+</blockquote>
+<p>For a given number, the location of radix point is fixed. It is located immediately to the <strong>left OR right</strong> of the <strong>leftmost AND nonzero</strong> digit in the fraction.<br>Example:</p>
+<blockquote>
+<p><strong>+1.23 * 10^45 OR +0.123 * 10^46</strong></p>
+</blockquote>
+<p>FPN can be normalized in any base.</p>
+<hr>
+<h3 id="Hidden-bit"><a href="#Hidden-bit" class="headerlink" title="Hidden bit"></a>Hidden bit</h3><p>Hidden bit is aopptional choise for FPN normalization.<br>When the fraction is in binary, there will always be a leftmost “1” in the normalized fraction, because the point is always located immediately to the <strong>left OR right</strong> of the <strong>leftmost AND nonzero</strong> digit in the fraction.<br>Example:</p>
+<blockquote>
+<p>111.01 * 2^3 = <strong>1</strong>.1101 * 2^5 = 0.<strong>1</strong>1101 * 2^6</p>
+</blockquote>
+<p>So the computer does not have to store this “1”, which is <strong>hidden bit</strong> or <strong>hidden 1</strong>.<br>If the Hidden bit is used in the FPN normalization, for 1.1101, the computer only needs to store 1101 for the normalized fraction.</p>
+<hr>
+<h3 id="FPN-representation-in-the-computer"><a href="#FPN-representation-in-the-computer" class="headerlink" title="FPN representation in the computer"></a>FPN representation in the computer</h3><p>In a computer, the FPN representation is specified in:</p>
+<blockquote>
+<ol>
+<li>The base of the original number;</li>
+<li>The location of radix point in normalization: left OR right of the leftmost AND nonzero digit in the fraction;</li>
+<li>The number of bits of exponent and fraction storage;</li>
+<li>the representation of exponent, e.g. Excess, One’s Complement.</li>
+</ol>
+</blockquote>
+<p>Example:</p>
+<blockquote>
+<p>A computer requires the order that:</p>
+<ol>
+<li>Sign bit;</li>
+<li>3-bit Excess 4 exponent;</li>
+<li>Base 16, 3-bit hexadecimal fraction;</li>
+</ol>
+<p>and</p>
+<ol>
+<li>The point is located immediately to the <strong>left</strong> of the leftmost and nonzero digit in the fraction.</li>
+</ol>
+</blockquote>
+<p>For example, the number is +120.0 (base 10).</p>
+<blockquote>
+<p>step1. Convert +120.0 to base 16, 120.0(base 10) = 78.0(base 16);<br>step2. Normalization: 78.0 = 0.780 * 16^2;<br>step3. Sign bit: “+” -&gt; 0;<br>step4. Convert fraction into base2: 780 (base 16) = 0111 1000 0000 (base 2);<br>step5. Exponent in Excess 4: 2 + 4 = 6 (base 10) = 110 (base 2);<br>step6. Combine them together: 0 110 0111 1000 0000 (Sign bit | Exponent | Fraction).</p>
+</blockquote>
+<hr>
+<h3 id="IEEE-754-Standard"><a href="#IEEE-754-Standard" class="headerlink" title="IEEE 754 Standard"></a>IEEE 754 Standard</h3><p>IEEE stands for Institute of Electrical and Electronics Engineers. IEEE 754 is a standard for Floating point numbers representation.<br>IEEE 754 has two formats: <strong>single</strong> precision and <strong>double</strong> precision. Single precision has 32 bits, and double precision has 64 bits.<br>IEEE 754 single precision standard:</p>
+<blockquote>
+<ol>
+<li>In <strong>base 2</strong>;</li>
+<li>Using <strong>Hidden bit</strong>;</li>
+<li>Sign bit: 0 for positive, 1 for negative (1 bit);</li>
+<li>Using 8-bit <strong>Excess 127</strong> exponent (8 bits);</li>
+<li>The point is located immediately to the <strong>right</strong> of the leftmost and nonzero digit in the fraction (23 bits with 1 bit hidden);</li>
+</ol>
+</blockquote>
+<p>Example:</p>
+<blockquote>
+<p>The number is +120.0 (base 10);</p>
+<ol>
+<li>convert to base 2: 1111000;</li>
+<li>Normalization: +1.111 * 2^6;</li>
+<li>Sign bit: 0;</li>
+<li>Exponent: 6 + 127 = 133(base 10) = 1000 0101 (base 2);</li>
+<li>Fraction: 111 0000 0000 0000 0000 0000 (with hidden 1);</li>
+<li>Combination: 0 1000 0101 111 0000 0000 0000 0000 0000 (Sign bit | Exponent | Fraction).</li>
+</ol>
+</blockquote>
+<p><em>Useful IEEE 754 website: <a href="http://weitz.de/ieee/" target="_blank" rel="noopener">http://weitz.de/ieee/</a></em></p>
+<p>Special IEEE 754 bit patterns</p>
+<blockquote>
+<p>+0: 0  0000 0000  000 0000 0000 0000 0000 0000;<br>-0: 1  0000 0000  000 0000 0000 0000 0000 0000;<br>+(-)INFINITY: 0(1)  1111 1111  000 0000 0000 0000 0000 0000;<br>+(-)NaN (Not a Number): 0(1)  1111 1111  001 0000 0110 0001 0010 0000 (The fraction is nonzero);<br>+2^(-128): 0  1111 1111  010 0000 0000 0000 0000 0000;</p>
+</blockquote>
+<hr>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a href="http://weitz.de/ieee/" target="_blank" rel="noopener">IEEE 754 Calculator: http://weitz.de/ieee/</a></p>
+<hr>
+<h3 id="The-End"><a href="#The-End" class="headerlink" title="The End"></a>The End</h3><p>I have recorded Floating point numbers normalization, hidden bit, FPN representation in the computer, and IEEE 754 Standard in this article.<br>Please feel free to leave your comments, if you have any questions or find any mistakes. Thanks for reading. </p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="/2020/12/20/floating%20point%20numbers%20representation/logo3.gif" width height></center>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢你的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">josephus_problem</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data representation</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">约瑟夫环</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">floating point numbers</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        			<a href="/categories/data-representation//" class="article-tag-list-link color5">data representation</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/python/josephus-problem//" class="article-tag-list-link color2">josephus_problem</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/josephus-problem/约瑟夫环//" class="article-tag-list-link color5">约瑟夫环</a>
+        			<a href="/categories/data-representation/floating-point-numbers//" class="article-tag-list-link color3">floating point numbers</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫或长按分享</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++中的指针pointer2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Floating-point-numbers-normalization"><span class="toc-number">1.</span> <span class="toc-text">Floating point numbers normalization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hidden-bit"><span class="toc-number">2.</span> <span class="toc-text">Hidden bit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPN-representation-in-the-computer"><span class="toc-number">3.</span> <span class="toc-text">FPN representation in the computer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IEEE-754-Standard"><span class="toc-number">4.</span> <span class="toc-text">IEEE 754 Standard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-End"><span class="toc-number">6.</span> <span class="toc-text">The End</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
+  
+      <section id="comments" class="comments">
+        <style>
+          .comments{margin:30px;padding:10px;background:#fff}
+          @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+        </style>
+        <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz",
+            app_key: "jVB4RsyHUFfRbEhhlssoxEVQ",
+            placeholder: "有话要说？",
+            avatar:""
+        });
+    }
+</script>
+    </section>
+  
+
 
 
           </div>
@@ -272,9 +528,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
