@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>有符号二进制数表示方法Signed binary number representation | UltraFish</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Made by Mike_Zhang  (2020-09-24更新: 新增Excess)(2020-09-24更新: 新增转换代码) 我在之前的文章 byte数据类型在显式类型转换时超出其取值范围的转换过程中提到里了计算机中原码，反码，补码等概念, 但是并没有仔细展开. 最近在学校的课程内容中又碰到了, 所以接下来具体来说一下.数据在计算机中都是以二进制(binary)0和1的形式储存的, 但是在">
+  <meta name="description" content="Made by Mike_Zhang   所有相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representation  (2020-09-24更新: 新增Excess)(2020-09-24更新: 新增转换代码) 我在之前的文章 byte数据类型在显式类型转换时超出其">
 <meta property="og:type" content="article">
 <meta property="og:title" content="有符号二进制数表示方法Signed binary number representation">
 <meta property="og:url" content="http://yoursite.com/2020/09/19/Signed-binary-number-representation/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang  (2020-09-24更新: 新增Excess)(2020-09-24更新: 新增转换代码) 我在之前的文章 byte数据类型在显式类型转换时超出其取值范围的转换过程中提到里了计算机中原码，反码，补码等概念, 但是并没有仔细展开. 最近在学校的课程内容中又碰到了, 所以接下来具体来说一下.数据在计算机中都是以二进制(binary)0和1的形式储存的, 但是在">
+<meta property="og:description" content="Made by Mike_Zhang   所有相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representation  (2020-09-24更新: 新增Excess)(2020-09-24更新: 新增转换代码) 我在之前的文章 byte数据类型在显式类型转换时超出其">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/09/19/Signed-binary-number-representation/logo3.gif">
 <meta property="article:published_time" content="2020-09-19T07:29:59.000Z">
-<meta property="article:modified_time" content="2020-12-20T05:29:43.693Z">
+<meta property="article:modified_time" content="2020-12-20T08:34:12.417Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="data representation">
@@ -196,6 +196,9 @@
       
         <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
+<blockquote>
+<p>所有相关文章:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">有符号二进制数表示方法 Signed binary number representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" target="_blank" rel="noopener">浮点数二进制数表示方法 Floating point numbers representation</a></p>
+</blockquote>
 <p>(2020-09-24更新: 新增Excess)<br>(2020-09-24更新: 新增转换代码)</p>
 <p>我在之前的文章 <a href="http://ultrafish.cn/2020/08/15/Java学习重难点记录/" target="_blank" rel="noopener"><em>byte数据类型在显式类型转换时超出其取值范围的转换过程</em></a>中提到里了计算机中原码，反码，补码等概念, 但是并没有仔细展开. 最近在学校的课程内容中又碰到了, 所以接下来具体来说一下.<br>数据在计算机中都是以二进制(binary)0和1的形式储存的, 但是在表示负数的时候, 并不能直接把“-”加在数字前面, 必须要用一些特定的方法来表示.<br>一般来说,有以下4种常用的<strong>表示负数</strong>的方法:</p>
 <blockquote>
