@@ -189,6 +189,10 @@
       
         <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
+<blockquote>
+<p>相关文章:<br><a href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/" target="_blank" rel="noopener">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a><br><a href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/" target="_blank" rel="noopener">因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项</a><br><a href="http://ultrafish.cn/2021/04/25/post-video-with-oss/" target="_blank" rel="noopener">在Hexo中用Markdown通过阿里云OSS添加视频文件</a></p>
+</blockquote>
+<hr>
 <p>之前我发布了一篇<a href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/" target="_blank" rel="noopener">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a>的文章,当时上传的文件体积不大,最大的也只有1.5MB.后来我尝试把时间更长, 体积更大的视频上传, 但是并没有成功, warning警告说“GitHub建议上传最大体积为50MB, 上限为100MB”, 很明显我上传的视频文件体积已经超过了100MB. 因此我删掉了那个大文件, 但是当我再次尝试部署时, 还是弹出来一样的warning, 报错文件的路径也和之前的一样, 可是我明明已经删除了那个文件, 后来经过不断的尝试以及在网上搜索, 我找到了一篇和我遇到问题类似的文章<a href="https://perry96.com/archives/882898e3.html" target="_blank" rel="noopener">Hexo部署报错Spawn failed及解决方案</a>, 此方法指出报错的根源是出现在.deploy_git文件夹里, 删除本地文件并不能删除.deploy_git文件夹里的文件, 解决方法就是让本地仓库文件恢复到没有出现问题前的状态.<br>但这个并没有完全解决我的问题, 后来我不断尝试, 完善了<a href="https://perry96.com/archives/882898e3.html" target="_blank" rel="noopener">Hexo部署报错Spawn failed及解决方案</a>, 我的方法如下:</p>
         
       
@@ -394,6 +398,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<blockquote>
+<p>相关文章:<br><a href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/" target="_blank" rel="noopener">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a><br><a href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/" target="_blank" rel="noopener">因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项</a><br><a href="http://ultrafish.cn/2021/04/25/post-video-with-oss/" target="_blank" rel="noopener">在Hexo中用Markdown通过阿里云OSS添加视频文件</a></p>
+</blockquote>
 <hr>
 <p>最近更新维护了一下blog，之前的视频是通过链接过来的，现在可以添加本地的视频，还可以添加本地的GIF动图，具体效果可以看一下我的<a href="http://ultrafish.cn/2020/07/29/hello-ultrafisher/" target="_blank" rel="noopener">第一篇文章 “Hello UltraFisher”</a>。这个blog的文章都是用标记语言Markdown写的，那接下来说说如何在Hexo中用Markdown添加网络或本地视频以及GIF动图</p>
 <p><strong><em>注意 : 上传的单个文件大小不要超过50MB, 具体问题以及解决方法已经更新 : <a href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/" target="_blank" rel="noopener">因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项</a></em></strong></p>

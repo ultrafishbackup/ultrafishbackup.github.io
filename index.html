@@ -189,6 +189,10 @@
       
         <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
+<blockquote>
+<p>相关文章:<br><a href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/" target="_blank" rel="noopener">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a><br><a href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/" target="_blank" rel="noopener">因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项</a><br><a href="http://ultrafish.cn/2021/04/25/post-video-with-oss/" target="_blank" rel="noopener">在Hexo中用Markdown通过阿里云OSS添加视频文件</a></p>
+</blockquote>
+<hr>
 <p>在我之前的文章<a href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/" target="_blank" rel="noopener">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a>中介绍了如何在Blog中用Markdown添加本地视频或者网络视频. 但是都有限制: 本地视频受限于git, 能够上传的文件体积很小, 并且上传过大文件会<a href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/" target="_blank" rel="noopener">引发错误</a>; 网络视频需要用户先把视频上传到视频平台 (如: bilibili, 优酷等) 才能添加到网站中, 并且视频分辨率不高.</p>
 <p>于是, 我想到把视频放到云服务器中, 再让网站直接访问, 这样不必通过git上传文件, 也可以获取原来的画质. 我在升级我的<a href="http://ultrafish.cn/2020/10/15/blog2/" target="_blank" rel="noopener">blog2.0</a>时, 购买了阿里云的云服务器, 于是我想到可以用阿里云的OSS (Object Storage Service), 即对象存储来实现视频文件的添加.<br><a href="https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.488a4c13156lrt" target="_blank" rel="noopener">查看阿里云官方对OSS的介绍</a></p>
 <p>把文件上传到OSS, 获取URL, 再把URL添加到文章中, 即可在文章中添加文件, 如: 视频、图片、音乐等.</p>
