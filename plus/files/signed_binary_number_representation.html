@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>有符号二进制数表示方法Signed binary number representation</title>
+<link href="wordColor.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.wordColor {
+    text-align: center;
+    font-size: 18px;
+}
+.wordsColor {
+    font-size: 16px;
+    color: #000000;
+}
+.textColor {
+    font-size: 25px;
+    color: #000000;
+	font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+}
+.ultrafishColor {
+    font-size: 16px;
+    color: #000000;
+	font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+}
+.logoStyle {
+    text-align: left;
+}
+.bottomStyle {
+    color: #404040;
+    font-size: 12px;
+}
+.hiStyle {
+    font-size: 65px;
+}
+	.shadowTable{
+	box-shadow:15px 15px 0px #444; border-spacing:15px;
+	}
+.footer{font-size: 12px;
+    font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+    text-shadow: 0 1px #fff;}
+a{ text-decoration:none} 
+a:hover{ text-decoration:none}
+</style>
+
+</head>
+
+<body>
+<script>
+	function signedMagnitude(){
+		var out;
+		var num = Number(document.getElementById("in1").value);
+		numAbs = Math.abs(num);
+	 	numAbsB = binary(numAbs, 7);
+		if (num<0){
+			out = "1"+numAbsB;
+		}
+		else{
+			out = "0"+numAbsB;
+		}
+		if (num>127||num<-127){
+			out = "Out of Range(-127~127)!"
+		}
+		document.getElementById("in2").value = out;
+	}
+	function signedMagnitude_re(){
+		var out;
+		var num = document.getElementById("in21").value;
+		if (num[0] == 0){
+			out = parseInt(num, 2);
+		}
+		else{
+			var numS = num.slice(1);
+			out = "-"+ parseInt(numS, 2);
+		}
+		if (num.length>8){
+			out = "Out of Range(8bit binary)"
+		}
+		document.getElementById("in22").value = out;
+	}
+	function onesComplement(){
+		var out;
+		var num = Number(document.getElementById("in31").value);
+		if (num<0){
+			pnum = 256-1-Math.abs(num);
+		}
+		else{
+			pnum = num;
+		}
+		out = binary(pnum, 8);
+		if (num>127||num<-127){
+			out = "Out of Range(-127~127)!"
+		}
+		document.getElementById("in32").value = out;
+	}
+	function onesComplement_re(){
+		var out;
+		var num = document.getElementById("in41").value;
+		if (num[0] == 0){
+			out = parseInt(num, 2);
+		}
+		else{
+			out = parseInt(num, 2)+1-256;
+		}
+		if (num.length>8){
+			out = "Out of Range(8bit binary)"
+		}
+		document.getElementById("in42").value = out;
+	}
+	function twosComplement(){
+		var out;
+		var num = Number(document.getElementById("in51").value);
+		if (num<0){
+			pnum = 256-Math.abs(num);
+		}
+		else{
+			pnum = num;
+		}
+		out = binary(pnum, 8);
+		if (num>127||num<-128){
+			out = "Out of Range(-128~127)!"
+		}
+		document.getElementById("in52").value = out;
+	}
+	function twosComplement_re(){
+		var out;
+		var num = document.getElementById("in61").value;
+		if (num[0] == 0){
+			out = parseInt(num, 2);
+		}
+		else{
+			out = parseInt(num, 2)-256;
+		}
+		if (num.length>8){
+			out = "Out of Range(8bit binary)"
+		}
+		document.getElementById("in62").value = out;
+	}
+	function excessEightbits(){
+		var out;
+		var num = Number(document.getElementById("in71").value);
+		var pnum = num+128;
+		out = binary(pnum, 8);
+		if (num>127||num<-128){
+			out = "Out of Range(-128~127)!"
+		}
+		document.getElementById("in72").value = out;
+	}
+	function excessEightbits_re(){
+		var out;
+		var num = document.getElementById("in81").value;
+		out = parseInt(num, 2)-128;
+		if (num.length>8){
+			out = "Out of Range(8bit binary)"
+		}
+		document.getElementById("in82").value = out;
+	}
+	function binary(num, Bits) {
+             var resArry = [];
+             var xresArry = [];
+             i = 0;
+             //除2取余
+             for (; num > 0;) {
+                 resArry.push(num % 2);
+                 num = parseInt(num / 2);
+                 i++;
+             }
+             //倒序排列
+             for (j = i - 1; j >= 0; j--) {
+                 xresArry.push(resArry[j]);
+             }
+             //报错
+             if (Bits < xresArry.length) {
+                 console.log("控制位小于转换位数");
+             }
+             //补0操作
+             if (Bits) {
+                 for (r = xresArry.length; r < Bits; r++) {
+                     xresArry.unshift("0");
+                 }
+             }
+             return xresArry.join().replace(/,/g, "");
+         }
+</script>
+<table class="shadowTable" width="90%" border="0" bgcolor="#E3E3E3" align="center">
+  <tbody>
+    <tr >
+      <td width="80%" align="center" valign="top" bgcolor="#E3E3E3" class="logoStyle"><h1><img src="../images/ultrafishplus_hor.png" alt="" width="200" height="59" align="top"/> </h1></td>
+      <td width ="20%" align="center" valign="top" bgcolor="#E3E3E3" class="logoStyle"><p align="center"><a class="ultrafishColor" href="http://ultrafish.cn"><br>
+        <img src="../images/ultrafish.png" height="25" alt="" align="center"/> <b>UltraFish</b></a></p></td>
+    </tr>
+  </tbody>
+</table>
+<table width="90%" border="0" align="center">
+  <tbody>
+   
+      <tr align="center"><p class="wordColor" >&nbsp;</p>
+       <p class="wordColor"><strong>有符号二进制数表示方法 Signed binary number representation</strong></p>
+		  <p class="wordColor"><strong><a class="wordsColor" href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/">回到原文BACK</a> </strong></p>
+	  </tr>
+	  </tbody>
+	  </table>
+	  <table width="50%" border="0" align="center">
+		  <tbody>
+			<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+			  <p><b>Signed Magnitude</b> (Decimal to Binary) (-127~127)</p>
+		  	D: <input id="in1" type="text" name="in1">
+			  <button onClick="signedMagnitude()">GO</button><br/>
+			B: <input id="in2" type="text" name="in2">
+				  <p></p>
+			</td>
+		  </tr>
+	  <tr height ="0px">
+	  </tr>
+	  		<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+			  <p><b>Signed Magnitude</b> (Binary to Decimal) (8bit binary)</p>
+		  	B: <input id="in21" type="text" name="in1">
+			  <button onClick="signedMagnitude_re()">GO</button><br/>
+				  D: <input id="in22" type="text" name="in2">
+				  <p></p>
+			</td>
+		  </tr>
+	 <tr height ="30px">
+	  </tr>
+			  <tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+			  <p><b>One’s Complement (反码)</b> (Decimal to Binary) (-127~127)</p>
+		  	D: <input id="in31" type="text" name="in1">
+			  <button onClick="onesComplement()">GO</button><br/>
+			B: <input id="in32" type="text" name="in2">
+				  <p></p>
+			</td>
+		  </tr>
+	  <tr height ="0px">
+	  </tr>
+	  		<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+			  <p><b>One’s Complement (反码)</b> (Binary to Decimal) (8bit binary)</p>
+		  	B: <input id="in41" type="text" name="in1">
+			  <button onClick="onesComplement_re()">GO</button><br/>
+				  D: <input id="in42" type="text" name="in2">
+				  <p></p>
+			</td>
+		  </tr>
+	<tr height ="30px">
+	  </tr>
+	<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+			  <p><b>Two’s Complement (补码)</b> (Decimal to Binary) (-128~127)</p>
+		  	D: <input id="in51" type="text" name="in1">
+			  <button onClick="twosComplement()">GO</button><br/>
+			B: <input id="in52" type="text" name="in2">
+				  <p></p>
+			</td>
+		  </tr>
+	  <tr height ="0px">
+	  </tr>
+	  		<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+			  <p><b>Two’s Complement (补码)</b> (Binary to Decimal) (8bit binary)</p>
+		  	B: <input id="in61" type="text" name="in1">
+			  <button onClick="twosComplement_re()">GO</button><br/>
+				  D: <input id="in62" type="text" name="in2">
+				  <p></p>
+			</td>
+		  </tr>
+	<tr height ="30px">
+	  </tr>
+	<tr>
+	<td class="shadowTable" bgcolor="#E3E3E3">
+			  <p><b>Excess (Biased)128</b> (Decimal to Binary) (-128~127)</p>
+		  	D: <input id="in71" type="text" name="in1">
+			  <button onClick="excessEightbits()">GO</button><br/>
+			B: <input id="in72" type="text" name="in2">
+				  <p></p>
+			</td>
+		  </tr>
+	  <tr height ="0px">
+	  </tr>
+	  		<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+			  <p><b>Excess (Biased)128</b> (Binary to Decimal) (8bit binary)</p>
+		  	B: <input id="in81" type="text" name="in1">
+			  <button onClick="excessEightbits_re()">GO</button><br/>
+				  D: <input id="in82" type="text" name="in2">
+				  <p></p>
+			</td>
+		  </tr>
+	<tr height ="30px">
+	  </tr>
+	<tr height ="40px">
+		<td>
+		<p class="wordColor" style="font-size: 14px; text-align: center;"><strong><a class="wordsColor" href="../index.html">回到主界面 BACK</a></strong></p>
+			</td>
+	  </tr>
+	<tr height ="30px">
+	  </tr>  
+	
+  </tbody>
+</table>
+</body>
+<footer>
+<div class="footer" align="center">
+			© 2021 Mike_Zhang
+			<a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">浙ICP备2020036956号</a>
+			<img src="../images/beian.png"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661" target="_blank" rel="noopener">浙公网安备 33042102000661号<br/></a>
+		</div>	
+</footer>
+</html>
