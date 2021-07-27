@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>blog3.0-开发UltraFish Plus页面 &amp; 安装SSL证书开启https &amp; 更换主题为fluid</title>
+    <link href="/2021/07/27/blog3/"/>
+    <url>/2021/07/27/blog3/</url>
+    
+    <content type="html"><![CDATA[<p><strong><em>Made by Mike_Zhang</em></strong></p><hr><blockquote><p>所有文章:<br><a href="https://ultrafish.cn/2020/07/29/hello-ultrafisher/" target="_blank" rel="noopener">blog1.0更新-第一篇文章 “Hello UltraFisher”</a><br><a href="https://ultrafish.cn/2020/10/15/blog2/" target="_blank" rel="noopener">blog2.0更新-部署到阿里云服务器以及更新域名 </a><br><a href="https://ultrafish.cn/2021/07/27/blog3/" target="_blank" rel="noopener">blog3.0更新-开发UltraFish Plus页面 &amp; 安装SSL证书开启https &amp; 更换主题为fluid</a></p></blockquote><h2 id="UltraFish回顾"><a href="#UltraFish回顾" class="headerlink" title="UltraFish回顾"></a>UltraFish回顾</h2><h3 id="blog1-0"><a href="#blog1-0" class="headerlink" title="blog1.0"></a>blog1.0</h3><p>2020年7月29日，也就是一年前，我发布了第一篇文章<a href="https://ultrafish.cn/2020/07/29/hello-ultrafisher/" target="_blank" rel="noopener">第一篇文章 “Hello UltraFisher”</a>，标志着我正式建立起我的博客网站并发布在公网上，当时我用的是<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo框架</a>、<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a>并且部署在GitHub上，起名为<a href="https://ultrafisher.github.io" target="_blank" rel="noopener">UltraFisher</a>(点击链接还可以访问，但已停止更新和维护)</p><a id="more"></a><center><img src="/2021/07/27/blog3/1.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">blog1.0-UltraFisher网站</div></center><hr><h3 id="blog2-0"><a href="#blog2-0" class="headerlink" title="blog2.0"></a>blog2.0</h3><p>2020年10月15日，我发布了blog2.0的更新文章<a href="https://ultrafish.cn/2020/10/15/blog2/" target="_blank" rel="noopener">blog2.0-部署到阿里云服务器以及更新域名</a>。框架和主题都没有变化，但从GitHub部署到了阿里云ECS云服务器部署，提高了在国内的访问速度，并且购买以及使用了新的域名（ultrafish.cn）。</p><center><img src="/2021/07/27/blog3/2.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">blog2.0-UltraFish网站</div></center><hr><p>而今天，2021年7月27日，临近建站1周年，迎来了blog3.0！</p><h2 id="blog3-0"><a href="#blog3-0" class="headerlink" title="blog3.0"></a>blog3.0</h2><p>主要更新了三个地方:</p><blockquote><ol><li>新增了UltraFish Plus开发性页面;</li><li>安装了SSL证书，开启https访问;</li><li>主题从yilia改为fluid</li></ol></blockquote><h3 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h3><p>首先看一眼外观</p><center><img src="/2021/07/27/blog3/3.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">blog3.0-UltraFish主页</div></center><center><img src="/2021/07/27/blog3/6.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">blog3.0-UltraFish主页</div></center><center><img src="/2021/07/27/blog3/4.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">blog3.0-UltraFish所有文章页</div></center><center><img src="/2021/07/27/blog3/5.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">blog3.0-UltraFish关于我页</div></center><hr><h3 id="新增UltraFish-Plus开发性页面"><a href="#新增UltraFish-Plus开发性页面" class="headerlink" title="新增UltraFish Plus开发性页面"></a>新增UltraFish Plus开发性页面</h3><p><a href="https://ultrafish.cn/plus/index.html" target="_blank" rel="noopener">UltraFish Plus</a>这个页面和博客页面划分了开来，可以让我脱离现成的框架自己开发一些项目或者实现可视化操作。<br>例如之前的文章<a href="https://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">有符号二进制数表示方法Signed binary number representation</a>中提供了有符号二进制数的转换方法及其代码，因此我就在UltraFish Plus中加入了一个可交互的<a href="https://ultrafish.cn/plus/files/signed_binary_number_representation.html" target="_blank" rel="noopener">有符号二进制数转换器 Signed binary number convertor</a>，浏览者以及我可以使用它进行交互。</p><center><img src="/2021/07/27/blog3/7.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">UltraFish Plus主页</div></center><center><img src="/2021/07/27/blog3/8.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">UltraFish Plus-有符号二进制数转换器 Signed binary number convertor</div></center><p>虽然有些项目网上已经存在了，但是通过自己的开发还是能学到很多知识，积累一定经验的。UltraFish Plus里的项目开发周期都比较长，因此更新频率不会很快。</p><hr><h3 id="安装SSL证书-开启https访问"><a href="#安装SSL证书-开启https访问" class="headerlink" title="安装SSL证书 开启https访问"></a>安装SSL证书 开启https访问</h3><p>使用新的域名后，并没有安装SSL证书，导致每次访问的网站都会显示“不安全”，在各大搜索引擎搜索时也会有限制，网站安全性也不高。我就在阿里云上购买了SSL证书，并花了九牛二虎之力配置到了服务器中。</p><center><img src="/2021/07/27/blog3/9.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">安全访问</div></center><hr><h3 id="使用fluid主题"><a href="#使用fluid主题" class="headerlink" title="使用fluid主题"></a>使用fluid主题</h3><p>之前一直使用的是<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a>，它简约并不简单，开发时间比较早，网上也有很多对问题的解决方法。但是过度的动画不太流畅，对手机移动端的支持不太好，加载时间较长，最主要的是作者最新一次的更新已经是2017年了。<br>因此我就转到了一个2020年开发出来的<a href="https://hexo.fluid-dev.com/docs/" target="_blank" rel="noopener">fluid主题</a>，就像它的名字一样，使用起来十分流畅，官方配置文档也很全面，网页加载也十分迅速。</p><center><img src="/2021/07/27/blog3/10.png" srcset="/img/loading.gif" lazyload width="75%" height="75%"><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">Fluid主题</div></center><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>UltraFish Plus会尽可能加快更新，新的主题也正在完善配置，会持续更新。<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p><hr><p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p><center><img src="/2021/07/27/blog3/logo3.gif" srcset="/img/loading.gif" lazyload width height></center>]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+      <category>fluid</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>UltraFish Plus</tag>
+      
+      <tag>SSL</tag>
+      
+      <tag>https</tag>
+      
+      <tag>fiuid</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《第二年》</title>
     <link href="/2021/07/04/second-year/"/>
     <url>/2021/07/04/second-year/</url>

@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;light&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Made by Mike_Zhang
+
+
+所有文章:blog1.0更新-第一篇文章 “Hello UltraFisher”blog2.0更新-部署到阿里云服务器以及更新域名 blog3.0更新-开发UltraFish Plus页面 &amp;amp; 安装SSL证书开启https &amp;amp; 更换主题为fluid
+
+UltraFish回顾blog1.02020年7月29日，也就是一年前，我发布了第一篇文章">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="">
+  
+  <title>blog3.0-开发UltraFish Plus页面 &amp; 安装SSL证书开启https &amp; 更换主题为fluid - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>UltraFish</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                所有文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/plus/">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/fluid.png?versionId=CAEQGxiBgMD1zrmZ1xciIDgxNGM1NDkyMWFhMDQ1ODRiZmJiMmQwOGZiY2JmNWNl') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="blog3.0-开发UltraFish Plus页面 & 安装SSL证书开启https & 更换主题为fluid">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-27 12:59" pubdate>
+        2021年7月27日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      868 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">blog3.0-开发UltraFish Plus页面 &amp; 安装SSL证书开启https &amp; 更换主题为fluid</h1>
+            
+            <div class="markdown-body">
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<blockquote>
+<p>所有文章:<br><a href="https://ultrafish.cn/2020/07/29/hello-ultrafisher/" target="_blank" rel="noopener">blog1.0更新-第一篇文章 “Hello UltraFisher”</a><br><a href="https://ultrafish.cn/2020/10/15/blog2/" target="_blank" rel="noopener">blog2.0更新-部署到阿里云服务器以及更新域名 </a><br><a href="https://ultrafish.cn/2021/07/27/blog3/" target="_blank" rel="noopener">blog3.0更新-开发UltraFish Plus页面 &amp; 安装SSL证书开启https &amp; 更换主题为fluid</a></p>
+</blockquote>
+<h2 id="UltraFish回顾"><a href="#UltraFish回顾" class="headerlink" title="UltraFish回顾"></a>UltraFish回顾</h2><h3 id="blog1-0"><a href="#blog1-0" class="headerlink" title="blog1.0"></a>blog1.0</h3><p>2020年7月29日，也就是一年前，我发布了第一篇文章<a href="https://ultrafish.cn/2020/07/29/hello-ultrafisher/" target="_blank" rel="noopener">第一篇文章 “Hello UltraFisher”</a>，标志着我正式建立起我的博客网站并发布在公网上，当时我用的是<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo框架</a>、<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a>并且部署在GitHub上，起名为<a href="https://ultrafisher.github.io" target="_blank" rel="noopener">UltraFisher</a>(点击链接还可以访问，但已停止更新和维护)</p>
+<a id="more"></a>
+<center><img src="/2021/07/27/blog3/1.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">blog1.0-UltraFisher网站</div>
+</center>
+
+<hr>
+<h3 id="blog2-0"><a href="#blog2-0" class="headerlink" title="blog2.0"></a>blog2.0</h3><p>2020年10月15日，我发布了blog2.0的更新文章<a href="https://ultrafish.cn/2020/10/15/blog2/" target="_blank" rel="noopener">blog2.0-部署到阿里云服务器以及更新域名</a>。框架和主题都没有变化，但从GitHub部署到了阿里云ECS云服务器部署，提高了在国内的访问速度，并且购买以及使用了新的域名（ultrafish.cn）。</p>
+<center><img src="/2021/07/27/blog3/2.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">blog2.0-UltraFish网站</div>
+</center>
+
+<hr>
+<p>而今天，2021年7月27日，临近建站1周年，迎来了blog3.0！</p>
+<h2 id="blog3-0"><a href="#blog3-0" class="headerlink" title="blog3.0"></a>blog3.0</h2><p>主要更新了三个地方:</p>
+<blockquote>
+<ol>
+<li>新增了UltraFish Plus开发性页面;</li>
+<li>安装了SSL证书，开启https访问;</li>
+<li>主题从yilia改为fluid</li>
+</ol>
+</blockquote>
+<h3 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h3><p>首先看一眼外观</p>
+<center><img src="/2021/07/27/blog3/3.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">blog3.0-UltraFish主页</div>
+</center>
+<center><img src="/2021/07/27/blog3/6.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">blog3.0-UltraFish主页</div>
+</center>
+<center><img src="/2021/07/27/blog3/4.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">blog3.0-UltraFish所有文章页</div>
+</center>
+<center><img src="/2021/07/27/blog3/5.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">blog3.0-UltraFish关于我页</div>
+</center>
+
+<hr>
+<h3 id="新增UltraFish-Plus开发性页面"><a href="#新增UltraFish-Plus开发性页面" class="headerlink" title="新增UltraFish Plus开发性页面"></a>新增UltraFish Plus开发性页面</h3><p><a href="https://ultrafish.cn/plus/index.html" target="_blank" rel="noopener">UltraFish Plus</a>这个页面和博客页面划分了开来，可以让我脱离现成的框架自己开发一些项目或者实现可视化操作。<br>例如之前的文章<a href="https://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">有符号二进制数表示方法Signed binary number representation</a>中提供了有符号二进制数的转换方法及其代码，因此我就在UltraFish Plus中加入了一个可交互的<a href="https://ultrafish.cn/plus/files/signed_binary_number_representation.html" target="_blank" rel="noopener">有符号二进制数转换器 Signed binary number convertor</a>，浏览者以及我可以使用它进行交互。</p>
+<center><img src="/2021/07/27/blog3/7.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">UltraFish Plus主页</div>
+</center>
+<center><img src="/2021/07/27/blog3/8.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">UltraFish Plus-有符号二进制数转换器 Signed binary number convertor</div>
+</center>
+
+<p>虽然有些项目网上已经存在了，但是通过自己的开发还是能学到很多知识，积累一定经验的。UltraFish Plus里的项目开发周期都比较长，因此更新频率不会很快。</p>
+<hr>
+<h3 id="安装SSL证书-开启https访问"><a href="#安装SSL证书-开启https访问" class="headerlink" title="安装SSL证书 开启https访问"></a>安装SSL证书 开启https访问</h3><p>使用新的域名后，并没有安装SSL证书，导致每次访问的网站都会显示“不安全”，在各大搜索引擎搜索时也会有限制，网站安全性也不高。我就在阿里云上购买了SSL证书，并花了九牛二虎之力配置到了服务器中。</p>
+<center><img src="/2021/07/27/blog3/9.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">安全访问</div>
+</center>
+
+<hr>
+<h3 id="使用fluid主题"><a href="#使用fluid主题" class="headerlink" title="使用fluid主题"></a>使用fluid主题</h3><p>之前一直使用的是<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a>，它简约并不简单，开发时间比较早，网上也有很多对问题的解决方法。但是过度的动画不太流畅，对手机移动端的支持不太好，加载时间较长，最主要的是作者最新一次的更新已经是2017年了。<br>因此我就转到了一个2020年开发出来的<a href="https://hexo.fluid-dev.com/docs/" target="_blank" rel="noopener">fluid主题</a>，就像它的名字一样，使用起来十分流畅，官方配置文档也很全面，网页加载也十分迅速。</p>
+<center><img src="/2021/07/27/blog3/10.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Fluid主题</div>
+</center>
+
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>UltraFish Plus会尽可能加快更新，新的主题也正在完善配置，会持续更新。<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="/2021/07/27/blog3/logo3.gif" srcset="/img/loading.gif" lazyload width height></center>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/hexo/">hexo</a>
+                    
+                      <a class="hover-with-bg" href="/categories/hexo/fluid/">fluid</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/UltraFish-Plus/">UltraFish Plus</a>
+                    
+                      <a class="hover-with-bg" href="/tags/SSL/">SSL</a>
+                    
+                      <a class="hover-with-bg" href="/tags/https/">https</a>
+                    
+                      <a class="hover-with-bg" href="/tags/fiuid/">fiuid</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/04/second-year/">
+                        <span class="hidden-mobile">《第二年》</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","placeholder":"说点什么","path":"window.location.pathname","avatar":"mp","meta":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"requiredFields":["nick"]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <!-- <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>-->
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备2020036956号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>浙公网安备 33042102000661号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
