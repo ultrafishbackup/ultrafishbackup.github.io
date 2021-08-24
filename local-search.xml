@@ -166,7 +166,7 @@
     
     <categories>
       
-      <category>c++</category>
+      <category>C++</category>
       
       <category>像素字符</category>
       
@@ -177,7 +177,7 @@
       
       <tag>video</tag>
       
-      <tag>c++</tag>
+      <tag>C++</tag>
       
     </tags>
     
@@ -195,9 +195,9 @@
     
     <categories>
       
-      <category>data_representation</category>
+      <category>Data Representation</category>
       
-      <category>floating_point_numbers</category>
+      <category>Floating Point Numbers</category>
       
     </categories>
     
@@ -206,9 +206,9 @@
       
       <tag>学习</tag>
       
-      <tag>data representation</tag>
+      <tag>Data Representation</tag>
       
-      <tag>floating point numbers</tag>
+      <tag>Floating Point Numbers</tag>
       
     </tags>
     
@@ -226,7 +226,7 @@
     
     <categories>
       
-      <category>c++</category>
+      <category>C++</category>
       
       <category>指针</category>
       
@@ -235,9 +235,9 @@
     
     <tags>
       
-      <tag>c++</tag>
-      
       <tag>指针</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -255,7 +255,7 @@
     
     <categories>
       
-      <category>c++</category>
+      <category>C++</category>
       
       <category>指针</category>
       
@@ -264,9 +264,9 @@
     
     <tags>
       
-      <tag>c++</tag>
-      
       <tag>指针</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -309,9 +309,9 @@
     
     <categories>
       
-      <category>data_representation</category>
+      <category>Data Representation</category>
       
-      <category>signed_binary_number</category>
+      <category>Signed Binary Nnumber</category>
       
     </categories>
     
@@ -320,9 +320,9 @@
       
       <tag>学习</tag>
       
-      <tag>data representation</tag>
+      <tag>Data Representation</tag>
       
-      <tag>signed binary number</tag>
+      <tag>Signed Binary Number</tag>
       
     </tags>
     
@@ -489,7 +489,7 @@
     
     <categories>
       
-      <category>python</category>
+      <category>Python</category>
       
       <category>josephus_problem</category>
       
@@ -500,11 +500,11 @@
     
     <tags>
       
-      <tag>python</tag>
-      
       <tag>josephus_problem</tag>
       
       <tag>约瑟夫环</tag>
+      
+      <tag>Python</tag>
       
     </tags>
     
