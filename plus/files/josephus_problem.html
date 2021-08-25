@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Python对约瑟夫问题的高效解决方法 Josephus Problem with Python</title>
+<link href="wordColor.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.wordColor {
+    text-align: center;
+    font-size: 18px;
+}
+.wordsColor {
+    font-size: 16px;
+    color: #000000;
+}
+.textColor {
+    font-size: 25px;
+    color: #000000;
+	font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+}
+.ultrafishColor {
+    font-size: 16px;
+    color: #000000;
+	font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+}
+.logoStyle {
+    text-align: left;
+}
+.bottomStyle {
+    color: #404040;
+    font-size: 12px;
+}
+.hiStyle {
+    font-size: 65px;
+}
+	.shadowTable{
+	box-shadow:15px 15px 0px #444; border-spacing:15px;
+	}
+.footer{font-size: 12px;
+    font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+    text-shadow: 0 1px #fff;}
+a{ text-decoration:none} 
+a:hover{ text-decoration:none}
+</style>
+
+</head>
+
+<body>
+<script>
+	
+	function josephusProblem(){
+		var n = Number(document.getElementById("n").value);
+		var m = Number(document.getElementById("m").value);
+		var position = 1;
+		var nowPosition = 1;
+		var outQueue = new Array();
+		var nowQueue = new Array();
+		for (var i=1;i<=n;i++){
+			nowQueue.push(i);
+		}
+		document.getElementById("originHeader").innerHTML = "Original Sequence: " + nowQueue;
+		while(nowQueue.length>0){
+			position = (m-1) % nowQueue.length + 1;
+			if (nowPosition != position){
+				nowQueue.push(nowQueue[0]);
+				nowQueue.shift();
+				nowPosition += 1;
+				}
+			else{
+				outQueue.push(nowQueue[0]);
+				nowQueue.shift();
+				nowPosition = 1;
+			}
+		}
+		document.getElementById("goHeader").innerHTML = "";
+		document.getElementById("resultHeader").innerHTML = "Out Sequence: " + outQueue;
+		document.getElementById("safeHeader").innerHTML = "SAFE Number: " + outQueue.pop();
+	}
+	function clearAll(){
+		document.getElementById("goHeader").innerHTML = "Click GO to get result";
+		document.getElementById("n").value = "";
+		document.getElementById("m").value = "";
+		document.getElementById("originHeader").innerHTML = "";
+		document.getElementById("resultHeader").innerHTML = "";
+		document.getElementById("safeHeader").innerHTML = "";
+	}
+	
+</script>
+<table class="shadowTable" width="90%" border="0" bgcolor="#E3E3E3" align="center">
+  <tbody>
+    <tr >
+      <td width="80%" align="center" valign="top" bgcolor="#E3E3E3" class="logoStyle"><h1><img src="../images/ultrafishplus_hor.png" alt="" width="200" height="59" align="top"/> </h1></td>
+      <td width ="20%" align="center" valign="top" bgcolor="#E3E3E3" class="logoStyle"><p align="center"><a class="ultrafishColor" href="http://ultrafish.cn"><br>
+        <img src="../images/ultrafish.png" height="25" alt="" align="center"/> <b>UltraFish</b></a></p></td>
+    </tr>
+  </tbody>
+</table>
+<table width="90%" border="0" align="center">
+  <tbody>
+   
+      <tr align="center"><p class="wordColor" >&nbsp;</p>
+       <p class="wordColor"><strong>Python对约瑟夫问题的高效解决方法<br>Josephus Problem with Python</strong></p>
+		  <p class="wordColor"><u><a class="wordsColor" href="https://ultrafish.cn/2020/08/05/josephus-problem/">查看原文 Back to the original post</a></u></p>
+	  </tr>
+	  </tbody>
+	  </table>
+	  <table width="50%" border="0" align="center">
+		  <tbody>
+			<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+				  <center>
+			  <p>Please enter <strong>the number of people (N)</strong> and <strong>the count number (M)</strong></p>
+		  	N: <input id="n" type="text" name="n">
+			  
+			M: <input id="m" type="text" name="m">
+					  <p></p>
+				  <br><button onClick="josephusProblem()">GO</button> <button onClick="clearAll()">CLEAR</button>
+					  <p></p></center>
+			</td>
+		  </tr>
+	  <tr height ="30px">
+	  </tr>
+		<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+			  <center>
+				  <p id="goHeader">Click GO to get result</p>
+				<p id="originHeader"></p>
+				<p id="resultHeader"></p>
+				<p id="safeHeader"></p>
+		  	</center>
+				  
+			</td>
+		  </tr>	  
+	  		<p></p>
+			  <p></p>
+	
+			  <tr height ="30px">
+	  </tr>
+			  <tr height ="40px">
+		<td>
+		<p class="wordColor" style="font-size: 14px; text-align: center;"><u><a class="wordsColor" href="../index.html">回到主界面 Back to the main page</a></u></p>
+			</td>
+	  </tr>
+	<tr height ="30px">
+	  </tr>  
+	
+  </tbody>
+</table>
+</body>
+<footer>
+<div class="footer" align="center">
+			© 2021 Mike_Zhang
+			<a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">浙ICP备2020036956号</a>
+			<img src="../images/beian.png"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661" target="_blank" rel="noopener">浙公网安备 33042102000661号<br/></a>
+		</div>	
+</footer>
+</html>
