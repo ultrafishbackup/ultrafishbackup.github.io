@@ -16,9 +16,12 @@
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="Made by Mike_Zhang
 
+UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator
+
+
 1.约瑟夫问题引入约瑟夫问题由来先看一下百度百科对约瑟夫问题的介绍：
 
-据说著名犹太历史学家Josephus有过以下的故事：在罗马人占领乔塔帕特后，39 个犹太人与Josephus及他的朋友躲到一个洞中，39个犹太人决定宁愿死也不要被敌人抓到，于是决定了一个自杀方式，41个人排成一个圆圈，由第1个人开始报数，每报数到第3人该人就必须自杀，然后再由下一个重新报">
+据说著名犹太历史学家Josephus有过以下的故事：在罗马人占领乔塔帕特后，39 个犹太人与Josephus及他的朋友躲到一个洞中，39个犹太人决定宁愿死也不">
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="">
   
@@ -201,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.9k 字
+      3k 字
     </span>
   
 
@@ -211,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      36
+      37
        分钟
     </span>
   
@@ -245,6 +248,9 @@
             
             <div class="markdown-body">
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<blockquote>
+<p><a href="https://ultrafish.cn/plus/files/josephus_problem.html" target="_blank" rel="noopener">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a></p>
+</blockquote>
 <hr>
 <h2 id="1-约瑟夫问题引入"><a href="#1-约瑟夫问题引入" class="headerlink" title="1.约瑟夫问题引入"></a><strong>1.约瑟夫问题引入</strong></h2><h4 id="约瑟夫问题由来"><a href="#约瑟夫问题由来" class="headerlink" title="约瑟夫问题由来"></a>约瑟夫问题由来</h4><p>先看一下<a href="https://baike.baidu.com/item/约瑟夫问题" target="_blank" rel="noopener">百度百科</a>对约瑟夫问题的介绍：</p>
 <blockquote>
@@ -486,6 +492,7 @@
 <p>小结：类比成星期问题，约瑟夫环每次需要淘汰的人位置都可以通过<strong>取余数</strong>的方式确定下来，还需要把未淘汰的人顺次接到上一轮的后面。因此，我们只需先确定每次需要淘汰的位置，然后通过遍历这一圈人，当遍历到的位置和需要淘汰的位置相同时，就把此位置的人移除，并把移除的后一个人作为下一次遍历的起点，不断循环，直到全部的人都被淘汰。</p>
 <p>为了实现以上的想法，我们就需要用到Python中的<strong>队列queue</strong>来当作载体，因为队列的FIFO（即First in First Out,先进先出）的特性能保持这一圈人的顺序不发生变化。</p>
 <h4 id="Python代码"><a href="#Python代码" class="headerlink" title="Python代码"></a>Python代码</h4><p>代码下载链接：<br><a href="https://github.com/zhangwengyu999/Josephus_Problem_with_Python" target="_blank" rel="noopener">https://github.com/zhangwengyu999/Josephus_Problem_with_Python</a></p>
+<p>也欢迎到我的开发性页面使用<a href="https://ultrafish.cn/plus/files/josephus_problem.html" target="_blank" rel="noopener">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> queue <span class="hljs-keyword">import</span> Queue <span class="hljs-comment">#引入队列queue</span><br>n = int(input(<span class="hljs-string">"\n输入总人数n（n为正整数）:"</span>))<br>m = int(input(<span class="hljs-string">"输入每次报数 m（m为正整数） :"</span>))<br>position = <span class="hljs-number">1</span> <span class="hljs-comment">#需要被淘汰的位置，初始为1</span><br>nowposition = <span class="hljs-number">1</span> <span class="hljs-comment">#当前遍历的位置，初始为1</span><br>outqueue = Queue() <span class="hljs-comment">#储存输出的队列</span><br>nqueue = Queue() <span class="hljs-comment">#储存每一遍中还没有被淘汰的人</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>): <span class="hljs-comment">#新建一个从1到n的队列</span><br>    nqueue.put(i)<br><br><span class="hljs-keyword">while</span> nqueue.empty() <span class="hljs-keyword">is</span> <span class="hljs-literal">False</span>: <span class="hljs-comment">#循环直到列表为空</span><br>    <span class="hljs-comment">#&gt;&gt;&gt;第一步是确定下一次需要被淘汰的位置&lt;&lt;&lt;</span><br>    position = (m - <span class="hljs-number">1</span>) % nqueue.qsize() + <span class="hljs-number">1</span> <span class="hljs-comment">#使用取余数%来确定下一次需要被淘汰的位置("-1" 和 "+1" 的作用会在后文解释)</span><br>    <span class="hljs-comment">#&gt;&gt;&gt;第二步就是把遍历到的人移到队列的末尾或者输出的队列中&lt;&lt;&lt;</span><br>    <span class="hljs-keyword">if</span> nowposition != position: <span class="hljs-comment">#当遍历到的人不是淘汰的目标时，就把他移到队列的末尾</span><br>        nqueue.put(nqueue.get())<br>        nowposition += <span class="hljs-number">1</span> <span class="hljs-comment">#遍历后一个人</span><br>    <span class="hljs-keyword">else</span>: <span class="hljs-comment">#当遍历到的人是需要被淘汰的时，把他移动到输出的队列中</span><br>        outqueue.put(nqueue.get())<br>        nowposition = <span class="hljs-number">1</span> <span class="hljs-comment">#下一个人作为遍历的起点</span><br>print(<span class="hljs-string">"&gt;&gt;&gt;结果如下，总人数["</span>,n,<span class="hljs-string">"]人，每次报数["</span>,m,<span class="hljs-string">"]:"</span>,sep=<span class="hljs-string">""</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> outqueue.empty():<br>     print(outqueue.get(), end=<span class="hljs-string">' '</span>)<span class="hljs-comment">#输出队列</span><br></code></pre></td></tr></table></figure>
 <p>解释以下代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">position = (m - <span class="hljs-number">1</span>) % nqueue.qsize() + <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
@@ -684,6 +691,7 @@
 <h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a><strong>4.总结</strong></h2><p>去掉注释后的代码其实没有多少行：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> queue <span class="hljs-keyword">import</span> Queue <br>n = int(input(<span class="hljs-string">"\n输入总人数n（n为正整数）:"</span>))<br>m = int(input(<span class="hljs-string">"输入每次报数 m（m为正整数） :"</span>))<br>position = <span class="hljs-number">1</span> <br>nowposition = <span class="hljs-number">1</span> <br>outqueue = Queue() <br>nqueue = Queue() <br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>): <br>    nqueue.put(i)<br><span class="hljs-keyword">while</span> nqueue.empty() <span class="hljs-keyword">is</span> <span class="hljs-literal">False</span>: <br>    position = (m - <span class="hljs-number">1</span>) % nqueue.qsize() + <span class="hljs-number">1</span> <br>    <span class="hljs-keyword">if</span> nowposition != position:<br>        nqueue.put(nqueue.get())<br>        nowposition += <span class="hljs-number">1</span> <br>    <span class="hljs-keyword">else</span>: <br>        outqueue.put(nqueue.get())<br>        nowposition = <span class="hljs-number">1</span> <br>print(<span class="hljs-string">"&gt;&gt;&gt;结果如下，总人数["</span>,n,<span class="hljs-string">"]人，每次报数["</span>,m,<span class="hljs-string">"]:"</span>,sep=<span class="hljs-string">""</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> outqueue.empty():<br>     print(outqueue.get(), end=<span class="hljs-string">' '</span>)<br></code></pre></td></tr></table></figure>
 <p>代码下载链接：<br><a href="https://github.com/zhangwengyu999/Josephus_Problem_with_Python" target="_blank" rel="noopener">https://github.com/zhangwengyu999/Josephus_Problem_with_Python</a></p>
+<p>也欢迎到我的开发性页面使用<a href="https://ultrafish.cn/plus/files/josephus_problem.html" target="_blank" rel="noopener">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a></p>
 <p>核心就是类比星期计算问题，采用取余数来获取下一次需要被淘汰的人的位置，当遍历到此位置时，就把他移除，并继续遍历。</p>
 <p>网上有好多关于约瑟夫环的解决方法，可能我的方法并不是最简单的，最高效的，但也希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
