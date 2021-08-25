@@ -58,8 +58,10 @@ a:hover{ text-decoration:none}
 		for (var i=1;i<=n;i++){
 			nowQueue.push(i);
 		}
+		if (m > 0 && n > 0){
 		document.getElementById("originHeader").innerHTML = "Original Sequence: " + nowQueue;
-		while(nowQueue.length>0){
+		}
+		while(nowQueue.length>0 && n!=0 && m!= 0){
 			position = (m-1) % nowQueue.length + 1;
 			if (nowPosition != position){
 				nowQueue.push(nowQueue[0]);
@@ -72,9 +74,14 @@ a:hover{ text-decoration:none}
 				nowPosition = 1;
 			}
 		}
+		if (m <= 0||n <= 0){
+			document.getElementById("goHeader").innerHTML = "WARNING! Neither n nor m can <= 0, please try again!";
+		}
+		else{
 		document.getElementById("goHeader").innerHTML = "";
 		document.getElementById("resultHeader").innerHTML = "Out Sequence: " + outQueue;
 		document.getElementById("safeHeader").innerHTML = "SAFE Number: " + outQueue.pop();
+			}
 	}
 	function clearAll(){
 		document.getElementById("goHeader").innerHTML = "Click GO to get result";
