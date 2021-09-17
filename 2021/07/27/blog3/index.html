@@ -250,8 +250,7 @@ UltraFish回顾blog1.02020年7月29日，也就是一年前，我发布了第一
 <blockquote>
 <p>所有文章:<br><a href="https://ultrafish.cn/2020/07/29/hello-ultrafisher/" target="_blank" rel="noopener">blog1.0更新-第一篇文章 “Hello UltraFisher”</a><br><a href="https://ultrafish.cn/2020/10/15/blog2/" target="_blank" rel="noopener">blog2.0更新-部署到阿里云服务器以及更新域名 </a><br><a href="https://ultrafish.cn/2021/07/27/blog3/" target="_blank" rel="noopener">blog3.0更新-开发UltraFish Plus页面 &amp; 安装SSL证书开启https &amp; 更换主题为fluid</a></p>
 </blockquote>
-<h2 id="UltraFish回顾"><a href="#UltraFish回顾" class="headerlink" title="UltraFish回顾"></a>UltraFish回顾</h2><h3 id="blog1-0"><a href="#blog1-0" class="headerlink" title="blog1.0"></a>blog1.0</h3><p>2020年7月29日，也就是一年前，我发布了第一篇文章<a href="https://ultrafish.cn/2020/07/29/hello-ultrafisher/" target="_blank" rel="noopener">第一篇文章 “Hello UltraFisher”</a>，标志着我正式建立起我的博客网站并发布在公网上，当时我用的是<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo框架</a>、<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a>并且部署在GitHub上，起名为<a href="https://ultrafisher.github.io" target="_blank" rel="noopener">UltraFisher</a>(点击链接还可以访问，但已停止更新和维护)</p>
-<a id="more"></a>
+<h2 id="UltraFish回顾"><a href="#UltraFish回顾" class="headerlink" title="UltraFish回顾"></a>UltraFish回顾</h2><h3 id="blog1-0"><a href="#blog1-0" class="headerlink" title="blog1.0"></a>blog1.0</h3><p>2020年7月29日，也就是一年前，我发布了第一篇文章<a href="https://ultrafish.cn/2020/07/29/hello-ultrafisher/" target="_blank" rel="noopener">第一篇文章 “Hello UltraFisher”</a>，标志着我正式建立起我的博客网站并发布在公网上，当时我用的是<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo框架</a>、<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a>并且部署在GitHub上，起名为<a href="https://ultrafisher.github.io" target="_blank" rel="noopener">UltraFisher</a>(点击链接还可以访问，但已停止更新和维护)<br><a id="more"></a></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/1.png?versionId=CAEQGxiBgMDw.peb1xciIDcwYmEwNmQxMWRmNzQwYmY5MzM5ZTVmMDk5ZDE0ODZl" srcset="/img/loading.gif" lazyload width="75%" height="75%">
 <br>
     <div style="color:orange; 
@@ -650,6 +649,45 @@ UltraFish回顾blog1.02020年7月29日，也就是一年前，我发布了第一
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
 
 
 

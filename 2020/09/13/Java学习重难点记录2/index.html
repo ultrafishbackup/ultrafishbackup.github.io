@@ -252,9 +252,7 @@
 <blockquote>
 <p>所有文章:<br><a href="http://ultrafish.cn/2020/08/15/Java学习重难点记录/" target="_blank" rel="noopener">Java学习重难点记录1—byte数据类型在显式类型转换时超出其取值范围的转换过程</a><br><a href="http://ultrafish.cn/2020/09/13/Java学习重难点记录2/" target="_blank" rel="noopener">Java学习重难点记录2—面向对象编程(OOP)的继承性(Inheritance)</a><br><a href="http://ultrafish.cn/2021/03/07/Java学习重难点记录3/" target="_blank" rel="noopener">Java学习重难点记录3—面向对象编程(OOP)的封装性(Encapsulation)</a></p>
 </blockquote>
-<h2 id="面向对象编程-OOP-的继承性-Inheritance"><a href="#面向对象编程-OOP-的继承性-Inheritance" class="headerlink" title="面向对象编程(OOP)的继承性(Inheritance)"></a><strong>面向对象编程(OOP)的继承性(Inheritance)</strong></h2><h4 id="面向对象编程-OOP-简单介绍"><a href="#面向对象编程-OOP-简单介绍" class="headerlink" title="面向对象编程(OOP)简单介绍"></a>面向对象编程(OOP)简单介绍</h4><p><strong>面向对象编程(Object Oriented Programming, OOP)</strong> 是一种计算机编程架构(一种编程方法). 它的核心在于把需要处理的问题进行建模, 即把问题抽象为对象(object). 对象被分成两个部分, <strong>静态部分</strong>和<strong>动态部分</strong>. <strong>静态部分</strong>指的是对象的<strong>属性</strong>, 以人举例, 属性包括人的身高、体重、年龄等特性. <strong>动态部分</strong>指的是对象的<strong>行为或方法</strong>, 以人举例, 行为包括人的吃饭、睡觉、讲话等动作. 在某一方面具有相同特性的事物可以被归为同一类事物, 而 <strong>类(class)</strong> 就是这些同一类事物的统称, 比如说, 婴儿、青少年,、年轻人、老人等都属于人这一类, 鸡、鸭、猪等都是属于家禽这一类. 类是对某一类对象的抽象描述, 类封装了对象的属性和行为. </p>
-<a id="more"></a>
-<p>了解更多有关OOP的知识, 请参考百度百科—<a href="https://baike.baidu.com/item/面向对象程序设计/24792" target="_blank" rel="noopener">面向对象程序设计</a>.</p>
+<h2 id="面向对象编程-OOP-的继承性-Inheritance"><a href="#面向对象编程-OOP-的继承性-Inheritance" class="headerlink" title="面向对象编程(OOP)的继承性(Inheritance)"></a><strong>面向对象编程(OOP)的继承性(Inheritance)</strong></h2><h4 id="面向对象编程-OOP-简单介绍"><a href="#面向对象编程-OOP-简单介绍" class="headerlink" title="面向对象编程(OOP)简单介绍"></a>面向对象编程(OOP)简单介绍</h4><p><strong>面向对象编程(Object Oriented Programming, OOP)</strong> 是一种计算机编程架构(一种编程方法). 它的核心在于把需要处理的问题进行建模, 即把问题抽象为对象(object). 对象被分成两个部分, <strong>静态部分</strong>和<strong>动态部分</strong>. <strong>静态部分</strong>指的是对象的<strong>属性</strong>, 以人举例, 属性包括人的身高、体重、年龄等特性. <strong>动态部分</strong>指的是对象的<strong>行为或方法</strong>, 以人举例, 行为包括人的吃饭、睡觉、讲话等动作. 在某一方面具有相同特性的事物可以被归为同一类事物, 而 <strong>类(class)</strong> 就是这些同一类事物的统称, 比如说, 婴儿、青少年,、年轻人、老人等都属于人这一类, 鸡、鸭、猪等都是属于家禽这一类. 类是对某一类对象的抽象描述, 类封装了对象的属性和行为.<br><a id="more"></a><br>了解更多有关OOP的知识, 请参考百度百科—<a href="https://baike.baidu.com/item/面向对象程序设计/24792" target="_blank" rel="noopener">面向对象程序设计</a>.</p>
 <p>面向对象编程(OOP)具有以下三个特点:</p>
 <blockquote>
 <p><strong>封装性(Encapsulation)</strong><br><strong>继承性(Inheritance)</strong><br><strong>多态性(Polymorphism)</strong></p>
@@ -265,9 +263,7 @@
 <blockquote>
 <p><strong>extends</strong>是Java中用来表明继承关系的关键字</p>
 </blockquote>
-<p>以下为代码解释:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span></span>&#123; <span class="hljs-comment">//定义父类</span><br>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Triangle</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//构造方法</span><br>         System.out.println(<span class="hljs-string">"this is Triangle"</span>);<br>     &#125;<br>     <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSth</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//成员方法</span><br>        System.out.println(<span class="hljs-string">"doSth"</span>);<br>     &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Equilateraltriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123; <span class="hljs-comment">//定义子类继承父类</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Equilateraltriangle</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//构造方法</span><br>        <span class="hljs-keyword">super</span>(); <span class="hljs-comment">//调用父类的构造方法</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSthnew</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//在子类中添加新的成员方法</span><br>        System.out.println(<span class="hljs-string">"doSthnew"</span>);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSth</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//重写父类中的成员方法</span><br>        System.out.println(<span class="hljs-string">"doSthnew in Equilateraltriangle"</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<p>以下为代码解释:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span></span>&#123; <span class="hljs-comment">//定义父类</span><br>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Triangle</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//构造方法</span><br>         System.out.println(<span class="hljs-string">"this is Triangle"</span>);<br>     &#125;<br>     <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSth</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//成员方法</span><br>        System.out.println(<span class="hljs-string">"doSth"</span>);<br>     &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Equilateraltriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123; <span class="hljs-comment">//定义子类继承父类</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Equilateraltriangle</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//构造方法</span><br>        <span class="hljs-keyword">super</span>(); <span class="hljs-comment">//调用父类的构造方法</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSthnew</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//在子类中添加新的成员方法</span><br>        System.out.println(<span class="hljs-string">"doSthnew"</span>);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSth</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-comment">//重写父类中的成员方法</span><br>        System.out.println(<span class="hljs-string">"doSthnew in Equilateraltriangle"</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></p>
 <hr>
 <h4 id="继承性-Inheritance-的注意事项"><a href="#继承性-Inheritance-的注意事项" class="headerlink" title="继承性(Inheritance)的注意事项"></a>继承性(Inheritance)的注意事项</h4><blockquote>
 <ol>
@@ -569,6 +565,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
 
 
 

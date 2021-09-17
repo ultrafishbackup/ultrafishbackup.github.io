@@ -247,9 +247,7 @@
 <hr>
 <h2 id="1-blog介绍"><a href="#1-blog介绍" class="headerlink" title="1.blog介绍"></a><strong>1.blog介绍</strong></h2><p>本blog由Mike_Zhang搭建，采用Hexo框架，现使用yilia主题，我会不断完善和维护此blog。本blog旨在分享我专业Computer Engineering有关学习经验和知识，亦会分享一点生活。欢迎大家在文章下面评论或者点击头像下方邮箱图标发送邮件联系我，希望和你一起进步，谢谢。</p>
 <h2 id="2-起名活动"><a href="#2-起名活动" class="headerlink" title="2.起名活动"></a><strong>2.起名活动</strong></h2><p>本blog现英文名为UltraFisher，但是它还没有一个中文名字，欢迎大家在下面评论区留言，为UltraFisher取一个名字吧！</p>
-<a id="more"></a>
-<hr>
-<p>分享一个视频</p>
+<h2 id><a href="#" class="headerlink" title></a><a id="more"></a></h2><p>分享一个视频</p>
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
     <iframe src="//player.bilibili.com/player.html?aid=201033992&bvid=BV1dz411i75o&cid=203132924&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
 </div>
@@ -543,6 +541,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
 
 
 

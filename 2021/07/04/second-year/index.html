@@ -246,7 +246,6 @@
 <hr>
 <p>嗨, 各位好.<br>两年前, 很多人知道我高考后去了香港大学(HKU), 实际上我去的读的并不是本科, 不是学士学位, 而是去读了<strong>副学士学位(Associate degree)</strong>, 类似内地的专科, 但不完全是, 因此我的学校是香港大学的附属学院 <strong><a href="https://www1.hkuspace.hku.hk/cc/" target="_blank" rel="noopener">香港大学专业进修学院-HKU SPACE (HKU School of Professional and Continuing Education)</a></strong> , 学习计算机工程学(Computer Engineering).</p>
 <a id="more"></a>
-
 <center><img src="/2021/07/04/second-year/1.jpg" srcset="/img/loading.gif" lazyload width="75%" height="75%">
 <br>
     <div style="color:orange; 
@@ -621,6 +620,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
 
 
 
