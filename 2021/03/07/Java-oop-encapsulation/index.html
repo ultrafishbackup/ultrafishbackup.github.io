@@ -22,7 +22,7 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="">
   
-  <title>Java学习重难点记录3 - UltraFish</title>
+  <title>Java面向对象编程(OOP)的封装性(Encapsulation) - UltraFish</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -179,7 +179,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Java学习重难点记录3">
+            <span class="h2" id="subtitle" title="Java面向对象编程(OOP)的封装性(Encapsulation)">
               
             </span>
 
@@ -201,7 +201,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.8k 字
+      3k 字
     </span>
   
 
@@ -211,7 +211,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      33
+      35
        分钟
     </span>
   
@@ -241,7 +241,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java学习重难点记录3</h1>
+            <h1 style="display: none">Java面向对象编程(OOP)的封装性(Encapsulation)</h1>
             
             <div class="markdown-body">
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
@@ -250,8 +250,13 @@
 <blockquote>
 <p>所有文章:<br><a href="https://ultrafish.cn/2021/09/02/Java-learning-1/" target="_blank" rel="noopener">Java基础学习1—声明和初始化与修饰符</a><br><a href="https://ultrafish.cn/2021/09/05/Java-learning-2/" target="_blank" rel="noopener">Java基础学习2—表达式、控制流与I/O</a><br><a href="http://ultrafish.cn/2020/08/15/Java学习重难点记录/" target="_blank" rel="noopener">Java学习重难点记录1—byte数据类型在显式类型转换时超出其取值范围的转换过程</a><br><a href="http://ultrafish.cn/2020/09/13/Java学习重难点记录2/" target="_blank" rel="noopener">Java学习重难点记录2—面向对象编程(OOP)的继承性(Inheritance)</a><br><a href="http://ultrafish.cn/2021/03/07/Java学习重难点记录3/" target="_blank" rel="noopener">Java学习重难点记录3—面向对象编程(OOP)的封装性(Encapsulation)</a></p>
 </blockquote>
-<h2 id="面向对象编程-OOP-的封装性-Encapsulation"><a href="#面向对象编程-OOP-的封装性-Encapsulation" class="headerlink" title="面向对象编程(OOP)的封装性(Encapsulation)"></a><strong>面向对象编程(OOP)的封装性(Encapsulation)</strong></h2><p>在<a href="http://ultrafish.cn/2020/09/13/Java学习重难点记录2/" target="_blank" rel="noopener">之前的文章</a>中记录了Java面向对象编程(OOP)三大特性中的<strong>继承性(Inheritance)</strong>, 本文章将会简单记录另一重要的特性: <strong>封装性(Encapsulation).</strong><br><a id="more"></a></p>
-<h4 id="封装性-Encapsulation-简介"><a href="#封装性-Encapsulation-简介" class="headerlink" title="封装性(Encapsulation) 简介"></a>封装性(Encapsulation) 简介</h4><p>封装性是OOP的核心思想, 目的是将类的静态部分和动态部分, 即类的属性和方法封装起来, 使某一对象的实现过程隐藏起来, 使用者只能看到对象的交互层面, 无须知道此对象内部是如何工作的. 封装性(Encapsulation)能保证类内部的完整性, 使用者既能使用某一类, 又不会影响到类内部的数据和结构, 提高了安全性.</p>
+<hr>
+<blockquote>
+<h4 id="面向对象编程-OOP-简单介绍"><a href="#面向对象编程-OOP-简单介绍" class="headerlink" title="面向对象编程(OOP)简单介绍"></a>面向对象编程(OOP)简单介绍</h4><p><strong>面向对象编程(Object Oriented Programming, OOP)</strong> 是一种计算机编程架构(一种编程方法). 它的核心在于把需要处理的问题进行建模, 即把问题抽象为对象(object). 对象被分成两个部分, <strong>静态部分</strong>和<strong>动态部分</strong>. <strong>静态部分</strong>指的是对象的<strong>属性</strong>, 以人举例, 属性包括人的身高、体重、年龄等特性. <strong>动态部分</strong>指的是对象的<strong>行为或方法</strong>, 以人举例, 行为包括人的吃饭、睡觉、讲话等动作. 在某一方面具有相同特性的事物可以被归为同一类事物, 而 <strong>类(class)</strong> 就是这些同一类事物的统称, 比如说, 婴儿、青少年,、年轻人、老人等都属于人这一类, 鸡、鸭、猪等都是属于家禽这一类. 类是对某一类对象的抽象描述, 类封装了对象的属性和行为.<br>了解更多有关OOP的知识, 请参考百度百科—<a href="https://baike.baidu.com/item/面向对象程序设计/24792" target="_blank" rel="noopener">面向对象程序设计</a>.<br>面向对象编程(OOP)具有以下三个特点:<br><strong>封装性(Encapsulation)</strong><br><strong>继承性(Inheritance)</strong><br><strong>多态性(Polymorphism)</strong></p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<h4 id="封装性-Encapsulation"><a href="#封装性-Encapsulation" class="headerlink" title="封装性(Encapsulation)"></a>封装性(Encapsulation)</h4><p>封装性是OOP的核心思想, 目的是将类的静态部分和动态部分, 即类的属性和方法封装起来, 使某一对象的实现过程隐藏起来, 使用者只能看到对象的交互层面, 无须知道此对象内部是如何工作的. 封装性(Encapsulation)能保证类内部的完整性, 使用者既能使用某一类, 又不会影响到类内部的数据和结构, 提高了安全性.</p>
 <hr>
 <h4 id="类的属性和方法"><a href="#类的属性和方法" class="headerlink" title="类的属性和方法"></a>类的属性和方法</h4><h5 id="1-类的属性-Field"><a href="#1-类的属性-Field" class="headerlink" title="1. 类的属性 (Field)"></a>1. 类的属性 (Field)</h5><p>类的属性又称为成员变量, 英文为Field. 以下代码构造了一个Book类, Book为类的名称, 设置了两个属性, 字符串类的name, 用于存储书名, 以及整数类型的page, 用于存储页数. 属性可以设置初始值, 如不设置初始值, 则会有默认值.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span></span>&#123; <span class="hljs-comment">// 构造名为Book的类</span><br>    String name; <span class="hljs-comment">// 构造Book类的一个属性name, 理解为书名</span><br>    <span class="hljs-keyword">int</span> page; <span class="hljs-comment">// 构造Book类的另一个属性page, 理解为页数</span><br>&#125;<br></code></pre></td></tr></table></figure>
