@@ -201,7 +201,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.1k 字
+      5.6k 字
     </span>
   
 
@@ -211,7 +211,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      69
+      74
        分钟
     </span>
   
@@ -485,13 +485,37 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sealer</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> String <span class="hljs-title">getSealed</span><span class="hljs-params">( Book book)</span></span>&#123;<br>        book.safe = <span class="hljs-keyword">true</span>;<br>        <span class="hljs-keyword">return</span> (<span class="hljs-string">"Sealed!"</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>当一个类被 <code>final</code> 修饰后，其<strong>属性值</strong>还是可以被改变，也可以选择其<strong>属性</strong>是否被 <code>final</code>进行修饰。<br>但是其<strong>方法</strong>就同样为<code>final</code>，不能被修改，这样才保证了 <code>final</code>类不会被继承，其<strong>方法</strong>不会被重写。<code>final</code>类中的方法前可选加<code>final</code>修饰符，但是不会有任何其他意义。</p>
 <hr>
-<h3 id="2-4-package-语句"><a href="#2-4-package-语句" class="headerlink" title="2.4 package 语句"></a>2.4 <code>package</code> 语句</h3><p>package包含了一组class，并且被管理在统一的<code>namespace</code>（命名空间）下。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> ultrafsih;<br></code></pre></td></tr></table></figure><br>此语句同时写在Book.java和Tool.java两个文件中，因此两个文件可以互相访问对方的class。</p>
-<p><strong><em>Tool.java</em></strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">package</span> ultrafsih;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tool</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Book myBook  = <span class="hljs-keyword">new</span> Book(<span class="hljs-string">"My Book Name"</span>);<br>        System.out.println(myBook.name); <span class="hljs-comment">//访问Book类的属性</span><br>        System.out.println(myBook.page); <span class="hljs-comment">//访问Book类的属性</span><br>        <span class="hljs-comment">//System.out.println(myBook.id); // Error</span><br>        System.out.println(myBook.subBookId); <span class="hljs-comment">//</span><br>        System.out.println(Book.totalBookUnm); <span class="hljs-comment">//</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><br>例如，Tool类因为包含在<code>ultrafish package</code>中，因此它可以直接访问同样在package中Book类属性以及方法。因此使用package可以很方便的管理需要访问不同Java文件的Java开发工程。</p>
+<h3 id="2-4-package-语句"><a href="#2-4-package-语句" class="headerlink" title="2.4 package 语句"></a>2.4 <code>package</code> 语句</h3><p>在Java中，每个独立的<code>public</code>类都被安排在分开的文件夹中，每个文件夹中可能还包括其他的非<code>public</code>的类。为了更好的管理这些有关联的类，可以应用到<code>package</code>。<code>package</code>包含了一组class，并且被管理在统一的<code>namespace</code>（命名空间）下。<br>这些有关系的类必须放在一个名<code>packageName</code>的文件夹中，并且每个类的源文件必须把以下代码写在开头：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> packageName;<br></code></pre></td></tr></table></figure></p>
+<p>例如，定义一个名为<code>triangle</code>的 <strong><em>package</em></strong>，并包含<code>RightTriangle</code>，<code>IsoscelesTriangle</code>两个类，那必须在这两个类文件开头写出 <strong><em>package</em></strong> 语句，否则这两个文件就被放在 <strong><em>default package</em></strong> 中。如果需要引用package中的类，就需要使用fully qualified name，例如：</p>
+<blockquote>
+<p><code>triangle.RightTriangle</code> ：引用<code>RightTriangle</code>类<br><code>triangle.IsoscelesTriangle</code> ：引用<code>IsoscelesTriangle</code>类</p>
+</blockquote>
+<p>同时，在 <strong><em>package</em></strong> 文件夹中也可以定义子文件夹，并通过fully qualified name去引用，以<code>Scanner</code>类举例：</p>
+<blockquote>
+<p><code>Scanner</code>类位于java.util这一子文件夹中，可以用以下语句引用到<code>Scanner</code>类：<br><code>java.util.Scanner</code></p>
+</blockquote>
+<hr>
+<p>如果要引用<code>Scanner</code>类创建对象，则可以使用它的fully qualified name：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">java.util.Scanner input = <span class="hljs-keyword">new</span> java.util.Scanner(System.in);<br></code></pre></td></tr></table></figure></p>
+<p>但是每次都使用fully qualified name会十分麻烦，那就可以使用import语句导入某个类或者一整个package，如下：</p>
+<blockquote>
+<p><code>import packageName.className;</code>或者<br><code>import packageName.*;</code></p>
+</blockquote>
+<p>以<code>Scanner</code>类为例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner; <span class="hljs-comment">// 导入一个类</span><br><span class="hljs-keyword">import</span> java.util.*; <span class="hljs-comment">// 导入一整个package</span><br></code></pre></td></tr></table></figure></p>
+<p>则在创建对象时就可以使用类名：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner<br><span class="hljs-comment">// import java.util.*</span><br>Scanner input = <span class="hljs-keyword">new</span> Scanner(System.in);<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果从两个不同的package中import两个相同名字的类，或者import的类与现有现有的类重名的话，单单使用一个unqualified name是不合法的，如：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> abox.tool;<br><span class="hljs-keyword">import</span> bbox.tool;<br>tool myTool =  <span class="hljs-keyword">new</span> tool(); <span class="hljs-comment">// Error!</span><br>abox.tool myToola = <span class="hljs-keyword">new</span> abox.tool(); <span class="hljs-comment">// OK</span><br>bbox.tool myToolb = <span class="hljs-keyword">new</span> bbox.tool(); <span class="hljs-comment">// OK</span><br></code></pre></td></tr></table></figure>
+<hr>
+<p>例如：</p>
+<p>此语句同时写在Book.java和Tool.java两个文件中，因此两个文件可以互相访问对方的class。</p>
+<p><strong><em>Tool.java</em></strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">package</span> ultrafsih;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tool</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Book myBook  = <span class="hljs-keyword">new</span> Book(<span class="hljs-string">"My Book Name"</span>);<br>        System.out.println(myBook.name); <span class="hljs-comment">//访问Book类的属性</span><br>        System.out.println(myBook.page); <span class="hljs-comment">//访问Book类的属性</span><br>        <span class="hljs-comment">//System.out.println(myBook.id); // Error</span><br>        System.out.println(myBook.subBookId); <span class="hljs-comment">//</span><br>        System.out.println(Book.totalBookUnm); <span class="hljs-comment">//</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><br>Tool类因为包含在<code>ultrafish package</code>中，因此它可以直接访问同样在package中Book类属性以及方法。因此使用package可以很方便的管理需要访问不同Java文件的Java开发工程。</p>
 <blockquote>
 <p>注意:</p>
 <ol>
 <li><code>package</code>语句必须写在Java文件除注释以外的第一行；</li>
-<li><code>package</code>语句中的包名必须使用小写字母。</li>
+<li><code>package</code>语句中的包名一般使用小写字母。</li>
 <li>建议把包文件放在同一个子目录下，可以解决 <strong>重名</strong> 以及 <strong>寻找class不易</strong> 的问题</li>
 </ol>
 </blockquote>

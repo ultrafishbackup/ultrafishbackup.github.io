@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      2.1k 字
     </span>
   
 
@@ -265,7 +265,7 @@
 </blockquote>
 <p>注意到例子三个类中都有<code>getTriangleAngle()</code>方法，因为子类可以使用或者修改父类中的方法。但是不能直接使用<code>getTriangleAngle()</code>语句调用父类方法，这样会造成自我循环调用的错误。需要使用<code>super</code>关键字来引用到目前子类的父类，如<code>super.getTriangleAngle()</code>，意思为调用目前子类的父类的<code>getTriangleAngle()</code>方法。但是只能调用public和protected修饰的方法。</p>
 <h4 id="3-构造方法"><a href="#3-构造方法" class="headerlink" title="3. 构造方法"></a>3. 构造方法</h4><p>在Java中<strong>构造方法不会被继承</strong>，构造方法分为<strong>无参构造方法</strong>和<strong>有参构造方法</strong>。</p>
-<h5 id="3-1-无参构造方法"><a href="#3-1-无参构造方法" class="headerlink" title="3.1 无参构造方法"></a>3.1 无参构造方法</h5><p>当子类创建对象时，会先调用其父类的构造方法。</p>
+<h5 id="3-1-无参构造方法"><a href="#3-1-无参构造方法" class="headerlink" title="3.1 无参构造方法"></a>3.1 无参构造方法</h5><p>当子类创建对象时，会先调用其父类的无参构造方法。<strong>而父亲必须包含一个无参构造方法，否则子类无法隐形调用其父类的无参构造方法</strong>。</p>
 <blockquote>
 <p>例子中，<code>mian()</code>中创建了<code>IsoscelesRightTriangle</code>类的<code>x</code>对象，它会调用其父类<code>RightTriangle</code>的构造方法，而在<code>RightTriangle</code>被调用时，需要先调用其父类<code>Triangle</code>的构造方法，<strong>一层层向上</strong>。<br>因此最先完成调用的是最大的父类<code>Triangle</code>的构造方法，因此先输出<code>This is Triangle</code>，再完成调用子类<code>RightTriangle</code>的构造方法，输出<code>This is Right Triangle</code>，最后完成调用子类<code>IsoscelesRightTriangle</code>的构造方法，输出<code>This is Isosceles Right Triangle</code>，<strong>一层层向下</strong>。</p>
 </blockquote>
