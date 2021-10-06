@@ -22,7 +22,7 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="">
   
-  <title>Java面向对象编程之接口 &lt;br&gt; Java OOP Interface - UltraFish</title>
+  <title>Java面向对象编程之接口 Java OOP Interface - UltraFish</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -179,7 +179,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Java面向对象编程之接口 <br> Java OOP Interface">
+            <span class="h2" id="subtitle" title="Java面向对象编程之接口 Java OOP Interface">
               
             </span>
 
@@ -241,7 +241,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java面向对象编程之接口 &lt;br&gt; Java OOP Interface</h1>
+            <h1 style="display: none">Java面向对象编程之接口 Java OOP Interface</h1>
             
             <div class="markdown-body">
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
@@ -280,11 +280,6 @@
 <p>输出：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">A Great Triangle printed<br>Great Triangle with Perimeter and Area<br>Print the Perimeter of A Great Triangle printed<br>Print the Area of A Great Triangle printed<br></code></pre></td></tr></table></figure>
 <p>以上例子中，<code>PrintShape</code>类中有4个方法，分别使用了不同接口当作其方法的参数，在其<code>main()</code>中当一个<code>GreatTriangle</code>对象创建并调用这4个方法时，此对象会upcast到这4个接口，并late binding到相应的方法体。</p>
-<p>因此有两个使用<code>interface</code>的原因：</p>
-<ol>
-<li>使某一对象upcast至不止一个父类型，使其变得灵活；</li>
-<li>防止这一抽象的类被直接使用</li>
-</ol>
 <hr>
 <h4 id="Inherited-interface"><a href="#Inherited-interface" class="headerlink" title="Inherited interface"></a>Inherited interface</h4><p>当需要给某个<code>interface</code><strong>添加新的方法</strong>，或者要<strong>结合</strong>多个<code>interface</code>时，可以让某个<code>interface</code>对另一个或多个<code>interface</code>进行继承，这会产生<strong>新的</strong><code>interface</code>。</p>
 <p>应用到上面的例子：</p>
@@ -293,7 +288,12 @@
 <hr>
 <h3 id="Interface-field"><a href="#Interface-field" class="headerlink" title="Interface field"></a>Interface field</h3><p>定义在接口中的属性都是隐性修饰为<code>static</code>和<code>final</code>，并且是<code>public</code>的。<br>注意定义在接口中的属性必须为<a href="https://ultrafish.cn/2021/09/02/Java-learning-1/#2-3-1-final-%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">编译时常量 (compile-time constant) 不能是空白常量 (blank final)</a>。<br>此类属性并不是接口的一部分，只是被储存在接口的静态 (static) 内存中。</p>
 <hr>
-<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><p>如果明确某一类会被定义为父类，则可以直接让其定义成一个<code>interface</code>（或者<code>abstract</code>，但是优先考虑<code>interface</code>）。<br>但要注意不能过度使用<code>interface</code>，可以先写出具象的父类，分析必要性之后再将其改成<code>interface</code>。</p>
+<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><p>两个使用<code>interface</code>的原因：</p>
+<ol>
+<li>使某一对象upcast至不止一个父类型，使其变得灵活；</li>
+<li>防止这一抽象的类被直接使用</li>
+</ol>
+<p>如果明确某一类会被定义为父类，则可以直接让其定义成一个<code>interface</code>（或者<code>abstract</code>，但是优先考虑<code>interface</code>）。<br>但要注意不能过度使用<code>interface</code>，可以先写出具象的父类，分析必要性之后再将其改成<code>interface</code>。</p>
 <hr>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>B. Eckel, <em>Thinking in java</em>. Upper Saddle River, N.Y. Prentice Hall, 2014.</p>
 <hr>
