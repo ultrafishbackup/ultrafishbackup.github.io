@@ -423,10 +423,7 @@
 <h3 id="2-3-final-修饰符"><a href="#2-3-final-修饰符" class="headerlink" title="2.3 final 修饰符"></a>2.3 <code>final</code> 修饰符</h3><p><code>final</code> 修饰符是用来修饰某一成员是一个常量，是不能被修改的。<code>final</code> 修饰符可以用来修饰类的属性，参数，方法以及一整个类。例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> safe = <span class="hljs-keyword">false</span>; <span class="hljs-comment">// safe 属性被final修饰，其值只能被对象读取，无法被修改</span><br></code></pre></td></tr></table></figure>
 <h4 id="2-3-1-final-属性"><a href="#2-3-1-final-属性" class="headerlink" title="2.3.1 final 属性"></a>2.3.1 <code>final</code> 属性</h4><p>属性(field)常量指的是类的某一属性值为常量，分为编译时常量( <em>compile-time</em> constant)和空白常量(blank finals)</p>
-<ol>
-<li><strong>编译时常量</strong></li>
-</ol>
-<p>编译时常量( <em>compile-time</em> constant)需要在声明时被初始化，即给定属性值，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> safe = <span class="hljs-keyword">false</span>; <span class="hljs-comment">// safe 属性被final修饰，为编译时常量，需要被赋值</span><br></code></pre></td></tr></table></figure></p>
+<h5 id="2-3-1-1-编译时常量"><a href="#2-3-1-1-编译时常量" class="headerlink" title="2.3.1.1 编译时常量"></a>2.3.1.1 编译时常量</h5><p>编译时常量( <em>compile-time</em> constant)需要在声明时被初始化，即给定属性值，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> safe = <span class="hljs-keyword">false</span>; <span class="hljs-comment">// safe 属性被final修饰，为编译时常量，需要被赋值</span><br></code></pre></td></tr></table></figure></p>
 <p>当 <code>final</code> 和 <code>static</code> 修饰符同时修饰一个属性时，此属性名通常由大写字母组成，并且词间用下划线(_)分割，如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> TOTAL_BOOK_NUM = <span class="hljs-number">100</span>;<br></code></pre></td></tr></table></figure>
 <hr>
@@ -442,10 +439,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">t2.INT_ONE = <span class="hljs-number">5</span>; <span class="hljs-comment">// 静态的、编译时常量，不会随着不同对象的创建而变化，创建后属性值也不能被覆盖</span><br>t1.int_two = <span class="hljs-number">3</span>; <span class="hljs-comment">// 编译时常量，会随着不同对象的创建而变化，但是创建后属性值不能被覆盖</span><br></code></pre></td></tr></table></figure>
 <p>同时，这个例子也表明了，编译时常量( <em>compile-time</em> constant)并不代表在表达式内就需要明确属性值，<code>INT_ONE</code>和<code>int_two</code> 都是在运行程序时被<strong>随机数函数</strong>赋值的。</p>
 <hr>
-<ol>
-<li><strong>空白常量</strong></li>
-</ol>
-<p>空白常量 (blank final) 不需要需要在声明时被初始化，即不需要给定属性值，例如：</p>
+<h5 id="2-3-1-2-空白常量"><a href="#2-3-1-2-空白常量" class="headerlink" title="2.3.1.2 空白常量"></a>2.3.1.2 <strong>空白常量</strong></h5><p>空白常量 (blank final) 不需要需要在声明时被初始化，即不需要给定属性值，例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> safe;<br></code></pre></td></tr></table></figure>
 <p>但是空白常量在使用前必须被赋值，通常会在<strong>构造方法</strong>中进行赋值。</p>
 <p>总之，不管是 <strong>编译时常量( <em>compile-time</em> constant)</strong> 还是 <strong>空白常量 (blank final)</strong> 都需要在使用前被赋值，即在声明中或者构造方法中被赋值。</p>

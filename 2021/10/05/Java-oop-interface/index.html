@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;light&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Made by Mike_Zhang
+
+
+所有文章:Java基础学习1—声明和初始化与修饰符Java基础学习2—表达式、控制流与I/OJava中byte数据类型在显式类型转换时超出其取值范围的转换过程Java面向对象编程(OOP)的封装性(Encapsulation)Java面向对象编程(OOP)的继承性(Inheritance)Java面向对象编程(OOP)的多态性(Polymorphism)
+">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="">
+  
+  <title>Java面向对象编程之接口 &lt;br&gt; Java OOP Interface - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>UltraFish</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                所有文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/plus/">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/java.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java面向对象编程之接口 <br> Java OOP Interface">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-05 15:35" pubdate>
+        2021年10月5日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      43
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java面向对象编程之接口 &lt;br&gt; Java OOP Interface</h1>
+            
+            <div class="markdown-body">
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<blockquote>
+<p>所有文章:<br><a href="https://ultrafish.cn/2021/09/02/Java-learning-1/" target="_blank" rel="noopener">Java基础学习1—声明和初始化与修饰符</a><br><a href="https://ultrafish.cn/2021/09/17/Java-learning-2/" target="_blank" rel="noopener">Java基础学习2—表达式、控制流与I/O</a><br><a href="https://ultrafish.cn/2020/08/15/Java-data-type-conversion/" target="_blank" rel="noopener">Java中byte数据类型在显式类型转换时超出其取值范围的转换过程</a><br><a href="https://ultrafish.cn/2021/03/07/Java-oop-encapsulation/" target="_blank" rel="noopener">Java面向对象编程(OOP)的封装性(Encapsulation)</a><br><a href="https://ultrafish.cn/2020/09/13/Java-oop-inheritance/" target="_blank" rel="noopener">Java面向对象编程(OOP)的继承性(Inheritance)</a><br><a href="https://ultrafish.cn/2021/10/02/Java-oop-polymorphism/" target="_blank" rel="noopener">Java面向对象编程(OOP)的多态性(Polymorphism)</a></p>
+</blockquote>
+<h2 id><a href="#" class="headerlink" title></a><a id="more"></a></h2><blockquote>
+<h3 id="面向对象编程-OOP-简单介绍"><a href="#面向对象编程-OOP-简单介绍" class="headerlink" title="面向对象编程(OOP)简单介绍"></a>面向对象编程(OOP)简单介绍</h3><p><strong>面向对象编程(Object Oriented Programming, OOP)</strong> 是一种计算机编程架构(一种编程方法). 它的核心在于把需要处理的问题进行建模, 即把问题抽象为对象(object). 对象被分成两个部分, <strong>静态部分</strong>和<strong>动态部分</strong>. <strong>静态部分</strong>指的是对象的<strong>属性</strong>, 以人举例, 属性包括人的身高、体重、年龄等特性. <strong>动态部分</strong>指的是对象的<strong>行为或方法</strong>, 以人举例, 行为包括人的吃饭、睡觉、讲话等动作. 在某一方面具有相同特性的事物可以被归为同一类事物, 而 <strong>类(class)</strong> 就是这些同一类事物的统称, 比如说, 婴儿、青少年,、年轻人、老人等都属于人这一类, 鸡、鸭、猪等都是属于家禽这一类. 类是对某一类对象的抽象描述, 类封装了对象的属性和行为.<br>了解更多有关OOP的知识, 请参考百度百科—<a href="https://baike.baidu.com/item/面向对象程序设计/24792" target="_blank" rel="noopener">面向对象程序设计</a>.<br>面向对象编程(OOP)具有以下三个特点:<br><strong>封装性(Encapsulation)</strong><br><strong>继承性(Inheritance)</strong><br><strong>多态性(Polymorphism)</strong></p>
+</blockquote>
+<hr>
+<h3 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span> </span>&#123; <span class="hljs-comment">// 三角形类</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Triangle printed!"</span>); <span class="hljs-comment">// 父类方法</span><br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RightTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123; <span class="hljs-comment">//定义直角三角形子类</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Right Triangle printed!"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IsoscelesRightTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123; <span class="hljs-comment">//定义等腰直角三角形子类</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Isosceles Right Triangle printed!"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EquilateralTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123; <span class="hljs-comment">//定义等边三角形子类</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Isosceles Equilateral Triangle printed!"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PrintTriangle</span> </span>&#123; <span class="hljs-comment">// 定义一个打印三角形的类</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintOut</span><span class="hljs-params">(Triangle x)</span></span>&#123; <span class="hljs-comment">// 打印三角形的方法，使用父类当作参数类型</span><br>        x.Print();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123; <span class="hljs-comment">// 主函数 main()</span><br>        Triangle aNewRightTriangle = <span class="hljs-keyword">new</span> RightTriangle(); <span class="hljs-comment">// upcasting</span><br>        PrintOut(aNewRightTriangle);; <span class="hljs-comment">// 打印直角三角形</span><br><br>        Triangle aNewIsoscelesRightTriangle = <span class="hljs-keyword">new</span> IsoscelesRightTriangle(); <span class="hljs-comment">// upcasting</span><br>        PrintOut(aNewIsoscelesRightTriangle); <span class="hljs-comment">// 打印等腰直角三角形</span><br><br>        Triangle aNewEquilateralTriangle = <span class="hljs-keyword">new</span> EquilateralTriangle(); <span class="hljs-comment">// upcasting</span><br>        PrintOut(aNewEquilateralTriangle); <span class="hljs-comment">// 打印等边三角形</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>以上案例是在在之前文章<a href="https://ultrafish.cn/2020/09/13/Java-oop-inheritance/" target="_blank" rel="noopener">Java面向对象编程(OOP)的继承性(Inheritance)</a>与<a href="https://ultrafish.cn/2021/10/02/Java-oop-polymorphism/" target="_blank" rel="noopener">Java面向对象编程(OOP)的多态性(Polymorphism)</a>中提到了，运用了OOP的两大特性。</p>
+<p>看以下例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Shape"</span>);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Shape printed."</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Rectangle"</span>);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Rectangle printed."</span>);<br>    &#125;<br>&#125;<br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Circle"</span>);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Circle printed."</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Triangle"</span>);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Triangle printed."</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PrintAbsShape</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintOut</span><span class="hljs-params">(Shape s)</span></span>&#123;<br>        s.print();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        PrintOut(<span class="hljs-keyword">new</span> Rectangle());<br>        PrintOut(<span class="hljs-keyword">new</span> Triangle());<br>        PrintOut(<span class="hljs-keyword">new</span> Circle());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>但是仔细观察发现，<strong>第一个例子中的父类<code>Triangle</code>与第二个例子中的父类<code>Shape</code>中的方法始终没有被引用</strong>，显得十分多余。因为此<code>Shape</code>父类本来就是提供一个<strong>入口</strong>，并让其子类继承并对其方法进行重写等操作。<br>因此父类中的方法不需要被定义的十分具象，只需要告诉衍生类方法的大概模样就足够了，因此父类可以变的 <strong>抽象(abstract)</strong> 或者只成为一个连通子类的 <strong>接口(interface)</strong>。</p>
+<hr>
+<h3 id="Abstract-class-amp-method"><a href="#Abstract-class-amp-method" class="headerlink" title="Abstract class &amp; method"></a>Abstract class &amp; method</h3><p>在Java中，通过修饰符<code>abstract</code>来修饰一个方法为<strong>抽象的</strong>。此修饰的方法是<strong>残缺的，不完整的</strong>，<strong>只包含方法的声明并没有方法体</strong>，语法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>;<br></code></pre></td></tr></table></figure>
+<p>包含<code>abstract</code>方法的类被称为<code>abstract</code>类，包含<code>abstract</code>方法的类必须被修饰为<code>abstract</code>。<br>当某一子类继承<code>abstract</code>父类后，如要使用此子类创造对象，必须完成子类中所有从父类<code>abstract</code>方法继承来方法的定义，否则此子类中的方法也是<code>abstract</code>的，也需要修饰为<code>abstract</code>。<br>把<code>abstract</code>应用到上面的例子中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span></span>&#123; <span class="hljs-comment">// abstract 类</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// abstract 方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// abstract 方法</span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Rectangle"</span>); <span class="hljs-comment">// 重写父类 abstract 方法， 为其添加方法体</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Circle"</span>); <span class="hljs-comment">// 重写父类 abstract 方法， 为其添加方法体</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Triangle"</span>); <span class="hljs-comment">// 重写父类 abstract 方法， 为其添加方法体</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RightTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Right Triangle"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Right Triangle printed"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IsoscelesTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Isosceles Triangle"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Isosceles Triangle printed"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EquilateralTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Equilateral Triangle"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Equilateral Triangle printed"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PrintAbsShape</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintOut</span><span class="hljs-params">(Shape s)</span></span>&#123;<br>        s.print(); <span class="hljs-comment">// late binding</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        PrintOut(<span class="hljs-keyword">new</span> RightTriangle());<br>        PrintOut(<span class="hljs-keyword">new</span> IsoscelesTriangle());<br>        PrintOut(<span class="hljs-keyword">new</span> EquilateralTriangle());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><code>abstract</code>类允许在其类中创建一个或者多个<code>abstract</code>方法，并通过<strong>子类的继来完成方法体</strong>。</p>
+<hr>
+<h3 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h3><p><code>interface</code>把<code>abstract</code>类更进一步的抽象，使这个类变得完全<code>abstract</code>。在此类中只声明<strong>方法名</strong>、<strong>参数列表</strong>和<strong>返回值类型</strong>，<strong>没有方法体</strong>，只提供方法的<strong>形式</strong>，没有定义执行<strong>方法</strong>。任何 <strong>实现(implement)</strong> 此接口的类都会与<code>interface</code>类相似，都会得知能从此接口调用到什么方法，类似于类之间建立了一个协议。<code>interface</code>应用到上面的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span></span>&#123; <span class="hljs-comment">// Shape 接口</span><br>    <span class="hljs-keyword">int</span> NUM = <span class="hljs-number">10</span>; <span class="hljs-comment">// static and final field</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// abstract 方法 public</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// abstract 方法 public</span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span></span>&#123; <span class="hljs-comment">// 实现 Shape 接口</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Rectangle"</span>); <span class="hljs-comment">// 实现父类 abstract 方法， 为其添加方法体</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span></span>&#123; <span class="hljs-comment">// 实现 Shape 接口</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Circle"</span>); <span class="hljs-comment">// 实现父类 abstract 方法， 为其添加方法体</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span></span>&#123; <span class="hljs-comment">// 实现 Shape 接口</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"Triangle"</span>); <span class="hljs-comment">// 实现父类 abstract 方法， 为其添加方法体</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RightTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Right Triangle printed"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IsoscelesTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Isosceles Triangle printed"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EquilateralTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">"A Equilateral Triangle printed"</span>); <span class="hljs-comment">// 重写父类方法</span><br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PrintShape</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintOut</span><span class="hljs-params">(Shape s)</span></span>&#123;<br>        s.print(); <span class="hljs-comment">// late binding</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        PrintOut(<span class="hljs-keyword">new</span> RightTriangle());<br>        PrintOut(<span class="hljs-keyword">new</span> IsoscelesTriangle());<br>        PrintOut(<span class="hljs-keyword">new</span> EquilateralTriangle());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>使用<code>interface</code>时，用<code>interface</code>关键字代替原来的<code>class</code>关键字。以上例子中，还有一个定义在<code>interface</code>中的属性<code>int NUM = 10;</code>，此属性都是隐性修饰为<code>static</code>和<code>final</code>。</p>
+<p>当某一类要使用此接口时，也就是说此类要实现(implements)此接口，就需要使用<code>implements</code>关键字，类似于继承。此类就能具化声明在接口中的方法。</p>
+<p>当此类实现接口后，其就变成了一个常规的类，能够被子类继承，如 <code>RightTriangle</code>继承 <code>Triangle</code>等。</p>
+<p><code>interface</code>中的方法是被隐性修饰为<code>public</code>的。当某类实现此<code>interface</code>时，此类中从<code>interface</code>重写的方法必须被修饰为<code>public</code>，否则会变为默认访问权限，会导致此类被继承后的访问权限变小，产生错误。</p>
+<p>上面例子main()中发生了upcasting，但是并不用明确到底转型到了哪个<code>Shape</code>，无论是正常的<code>Shape</code>，<code>abstract</code>修饰的<code>Shape</code>还是<code>Shape</code>接口。</p>
+<hr>
+<h3 id="Interface-inheritance"><a href="#Interface-inheritance" class="headerlink" title="Interface inheritance"></a>Interface inheritance</h3><h4 id="Combined-interface"><a href="#Combined-interface" class="headerlink" title="Combined interface"></a>Combined interface</h4><p>在继承中，子类每次<strong>只能继承一个</strong>父类，因为父类是一个完整的类，有具体的内存空间联系，同时继承多个类会导致冲突。但是一个<code>interface</code>只是一个形式，没有具体的内存空间与之联系，因此<code>interface</code>与继承不同，一个类可以同时实现<strong>多个</strong><code>interface</code>，只需要在<code>implements</code>关键字后列出所有<code>interface</code>名并用逗号隔开。语法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InterfaceA</span>, <span class="hljs-title">InterfaceB</span>, <span class="hljs-title">InterfaceC</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+<p>应用到上面的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span></span>&#123; <span class="hljs-comment">// Shape 接口</span><br>    <span class="hljs-keyword">int</span> NUM = <span class="hljs-number">10</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// abstract 方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// abstract 方法</span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Perimeter</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getPerimeter</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Area</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GreatShape</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span>, <span class="hljs-title">Perimeter</span>, <span class="hljs-title">Area</span></span>&#123; <span class="hljs-comment">// GreatShape类结合了3个接口一起实现</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Great Shape with Perimeter and Area"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"A Great Shape printed"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getPerimeter</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Print the Perimeter of A Great Shape"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Print the Area of A Great Shape"</span>);&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GreatTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">GreatShape</span></span>&#123; <span class="hljs-comment">// 继承父类GreatShape</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Great Triangle with Perimeter and Area"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"A Great Triangle printed"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getPerimeter</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Print the Perimeter of A Great Triangle"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Print the Area of A Great Triangle"</span>);&#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PrintShape</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintOut</span><span class="hljs-params">(Shape s)</span></span>&#123;<br>        s.print(); <span class="hljs-comment">// late binding</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintName</span><span class="hljs-params">(Shape x)</span></span>&#123;<br>        x.name();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintPerimeter</span><span class="hljs-params">(Perimeter x)</span></span>&#123;<br>        x.getPerimeter();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintArea</span><span class="hljs-params">(Area x)</span></span>&#123;<br>        x.getArea();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        GreatTriangle g = <span class="hljs-keyword">new</span> GreatTriangle();<br>        PrintOut(g); <span class="hljs-comment">// 可看作Shape的方法</span><br>        PrintName(g); <span class="hljs-comment">// 可看作Shape的方法</span><br>        PrintPerimeter(g); <span class="hljs-comment">// 可看作Perimeter的方法</span><br>        PrintArea(g); <span class="hljs-comment">// 可看作Area的方法</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">A Great Triangle printed<br>Great Triangle with Perimeter and Area<br>Print the Perimeter of A Great Triangle printed<br>Print the Area of A Great Triangle printed<br></code></pre></td></tr></table></figure>
+<p>以上例子中，<code>PrintShape</code>类中有4个方法，分别使用了不同接口当作其方法的参数，在其<code>main()</code>中当一个<code>GreatTriangle</code>对象创建并调用这4个方法时，此对象会upcast到这4个接口，并late binding到相应的方法体。</p>
+<p>因此有两个使用<code>interface</code>的原因：</p>
+<ol>
+<li>使某一对象upcast至不止一个父类型，使其变得灵活；</li>
+<li>防止这一抽象的类被直接使用</li>
+</ol>
+<hr>
+<h4 id="Inherited-interface"><a href="#Inherited-interface" class="headerlink" title="Inherited interface"></a>Inherited interface</h4><p>当需要给某个<code>interface</code><strong>添加新的方法</strong>，或者要<strong>结合</strong>多个<code>interface</code>时，可以让某个<code>interface</code>对另一个或多个<code>interface</code>进行继承，这会产生<strong>新的</strong><code>interface</code>。</p>
+<p>应用到上面的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span></span>&#123; <span class="hljs-comment">// Shape 接口</span><br>    <span class="hljs-keyword">int</span> NUM = <span class="hljs-number">10</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// abstract 方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// abstract 方法</span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Perimeter</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getPerimeter</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Area</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">GreatShapeInterface</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span>, <span class="hljs-title">Perimeter</span>, <span class="hljs-title">Area</span></span>&#123; <span class="hljs-comment">// 继承了3个接口并产生一个新的接口</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// 以下结合了3个接口的4个方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getPerimeter</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">what</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// 并添加了新的方法</span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GreatTriangle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">GreatShapeInterface</span></span>&#123; <span class="hljs-comment">// 继承新的接口</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Great Triangle with Perimeter and Area"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"A Great Triangle printed"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getPerimeter</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Print the Perimeter of A Great Triangle"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Print the Area of A Great Triangle"</span>);&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">what</span><span class="hljs-params">()</span></span>&#123;System.out.println(<span class="hljs-string">"Inherited form several interfaces!"</span>);&#125; <span class="hljs-comment">// 完成新方法的定义</span><br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PrintShape</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintOut</span><span class="hljs-params">(Shape s)</span></span>&#123;<br>        s.print(); <span class="hljs-comment">// late binding</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintName</span><span class="hljs-params">(Shape x)</span></span>&#123;<br>        x.name();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintPerimeter</span><span class="hljs-params">(Perimeter x)</span></span>&#123;<br>        x.getPerimeter();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintArea</span><span class="hljs-params">(Area x)</span></span>&#123;<br>        x.getArea();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">What</span><span class="hljs-params">(GreatShapeInterface x)</span></span>&#123;<br>        x.what(); <span class="hljs-comment">// 调用新方法</span><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        GreatTriangle g = <span class="hljs-keyword">new</span> GreatTriangle();<br>        PrintOut(g); <span class="hljs-comment">// 可看作Shape的方法</span><br>        PrintName(g); <span class="hljs-comment">// 可看作Shape的方法</span><br>        PrintPerimeter(g); <span class="hljs-comment">// 可看作Perimeter的方法</span><br>        PrintArea(g); <span class="hljs-comment">// 可看作Area的方法</span><br>        What(g); <span class="hljs-comment">// 可看作GreatShapeInterface的方法</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>注意：<br>当通过继承来结合一些接口时，要注意各个接口中的方法名是否相同，为增加可读性以及减少错误的产生，最好避免使用同名的方法。</p>
+<hr>
+<h3 id="Interface-field"><a href="#Interface-field" class="headerlink" title="Interface field"></a>Interface field</h3><p>定义在接口中的属性都是隐性修饰为<code>static</code>和<code>final</code>，并且是<code>public</code>的。<br>注意定义在接口中的属性必须为<a href="https://ultrafish.cn/2021/09/02/Java-learning-1/#2-3-1-final-%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">编译时常量 (compile-time constant) 不能是空白常量 (blank final)</a>。<br>此类属性并不是接口的一部分，只是被储存在接口的静态 (static) 内存中。</p>
+<hr>
+<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><p>如果明确某一类会被定义为父类，则可以直接让其定义成一个<code>interface</code>（或者<code>abstract</code>，但是优先考虑<code>interface</code>）。<br>但要注意不能过度使用<code>interface</code>，可以先写出具象的父类，分析必要性之后再将其改成<code>interface</code>。</p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>B. Eckel, <em>Thinking in java</em>. Upper Saddle River, N.Y. Prentice Hall, 2014.</p>
+<hr>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>Java的接口还有更深层次的内容，会继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">感谢你的支持</div></center>
+            </div>
+            <hr>           
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/OOP/">OOP</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/OOP/%E6%8E%A5%E5%8F%A3-Interface/">接口 Interface</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/02/Java-oop-polymorphism/">
+                        <span class="hidden-mobile">Java面向对象编程(OOP)的多态性(Polymorphism)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","placeholder":"说点什么吧(记得写上你的昵称哦)","path":"window.location.pathname","avatar":"mp","meta":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"requiredFields":["nick"]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <!-- <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>-->
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备2020036956号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>浙公网安备 33042102000661号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+  <div>
+    &copy; 2020-2021 Mike_Zhang
+  </div>
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
