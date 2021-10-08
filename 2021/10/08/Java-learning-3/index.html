@@ -188,8 +188,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-07 20:02" pubdate>
-        2021年10月7日 晚上
+      <time datetime="2021-10-08 22:02" pubdate>
+        2021年10月8日 晚上
       </time>
     </span>
   
@@ -263,7 +263,7 @@
 <p>因此需要有一种异常处理方法来把产生异常的地方转移到某一能过处理此异常的异常处理器。</p>
 <hr>
 <h4 id="1-2-Exception-classification"><a href="#1-2-Exception-classification" class="headerlink" title="1.2 Exception classification"></a>1.2 Exception classification</h4><p>异常(Exception)对象所属的类是从<code>Throwable</code>类继承来的，因此除了Java所定义的异常外，用户还可以通过继承来定义自己的异常。<br>以下为<code>Throwable</code>类的层级关系图：</p>
-<center><img src="/2021/10/07/Java-learning-3/1.jpg" srcset="/img/loading.gif" lazyload width="75%" height="75%">
+<center><img src="/2021/10/08/Java-learning-3/1.jpg" srcset="/img/loading.gif" lazyload width="75%" height="75%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -279,23 +279,11 @@
 </li>
 <li><p><code>Exception</code>类也有两个子类，<code>IOException</code>和<code>RuntimeException</code>。<code>RuntimeException</code>的产生是由于程序员<strong>自己在编写代码时产生了错误</strong>。<code>IOException</code>是由于<strong>客观因素</strong>产生的，如I/O的错误。</p>
 <blockquote>
-<p><code>RuntimeException</code>包含：</p>
-<ol>
-<li>不当的转型；</li>
-<li>数组的out-of-bounds错误；</li>
-<li>访问一个空指针(null pointer)等</li>
-</ol>
+<p><code>RuntimeException</code>包含：<br>不当的转型；<br>数组的out-of-bounds错误；<br>访问一个空指针(null pointer)等</p>
+<p><code>IOException</code>包括：<br>在EOF(End of file)之后继续读取；<br>打开一个不存在的文件；<br>从一个不存在的类中寻找对象等</p>
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<p><code>IOException</code>包括：</p>
-<ol>
-<li>在EOF(End of file)之后继续读取；</li>
-<li>打开一个不存在的文件；</li>
-<li>从一个不存在的类中寻找对象等</li>
-</ol>
-</blockquote>
 </blockquote>
 <p>记住：<strong>“如果产生了一个<code>RuntimeException</code>，这就是你的错。”</strong></p>
 <p>Java规定所有从<code>Error</code>类或者<code>RuntimeException</code>类继承来的<code>Exception</code>对象都是<strong>Unchecked exception</strong>。其余的被称为<strong>Checked exception</strong>。</p>
@@ -337,7 +325,7 @@
 <p><code>EOFException()</code>同时有一个有参构造方法，参数为字符串类型，可以更好的的描述此异常的含义：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">String i = <span class="hljs-string">"This is an End of file Exception!"</span>;<br><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> EOFException(i);<br></code></pre></td></tr></table></figure>
 <hr>
-<h4 id="3-3-创建异常类"><a href="#3-3-创建异常类" class="headerlink" title="3.3 创建异常类"></a>3.3 创建异常类</h4><p>当遇到的异常类型并不在标准异常类中时，可以创建我们自己的异常类。只需要从父类<code>Exception</code>或者其子类<strong>继承</strong>即可，例如：</p>
+<h4 id="2-3-创建异常类"><a href="#2-3-创建异常类" class="headerlink" title="2.3 创建异常类"></a>2.3 创建异常类</h4><p>当遇到的异常类型并不在标准异常类中时，可以创建我们自己的异常类。只需要从父类<code>Exception</code>或者其子类<strong>继承</strong>即可，例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileChildException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">EOFException</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EOFException</span><span class="hljs-params">()</span></span>&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EOFException</span><span class="hljs-params">(String i)</span></span>&#123;<br>        <span class="hljs-keyword">super</span>(i);<br>    &#125;<br>&#125;<br><br><span class="hljs-function">String <span class="hljs-title">readData</span><span class="hljs-params">(Scanner in)</span> <span class="hljs-keyword">throws</span> FileChildException</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//. . .</span><br>    <span class="hljs-keyword">while</span> (. . .)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (!in.hasNext()) <span class="hljs-comment">// EOF encountered</span><br>        &#123;<br>            <span class="hljs-keyword">if</span> (n &lt; len)<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> EOFException();<br>        &#125;<br>        <span class="hljs-comment">//. . .</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> s;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><code>FileChildException</code>子类一般会有一个<strong>默认的无参构造方法</strong>，以及一个<strong>有参的构造方法</strong>以表明此异常的具体信息。父类<code>Throwable</code>的方法<code>toString()</code>可以返回前面定义在有参构造方法里的信息。</p>
 <hr>
@@ -370,15 +358,10 @@
 <p>在抓取到异常后，也可以受用异常类的方法去获取异常对象的信息：</p>
 <p>得到异常对象的更多信息：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">e.getMessage();<br></code></pre></td></tr></table></figure><br>得到具体的错误信息，或者异常对象的所属类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">e.getClass.getName();<br></code></pre></td></tr></table></figure></p>
 <hr>
-<h4 id="3-2-Rethrowing-excepltion"><a href="#3-2-Rethrowing-excepltion" class="headerlink" title="3.2 Rethrowing excepltion"></a>3.2 Rethrowing excepltion</h4><p>重新抛出异常通常有两种情况：</p>
-<ol>
-<li>改变异常的类型；</li>
-</ol>
+<h4 id="3-2-Rethrowing-excepltion"><a href="#3-2-Rethrowing-excepltion" class="headerlink" title="3.2 Rethrowing excepltion"></a>3.2 Rethrowing excepltion</h4><p>重新抛出异常通常有两种情况：<br>1.改变异常的类型；</p>
 <p>例子如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span><br>&#123;<br>    access the database<br>&#125; <br><span class="hljs-keyword">catch</span> (SQLException e)<br>&#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ServletException(<span class="hljs-string">"database error: "</span> + e.getMessage());<br>&#125;<br></code></pre></td></tr></table></figure>
-<ol>
-<li>只记录异常，不改变异常的类型，再次抛出。</li>
-</ol>
+<p>2.只记录异常，不改变异常的类型，再次抛出。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span><br>&#123;<br>    access the database<br>&#125; <br><span class="hljs-keyword">catch</span> (Exception e)<br>&#123;<br>    logger.log(level, message, e);<br>    <span class="hljs-keyword">throw</span> e;<br>&#125;<br></code></pre></td></tr></table></figure>
 <hr>
 <h3 id="4-The-finally-statement"><a href="#4-The-finally-statement" class="headerlink" title="4. The finally statement"></a>4. The finally statement</h3><p>当一个方法抛出异常后，它就回终止运行之后的代码并跳出此方法。但有时需要此方法运行完成，此时就需要用到<code>finally</code>关键字。</p>
@@ -437,7 +420,7 @@
                     
                       <a class="hover-with-bg" href="/categories/Java/%E5%9F%BA%E7%A1%80/">基础</a>
                     
-                      <a class="hover-with-bg" href="/categories/Java/%E5%9F%BA%E7%A1%80/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">异常处理</a>
+                      <a class="hover-with-bg" href="/categories/Java/%E5%9F%BA%E7%A1%80/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%9F%BA%E7%A1%80/">异常处理基础</a>
                     
                   </div>
                 
