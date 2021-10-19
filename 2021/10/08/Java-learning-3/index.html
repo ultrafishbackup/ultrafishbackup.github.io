@@ -200,7 +200,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.9k 字
+      3.1k 字
     </span>
   
 
@@ -210,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      34
+      38
        分钟
     </span>
   
@@ -357,7 +357,23 @@
 <p>但是使用这种结构的异常类之间不能有继承关系。</p>
 <p>在抓取到异常后，也可以受用异常类的方法去获取异常对象的信息：</p>
 <p>得到异常对象的更多信息：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">e.getMessage();<br></code></pre></td></tr></table></figure><br>得到具体的错误信息，或者异常对象的所属类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">e.getClass.getName();<br></code></pre></td></tr></table></figure></p>
+<p><code>retry</code>语句可以使<code>try</code>语句块再次运行一遍，例子如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>&#123;      <span class="hljs-comment">// pseudo code</span><br>    <span class="hljs-keyword">boolean</span> hasFailed = <span class="hljs-keyword">false</span>;<br>    <span class="hljs-keyword">try</span>&#123;<br>        <span class="hljs-keyword">if</span>(!hasFailed)&#123;<br>            <span class="hljs-comment">// do the normal thing, which may trigger</span><br>            <span class="hljs-comment">// an exception </span><br>        &#125;      <br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-comment">// do something safe </span><br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">catch</span>(ExceptionType et)&#123;<br>        <span class="hljs-comment">// log exception</span><br>        hasFailed = <span class="hljs-keyword">true</span>;<br>        retry; <span class="hljs-comment">// resumes from the beginning of try &#125;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <hr>
+<h4 id="3-1-NDECC"><a href="#3-1-NDECC" class="headerlink" title="3.1 NDECC"></a>3.1 NDECC</h4><p>当一个异常被抛出，程序就会寻找<strong>能够</strong>处理此异常的<strong>nearest dynamically enclosing catch clause(NDECC)</strong>，例子如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">h</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">try</span>&#123;g();&#125;<br>    <span class="hljs-keyword">catch</span>(ET3 e)&#123; ... &#125; <span class="hljs-comment">// c1</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">try</span>&#123;f();&#125;<br>    <span class="hljs-keyword">catch</span>(ET2 e)&#123; ... &#125; <span class="hljs-comment">// c2</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-comment">// ...</span><br>    <span class="hljs-keyword">try</span>&#123;statement;&#125;<br>    <span class="hljs-keyword">catch</span>(ET1 e)&#123; ... &#125; <span class="hljs-comment">// c3</span><br>    <span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>讨论以下种情况：</p>
+<blockquote>
+<ol>
+<li><code>statement</code>语句抛出了<code>ET1</code>类的异常，并且处于c3的语句能够处理此异常，则进行处理；</li>
+<li><code>statement</code>语句抛出了<code>ET2</code>类的异常，并且处于c3的语句不能够处理此异常，则处于c2的语句进行处理；</li>
+<li><code>statement</code>语句抛出了<code>ET3</code>类的异常，并且处于c3的语句不能够处理此异常，则处于c1的语句进行处理；</li>
+</ol>
+</blockquote>
+<p>注意：</p>
+<blockquote>
+<p>若<code>ET1</code>类是<code>ET</code>类的子类，则<code>ET</code>类的<code>catch clause</code>可以处理<code>ET1</code>类的异常。</p>
+</blockquote>
 <h4 id="3-2-Rethrowing-excepltion"><a href="#3-2-Rethrowing-excepltion" class="headerlink" title="3.2 Rethrowing excepltion"></a>3.2 Rethrowing excepltion</h4><p>重新抛出异常通常有两种情况：<br>1.改变异常的类型；</p>
 <p>例子如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span><br>&#123;<br>    access the database<br>&#125; <br><span class="hljs-keyword">catch</span> (SQLException e)<br>&#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ServletException(<span class="hljs-string">"database error: "</span> + e.getMessage());<br>&#125;<br></code></pre></td></tr></table></figure>
