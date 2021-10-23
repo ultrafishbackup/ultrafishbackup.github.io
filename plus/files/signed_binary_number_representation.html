@@ -155,32 +155,24 @@ a:hover{ text-decoration:none}
 		}
 		document.getElementById("in82").value = out;
 	}
-	function binary(num, Bits) {
-             var resArry = [];
-             var xresArry = [];
-             i = 0;
-             //除2取余
-             for (; num > 0;) {
-                 resArry.push(num % 2);
-                 num = parseInt(num / 2);
-                 i++;
-             }
-             //倒序排列
-             for (j = i - 1; j >= 0; j--) {
-                 xresArry.push(resArry[j]);
-             }
-             //报错
-             if (Bits < xresArry.length) {
-                 console.log("控制位小于转换位数");
-             }
-             //补0操作
-             if (Bits) {
-                 for (r = xresArry.length; r < Bits; r++) {
-                     xresArry.unshift("0");
-                 }
-             }
-             return xresArry.join().replace(/,/g, "");
-         }
+	function binary(inNum,inLen){
+		var outList = new Array();
+		var bNum;
+		bNum = inNum.toString(2);
+		if (inLen < bNum.length){return null;}
+		if (inLen == bNum.length){return bNum;}
+		var i = 0;
+		while(i<inLen){
+			if (i < (inLen-bNum.length)){
+				outList.push(0);
+			}
+			else{
+				outList.push(bNum[i-(inLen-bNum.length)])
+			}
+			i=i+1;
+		}
+		return outList.join("");
+	}
 </script>
 <table class="shadowTable" width="90%" border="0" bgcolor="#E3E3E3" align="center">
   <tbody>

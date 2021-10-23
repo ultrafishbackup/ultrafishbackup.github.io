@@ -54,7 +54,6 @@ a:hover{ text-decoration:none}
 		var fBit = new Array();
 		var num = Number(document.getElementById("in1").value);
 		numAbs = Math.abs(num);
-	 	numAbsB = binary(numAbs, 7);
 		if (numAbs == 1024){
 			document.getElementById("p1").innerHTML = "<strong>1024程序员节快乐<br>HAPPY 1024 Programmer Day</strong><br><br>";
 		}
@@ -164,33 +163,28 @@ a:hover{ text-decoration:none}
 			else{
 				out = "Invalid Sign bit(0/1)";
 			}
-
-	//		if (num.length>8){
-	//			out = "Out of Range(8bit binary)"
-	//		}
 			document.getElementById("in1").value = out;
 			}
 	}
 	
-	function binary(num, Bits) {
-             var resArry = [];
-             var xresArry = [];
-             i = 0;
-             for (; num > 0;) {
-                 resArry.push(num % 2);
-                 num = parseInt(num / 2);
-                 i++;
-             }
-             for (j = i - 1; j >= 0; j--) {
-                 xresArry.push(resArry[j]);
-             }
-             if (Bits) {
-                 for (r = xresArry.length; r < Bits; r++) {
-                     xresArry.unshift("0");
-                 }
-             }
-             return xresArry.join().replace(/,/g, "");
-         }
+	function binary(inNum,inLen){
+		var outList = new Array();
+		var bNum;
+		bNum = inNum.toString(2);
+		if (inLen < bNum.length){return null;}
+		if (inLen == bNum.length){return bNum;}
+		var i = 0;
+		while(i<inLen){
+			if (i < (inLen-bNum.length)){
+				outList.push(0);
+			}
+			else{
+				outList.push(bNum[i-(inLen-bNum.length)])
+			}
+			i=i+1;
+		}
+		return outList.join("");
+	}
 	function clearAll(){
 		document.getElementById("in1").value = "";
 		document.getElementById("in2s").value = "";
