@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>浮点数表示方法Floating point numbers representation-IEEE 754 Single precision</title>
+<link href="wordColor.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.wordColor {
+    text-align: center;
+    font-size: 18px;
+}
+.wordsColor {
+    font-size: 16px;
+    color: #000000;
+}
+.textColor {
+    font-size: 25px;
+    color: #000000;
+	font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+}
+.ultrafishColor {
+    font-size: 16px;
+    color: #000000;
+	font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+}
+.logoStyle {
+    text-align: left;
+}
+.bottomStyle {
+    color: #404040;
+    font-size: 12px;
+}
+.hiStyle {
+    font-size: 65px;
+}
+	.shadowTable{
+	box-shadow:15px 15px 0px #444; border-spacing:15px;
+	}
+.footer{font-size: 12px;
+    font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+    text-shadow: 0 1px #fff;}
+a{ text-decoration:none} 
+a:hover{ text-decoration:none}
+</style>
+
+</head>
+
+<body>
+<script>
+	function ieee754(){
+		var out = "";
+		var sBit = '';
+		var eBit = '';
+		var fBit = new Array();
+		var num = Number(document.getElementById("in1").value);
+		numAbs = Math.abs(num);
+	 	numAbsB = binary(numAbs, 7);
+		if (numAbs == 1024){
+			document.getElementById("p1").innerHTML = "<strong>1024程序员节快乐<br>HAPPY 1024 Programmer Day</strong><br><br>";
+		}
+		if (numAbs==0){
+			sBit = '0';
+			eBit = '00000000';
+			fBit = '00000000000000000000000';
+		}
+		
+		else if (numAbs > (2-Math.pow(2,-23))*Math.pow(2,127)){
+			//eBit = "Out of Range!";
+			document.getElementById("in1").value = "Out of Range!";
+		}
+		else{
+			if (num<0){
+				sBit = "1";
+			}
+			else if(num>0){
+				sBit = "0";
+			}
+		
+			eBit = binary((((Math.floor(numAbs)).toString(2)).length+126),8)
+		
+			var i = 1;
+			while(fBit.length<23){
+				if (i >= (numAbs.toString(2)).length){
+					fBit.push('0');
+				}
+				else if (numAbs.toString(2)[i] != '.'){
+					fBit.push(numAbs.toString(2)[i]);
+				}
+				i = i + 1
+			}
+		}
+		document.getElementById("in2s").value = sBit;
+		document.getElementById("in2e").value = eBit;
+		document.getElementById("in2f").value = fBit.join("");
+	}
+	function ieee754_re(){
+		var out;
+		var f = new Array();
+		var sBit = document.getElementById("in2s").value;
+		var eBit = document.getElementById("in2e").value;
+		var fBit = document.getElementById("in2f").value;
+		
+		//document.getElementById("in2f").value = parseInt(parseInt(fBit) * Math.pow(10,23-(fBit.length)));
+		
+		if (eBit == "11111111"){
+			if (parseInt(fBit,2) != 0){
+				document.getElementById("in1").value = "NaN";
+			}
+			else if (parseInt(fBit,2) == 0){
+				if (sBit == '1'){
+					document.getElementById("in1").value = "-Inf";
+				}
+				else if (sBit == '0'){
+					document.getElementById("in1").value = "Inf";
+				}
+				else{
+					document.getElementById("in1").value = "Invalid Sign bit(0/1)";
+				}
+			}
+		}
+		else if (parseInt(eBit,2) == 0){
+			if (sBit == '1'){
+					document.getElementById("in1").value = "-0";
+				}
+			else if (sBit == '0'){
+					document.getElementById("in1").value = "0";
+				}
+			else{
+					document.getElementById("in1").value = "Invalid Sign bit(0/1)";
+				}
+		}
+		else if(eBit.length>8){
+			document.getElementById("in1").value = "Invalid Exponent (8-bit)"
+		}
+		else if (fBit.length>23){
+			document.getElementById("in1").value = "Invalid Fraction (23-bit)"
+		}
+		else{
+
+			i = 0;
+			while(f.length<23){
+					if (i >= fBit.length){
+						f.push('0');
+					}
+					else {
+						f.push(fBit[i]);
+					}
+					i = i + 1
+				}
+			document.getElementById("in2f").value = f.join("");
+
+			var eVal = parseInt(eBit,2) - 127;
+
+			var fVal = parseInt(fBit,2)/Math.pow(2,fBit.length)+1;
+
+			out = fVal*Math.pow(2,eVal);
+
+			if (sBit == '1'){
+				out = 0-out;
+			}
+			else if (sBit == "0"){
+				out = out;
+			}
+			else{
+				out = "Invalid Sign bit(0/1)";
+			}
+
+	//		if (num.length>8){
+	//			out = "Out of Range(8bit binary)"
+	//		}
+			document.getElementById("in1").value = out;
+			}
+	}
+	
+	function binary(num, Bits) {
+             var resArry = [];
+             var xresArry = [];
+             i = 0;
+             for (; num > 0;) {
+                 resArry.push(num % 2);
+                 num = parseInt(num / 2);
+                 i++;
+             }
+             for (j = i - 1; j >= 0; j--) {
+                 xresArry.push(resArry[j]);
+             }
+             if (Bits) {
+                 for (r = xresArry.length; r < Bits; r++) {
+                     xresArry.unshift("0");
+                 }
+             }
+             return xresArry.join().replace(/,/g, "");
+         }
+	function clearAll(){
+		document.getElementById("in1").value = "";
+		document.getElementById("in2s").value = "";
+		document.getElementById("in2e").value = "";
+		document.getElementById("in2f").value = "";
+		document.getElementById("p1").innerHTML = "<strong>浮点数表示方法<br>Floating point numbers representation<br>(IEEE 754 single precision)</strong>";
+	}
+</script>
+<table class="shadowTable" width="90%" border="0" bgcolor="#E3E3E3" align="center">
+  <tbody>
+    <tr >
+      <td width="80%" align="center" valign="top" bgcolor="#E3E3E3" class="logoStyle"><h1><img src="../images/ultrafishplus_hor.png" alt="" width="200" height="59" align="top"/> </h1></td>
+      <td width ="20%" align="center" valign="top" bgcolor="#E3E3E3" class="logoStyle"><p align="center"><a class="ultrafishColor" href="http://ultrafish.cn"><br>
+        <img src="../images/ultrafish.png" height="25" alt="" align="center"/> <b>UltraFish</b></a></p></td>
+    </tr>
+  </tbody>
+</table>
+<table width="90%" border="0" align="center">
+  <tbody>
+   
+      <tr align="center"><p class="wordColor" >&nbsp;</p>
+       <p id="p1" class="wordColor"><strong>浮点数表示方法<br>Floating point numbers representation<br>(IEEE 754 single precision)</strong></p>
+		  <p class="wordColor"><u><a class="wordsColor" href="https://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/">查看原文 Back to the original post</a> </u></p>
+	  </tr>
+	  </tbody>
+	  </table>
+	  <table width="50%" border="0" align="center">
+		  <tbody>
+			<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+				  <center>
+		  	<br><strong>Dec</strong>: <input id="in1" type="text" name="in1" placeholder="Enter a decimal number">
+			<br><br><button onClick="ieee754()">To Bin</button> <button onClick="clearAll()">CLEAR</button><br><br>
+				 <br>
+			<strong>Bin</strong>: &nbsp;<input id="in2s" type="text" name="in2" size="4" placeholder="Sign">&nbsp;&nbsp;&nbsp;&nbsp;<input id="in2e" type="text" name="in2" size="8" placeholder="Exponent">&nbsp;&nbsp; <br> 1. <input id="in2f" type="text" name="in2" size="25" placeholder="Fraction"><br><br><button onClick="ieee754_re()">To Dec</button> <button onClick="clearAll()">CLEAR</button><br><br>*zero-exponent with nonzero-fraction not included</center>
+				  <p></p>
+			</td>
+		  </tr>
+	  <tr height ="0px">
+	  </tr>
+	  		
+	 <tr height ="30px">
+	  </tr>
+			  
+	<tr height ="40px">
+		<td>
+		<p class="wordColor" style="font-size: 14px; text-align: center;"><u><a class="wordsColor" href="../index.html">回到主界面 Back to the main page</a></u></p>
+			</td>
+	  </tr>
+	<tr height ="30px">
+	  </tr>  
+	
+  </tbody>
+</table>
+</body>
+<footer>
+<div class="footer" align="center">
+			© 2021 Mike_Zhang
+			<a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">浙ICP备2020036956号</a>
+			<img src="../images/beian.png"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661" target="_blank" rel="noopener">浙公网安备 33042102000661号<br/></a>
+		</div>	
+</footer>
+</html>
