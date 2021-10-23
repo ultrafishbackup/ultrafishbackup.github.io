@@ -17,9 +17,9 @@
   <meta name="description" content="Made by Mike_Zhang
 
 
-Relevant article links:Signed binary numbers representationFloating point numbers representation
+Relevant article links:Signed binary numbers representationFloating point numbers representationUltraFish Plus - Floating point numbers convertor (IEEE 754 single precision)
 
-I have talked about the Signed binary number representation in a previous article">
+I ha">
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="">
   
@@ -202,7 +202,7 @@ I have talked about the Signed binary number representation in a previous articl
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      700 字
+      719 字
     </span>
   
 
@@ -248,7 +248,7 @@ I have talked about the Signed binary number representation in a previous articl
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
 <blockquote>
-<p>Relevant article links:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">Signed binary numbers representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" target="_blank" rel="noopener">Floating point numbers representation</a></p>
+<p>Relevant article links:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">Signed binary numbers representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" target="_blank" rel="noopener">Floating point numbers representation</a><br><a href="https://ultrafish.cn/plus/files/ieee_754_single_representation.html" target="_blank" rel="noopener">UltraFish Plus - Floating point numbers convertor (IEEE 754 single precision)</a></p>
 </blockquote>
 <p>I have talked about the <a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener"><strong>Signed binary number representation</strong></a> in a previous article. Then I am going to record the <strong>Floating point numbers (FPN) representation</strong>, including <strong>Floating point numbers normalization, hidden bit, FPN representation in the computer, and IEEE 754 Standard</strong>.</p>
 <h2 id><a href="#" class="headerlink" title></a><a id="more"></a></h2><h3 id="Floating-point-numbers-normalization"><a href="#Floating-point-numbers-normalization" class="headerlink" title="Floating point numbers normalization"></a>Floating point numbers normalization</h3><p>Usually, a floating point number can be represented by 3 parts: <strong>Sign, Exponent, and Fraction (aka Significand or Mantissa)</strong>.<br>Example:</p>
@@ -314,7 +314,7 @@ I have talked about the Signed binary number representation in a previous articl
 <li>Combination: 0 1000 0101 111 0000 0000 0000 0000 0000 (Sign bit | Exponent | Fraction).</li>
 </ol>
 </blockquote>
-<p><em>Useful IEEE 754 website: <a href="http://weitz.de/ieee/" target="_blank" rel="noopener">http://weitz.de/ieee/</a></em></p>
+<p><em>Useful IEEE 754 website:<br><a href="http://weitz.de/ieee/" target="_blank" rel="noopener">http://weitz.de/ieee/</a><br><a href="https://ultrafish.cn/plus/files/ieee_754_single_representation.html" target="_blank" rel="noopener">UltraFish Plus - Floating point numbers convertor (IEEE 754 single precision)</a></em></p>
 <p>Special IEEE 754 bit patterns</p>
 <blockquote>
 <p>+0: 0  0000 0000  000 0000 0000 0000 0000 0000;<br>-0: 1  0000 0000  000 0000 0000 0000 0000 0000;<br>+(-)INFINITY: 0(1)  1111 1111  000 0000 0000 0000 0000 0000;<br>+(-)NaN (Not a Number): 0(1)  1111 1111  001 0000 0110 0001 0010 0000 (The fraction is nonzero);<br>+2^(-128): 0  1111 1111  010 0000 0000 0000 0000 0000;</p>
