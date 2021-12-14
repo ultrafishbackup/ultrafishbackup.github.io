@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;light&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Made by Mike_Zhang
+
+个人笔记，仅供参考FOR REFERENCE ONLY
+
+1. Limits1.1 Definition of Limits
+Limit of $f(x)$ as x approaches $c$ is the number $L$:
+\lim_{x\to c}f(x)=L$f(x)$ is defined on open interval about $c">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="">
+  
+  <title>Limits and Continuity Note - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>UltraFish</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                所有文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/plus/">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Limits and Continuity Note">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-14 08:46" pubdate>
+        2021年12月14日 早上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Limits and Continuity Note</h1>
+            
+            <div class="markdown-body">
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<p><strong><em>个人笔记，仅供参考</em></strong><br><strong><em>FOR REFERENCE ONLY</em></strong></p>
+<hr>
+<h1 id="1-Limits"><a href="#1-Limits" class="headerlink" title="1. Limits"></a>1. Limits</h1><h2 id="1-1-Definition-of-Limits"><a href="#1-1-Definition-of-Limits" class="headerlink" title="1.1 Definition of Limits"></a>1.1 Definition of Limits</h2><blockquote>
+<p>Limit of $f(x)$ as x approaches $c$ is the number $L$:</p>
+<script type="math/tex; mode=display">\lim_{x\to c}f(x)=L</script><p>$f(x)$ is defined on open interval about $c$ (exclusive)<br>$\forall \epsilon \gt 0, \;\exists \delta &gt; 0$ such that $\forall x$,</p>
+<script type="math/tex; mode=display">0\lt |x-c| \lt \delta \implies |f(x)-L| \lt \epsilon</script><a id="more"></a>
+</blockquote>
+<p><strong>To find a $\delta$ for a Given $f,L,c$ and $\epsilon \gt 0$</strong>:</p>
+<blockquote>
+<ol>
+<li>solve $|f(x)-L| \lt \epsilon$ to get a open interval $(a,b)$ containing $c$;</li>
+<li>Find a $\delta \gt 0$ placing the interval $(c-\delta, c+\delta)$ centered at $c$ inside the interval $(a,b)$.</li>
+</ol>
+</blockquote>
+<h2 id="1-2-Theorems-of-Limits"><a href="#1-2-Theorems-of-Limits" class="headerlink" title="1.2 Theorems of Limits"></a>1.2 Theorems of Limits</h2><p>if $f(x) = x$ (identity function),</p>
+<script type="math/tex; mode=display">\lim_{x\to c}f(x)=\lim_{x\to c}x = c</script><p>if $f(x) = k$ (constant function),</p>
+<script type="math/tex; mode=display">\lim_{x\to c}f(x)=\lim_{x\to c}k = k</script><hr>
+<h3 id="1-2-1-Limits-Laws"><a href="#1-2-1-Limits-Laws" class="headerlink" title="1.2.1 Limits Laws"></a>1.2.1 Limits Laws</h3><p>Set</p>
+<script type="math/tex; mode=display">\lim_{x\to c}f(x)=L\;and\;\lim_{x\to c}g(x)=M</script><ol>
+<li><strong><em>Sum Rule</em></strong>: <script type="math/tex">\lim_{x\to c}(f(x)+g(x))=L+M</script></li>
+<li><strong><em>Difference Rule</em></strong>: <script type="math/tex">\lim_{x\to c}(f(x)-g(x))=L-M</script></li>
+<li><strong><em>Constant Multiple Rule</em></strong>: <script type="math/tex">\lim_{x\to c}(k\cdot f(x))=k\cdot L</script></li>
+<li><strong><em>Product Rule</em></strong>: <script type="math/tex">\lim_{x\to c}(f(x)\cdot g(x))=L\cdot M</script></li>
+<li><strong><em>Quotient Rule</em></strong>: <script type="math/tex">\lim_{x\to c}\frac{f(x)}{g(x)}=\frac{L}{M}\;(M\ne0)</script></li>
+<li><strong><em>Power Rule</em></strong>: <script type="math/tex">\lim_{x\to c}[f(x)]^n=L^n\; (n \in Z^+)</script></li>
+<li><strong><em>Root Rule</em></strong>: <script type="math/tex">\lim_{x\to c}\sqrt[n]{f(x)}=\sqrt[n]L\; (n \in Z^+)</script></li>
+</ol>
+<hr>
+<h3 id="1-2-2-Limits-of-Polynomials"><a href="#1-2-2-Limits-of-Polynomials" class="headerlink" title="1.2.2 Limits of Polynomials"></a>1.2.2 Limits of Polynomials</h3><script type="math/tex; mode=display">P(x) = a_nx^n + a_{n-1}x^{n-1}+ ... + a_0</script><p>then,</p>
+<script type="math/tex; mode=display">\lim_{x\to c}P(x)=P(c) = a_nc^n + a_{n-1}c^{n-1}+ ... + a_0</script><hr>
+<h3 id="1-2-3-Limits-of-Rational-Functions"><a href="#1-2-3-Limits-of-Rational-Functions" class="headerlink" title="1.2.3 Limits of Rational Functions"></a>1.2.3 Limits of Rational Functions</h3><p>Polynomials $P(x)$, $Q(x)$ and $Q(x) \ne 0$:</p>
+<script type="math/tex; mode=display">\lim_{x\to c}\frac{P(x)}{Q(x)}=\frac{P(c)}{Q(c)}</script><blockquote>
+<p>If the denominator is 0, cancel the common factors in the numerator and denominator, then use that theorem.<br><strong>To find the common factor:</strong><br>If Polynomials $Q(x)$ and $Q(c) = 0$, if $P(c) = 0$ too, then the common factor is $(x-c)$</p>
+</blockquote>
+<hr>
+<h3 id="1-2-4-Sandwich-Theorem"><a href="#1-2-4-Sandwich-Theorem" class="headerlink" title="1.2.4 Sandwich Theorem"></a>1.2.4 Sandwich Theorem</h3><p>$\forall x,\;g(x)\le f(x)\lt h(x)$ in some open interval containing $c$, except at $x=c$, </p>
+<script type="math/tex; mode=display">\lim_{x\to c}g(x)=\lim_{x\to c}h(x)=L</script><p>Then, </p>
+<script type="math/tex; mode=display">\lim_{x\to c}f(x)=L</script><hr>
+<h3 id="1-2-5"><a href="#1-2-5" class="headerlink" title="1.2.5"></a>1.2.5</h3><p>$\forall x,\;f(x)\le g(x)$ in some open interval containing $c$, except at $x=c$ and both limits exist, </p>
+<script type="math/tex; mode=display">\lim_{x\to c}f(x)\le \lim_{x\to c}g(x)</script><hr>
+<h1 id="2-One-Sided-Limits"><a href="#2-One-Sided-Limits" class="headerlink" title="2. One-Sided Limits"></a>2. One-Sided Limits</h1><h2 id="2-1-Definition-of-One-Sided-Limits"><a href="#2-1-Definition-of-One-Sided-Limits" class="headerlink" title="2.1 Definition of One-Sided Limits"></a>2.1 Definition of One-Sided Limits</h2><blockquote>
+<ol>
+<li><strong>Right-hand limits</strong><br>$f(x)$ defined on $(c,b)$, where $c\lt b$, $f(x)$ has right-hand limits $L$ at $c$: <script type="math/tex">\lim_{x\to c^+}f(x)=L</script><br>if, $\forall \epsilon \gt 0$, $\exists \delta \gt 0$ such that $\forall x$: <script type="math/tex">c\lt x \lt c+\delta \implies |f(x)-L|\lt \epsilon</script></li>
+<li><strong>Left-hand limits</strong><br>$f(x)$ defined on $(a,c)$, where $a\lt c$, $f(x)$ has left-hand limits $M$ at $c$: <script type="math/tex">\lim_{x\to c^-}f(x)=M</script><br>if, $\forall \epsilon \gt 0$, $\exists \delta \gt 0$ such that $\forall x$: <script type="math/tex">c-\delta\lt x \lt c \implies |f(x)-M|\lt \epsilon</script></li>
+</ol>
+</blockquote>
+<h2 id="2-2-Theorem-of-One-Sided-Limits"><a href="#2-2-Theorem-of-One-Sided-Limits" class="headerlink" title="2.2 Theorem of One-Sided Limits"></a>2.2 Theorem of One-Sided Limits</h2><h3 id="2-2-1"><a href="#2-2-1" class="headerlink" title="2.2.1"></a>2.2.1</h3><script type="math/tex; mode=display">\lim_{x\to c}f(x)=L \iff \lim_{x\to c^+}f(x)=L \;\;\;and\;\;\; \lim_{x\to c^-}f(x)=L</script><hr>
+<h3 id="2-2-2-Limits-of-the-Ratio-sin-theta-theta-as-theta-rightarrow-0"><a href="#2-2-2-Limits-of-the-Ratio-sin-theta-theta-as-theta-rightarrow-0" class="headerlink" title="2.2.2 Limits of the Ratio $sin \theta/\theta$ as $\theta \rightarrow 0$"></a>2.2.2 Limits of the Ratio $sin \theta/\theta$ as $\theta \rightarrow 0$</h3><script type="math/tex; mode=display">\lim_{\theta \to 0} \frac{\sin{\theta}}{\theta}=1</script><p>($\theta$ in radians)</p>
+<hr>
+<h1 id="3-Continuity"><a href="#3-Continuity" class="headerlink" title="3. Continuity"></a>3. Continuity</h1><h2 id="3-1-Definition-of-Continuity-of-f-x"><a href="#3-1-Definition-of-Continuity-of-f-x" class="headerlink" title="3.1 Definition of Continuity of f(x)"></a>3.1 Definition of Continuity of f(x)</h2><ol>
+<li>$f$ is continuous at $c$ if: <script type="math/tex; mode=display">\lim_{x\to c}f(x)=f(c)</script></li>
+<li>$f$ is right-continuous at $c$ if: <script type="math/tex; mode=display">\lim_{x\to c^+}f(x)=f(c)</script></li>
+<li>$f$ is left-continuous at $c$ if: <script type="math/tex; mode=display">\lim_{x\to c^-}f(x)=f(c)</script></li>
+</ol>
+<hr>
+<h2 id="3-2-Continuity-Test"><a href="#3-2-Continuity-Test" class="headerlink" title="3.2 Continuity Test"></a>3.2 Continuity Test</h2><p>$f$ is continuous at $c$ $\iff$</p>
+<ol>
+<li>$f(c)$ exits ($c$ in the domain) and,</li>
+<li>$\lim_{x\to c}f(x)$ exits and,</li>
+<li>$\lim_{x\to c}f(x)=f(c)$</li>
+</ol>
+<hr>
+<h2 id="3-3-Theorem-of-Continuity"><a href="#3-3-Theorem-of-Continuity" class="headerlink" title="3.3 Theorem of Continuity"></a>3.3 Theorem of Continuity</h2><h3 id="3-3-1-Properties-of-Continuous-Functions"><a href="#3-3-1-Properties-of-Continuous-Functions" class="headerlink" title="3.3.1 Properties of Continuous Functions"></a>3.3.1 Properties of Continuous Functions</h3><p>If $f$ and $g$ are continuous at $x=c$, then the combination using 1.2.1 Limits Laws are continuous at $x=c$.</p>
+<hr>
+<h3 id="3-3-2-Polynomials-Continuity"><a href="#3-3-2-Polynomials-Continuity" class="headerlink" title="3.3.2 Polynomials Continuity"></a>3.3.2 Polynomials Continuity</h3><p>Polynomials</p>
+<script type="math/tex; mode=display">P(x) = a_nx^n + a_{n-1}x^{n-1}+ ... + a_0</script><p>is continuous, for $\lim_{x\to c}P(x)=P(c)$.</p>
+<hr>
+<h3 id="3-3-3-Rational-Functions-Continuity"><a href="#3-3-3-Rational-Functions-Continuity" class="headerlink" title="3.3.3 Rational Functions Continuity"></a>3.3.3 Rational Functions Continuity</h3><p>Rational Functions<br>Polynomials $P(x)$, $Q(x)$ and $Q(x) \ne 0$:</p>
+<script type="math/tex; mode=display">\lim_{x\to c}\frac{P(x)}{Q(x)}=\frac{P(c)}{Q(c)}</script><p>is continuous.</p>
+<hr>
+<h3 id="3-3-4-Inverse-Function-Continuity"><a href="#3-3-4-Inverse-Function-Continuity" class="headerlink" title="3.3.4 Inverse Function Continuity"></a>3.3.4 Inverse Function Continuity</h3><p>The inverse function of any function continuous on an interval is continuous over its domain.</p>
+<hr>
+<h3 id="3-3-5-Composite-of-Continuous-Functions"><a href="#3-3-5-Composite-of-Continuous-Functions" class="headerlink" title="3.3.5 Composite of Continuous Functions"></a>3.3.5 Composite of Continuous Functions</h3><p>$f$ is continuous at $c$ and $g$ is continuous at $f(c)\implies$ the composite $g\circ f$ is continuous at $c$.</p>
+<hr>
+<h3 id="3-3-6-Limits-of-Continuous-Functions"><a href="#3-3-6-Limits-of-Continuous-Functions" class="headerlink" title="3.3.6 Limits of Continuous Functions"></a>3.3.6 Limits of Continuous Functions</h3><p>$g$ is continuous at $b$ and $\lim_{x\to c}f(x)=b$,</p>
+<script type="math/tex; mode=display">\lim_{x\to c}g(f(x))=g(b)=g(\lim_{x\to c}f(x))</script><hr>
+<h3 id="3-3-7-The-Intermediate-Value-Theorem-for-Continuous-Functions"><a href="#3-3-7-The-Intermediate-Value-Theorem-for-Continuous-Functions" class="headerlink" title="3.3.7 The Intermediate Value Theorem for Continuous Functions"></a>3.3.7 The Intermediate Value Theorem for Continuous Functions</h3><p>If $f$ is continuous on interval $[a,b]$, and if $y_0$ is any value between $f(a)$ and $f(b)$, then $y_0=f(c)$ for some $c$ in $[a,b]$.</p>
+<center><img src="/2021/12/14/limits-continuity-note/1.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Intermediate Value Theorem - Thomas' calculus: early transcendentals (Thirteenth edition)</div>
+</center>
+
+<hr>
+<h1 id="4-Infinity-Limits-amp-Asymptotes"><a href="#4-Infinity-Limits-amp-Asymptotes" class="headerlink" title="4. Infinity Limits &amp; Asymptotes"></a>4. Infinity Limits &amp; Asymptotes</h1><h2 id="4-1-Definition-of-Infinity-Limits"><a href="#4-1-Definition-of-Infinity-Limits" class="headerlink" title="4.1 Definition of Infinity Limits"></a>4.1 Definition of Infinity Limits</h2><blockquote>
+<ol>
+<li>$f(x)$ has limit $L$ as x approaches infinity: <script type="math/tex">\lim_{x\to \infty}f(x)=L</script><br>if, $\forall \epsilon \gt 0$, $\exists M $ such that $\forall x$: <script type="math/tex">x \gt M \implies |f(x)-L|\lt \epsilon</script></li>
+<li>$f(x)$ has limit $L$ as x approaches minus infinity: <script type="math/tex">\lim_{x\to -\infty}f(x)=L</script><br>if, $\forall \epsilon \gt 0$, $\exists N $ such that $\forall x$: <script type="math/tex">x \lt N \implies |f(x)-L|\lt \epsilon</script></li>
+</ol>
+</blockquote>
+<script type="math/tex; mode=display">\lim_{x\to \pm \infty}k=k \;\; and \;\; \lim_{x\to \pm \infty}\frac{1}{x}=0</script><h2 id="4-2-Theorems-for-Infinity-Limits"><a href="#4-2-Theorems-for-Infinity-Limits" class="headerlink" title="4.2 Theorems for Infinity Limits"></a>4.2 Theorems for Infinity Limits</h2><h3 id="4-2-1-Limit-Laws"><a href="#4-2-1-Limit-Laws" class="headerlink" title="4.2.1 Limit Laws"></a>4.2.1 Limit Laws</h3><p>All Limit Laws in 1.2.1 are also applied to Infinity Limits.</p>
+<hr>
+<h3 id="4-2-2-limits-at-infinity-of-rational-Functions"><a href="#4-2-2-limits-at-infinity-of-rational-Functions" class="headerlink" title="4.2.2 limits at infinity of rational Functions"></a>4.2.2 limits at infinity of rational Functions</h3><blockquote>
+<p>Divide the numerator and denominator by the <strong>highest power of $x$</strong> in the denominator, then depends on the degrees of the polynomials involved.</p>
+</blockquote>
+<hr>
+<h2 id="4-3-Horizontal-Asymptotes"><a href="#4-3-Horizontal-Asymptotes" class="headerlink" title="4.3 Horizontal Asymptotes"></a>4.3 Horizontal Asymptotes</h2><blockquote>
+<p>A line $y = b$ is the Horizontal Asymptotes of $y=f(x)$, if </p>
+<script type="math/tex; mode=display">\lim_{x\to \infty}f(x)=b\;\;or\;\;\lim_{x\to -\infty}f(x)=b</script></blockquote>
+<hr>
+<h2 id="4-4-Oblique-Asymptotes"><a href="#4-4-Oblique-Asymptotes" class="headerlink" title="4.4 Oblique Asymptotes"></a>4.4 Oblique Asymptotes</h2><blockquote>
+<p>If the degree of the numerator of a rational function is <strong>1 greater than</strong> the degree of the denominator, the graph has an oblique or slant line asymptote.</p>
+</blockquote>
+<hr>
+<h2 id="4-5-Vertical-Asymptotes"><a href="#4-5-Vertical-Asymptotes" class="headerlink" title="4.5 Vertical Asymptotes"></a>4.5 Vertical Asymptotes</h2><blockquote>
+<p>A line $y = a$ is the Vertical Asymptotes of $y=f(x)$, if </p>
+<script type="math/tex; mode=display">\lim_{x\to a^+}f(x)=\pm \infty\;\;or\;\;\lim_{x\to a^-}f(x)=\pm \infty</script></blockquote>
+<hr>
+<h2 id="4-6-Infinite-Limits"><a href="#4-6-Infinite-Limits" class="headerlink" title="4.6 Infinite Limits"></a>4.6 Infinite Limits</h2><h3 id="4-6-1-Definitions-of-Infinite-Limits"><a href="#4-6-1-Definitions-of-Infinite-Limits" class="headerlink" title="4.6.1 Definitions of Infinite Limits"></a>4.6.1 Definitions of Infinite Limits</h3><blockquote>
+<ol>
+<li>$f(x)$ approaches infinity limits as $x$ approaches $c$:<script type="math/tex; mode=display">\lim_{x\to c}f(x)=\infty=\lim_{x\to 0^+}\frac{1}{x}</script>if, $\forall B \gt 0$, $\exists \delta $ such that $\forall x$: <script type="math/tex; mode=display">0\lt |x-c|\lt \delta \implies f(x)\gt B</script></li>
+<li>$f(x)$ approaches minus infinity limits as $x$ approaches $c$:<script type="math/tex; mode=display">\lim_{x\to c}f(x)=-\infty=\lim_{x\to 0^-}\frac{1}{x}</script>if, $\forall -B \lt 0$, $\exists \delta $ such that $\forall x$:<script type="math/tex; mode=display">0\lt |x-c|\lt \delta \implies f(x)\lt -B</script></li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>Weir, Hass, Thomas, Hass, Joel, &amp; Thomas, George B. (2014). <em>Thomas’ calculus: early transcendentals</em> (Thirteenth edition). Pearson.</p>
+<hr>
+<p><strong><em>个人笔记，仅供参考，转载请标明出处</em></strong><br><strong><em>FOR REFERENCE ONLY</em></strong></p>
+<p><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+
+            </div>
+            <hr>           
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Math-Note/">Math Note</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Math-Note/Limits-Continuity/">Limits & Continuity</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Limits/">Limits</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Continuity/">Continuity</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Math-Note/">Math Note</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/12/probability-introduction-note/">
+                        <span class="hidden-mobile">Probability Introduction Note</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","placeholder":"说点什么吧(记得写上你的昵称哦)","path":"window.location.pathname","avatar":"mp","meta":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"requiredFields":["nick"]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <!-- <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>-->
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备2020036956号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>浙公网安备 33042102000661号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+  <div>
+    &copy; 2020-2021 Mike_Zhang
+  </div>
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
