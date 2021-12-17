@@ -20,7 +20,7 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="">
   
-  <title>R基础学习1-安装 输出 变量 基础数据分析 - UltraFish</title>
+  <title>R学习1-基础 - UltraFish</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -177,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="R基础学习1-安装 输出 变量 基础数据分析">
+            <span class="h2" id="subtitle" title="R学习1-基础">
               
             </span>
 
@@ -199,7 +199,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      2.5k 字
     </span>
   
 
@@ -209,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      36
        分钟
     </span>
   
@@ -239,7 +239,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">R基础学习1-安装 输出 变量 基础数据分析</h1>
+            <h1 style="display: none">R学习1-基础</h1>
             
             <div class="markdown-body">
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
@@ -277,7 +277,7 @@
 <p>此方法可以把多个对象结合起来连续输出，注意<code>cat()</code>方法输出时默认用空格隔开每个对象，并不是换行符(\n), 因此建议在此输出方法末尾加上换行符(\n)。</p>
 <hr>
 <h1 id="3-Variables"><a href="#3-Variables" class="headerlink" title="3 Variables"></a>3 Variables</h1><h2 id="3-1-Assignment"><a href="#3-1-Assignment" class="headerlink" title="3.1 Assignment"></a>3.1 Assignment</h2><ol>
-<li>变量赋值符:<code>&lt;-</code> （由一个less-than character<code>&lt;</code> 和 hyphen<code>-</code>连接而成，中间无空格）</li>
+<li>变量赋值符:<code>&lt;-</code> （由一个less-than character<code>&lt;</code> 和 hyphen<code>-</code>连接而成，<strong>中间无空格</strong>）</li>
 </ol>
 <p>如：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">x &lt;- <span class="hljs-number">1</span><br>y &lt;- <span class="hljs-number">2</span>^<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
@@ -331,6 +331,91 @@
 <p>可以设置上述几个方法的<code>na.rm</code>属性为<code>TRUE</code>，以让R忽略<code>NA</code>，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; n &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-literal">NA</span>)<br>&gt; n<br>[<span class="hljs-number">1</span>]  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span> <span class="hljs-literal">NA</span><br>&gt; mean(n,na.rm=<span class="hljs-literal">TRUE</span>)<br>[<span class="hljs-number">1</span>] <span class="hljs-number">3.428571</span><br></code></pre></td></tr></table></figure>
 <hr>
+<h1 id="6-Sequences"><a href="#6-Sequences" class="headerlink" title="6 Sequences"></a>6 Sequences</h1><h2 id="6-1-n-m-expression"><a href="#6-1-n-m-expression" class="headerlink" title="6.1 n:m expression"></a>6.1 <code>n:m</code> expression</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; <span class="hljs-number">0</span>:<span class="hljs-number">10</span><br> [<span class="hljs-number">1</span>]  <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br>&gt; <span class="hljs-number">10</span>:<span class="hljs-number">0</span><br> [<span class="hljs-number">1</span>] <span class="hljs-number">10</span>  <span class="hljs-number">9</span>  <span class="hljs-number">8</span>  <span class="hljs-number">7</span>  <span class="hljs-number">6</span>  <span class="hljs-number">5</span>  <span class="hljs-number">4</span>  <span class="hljs-number">3</span>  <span class="hljs-number">2</span>  <span class="hljs-number">1</span>  <span class="hljs-number">0</span><br>&gt; <span class="hljs-number">5</span>:<span class="hljs-number">15</span><br> [<span class="hljs-number">1</span>]  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span> <span class="hljs-number">11</span> <span class="hljs-number">12</span> <span class="hljs-number">13</span> <span class="hljs-number">14</span> <span class="hljs-number">15</span><br>&gt; <span class="hljs-number">15</span>:<span class="hljs-number">5</span><br> [<span class="hljs-number">1</span>] <span class="hljs-number">15</span> <span class="hljs-number">14</span> <span class="hljs-number">13</span> <span class="hljs-number">12</span> <span class="hljs-number">11</span> <span class="hljs-number">10</span>  <span class="hljs-number">9</span>  <span class="hljs-number">8</span>  <span class="hljs-number">7</span>  <span class="hljs-number">6</span>  <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+<p>此方法的步长只能为1或-1。</p>
+<h2 id="6-2-seq-function"><a href="#6-2-seq-function" class="headerlink" title="6.2 seq()function"></a>6.2 <code>seq()</code>function</h2><p>此方法有三个参数，规定起点，终点以及步长，如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; seq(from=<span class="hljs-number">1</span>,to=<span class="hljs-number">10</span>,by=<span class="hljs-number">2</span>)<br>[<span class="hljs-number">1</span>] <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span> <span class="hljs-number">7</span> <span class="hljs-number">9</span><br>&gt; seq(from=<span class="hljs-number">10</span>,to=<span class="hljs-number">1</span>,by=-<span class="hljs-number">3</span>)<br>[<span class="hljs-number">1</span>] <span class="hljs-number">10</span>  <span class="hljs-number">7</span>  <span class="hljs-number">4</span>  <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>或者可以规定序列的长度，R会自动计算出适合的步长，如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; seq(from=<span class="hljs-number">10</span>,to=<span class="hljs-number">1</span>,length.out=<span class="hljs-number">3</span>)<br>[<span class="hljs-number">1</span>] <span class="hljs-number">10.0</span>  <span class="hljs-number">5.5</span>  <span class="hljs-number">1.0</span><br>&gt; seq(from=<span class="hljs-number">1</span>,to=<span class="hljs-number">10</span>,length.out=<span class="hljs-number">5</span>)<br>[<span class="hljs-number">1</span>]  <span class="hljs-number">1.00</span>  <span class="hljs-number">3.25</span>  <span class="hljs-number">5.50</span>  <span class="hljs-number">7.75</span> <span class="hljs-number">10.00</span><br>&gt; seq(from=<span class="hljs-number">1.5</span>,to=<span class="hljs-number">10.5</span>,length.out=<span class="hljs-number">6</span>)<br>[<span class="hljs-number">1</span>]  <span class="hljs-number">1.5</span>  <span class="hljs-number">3.3</span>  <span class="hljs-number">5.1</span>  <span class="hljs-number">6.9</span>  <span class="hljs-number">8.7</span> <span class="hljs-number">10.5</span><br></code></pre></td></tr></table></figure>
+<p>小数也适用起点与终点。</p>
+<h2 id="6-3-rep-function"><a href="#6-3-rep-function" class="headerlink" title="6.3 rep()function"></a>6.3 <code>rep()</code>function</h2><p>此方法会重复输出指明的值，并返回一个向量，如下：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; rep(<span class="hljs-number">2</span>,<span class="hljs-number">5</span>)<br>[<span class="hljs-number">1</span>] <span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span><br>&gt; rep(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)<br>numeric(<span class="hljs-number">0</span>)<br>&gt; rep(pi,<span class="hljs-number">3</span>)<br>[<span class="hljs-number">1</span>] <span class="hljs-number">3.141593</span> <span class="hljs-number">3.141593</span> <span class="hljs-number">3.141593</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="7-Comparing"><a href="#7-Comparing" class="headerlink" title="7 Comparing"></a>7 Comparing</h1><p>R中的比较符有<code>==,!=,&lt;,&gt;,&lt;=,&gt;=</code>，比较表达式返回<code>TRUE</code>或者<code>FALSE</code>。</p>
+<p>可以进行单个值之间的比较，如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; <span class="hljs-number">1</span>&lt;<span class="hljs-number">2</span><br>[<span class="hljs-number">1</span>] <span class="hljs-literal">TRUE</span><br>&gt; <span class="hljs-number">0</span>==<span class="hljs-number">1</span><br>[<span class="hljs-number">1</span>] <span class="hljs-literal">FALSE</span><br>&gt; pi != <span class="hljs-number">3</span><br>[<span class="hljs-number">1</span>] <span class="hljs-literal">TRUE</span><br>&gt; pi==pi<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">TRUE</span><br>&gt; x &lt;- <span class="hljs-number">3</span><br>&gt; x == x<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">TRUE</span><br>&gt; x &lt; pi<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">TRUE</span><br></code></pre></td></tr></table></figure>
+<p>也可以进行向量间的比较，返回一个布尔类型的向量，如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; a==b<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">FALSE</span>  <span class="hljs-literal">TRUE</span> <span class="hljs-literal">FALSE</span><br>&gt; a!=b<br>[<span class="hljs-number">1</span>]  <span class="hljs-literal">TRUE</span> <span class="hljs-literal">FALSE</span>  <span class="hljs-literal">TRUE</span><br>&gt; a&lt;b<br>[<span class="hljs-number">1</span>]  <span class="hljs-literal">TRUE</span> <span class="hljs-literal">FALSE</span> <span class="hljs-literal">FALSE</span><br>&gt; a&gt;b<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">FALSE</span> <span class="hljs-literal">FALSE</span>  <span class="hljs-literal">TRUE</span><br></code></pre></td></tr></table></figure>
+<p>也可以进行向量和单个值的比较，R会让单个值逐个和向量中的元素进行比较，返回一个布尔类型的向量，如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; a &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)<br>&gt; x &lt;- <span class="hljs-number">3</span><br>&gt; a == x<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">FALSE</span> <span class="hljs-literal">FALSE</span>  <span class="hljs-literal">TRUE</span><br>&gt; a&lt;x<br>[<span class="hljs-number">1</span>]  <span class="hljs-literal">TRUE</span>  <span class="hljs-literal">TRUE</span> <span class="hljs-literal">FALSE</span><br>&gt; a&gt;x<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">FALSE</span> <span class="hljs-literal">FALSE</span> <span class="hljs-literal">FALSE</span><br>&gt; a!=x<br>[<span class="hljs-number">1</span>]  <span class="hljs-literal">TRUE</span>  <span class="hljs-literal">TRUE</span> <span class="hljs-literal">FALSE</span><br></code></pre></td></tr></table></figure>
+<p><code>any</code>方法：<br>向量中存在任何一个<code>TRUE</code>就返回<code>TRUE</code>，如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; a &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)<br>&gt; x &lt;- <span class="hljs-number">3</span><br>&gt; any(a==x)<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">TRUE</span><br>&gt; any(a&lt;x)<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">TRUE</span><br></code></pre></td></tr></table></figure>
+<p><code>all</code>方法：<br>向量中所有都为<code>TRUE</code>才返回<code>TRUE</code>，如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; a &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)<br>&gt; x &lt;- <span class="hljs-number">3</span><br>&gt; all(a==x)<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">FALSE</span><br>&gt; all(a==a)<br>[<span class="hljs-number">1</span>] <span class="hljs-literal">TRUE</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="8-Vector-Elements"><a href="#8-Vector-Elements" class="headerlink" title="8 Vector Elements"></a>8 Vector Elements</h1><blockquote>
+<p><strong>注意：</strong><br><strong>在R中，向量的下标从1开始，不是0！</strong></p>
+</blockquote>
+<ol>
+<li><p><code>v[x]</code></p>
+ <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; v &lt;-c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>)<br>&gt; v[<span class="hljs-number">2</span>]<br>[<span class="hljs-number">1</span>] <span class="hljs-number">2</span><br>&gt; v[<span class="hljs-number">1</span>]<br>[<span class="hljs-number">1</span>] <span class="hljs-number">1</span><br>&gt; v[<span class="hljs-number">0</span>]<br>numeric(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>v[n:m]</code><br>为闭区间，两端都包括。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; v[<span class="hljs-number">2</span>:<span class="hljs-number">3</span>]<br>[<span class="hljs-number">1</span>] <span class="hljs-number">2</span> <span class="hljs-number">3</span><br>&gt; v[<span class="hljs-number">4</span>:<span class="hljs-number">10</span>]<br>[<span class="hljs-number">1</span>]  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong><br>若想访问向量的第1位到第n+1位元素，应为<code>v[1:(n+1)]</code>，并不是<code>v[1:n+1]</code>。</p>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li><p><code>v[c(a,b,c,...)]</code><br>通过<strong>data vector</strong>访问。</p>
+ <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; v[c(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>)]<br>[<span class="hljs-number">1</span>] <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span><br>&gt; v[c(<span class="hljs-number">1</span>:<span class="hljs-number">6</span>)]<br>[<span class="hljs-number">1</span>] <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>v[-x]</code><br>忽略某些元素。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; v[-<span class="hljs-number">1</span>]<br>[<span class="hljs-number">1</span>]  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br>&gt; v[-<span class="hljs-number">5</span>]<br>[<span class="hljs-number">1</span>]  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br>&gt; v[-(<span class="hljs-number">1</span>:<span class="hljs-number">5</span>)]<br>[<span class="hljs-number">1</span>]  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>v[x&lt;y]</code><br>通过逻辑表达式选取，若<code>TRUE</code>则选取，若<code>FALSE</code>则忽略。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; v[v&gt;<span class="hljs-number">5</span>]<br>[<span class="hljs-number">1</span>]  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br>&gt; v[v %% <span class="hljs-number">2</span> == <span class="hljs-number">1</span>]<br>[<span class="hljs-number">1</span>] <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span> <span class="hljs-number">7</span> <span class="hljs-number">9</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>names()</code><br> 通过<code>names()</code>方法，给某一向量的元素加上<code>names</code>属性，并通过此属性访问到对应的值。</p>
+ <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; value &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)<br>&gt; names(value) &lt;- c(<span class="hljs-string">'one'</span>,<span class="hljs-string">'two'</span>,<span class="hljs-string">'three'</span>)<br>&gt; value<br>  one   two three <br>    <span class="hljs-number">1</span>     <span class="hljs-number">2</span>     <span class="hljs-number">3</span> <br>&gt; value[<span class="hljs-string">'one'</span>]<br>one <br>  <span class="hljs-number">1</span><br>&gt; value[c(<span class="hljs-string">'one'</span>,<span class="hljs-string">'three'</span>)]<br>  one three <br>    <span class="hljs-number">1</span>     <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h1 id="9-Operator-Precedence"><a href="#9-Operator-Precedence" class="headerlink" title="9 Operator Precedence"></a>9 Operator Precedence</h1><center><img src="/2021/12/15/R-learning-1/2.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Operator precedence - P. Teetor, R Cookbook</div>
+</center>
+
+<blockquote>
+<p>自上而下为<strong>高优先级</strong>至<strong>低优先级</strong></p>
+</blockquote>
+<hr>
+<h1 id="10-Functions"><a href="#10-Functions" class="headerlink" title="10 Functions"></a>10 Functions</h1><p>R中有自定义函数，语法如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-keyword">function</span>(p1,p2,<span class="hljs-keyword">...</span>) &#123;<br>    expr1<br>    expr2<br>    <span class="hljs-keyword">...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; v &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)<br>&gt; addOne &lt;- <span class="hljs-keyword">function</span>(x) <span class="hljs-keyword">return</span>(x+<span class="hljs-number">1</span>)<br>&gt; addOne(<span class="hljs-number">1</span>)<br>[<span class="hljs-number">1</span>] <span class="hljs-number">2</span><br>&gt; addOne(v)<br>[<span class="hljs-number">1</span>] <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
+<p>可以使用lapply()方法调用方法，如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; lapply(v,addOne)<br>[[<span class="hljs-number">1</span>]]<br>[<span class="hljs-number">1</span>] <span class="hljs-number">2</span><br><br>[[<span class="hljs-number">2</span>]]<br>[<span class="hljs-number">1</span>] <span class="hljs-number">3</span><br><br>[[<span class="hljs-number">3</span>]]<br>[<span class="hljs-number">1</span>] <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="11-R-Editor-Window"><a href="#11-R-Editor-Window" class="headerlink" title="11 R Editor Window"></a>11 R Editor Window</h1><p>除了在R的console中编辑代码，也可以在编辑窗口中全部编写完成再运行，如下：</p>
+<blockquote>
+<p>新建一个编辑窗口，输入全部代码；<br>鼠标放在某一行，按下cmd+enter，执行此行代码；<br>或选中某几行或全部代码，按下cmd+enter，执行选中的代码。</p>
+</blockquote>
+<center><img src="/2021/12/15/R-learning-1/3.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">R Editor Window</div>
+</center>
+
+
+<hr>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>P. Teetor, <em>R Cookbook</em>. Sebastopol: O’Reilly Media, Incorporated, 2011.</p>
 <hr>
 <h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>初次接触R语言，相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
@@ -355,8 +440,6 @@
                       <a class="hover-with-bg" href="/categories/R/">R</a>
                     
                       <a class="hover-with-bg" href="/categories/R/%E5%9F%BA%E7%A1%80/">基础</a>
-                    
-                      <a class="hover-with-bg" href="/categories/R/%E5%9F%BA%E7%A1%80/%E5%AE%89%E8%A3%85-%E8%BE%93%E5%87%BA-%E5%8F%98%E9%87%8F-%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">安装 输出 变量 基础数据分析</a>
                     
                   </div>
                 
