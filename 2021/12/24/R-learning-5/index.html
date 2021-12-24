@@ -1,0 +1,865 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;light&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Made by Mike_Zhang
+
+
+所有文章:R学习1-基础R学习2-I/OR学习3-Vector List MatrixR学习4-Data Frame
+
+
+1 Introductionplot function:
+1&amp;gt; plot(x)">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="">
+  
+  <title>R学习5-Graphics - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>UltraFish</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                所有文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/plus/">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/r.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="R学习5-Graphics">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-24 10:25" pubdate>
+        2021年12月24日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">R学习5-Graphics</h1>
+            
+            <div class="markdown-body">
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<blockquote>
+<p>所有文章:<br><a href="https://ultrafish.cn/2021/12/17/R-learning-1/" target="_blank" rel="noopener">R学习1-基础</a><br><a href="https://ultrafish.cn/2021/12/18/R-learning-2/" target="_blank" rel="noopener">R学习2-I/O</a><br><a href="https://ultrafish.cn/2021/12/21/R-learning-3/" target="_blank" rel="noopener">R学习3-Vector List Matrix</a><br><a href="https://ultrafish.cn/2021/12/22/R-learning-4/" target="_blank" rel="noopener">R学习4-Data Frame</a></p>
+</blockquote>
+<hr>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h1><p>plot function:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(x)<br></code></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="1-1-High-level-graphics-function"><a href="#1-1-High-level-graphics-function" class="headerlink" title="1.1 High-level graphics function"></a>1.1 High-level graphics function</h2><blockquote>
+<p>start a new graph, initialize graph window.</p>
+</blockquote>
+<p><code>plot()</code>: Plot function;</p>
+<p><code>boxplot</code>: create box plot;</p>
+<p><code>hist()</code>: create histogram;</p>
+<p><code>qqnorm()</code>: Quantile-quantile(Q-Q) plot;</p>
+<p><code>curve()</code>: function graph.</p>
+<h2 id="1-2-Low-level-graphics-function"><a href="#1-2-Low-level-graphics-function" class="headerlink" title="1.2 Low-level graphics function"></a>1.2 Low-level graphics function</h2><blockquote>
+<p>cannot start a new graph, add something to the graph, based on the High-level graphics function.</p>
+</blockquote>
+<p><code>points()</code>: add points;</p>
+<p><code>lines()</code>: add lines;</p>
+<p><code>abline</code>: add a straight line;</p>
+<p><code>segments()</code>: add line segments;</p>
+<p><code>polygon()</code>: add a closed polygon;</p>
+<p><code>text()</code> add text.</p>
+<blockquote>
+<p>Call High-level graphics function first, then call the low one.</p>
+</blockquote>
+<hr>
+<h1 id="2-Title-amp-Label"><a href="#2-Title-amp-Label" class="headerlink" title="2 Title &amp; Label"></a>2 Title &amp; Label</h1><p><strong>Parameter</strong>:</p>
+<p><code>main</code>: set title;<br><code>xlab</code>: set x-axis label;<br><code>ylab</code>: set y-axis label.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(dfrm, main=<span class="hljs-string">'This is title'</span>,xlab=<span class="hljs-string">'x-lab'</span>,ylab=<span class="hljs-string">'y-lab'</span>)<br></code></pre></td></tr></table></figure>
+<p>OR<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(dfrm,ann=False) <span class="hljs-comment"># ignore the annotation first</span><br>&gt; title(main=<span class="hljs-string">'This is title'</span>,xlab=<span class="hljs-string">'x-lab'</span>,ylab=<span class="hljs-string">'y-lab'</span>) <span class="hljs-comment"># use title() to set</span><br></code></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="3-Grid"><a href="#3-Grid" class="headerlink" title="3 Grid"></a>3 Grid</h1><blockquote>
+<ol>
+<li>set <code>type=&quot;n&quot;</code> in <code>plot()</code> function to hide the graph;</li>
+<li>use grid() function to show the grid;</li>
+<li>use low-level functions to draw the graph again.</li>
+</ol>
+</blockquote>
+<p>For example,</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(dfrm, main=<span class="hljs-string">'This is title'</span>,xlab=<span class="hljs-string">'x-lab'</span>,ylab=<span class="hljs-string">'y-lab'</span>,type=<span class="hljs-string">"n"</span>)<br>&gt; grid()<br>&gt; points(dfrm)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/2.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">grid()</div>
+</center>
+
+
+<hr>
+<h1 id="4-Legend"><a href="#4-Legend" class="headerlink" title="4 Legend"></a>4 Legend</h1><p>legend function:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">legend(x, y, labels, pch=c(<span class="hljs-string">"type1"</span>,<span class="hljs-string">"type2"</span>,<span class="hljs-keyword">...</span>)) <span class="hljs-comment"># Legend for points</span><br>legend(x, y, labels, lty=c(<span class="hljs-string">"type1"</span>,<span class="hljs-string">"type2"</span>,<span class="hljs-keyword">...</span>)) <span class="hljs-comment"># Legend for lines based on line type</span><br>legend(x, y, labels, lwd=c(<span class="hljs-string">"type1"</span>,<span class="hljs-string">"type2"</span>,<span class="hljs-keyword">...</span>)) <span class="hljs-comment"># Legend for lines based on line width</span><br>legend(x, y, labels, col=c(<span class="hljs-string">"type1"</span>,<span class="hljs-string">"type2"</span>,<span class="hljs-keyword">...</span>)) <span class="hljs-comment"># Legend for colors</span><br></code></pre></td></tr></table></figure>
+<p><code>x, y</code>: coordinates for legend box (top-left corner);<br><code>label</code>: vector of characters of legend;<br><em>last argument</em>: based on which species. </p>
+<p>For example,</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(dfrm, main=<span class="hljs-string">'This is title'</span>,xlab=<span class="hljs-string">'x-lab'</span>,ylab=<span class="hljs-string">'y-lab'</span>)<br>&gt; legend(<span class="hljs-number">1</span>,<span class="hljs-number">50</span>,<span class="hljs-string">'The Point'</span>,pch=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/3.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">legend()</div>
+</center>
+
+
+<hr>
+<h1 id="5-Scatter-Plot"><a href="#5-Scatter-Plot" class="headerlink" title="5 Scatter Plot"></a>5 Scatter Plot</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(x,y)<br></code></pre></td></tr></table></figure>
+<p><code>x,y</code>: two parallel vectors.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(dfrm)<br></code></pre></td></tr></table></figure>
+<p><code>dfrm</code>: a two column data frame.</p>
+<p>For example,</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; v1 &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>)<br>&gt; v2 &lt;- c(<span class="hljs-number">12</span>,<span class="hljs-number">15</span>,<span class="hljs-number">16</span>,<span class="hljs-number">5</span>,<span class="hljs-number">30</span>,<span class="hljs-number">20</span>,<span class="hljs-number">50</span>,<span class="hljs-number">60</span>,<span class="hljs-number">10</span>,<span class="hljs-number">25</span>)<br>&gt; dfrm &lt;- data.frame(<span class="hljs-string">'xVal'</span>=v1,<span class="hljs-string">'yVal'</span>=v2)<br>&gt; plot(dfrm)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/1.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">plot(dfrm)</div>
+</center>
+
+
+<h2 id="5-1-Multiple-Group-Scatter-Plot"><a href="#5-1-Multiple-Group-Scatter-Plot" class="headerlink" title="5.1 Multiple-Group Scatter Plot"></a>5.1 Multiple-Group Scatter Plot</h2><p>Set <code>pch</code> parameter in <code>plot()</code> function:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">plot(x,y,pch=name)<br></code></pre></td></tr></table></figure>
+<p>Example</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; dfrm<br>   name xVal yVal<br><span class="hljs-number">1</span>     a    <span class="hljs-number">1</span>   <span class="hljs-number">12</span><br><span class="hljs-number">2</span>     a    <span class="hljs-number">2</span>   <span class="hljs-number">15</span><br><span class="hljs-number">3</span>     a    <span class="hljs-number">3</span>   <span class="hljs-number">16</span><br><span class="hljs-number">4</span>     a    <span class="hljs-number">4</span>    <span class="hljs-number">5</span><br><span class="hljs-number">5</span>     a    <span class="hljs-number">5</span>   <span class="hljs-number">30</span><br><span class="hljs-number">6</span>     b    <span class="hljs-number">6</span>   <span class="hljs-number">20</span><br><span class="hljs-number">7</span>     b    <span class="hljs-number">7</span>   <span class="hljs-number">50</span><br><span class="hljs-number">8</span>     b    <span class="hljs-number">8</span>   <span class="hljs-number">60</span><br><span class="hljs-number">9</span>     b    <span class="hljs-number">9</span>   <span class="hljs-number">10</span><br><span class="hljs-number">10</span>    b   <span class="hljs-number">10</span>   <span class="hljs-number">25</span><br><br>&gt; with(dfrm,plot(xVal,yVal,pch=name))<br>&gt; <br>&gt; with(dfrm,legend(<span class="hljs-number">1</span>,<span class="hljs-number">50</span>,c(<span class="hljs-string">'for a'</span>,<span class="hljs-string">'for b'</span>),pch=name[<span class="hljs-number">5</span>:<span class="hljs-number">6</span>]))<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/4.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Multiple-Group</div>
+</center>
+
+<hr>
+<h2 id="5-2-Regression-Line-of-Scatter-Plot"><a href="#5-2-Regression-Line-of-Scatter-Plot" class="headerlink" title="5.2 Regression Line of Scatter Plot"></a>5.2 Regression Line of Scatter Plot</h2><p>Use <code>lm()</code> and <code>abline()</code> function:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; m &lt;- lm(v2~v1)<br>&gt; abline(m)<br></code></pre></td></tr></table></figure>
+<p>For example,</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; with(dfrm,plot(xVal,yVal,pch=name))<br>&gt; with(dfrm,legend(<span class="hljs-number">1</span>,<span class="hljs-number">50</span>,c(<span class="hljs-string">'for a'</span>,<span class="hljs-string">'for b'</span>),pch=name[<span class="hljs-number">5</span>:<span class="hljs-number">6</span>]))<br>&gt; m &lt;- lm(v2~v1)<br>&gt; abline(m)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/5.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Regression Line</div>
+</center>
+
+<hr>
+<h1 id="6-Bar-Chart"><a href="#6-Bar-Chart" class="headerlink" title="6 Bar Chart"></a>6 Bar Chart</h1><p><code>barplot()</code> function:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">barplot(c(height1,height2,<span class="hljs-keyword">...</span>))<br></code></pre></td></tr></table></figure>
+<p>For example,</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; barplot(v2, main=<span class="hljs-string">'Bar Chart'</span>,names.arg=c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>),<br>            xlab=<span class="hljs-string">'name'</span>,ylab=<span class="hljs-string">'yVal'</span>) <span class="hljs-comment"># names.arg for the argument of x-axis</span><br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/6.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Bar Chart</div>
+</center>
+
+<hr>
+<h2 id="6-1-Coloring"><a href="#6-1-Coloring" class="headerlink" title="6.1 Coloring"></a>6.1 Coloring</h2><p><code>col</code> parameter of <code>barplot()</code> function:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; barplot(v,col=<span class="hljs-string">'red'</span>)<br></code></pre></td></tr></table></figure>
+<p>For example,</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">barplot(v2, main=<span class="hljs-string">'Bar Chart'</span>,names.arg=c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>),<br>            xlab=<span class="hljs-string">'name'</span>,ylab=<span class="hljs-string">'yVal'</span>,col=(<span class="hljs-string">'red'</span>))<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/7.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Coloring</div>
+</center>
+
+<p><strong>Colour based on the data of graph:</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; rel.hts &lt;- (v2 - min(v2)) / (max(v2) - min(v2))<br>&gt; grays &lt;- gray(<span class="hljs-number">1</span> - rel.hts)<br>&gt; barplot(v2, main=<span class="hljs-string">'Bar Chart'</span>,names.arg=c(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>),<br>            xlab=<span class="hljs-string">'name'</span>,ylab=<span class="hljs-string">'yVal'</span>,col=grays)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/8.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Coloring</div>
+</center>
+
+<hr>
+<h1 id="7-Line"><a href="#7-Line" class="headerlink" title="7 Line"></a>7 Line</h1><p>Use <code>plot()</code> function:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(v1,v2,type=<span class="hljs-string">"l"</span>)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/9.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Line</div>
+</center>
+
+<hr>
+<h2 id="7-1-Line-Config"><a href="#7-1-Line-Config" class="headerlink" title="7.1 Line Config"></a>7.1 Line Config</h2><p><strong>Appearance of the line:</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs R">lty=<span class="hljs-string">"solid"</span> or lty=<span class="hljs-number">1</span> (default)<br>lty=<span class="hljs-string">"dashed"</span> or lty=<span class="hljs-number">2</span><br>lty=<span class="hljs-string">"dotted"</span> or lty=<span class="hljs-number">3</span><br>lty=<span class="hljs-string">"dotdash"</span> or lty=<span class="hljs-number">4</span><br>lty=<span class="hljs-string">"longdash"</span> or lty=<span class="hljs-number">5</span><br>lty=<span class="hljs-string">"twodash"</span> or lty=<span class="hljs-number">6</span><br>lty=<span class="hljs-string">"blank"</span> or lty=<span class="hljs-number">0</span> (inhibits drawing)<br></code></pre></td></tr></table></figure>
+<p><strong>Width of the line:</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(x, y, type = <span class="hljs-string">"l"</span>, lwd=<span class="hljs-number">3</span>) <span class="hljs-comment"># default = 1</span><br></code></pre></td></tr></table></figure>
+<p><strong>Colour of the line:</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(x, y, type = <span class="hljs-string">"l"</span>, col=<span class="hljs-string">"red"</span>) <span class="hljs-comment"># default = black</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="7-2-Multiple-Line"><a href="#7-2-Multiple-Line" class="headerlink" title="7.2 Multiple Line"></a>7.2 Multiple Line</h2><p>Use <code>xlim</code> and <code>ylim</code> to set the interval of graph first.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; xLim &lt;- range(c(x1,x2))<br>&gt; yLim &lt;- range(c(y1,y2))<br>&gt; plot(x1, y1, type=<span class="hljs-string">"l"</span>, xlim = xLim, ylim = yLim)<br>&gt; lines(x2, y2, type=<span class="hljs-string">"l"</span>) <span class="hljs-comment"># then use low-level function to add another line</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="7-3-Vertical-amp-Horizontal-Line"><a href="#7-3-Vertical-amp-Horizontal-Line" class="headerlink" title="7.3 Vertical &amp; Horizontal Line"></a>7.3 Vertical &amp; Horizontal Line</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; abline(v=a) <span class="hljs-comment"># vertical line at x = a</span><br>&gt; abline(h=b) <span class="hljs-comment"># horizontal line at h = b</span><br></code></pre></td></tr></table></figure>
+<p>For example:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; plot(v1,v2,type=<span class="hljs-string">"l"</span>)<br>&gt; abline(v=<span class="hljs-number">3</span>)<br>&gt; abline(h=<span class="hljs-number">40</span>)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/10.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Vertical & Horizontal Line</div>
+</center>
+
+<hr>
+<h1 id="8-Box-Plot"><a href="#8-Box-Plot" class="headerlink" title="8 Box Plot"></a>8 Box Plot</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; boxplot(v2) <span class="hljs-comment"># v2 is a numeric vector</span><br></code></pre></td></tr></table></figure>
+<p>For example,</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; v2<br> [<span class="hljs-number">1</span>] <span class="hljs-number">12</span> <span class="hljs-number">15</span> <span class="hljs-number">16</span>  <span class="hljs-number">5</span> <span class="hljs-number">30</span> <span class="hljs-number">20</span> <span class="hljs-number">50</span> <span class="hljs-number">60</span> <span class="hljs-number">10</span> <span class="hljs-number">25</span><br>&gt; boxplot(v2)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/11.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Box Plot</div>
+</center>
+
+<h1 id="9-Histogram"><a href="#9-Histogram" class="headerlink" title="9 Histogram"></a>9 Histogram</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; hist(v2) <span class="hljs-comment"># v2 is a numeric vector</span><br></code></pre></td></tr></table></figure>
+<p>For example:</p>
+<center><img src="/2021/12/24/R-learning-5/12.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Histogram</div>
+</center>
+
+<hr>
+<h2 id="9-1-Density-Estimated-Line"><a href="#9-1-Density-Estimated-Line" class="headerlink" title="9.1 Density Estimated Line"></a>9.1 Density Estimated Line</h2><p>Use the <code>density()</code> function:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; hist(v2,prob=<span class="hljs-literal">T</span>)<br>&gt; lines(density(v2))<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/13.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Density Estimated Line</div>
+</center>
+
+
+<hr>
+<h2 id="9-2-Discrete-Histogram"><a href="#9-2-Discrete-Histogram" class="headerlink" title="9.2 Discrete Histogram"></a>9.2 Discrete Histogram</h2><p>Use <code>plot()</code> function and set <code>type</code> parameter.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; v &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>)<br>&gt; plot(table(v),type=<span class="hljs-string">"h"</span>,lwd=<span class="hljs-number">5</span>)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/14.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Discrete Histogram</div>
+</center>
+
+<hr>
+<h1 id="10-Function-Graphics"><a href="#10-Function-Graphics" class="headerlink" title="10 Function Graphics"></a>10 Function Graphics</h1><p>Use <code>curve()</code> function:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; curve(sin,-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/15.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">sin Graphics</div>
+</center>
+
+<p>OR</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; f &lt;- <span class="hljs-keyword">function</span>(x) <span class="hljs-number">1</span>/x<br>&gt; curve(f,-<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)<br>&gt; abline(v=<span class="hljs-number">0</span>)<br>&gt; abline(h=<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/16.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Function Graphics</div>
+</center>
+
+
+<hr>
+<h1 id="11-Plot-Display"><a href="#11-Plot-Display" class="headerlink" title="11 Plot Display"></a>11 Plot Display</h1><p>Set <code>mfrow</code> parameter to divide the window into a Matrix,<br>then call <code>plot()</code> function to fill the window.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R">&gt; par(mfrow=(c(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)))<br>&gt; plot(table(v),type=<span class="hljs-string">"h"</span>,lwd=<span class="hljs-number">5</span>)<br>&gt; plot(table(v2),type=<span class="hljs-string">"h"</span>,lwd=<span class="hljs-number">5</span>)<br>&gt; boxplot(v2)<br>&gt; plot(v1,v2,type=<span class="hljs-string">"l"</span>)<br></code></pre></td></tr></table></figure>
+<center><img src="/2021/12/24/R-learning-5/17.png" srcset="/img/loading.gif" lazyload width="60%" height="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Plot Display</div>
+</center>
+
+<blockquote>
+<p><code>mfrow</code> parameter fills window <strong>row by row</strong>, while <code>mfcol</code> fills <strong>column by column</strong>.</p>
+</blockquote>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>P. Teetor, <em>R Cookbook</em>. Sebastopol: O’Reilly Media, Incorporated, 2011.</p>
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>R语言相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">感谢你的支持</div></center>
+            </div>
+            <hr>           
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/R/">R</a>
+                    
+                      <a class="hover-with-bg" href="/categories/R/Graphics/">Graphics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+                    
+                      <a class="hover-with-bg" href="/tags/R/">R</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/22/R-learning-4/">
+                        <span class="hidden-mobile">R学习4-Data Frame</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","placeholder":"说点什么吧(记得写上你的昵称哦)","path":"window.location.pathname","avatar":"mp","meta":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"requiredFields":["nick"]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <!-- <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>-->
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备2020036956号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>浙公网安备 33042102000661号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+  <div>
+    &copy; 2020-2021 Mike_Zhang
+  </div>
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
