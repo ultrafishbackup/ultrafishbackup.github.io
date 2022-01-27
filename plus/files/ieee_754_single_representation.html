@@ -48,6 +48,7 @@ a:hover{ text-decoration:none}
 <body>
 <script>
 	function ieee754(){
+		document.getElementById("leading").value = "1.";
 		var out = "";
 		var sBit = '';
 		var eBit = '';
@@ -103,6 +104,7 @@ a:hover{ text-decoration:none}
 		//document.getElementById("in2f").value = parseInt(parseInt(fBit) * Math.pow(10,23-(fBit.length)));
 		
 		if (eBit == "11111111"){
+			document.getElementById("leading").value = "";
 			if (parseInt(fBit,2) != 0){
 				document.getElementById("in1").value = "NaN";
 			}
@@ -119,14 +121,42 @@ a:hover{ text-decoration:none}
 			}
 		}
 		else if (parseInt(eBit,2) == 0){
-			if (sBit == '1'){
+			document.getElementById("leading").value = "0.";
+			if (sBit == '1' && parseInt(fBit,2) == 0){
 					document.getElementById("in1").value = "-0";
 				}
-			else if (sBit == '0'){
+			else if (sBit == '0' && parseInt(fBit,2) == 0){
 					document.getElementById("in1").value = "0";
 				}
 			else{
-					document.getElementById("in1").value = "Invalid Sign bit(0/1)";
+					i = 0;
+					while(f.length<23){
+							if (i >= fBit.length){
+								f.push('0');
+							}
+							else {
+								f.push(fBit[i]);
+							}
+							i = i + 1
+						}
+					document.getElementById("in2f").value = f.join("");
+
+					var eVal = 1 - 127;
+
+					var fVal = parseInt(fBit,2)/Math.pow(2,fBit.length);
+
+					out = fVal*Math.pow(2,eVal);
+
+					if (sBit == '1'){
+						out = 0-out;
+					}
+					else if (sBit == "0"){
+						out = out;
+					}
+					else{
+						out = "Invalid Sign bit(0/1)";
+					}
+					document.getElementById("in1").value = out;
 				}
 		}
 		else if(eBit.length>8){
@@ -136,7 +166,7 @@ a:hover{ text-decoration:none}
 			document.getElementById("in1").value = "Invalid Fraction (23-bit)"
 		}
 		else{
-
+			document.getElementById("leading").value = "1.";
 			i = 0;
 			while(f.length<23){
 					if (i >= fBit.length){
@@ -187,6 +217,8 @@ a:hover{ text-decoration:none}
 		return outList.join("");
 	}
 	function clearAll(){
+		document.getElementById("leading").value = "";
+		document.getElementById("leading").value = "1.";
 		document.getElementById("in1").value = "";
 		document.getElementById("in2s").value = "";
 		document.getElementById("in2e").value = "";
@@ -220,7 +252,7 @@ a:hover{ text-decoration:none}
 		  	<br><strong>Dec</strong>: <input id="in1" type="text" name="in1" placeholder="Enter a decimal number">
 			<br><br><button onClick="ieee754()">to Bin</button> <button onClick="clearAll()">CLEAR</button><br><br>
 				 <br>
-			<strong>Bin</strong>: &nbsp;<input id="in2s" type="text" name="in2" size="4" placeholder="Sign">&nbsp;&nbsp;&nbsp;&nbsp;<input id="in2e" type="text" name="in2" size="8" placeholder="Exponent">&nbsp;&nbsp; <br> 1.<input id="in2f" type="text" name="in2" size="24" placeholder="Fraction"><br><br><button onClick="ieee754_re()">to Dec</button> <button onClick="clearAll()">CLEAR</button><br><br>*zero-exponent with nonzero-fraction not included</center>
+			<strong>Bin</strong>: &nbsp;<input id="in2s" type="text" name="in2" size="4" placeholder="Sign">&nbsp;&nbsp;&nbsp;&nbsp;<input id="in2e" type="text" name="in2" size="8" placeholder="Exponent">&nbsp;&nbsp; <br> <input id="leading" type="text" name="leading" size="1" placeholder="1." style="color:red"><input id="in2f" type="text" name="in2" size="24" placeholder="Fraction"><br><br><button onClick="ieee754_re()">to Dec</button> <button onClick="clearAll()">CLEAR</button><br></center>
 				  <p></p>
 			</td>
 		  </tr>
