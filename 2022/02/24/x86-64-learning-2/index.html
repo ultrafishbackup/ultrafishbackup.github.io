@@ -1,0 +1,953 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;light&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Made by Mike_Zhang
+
+
+Computer System 相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representationUltraFish Plus - 有符号二进制数转换器 Signed binary number convertorY86-">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="">
+  
+  <title>x86-64学习2-Control - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>UltraFish</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                所有文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/plus/">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/x8664.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="x86-64学习2-Control">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-24 21:11" pubdate>
+        2022年2月24日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">x86-64学习2-Control</h1>
+            
+            <div class="markdown-body">
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<blockquote>
+<p>Computer System 相关文章:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">有符号二进制数表示方法 Signed binary number representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" target="_blank" rel="noopener">浮点数二进制数表示方法 Floating point numbers representation</a><br><a href="http://ultrafish.cn/plus/files/signed_binary_number_representation.html" target="_blank" rel="noopener">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a><br><a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/" target="_blank" rel="noopener">Y86-64学习1-State &amp; Instruction &amp; Basic Encoding</a><br><a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/" target="_blank" rel="noopener">Y86-64学习2-Y86-64 SEQ Stages</a><br><a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/" target="_blank" rel="noopener">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a></p>
+</blockquote>
+<hr>
+<h1 id="1-Condition-Codes"><a href="#1-Condition-Codes" class="headerlink" title="1 Condition Codes"></a>1 Condition Codes</h1><blockquote>
+<p>Condition Codes(CC): Describe <strong>attributes</strong> of the <strong>most recent</strong> arithmetic or logic operation. </p>
+</blockquote>
+<ul>
+<li><code>CF</code>: <strong>Carry Flag</strong>, the <strong>carry out</strong> of the MSB, to detect <strong>overflow for unsigned operations</strong>;</li>
+<li><code>ZF</code>: <strong>Zero Flag</strong>, Yielding <strong>zero</strong>;</li>
+<li><code>SF</code>: <strong>Sign Flag</strong>, Yielding a <strong>negative value</strong>;</li>
+<li><code>OF</code>: <strong>Overflow Flag</strong>, <strong>overflow due to two’s complement</strong>, negative or positive. </li>
+</ul>
+<a id="more"></a>
+<center>
+<img src="/2022/02/24/x86-64-learning-2/1.png" srcset="/img/loading.gif" lazyload width="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Integer arithmetic operations (CS: APP)</div>
+</center>
+
+<p>In above <strong>Integer arithmetic operations</strong>:</p>
+<ul>
+<li>For <code>leaq</code>: do not update to CC, only compute the address;</li>
+<li>For others: causes the CC to be set,<ul>
+<li>For <strong>logical operations</strong> (e.g. <code>XOR</code>), <code>CF</code> and <code>OF</code> set to <strong>0</strong>;</li>
+<li>For <strong>shift operations</strong>,<code>CF</code> set to the <strong>last bit shifted out</strong>; <code>OF</code> set to <strong>0</strong>;</li>
+<li>For <code>INC</code> and <code>DEC</code>: <code>OF</code> and <code>ZF</code> will be set, NO change to <code>CF</code>. </li>
+</ul>
+</li>
+</ul>
+<hr>
+<center>
+<img src="/2022/02/24/x86-64-learning-2/2.png" srcset="/img/loading.gif" lazyload width="50%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Comparison and test instructions (CS: APP)</div>
+</center>
+
+<blockquote>
+<p><code>CMP</code> and <code>TEST</code> set CC <strong>without changing any other registers</strong>:</p>
+</blockquote>
+<p><code>CMP</code>:</p>
+<ul>
+<li>Set CC based on the <strong>difference</strong>;</li>
+<li>Same as <code>SUB</code>, without changing the destination;</li>
+<li><code>CMP S1, S2</code>: <strong><code>S2-S1</code></strong>, in <strong>reverse</strong> order;</li>
+<li><code>ZF</code>: <strong>0</strong> means two operands are <strong>equal</strong>;</li>
+<li>Other flags: the ordering relation between them;</li>
+</ul>
+<p><code>TEST</code>:</p>
+<ul>
+<li>Same as <code>AND</code>, without changing the destination;</li>
+<li>Two <strong>same operands</strong>: to detect whether it is <strong>negative, zero or positive</strong>;</li>
+<li><strong>Marked operand</strong>: to detect some <strong>specific</strong> bits.</li>
+</ul>
+<hr>
+<h1 id="2-Accessing-Condition-Codes"><a href="#2-Accessing-Condition-Codes" class="headerlink" title="2 Accessing Condition Codes"></a>2 Accessing Condition Codes</h1><center>
+<img src="/2022/02/24/x86-64-learning-2/3.png" srcset="/img/loading.gif" lazyload width="60%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">The SET instructions (CS: APP)</div>
+</center>
+
+<p>Using the CC:</p>
+<ul>
+<li>Set <strong>single bit</strong> to 0 or 1 based on the combinations of the CC;</li>
+<li>Conditionally jump;</li>
+<li>Conditionally transfer data. </li>
+</ul>
+<p>For the first case, the SET instructions:</p>
+<ul>
+<li><strong>Destination</strong>: low-order <strong>single-byte</strong> register, or single-byte memory location;<ul>
+<li>Will <strong>not alter the remaining bytes</strong>, need to <strong>clear upper bits</strong> to 0, using e.g. <code>movzbl</code>. </li>
+</ul>
+</li>
+</ul>
+<p><strong>[Example]</strong><br>For <code>a &lt; b</code> expression in C:</p>
+<center>
+<img src="/2022/02/24/x86-64-learning-2/4.png" srcset="/img/loading.gif" lazyload width="70%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Example of the SET instructions (CS: APP)</div>
+</center>
+
+
+<hr>
+<h1 id="3-Jump-Instructions"><a href="#3-Jump-Instructions" class="headerlink" title="3 Jump Instructions"></a>3 Jump Instructions</h1><center>
+<img src="/2022/02/24/x86-64-learning-2/5.png" srcset="/img/loading.gif" lazyload width="60%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">The jump instructions (CS: APP)</div>
+</center>
+
+<blockquote>
+<p>Jump instruction make the execution to a completely <strong>new position</strong> in the program. </p>
+</blockquote>
+<ul>
+<li>The assembler encode the jump target which is the <strong>destination address</strong> into the jump instruction. </li>
+<li><code>jmp</code>: unconditionally jump, <strong>direct</strong> and <strong>indirect</strong> jump:<ul>
+<li><strong>direct</strong> jump: jump target encoded in the instruction, giving the <strong>target label</strong>, e.g.<ul>
+<li><code>jmp .L1</code>;</li>
+</ul>
+</li>
+<li><strong>indirect</strong> jump: jump target read from <strong>register or memory address</strong>, using <code>*</code> following by an operand specifier, e.g.,<ul>
+<li><code>jmp *%rax</code>: <strong>register</strong> jump target;</li>
+<li><code>jmp *(%rax)</code>: <strong>memory</strong> location target;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>others ara <strong>conditionally</strong> jump, based on some combination of the CC. </li>
+</ul>
+<hr>
+<h1 id="4-Conditional-Branches-with-Conditional-Control"><a href="#4-Conditional-Branches-with-Conditional-Control" class="headerlink" title="4 Conditional Branches with Conditional Control"></a>4 Conditional Branches with Conditional Control</h1><center>
+<img src="/2022/02/24/x86-64-learning-2/6.png" srcset="/img/loading.gif" lazyload width="100%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Compilation of conditional statements (CS: APP)</div>
+</center>
+
+<p><strong>General form of if-else statement in C</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">if (test-expr)<br>    then-statement<br>else<br>    else-statement<br></code></pre></td></tr></table></figure>
+<p><strong>goto</strong> code:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs text">    t &#x3D; test-statement<br>    if (!t)<br>        goto false<br>    then-statement<br>    got done<br>false:<br>    else-statement<br>done:<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Only one of the two branch statement will be executed;</li>
+<li>The complier generates separated blocks of code for <code>then-statement</code> and <code>else-statement</code>;</li>
+<li>Drawbacks: this mechanism is simple and general, but very inefficient on modern processors.</li>
+</ul>
+<hr>
+<h1 id="5-Conditional-Branches-with-Conditional-Moves"><a href="#5-Conditional-Branches-with-Conditional-Moves" class="headerlink" title="5 Conditional Branches with Conditional Moves"></a>5 Conditional Branches with Conditional Moves</h1><center>
+<img src="/2022/02/24/x86-64-learning-2/7.png" srcset="/img/loading.gif" lazyload width="100%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Compilation of conditional statements using conditional assignment (CS: APP)</div>
+</center>
+
+<ul>
+<li>Via conditional transfer of data;</li>
+<li>Computes both outcomes of a conditional operation and selected based on the condition holding;</li>
+<li>Achieving high performance through pipelining in modern processor;<ul>
+<li>Overlapping steps of success instructions;</li>
+<li>Determining the sequence of instruction well ahead of time to keep the pipeline full;</li>
+</ul>
+</li>
+</ul>
+<center>
+<img src="/2022/02/24/x86-64-learning-2/8.png" srcset="/img/loading.gif" lazyload width="80%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">The conditional move instructions (CS: APP)</div>
+</center>
+
+<ul>
+<li><code>S</code>, <code>D</code>: 16, 32, 64-bit long, NO Single-bit;</li>
+<li>The assembler encodes the operand <strong>length</strong> based on the name of <strong>destination</strong> register;</li>
+<li>No prediction: Just 1. read the source value; 2. check the CC; 3. update the destination register or keep no change;</li>
+</ul>
+<p><strong>General form of conditional expression and assignment</strong>:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">v = test-expr ? then-expr : <span class="hljs-keyword">else</span>-expr;<br></code></pre></td></tr></table></figure>
+<p><strong>Goto code</strong>:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c">    <span class="hljs-keyword">if</span> (!test-expr)<br>        <span class="hljs-keyword">goto</span> <span class="hljs-literal">false</span>;<br>    v = then-expr;<br>    <span class="hljs-keyword">goto</span> done;<br><span class="hljs-literal">false</span>:<br>    v = <span class="hljs-keyword">else</span>-expr;<br>done:<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Both <code>then-expr</code> and <code>else-expr</code> will be executed, finally based on the <code>test-expr</code>. </li>
+</ul>
+<p><strong>Assembly code example</strong>:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">v = then-expr;<br>ve = <span class="hljs-keyword">else</span>-expr;<br>t = test-expr;<br><span class="hljs-keyword">if</span> (!t) v = ve;<br></code></pre></td></tr></table></figure>
+<hr>
+<p><strong>Bad Cases</strong> for Conditional Move:</p>
+<ul>
+<li><p>Expensive Computations</p>
+<ul>
+<li><code>val = Test(x) ? Hard1(x) : Hard2(x);</code></li>
+<li>Both function need to be executed;</li>
+<li>Only use it when computations are very simple;</li>
+</ul>
+</li>
+<li><p>Risky Computation</p>
+<ul>
+<li><code>val = p ? *p : 0;</code></li>
+<li>Both value get computed;</li>
+<li>May be <code>*0</code>, null pointer, error!</li>
+<li>May have undesirable effect. </li>
+</ul>
+</li>
+<li><p>With side effects</p>
+<ul>
+<li><code>val = x &gt; 0 ? x*=7 : x+= 3;</code></li>
+<li>Both value get computed;</li>
+<li>Same variable got change;</li>
+<li>MUST be side-effect free!</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="6-Loop-Implementations"><a href="#6-Loop-Implementations" class="headerlink" title="6 Loop Implementations"></a>6 Loop Implementations</h1><h2 id="6-1-Do-While-Loops"><a href="#6-1-Do-While-Loops" class="headerlink" title="6.1 Do-While Loops"></a>6.1 Do-While Loops</h2><p>General form of a <code>do-while</code> statement:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">do</span><br>    body-statement<br>    <span class="hljs-keyword">while</span>(test-expr);<br></code></pre></td></tr></table></figure>
+<p><strong>Goto</strong> code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c">loop:<br>    body-statement<br>    t = test-expr;<br>    <span class="hljs-keyword">if</span> (t)<br>        <span class="hljs-keyword">goto</span> loop;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>body-statement</code> executed at least once;</li>
+</ul>
+<center>
+<img src="/2022/02/24/x86-64-learning-2/9.png" srcset="/img/loading.gif" lazyload width="90%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Code for do–while version of factorial program (CS: APP)</div>
+</center>
+
+<ul>
+<li><ol>
+<li>Initialization of <code>result</code>;</li>
+</ol>
+</li>
+<li><ol>
+<li>Execute the body of the loop;</li>
+</ol>
+</li>
+<li><ol>
+<li>Test the condition, then do the jump or not. </li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="6-2-While-Loops"><a href="#6-2-While-Loops" class="headerlink" title="6.2 While Loops"></a>6.2 While Loops</h2><p>General form of a <code>while</code> statement:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">while</span>(test-expr)<br>    body-statement<br></code></pre></td></tr></table></figure>
+<ul>
+<li>The <code>test-expr</code> evaluated before the loop body, the loop may be terminated before first execution of the body. </li>
+</ul>
+<hr>
+<h3 id="6-2-1-Jump-to-middle-Translation"><a href="#6-2-1-Jump-to-middle-Translation" class="headerlink" title="6.2.1 Jump-to-middle Translation"></a>6.2.1 Jump-to-middle Translation</h3><p>Performs the initial test via <strong>jumping to the test</strong> at then end of the loop, then go to the loop body if holds. </p>
+<p><strong>Goto</strong> code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c">    <span class="hljs-keyword">goto</span> test;<br>loop:<br>    body-statement<br>test:<br>    t = test-expr;<br>    <span class="hljs-keyword">if</span> (t)<br>        <span class="hljs-keyword">goto</span> loop;<br></code></pre></td></tr></table></figure>
+<center>
+<img src="/2022/02/24/x86-64-learning-2/10.png" srcset="/img/loading.gif" lazyload width="90%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">C and assembly code for while version of factorial using jump-to-middle translation (CS: APP)</div>
+</center>
+
+<ul>
+<li>Test <code>n</code> <strong>before</strong> modifying the value of <code>n</code> or <code>result</code>. </li>
+</ul>
+<hr>
+<h3 id="6-2-2-Guarded-do-Translation"><a href="#6-2-2-Guarded-do-Translation" class="headerlink" title="6.2.2 Guarded-do Translation"></a>6.2.2 Guarded-do Translation</h3><p>It transfer the <code>while</code> loop into a <code>do-while</code> loop, <strong>test the condition at first</strong>, jump to skip the loop body if test fails. </p>
+<p><code>while</code> to <code>do-while</code> code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c">t = test-expr;<br><span class="hljs-keyword">if</span> (!t)<br>    <span class="hljs-keyword">goto</span> done;<br><span class="hljs-keyword">do</span><br>    body-statement<br>    <span class="hljs-keyword">while</span> (test-expr);<br>done:<br></code></pre></td></tr></table></figure>
+<p><strong>Goto</strong> code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">t = test-expr;<br><span class="hljs-keyword">if</span> (!t)<br>    <span class="hljs-keyword">goto</span> done;<br>loop:<br>    body-statement<br>    t = test-expr;<br>    <span class="hljs-keyword">if</span> (t)<br>        <span class="hljs-keyword">goto</span> loop;<br>done:<br></code></pre></td></tr></table></figure>
+<center>
+<img src="/2022/02/24/x86-64-learning-2/11.png" srcset="/img/loading.gif" lazyload width="90%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">C and assembly code for while version of factorial using guarded-do translation (CS: APP)</div>
+</center>
+
+<hr>
+<h2 id="6-3-For-Loops"><a href="#6-3-For-Loops" class="headerlink" title="6.3 For Loops"></a>6.3 For Loops</h2><p><strong>General form of a <code>for</code> loop:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">for</span> (init-expr; test-expr; update-expr)<br>    body-statement<br></code></pre></td></tr></table></figure>
+<p><strong>Transfer to <code>while</code> loop:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c">init-expr;<br><span class="hljs-keyword">while</span> (test-expr) &#123;<br>    body-statement<br>    update-expr;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Jump-to-middle</strong> goto code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">    init-expr;<br>    <span class="hljs-keyword">goto</span> test;<br>loop:<br>    body-statement<br>    update-expr;<br>test:<br>    t = test-expr;<br>    <span class="hljs-keyword">if</span> (t)<br>        <span class="hljs-keyword">goto</span> loop;<br></code></pre></td></tr></table></figure>
+<p><strong>Guarded-do</strong> goto code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c">    init-expr;<br>    t = test-expr;<br>    <span class="hljs-keyword">if</span> (!t)<br>        <span class="hljs-keyword">goto</span> done;<br>loop:<br>    body-statement<br>    update-expr;<br>    t = test-expr;<br>    <span class="hljs-keyword">if</span> (t)<br>        <span class="hljs-keyword">goto</span> loop;<br>done:<br></code></pre></td></tr></table></figure>
+<p><strong>[Example]</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">fact_for</span><span class="hljs-params">(<span class="hljs-keyword">long</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">long</span> i;<br>    <span class="hljs-keyword">long</span> result = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">2</span>; i &lt;= n; i++)<br>        result *= i;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Transfer to <code>while</code> loop:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">fact_for_while</span><span class="hljs-params">(<span class="hljs-keyword">long</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">long</span> i = <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">long</span> result = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (i &lt;= n) &#123;<br>        result *= i;<br>        i++;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Jump-to-middle</strong> goto code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">fact_for_jm_goto</span><span class="hljs-params">(<span class="hljs-keyword">long</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">long</span> i = <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">long</span> result = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">goto</span> test;<br>loop:<br>    result *= i;<br>    i++;<br>test:<br>    <span class="hljs-keyword">if</span> (i &lt;= n)<br>        <span class="hljs-keyword">goto</span> loop;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Assembly</strong> code:</p>
+<center>
+<img src="/2022/02/24/x86-64-learning-2/12.png" srcset="/img/loading.gif" lazyload width="80%">
+</center>
+
+<hr>
+<h1 id="7-Switch-Implementations"><a href="#7-Switch-Implementations" class="headerlink" title="7 Switch Implementations"></a>7 Switch Implementations</h1><center>
+<img src="/2022/02/24/x86-64-learning-2/13.png" srcset="/img/loading.gif" lazyload width="90%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Example switch statement and its translation into extended C (CS: APP)</div>
+</center>
+
+<center>
+<img src="/2022/02/24/x86-64-learning-2/14.png" srcset="/img/loading.gif" lazyload width="90%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Assembly code for switch statement (CS: APP)</div>
+</center>
+<center>
+<img src="/2022/02/24/x86-64-learning-2/15.png" srcset="/img/loading.gif" lazyload width="60%">
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">Jump Table (CS: APP)</div>
+</center>
+
+<ul>
+<li>Jump Table: <code>jt[i]</code> is the address of a code segment will be accessed when the switch index is <code>i</code>;</li>
+<li><strong>Key step</strong> is to access the code location through the jump table (see in <font color="RED"> RED BOX </font>);</li>
+<li>Three cases:<ul>
+<li><ol>
+<li>Test whether the switch index is out of the range, for the missing cases, just jump to the default case (<code>loc_def</code>) for case 101 and 105;</li>
+</ol>
+</li>
+<li><ol>
+<li>Duplicate case, assign the same code label(<code>loc_D</code>) for the same entries (e.g. 104 and 106);</li>
+</ol>
+</li>
+<li><ol>
+<li>Fall-through case, for 102 to 103, omitting the <code>jmp</code> instruction at the end of case 102. </li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>B. Randal, D. R. O’Hallaron, <em>Computer systems : a programmer’s perspective</em>, Third edition. Boston: Pearson, 2016.</p>
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>x86-64相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">感谢你的支持</div></center>
+
+            </div>
+            <hr>           
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Computer-System/">Computer System</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Computer-System/Asmb5/">Asmb5</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Computer-System/Asmb5/x86-64/">x86-64</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Computer-System/Asmb5/x86-64/Control/">Control</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Computer-System/">Computer System</a>
+                    
+                      <a class="hover-with-bg" href="/tags/x86-64/">x86-64</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/02/06/x86-64-learning-1/">
+                        <span class="hidden-mobile">x86-64学习1-Introduction & Data Formats & Information Accessing & Arithmetic Logical Operation</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","placeholder":"说点什么吧(记得写上你的昵称哦)","path":"window.location.pathname","avatar":"mp","meta":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"requiredFields":["nick"]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <!-- <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>-->
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备2020036956号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>浙公网安备 33042102000661号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+  <div>
+    &copy; 2020-2022 Mike_Zhang
+  </div>
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
