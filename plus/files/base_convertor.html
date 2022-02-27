@@ -52,7 +52,7 @@ a:hover{ text-decoration:none}
 	function convert(){
 		if (document.getElementById("inFrom").value=="") {
 			document.getElementById("inTo").value = "";
-			document.getElementById("inFrom").style="height: 25px; width: 250px;background-color: #ffffff";
+			document.getElementById("inFrom").style="height: 25px; width: 150px;background-color: #ffffff";
 			
 		}
 		else {
@@ -63,16 +63,16 @@ a:hover{ text-decoration:none}
 		var str = num+'';
 		
 		for (var i=0; i<str.length;i++) {
-			if (parseInt(str.charAt(i))>= parseInt(fromBase)) {flag = false; break;}
+			if ((str.charAt(i)).charCodeAt()<48||(str.charAt(i)).charCodeAt()>57||(parseInt(str.charAt(i))>= parseInt(fromBase))) {flag = false; break;}
 		}
 		
 		if (flag == false) {
-			document.getElementById("inFrom").style="height: 25px; width: 250px;background-color: transparent";
+			document.getElementById("inFrom").style="height: 25px; width: 150px;background-color: transparent";
 			
-			document.getElementById("inTo").value = "NaN, invalid bits in the base!";
+			document.getElementById("inTo").value = "NaN, invalid bits!";
 		}
 		else {
-			document.getElementById("inFrom").style="height: 25px; width: 250px;background-color: #ffffff";
+			document.getElementById("inFrom").style="height: 25px; width: 150px;background-color: #ffffff";
 			
 		var toBase = document.getElementById("toSelector").value;
 		var toResult = parseInt(num,fromBase).toString(toBase);
