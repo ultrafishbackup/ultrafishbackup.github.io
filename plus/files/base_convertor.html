@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="ultrafishplus_wbg.png">
+<title>多进制整数转换-Multiple Bases Unsigned Integer Convertor</title>
+<link href="wordColor.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.wordColor {
+    text-align: center;
+    font-size: 18px;
+}
+.wordsColor {
+    font-size: 16px;
+    color: #000000;
+}
+.textColor {
+    font-size: 25px;
+    color: #000000;
+	font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+}
+.ultrafishColor {
+    font-size: 16px;
+    color: #000000;
+	font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+}
+.logoStyle {
+    text-align: left;
+}
+.bottomStyle {
+    color: #404040;
+    font-size: 12px;
+}
+.hiStyle {
+    font-size: 65px;
+}
+	.shadowTable{
+	box-shadow:15px 15px 0px #444; border-spacing:15px;
+	}
+.footer{font-size: 12px;
+    font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+    text-shadow: 0 1px #fff;}
+a{ text-decoration:none} 
+a:hover{ text-decoration:none}
+</style>
+
+</head>
+
+<body>
+	
+<script>
+	function convert(){
+		if (document.getElementById("inFrom").value=="") {
+			document.getElementById("inTo").value = "";
+			document.getElementById("inFrom").style="height: 25px; width: 250px;background-color: #ffffff";
+			
+		}
+		else {
+			var num = document.getElementById("inFrom").value;
+		var fromBase = document.getElementById("fromSelector").value;
+		
+		var flag = true;
+		var str = num+'';
+		
+		for (var i=0; i<str.length;i++) {
+			if (parseInt(str.charAt(i))>= parseInt(fromBase)) {flag = false; break;}
+		}
+		
+		if (flag == false) {
+			document.getElementById("inFrom").style="height: 25px; width: 250px;background-color: transparent";
+			
+			document.getElementById("inTo").value = "NaN, invalid bits in the base!";
+		}
+		else {
+			document.getElementById("inFrom").style="height: 25px; width: 250px;background-color: #ffffff";
+			
+		var toBase = document.getElementById("toSelector").value;
+		var toResult = parseInt(num,fromBase).toString(toBase);
+		
+		document.getElementById("inTo").value = toResult;
+		}
+		}
+		
+	}
+
+	function clearAll(){
+		document.getElementById("inFrom").value = "";
+		document.getElementById("inTo").value = "";
+	}
+	
+	
+</script>
+<table class="shadowTable" width="90%" border="0" bgcolor="#E3E3E3" align="center">
+  <tbody>
+    <tr>
+      <td width="80%" align="center" valign="top" bgcolor="#E3E3E3" class="logoStyle">
+		  <h1><a href="https://ultrafish.cn/plus"><img src="../images/ultrafishplus_hor.png" alt="" width="200" height="59" align="top"/></a>
+		  </h1>
+		</td>
+		
+		<td width ="20%" align="center" valign="top" bgcolor="#E3E3E3" class="logoStyle">
+			<h1  align="center"><a class="ultrafishColor" href="https://ultrafish.cn"><img src="../images/ultrafish.png" height="48" alt="" align="center"/></a></h1>
+		</td>
+    </tr>
+  </tbody>
+</table>
+<table width="90%" border="0" align="center">
+  <tbody>
+   
+      <tr align="center"><p class="wordColor" >&nbsp;</p>
+       <p id="p1" class="wordColor"><strong>多进制整数转换<br>Multiple Bases Unsigned Integer Convertor</strong></p>
+
+	  </tr>
+	  </tbody>
+	  </table>
+	  <table width="80%" border="0" align="center">
+		  <tbody>
+			<tr>
+			  <td class="shadowTable" bgcolor="#E3E3E3">
+				  <center>
+		  	<br><strong>From</strong>: 
+					  <input id="inFrom" type="text" name="inFrom" placeholder="Please enter" style="height: 25px; width: 250px;background-color: #ffffff" oninput="convert()" >
+					  <strong>base</strong>:
+					  <select id="fromSelector" type="text" name="fromSelector" style="height: 30px; width: 50px" onChange="clearAll()">
+						  <option value ="2">2</option>
+						  <option value ="3">3</option>
+						  <option value="4">4</option>
+						  <option value="5">5</option>
+						  <option value="6">6</option>
+						  <option value="7">7</option>
+						  <option value="8">8</option>
+						  <option value="9">9</option>
+						  <option value="10" selected = "selected">10</option>
+						  <option value="11">11</option>
+						  <option value="12">12</option>
+						  <option value="13">13</option>
+						  <option value="14">14</option>
+						  <option value="15">15</option><option value="16">16</option>
+						  <option value="17">17</option>
+						  <option value="18">18</option>
+						  <option value="19">19</option>
+						  <option value="20">20</option>
+						  <option value="21">21</option>
+						  <option value="22">22</option>
+						  <option value="23">23</option>
+						  <option value="24">24</option>
+						  <option value="25">25</option>
+						  <option value="26">26</option>
+						  <option value="27">27</option>
+						  <option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option>
+						  <option value="34">34</option>
+						  <option value="35">35</option>
+						  <option value="36">36</option>
+						</select> 
+			<br><br><br>
+					  
+			<strong>To</strong>: &nbsp;&nbsp;&nbsp;&nbsp;
+					  <input id="inTo" type="text" name="in2" size="24" placeholder="Result here" readonly="true" style="height: 25px; width: 250px">
+					  <strong>base</strong>:
+					  <select id="toSelector" type="text" name="toSelector" style="height: 30px; width: 50px" onChange="clearAll()">
+						  <option value ="2" selected = "selected">2</option>
+						  <option value ="3">3</option>
+						  <option value="4">4</option>
+						  <option value="5">5</option>
+						  <option value="6">6</option>
+						  <option value="7">7</option>
+						  <option value="8">8</option>
+						  <option value="9">9</option>
+						  <option value="10">10</option>
+						  <option value="11">11</option>
+						  <option value="12">12</option>
+						  <option value="13">13</option>
+						  <option value="14">14</option>
+						  <option value="15">15</option><option value="16">16</option>
+						  <option value="17">17</option>
+						  <option value="18">18</option>
+						  <option value="19">19</option>
+						  <option value="20">20</option>
+						  <option value="21">21</option>
+						  <option value="22">22</option>
+						  <option value="23">23</option>
+						  <option value="24">24</option>
+						  <option value="25">25</option>
+						  <option value="26">26</option>
+						  <option value="27">27</option>
+						  <option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option>
+						  <option value="34">34</option>
+						  <option value="35">35</option>
+						  <option value="36">36</option>
+						</select>
+					  <br>
+				  <p id="p2">Please enter bits and select bases to go, base range: [2, 36]</p>
+				  </center>
+				  
+			</td>
+		  </tr>
+	  <tr height ="0px">
+	  </tr>
+	  		
+	 <tr height ="30px">
+	  </tr>
+			  
+	<tr height ="40px">
+		<td>
+		<p class="wordColor" style="font-size: 14px; text-align: center;"><u><a class="wordsColor" href="../index.html">回到主界面 Back to the main page</a></u></p>
+		
+		<p class="wordColor" style="font-size: 14px; text-align: center;"><u><a class="wordsColor" href="https://ultrafish.cn/about">报告问题 Report Issues</a></u></p>
+			</td>
+	  </tr>
+	<tr height ="30px">
+	  </tr>  
+	
+  </tbody>
+</table>
+</body>
+<footer>
+<div class="footer" align="center">
+			© 2021-2022 Mike_Zhang<br><br>
+			<a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">浙ICP备2020036956号</a>
+			<img src="../images/beian.png"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661" target="_blank" rel="noopener">浙公网安备 33042102000661号<br/></a>
+		</div>	
+</footer>
+</html>
