@@ -17,7 +17,7 @@
   <meta name="description" content="Made by Mike_Zhang
 
 
-Computer System article:Signed binary numbers representationFloating point numbers representationUltraFish Plus - Floating point numbers convertor (IEEE 754 single precision)Y86-6">
+Computer System article:Signed binary numbers representationFloating point numbers representationUltraFish Plus - Signed binary number convertorUltraFish Plus - Floating Point Num">
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="">
   
@@ -147,11 +147,55 @@ Computer System article:Signed binary numbers representationFloating point numbe
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="https://plus.ultrafish.cn" target="_blank" rel="noopener">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-code"></i>
                 UltraFish Plus
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn" target="_blank" rel="noopener">
+                    
+                    UltraFish Plus 主页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/Base-convertor" target="_blank" rel="noopener">
+                    
+                    多进制转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" target="_blank" rel="noopener">
+                    
+                    IEEE 754
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" target="_blank" rel="noopener">
+                    
+                    有符号数转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/Josephus-Problem" target="_blank" rel="noopener">
+                    
+                    约瑟夫问题
+                  </a>
+                
+              </div>
             </li>
           
         
@@ -200,7 +244,7 @@ Computer System article:Signed binary numbers representationFloating point numbe
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      754 字
+      761 字
     </span>
   
 
@@ -246,7 +290,7 @@ Computer System article:Signed binary numbers representationFloating point numbe
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
 <blockquote>
-<p>Computer System article:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">Signed binary numbers representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" target="_blank" rel="noopener">Floating point numbers representation</a><br><a href="https://ultrafish.cn/plus/files/ieee_754_single_representation.html" target="_blank" rel="noopener">UltraFish Plus - Floating point numbers convertor (IEEE 754 single precision)</a><br><a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/" target="_blank" rel="noopener">Y86-64 Learning 1 - State &amp; Instruction &amp; Basic Encoding</a><br><a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/" target="_blank" rel="noopener">Y86-64学习2-Y86-64 SEQ Stages</a><br><a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/" target="_blank" rel="noopener">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br><a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/" target="_blank" rel="noopener">x86-64学习2-Control</a></p>
+<p>Computer System article:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">Signed binary numbers representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" target="_blank" rel="noopener">Floating point numbers representation</a><br><a href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor" target="_blank" rel="noopener">UltraFish Plus - Signed binary number convertor</a><br><a href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" target="_blank" rel="noopener">UltraFish Plus - Floating Point Numbers Representation Convertor</a><br><a href="https://plus.ultrafish.cn/Base-convertor" target="_blank" rel="noopener">UltraFish Plus - Multiple Bases Unsigned Integer Convertor</a><br><a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/" target="_blank" rel="noopener">Y86-64 Learning 1-State &amp; Instruction &amp; Basic Encoding</a><br><a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/" target="_blank" rel="noopener">Y86-64 Learning 2-Y86-64 SEQ Stages</a><br><a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/" target="_blank" rel="noopener">x86-64 Learning 1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br><a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/" target="_blank" rel="noopener">x86-64 Learning 2-Control</a></p>
 </blockquote>
 <hr>
 <p>I have talked about the <a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener"><strong>Signed binary number representation</strong></a> in a previous article. Then I am going to record the <strong>Floating point numbers (FPN) representation</strong>, including <strong>Floating point numbers normalization, hidden bit, FPN representation in the computer, and IEEE 754 Standard</strong>.</p>
@@ -313,7 +357,7 @@ Computer System article:Signed binary numbers representationFloating point numbe
 <li>Combination: 0 1000 0101 111 0000 0000 0000 0000 0000 (Sign bit | Exponent | Fraction).</li>
 </ol>
 </blockquote>
-<p><em>Useful IEEE 754 website:<br><a href="http://weitz.de/ieee/" target="_blank" rel="noopener">http://weitz.de/ieee/</a><br><a href="https://ultrafish.cn/plus/files/ieee_754_single_representation.html" target="_blank" rel="noopener">UltraFish Plus - Floating point numbers convertor (IEEE 754 single precision)</a></em></p>
+<p><em>Useful IEEE 754 website:<br><a href="http://weitz.de/ieee/" target="_blank" rel="noopener">http://weitz.de/ieee/</a><br><a href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" target="_blank" rel="noopener">UltraFish Plus - Floating point numbers convertor (IEEE 754 single precision)</a></em></p>
 <p>Special IEEE 754 bit patterns</p>
 <blockquote>
 <p>+0: 0  0000 0000  000 0000 0000 0000 0000 0000;<br>-0: 1  0000 0000  000 0000 0000 0000 0000 0000;<br>+(-)INFINITY: 0(1)  1111 1111  000 0000 0000 0000 0000 0000;<br>+(-)NaN (Not a Number): 0(1)  1111 1111  001 0000 0110 0001 0010 0000 (The fraction is nonzero);<br>+2^(-128): 0  1111 1111  010 0000 0000 0000 0000 0000;</p>

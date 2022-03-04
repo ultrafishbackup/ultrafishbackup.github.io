@@ -17,7 +17,7 @@
   <meta name="description" content="Made by Mike_Zhang
 
 
-Computer System 相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representationUltraFish Plus - 有符号二进制数转换器 Signed binary number convertorY86-">
+Computer System 相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representationUltraFish Plus - 有符号二进制数转换器 Signed binary number convertorUltr">
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="">
   
@@ -147,11 +147,55 @@ Computer System 相关文章:有符号二进制数表示方法 Signed binary num
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="https://plus.ultrafish.cn" target="_blank" rel="noopener">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-code"></i>
                 UltraFish Plus
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn" target="_blank" rel="noopener">
+                    
+                    UltraFish Plus 主页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/Base-convertor" target="_blank" rel="noopener">
+                    
+                    多进制转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" target="_blank" rel="noopener">
+                    
+                    IEEE 754
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" target="_blank" rel="noopener">
+                    
+                    有符号数转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/Josephus-Problem" target="_blank" rel="noopener">
+                    
+                    约瑟夫问题
+                  </a>
+                
+              </div>
             </li>
           
         
@@ -246,7 +290,7 @@ Computer System 相关文章:有符号二进制数表示方法 Signed binary num
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
 <blockquote>
-<p>Computer System 相关文章:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">有符号二进制数表示方法 Signed binary number representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" target="_blank" rel="noopener">浮点数二进制数表示方法 Floating point numbers representation</a><br><a href="http://ultrafish.cn/plus/files/signed_binary_number_representation.html" target="_blank" rel="noopener">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a><br><a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/" target="_blank" rel="noopener">Y86-64学习1-State &amp; Instruction &amp; Basic Encoding</a><br><a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/" target="_blank" rel="noopener">Y86-64学习2-Y86-64 SEQ Stages</a><br><a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/" target="_blank" rel="noopener">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br><a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/" target="_blank" rel="noopener">x86-64学习2-Control</a></p>
+<p>Computer System 相关文章:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" target="_blank" rel="noopener">有符号二进制数表示方法 Signed binary number representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" target="_blank" rel="noopener">浮点数二进制数表示方法 Floating point numbers representation</a><br><a href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor" target="_blank" rel="noopener">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a><br><a href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" target="_blank" rel="noopener">UltraFish Plus - 浮点数表示方法转换器 Floating Point Numbers Representation Convertor</a><br><a href="https://plus.ultrafish.cn/Base-convertor" target="_blank" rel="noopener">UltraFish Plus - 多进制整数转换器 Multiple Bases Unsigned Integer Convertor</a><br><a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/" target="_blank" rel="noopener">Y86-64学习1-State &amp; Instruction &amp; Basic Encoding</a><br><a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/" target="_blank" rel="noopener">Y86-64学习2-Y86-64 SEQ Stages</a><br><a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/" target="_blank" rel="noopener">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br><a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/" target="_blank" rel="noopener">x86-64学习2-Control</a></p>
 </blockquote>
 <hr>
 <p>(2020-09-24更新: 新增Excess)<br>(2020-09-24更新: 新增转换代码)</p>
@@ -628,7 +672,7 @@ Computer System 相关文章:有符号二进制数表示方法 Signed binary num
 <hr>
 <h3 id="代码分享"><a href="#代码分享" class="headerlink" title="代码分享"></a>代码分享</h3><p>以下Python代码实现用四种方法使整数在二进制数和十进制数之间转换</p>
 <p><a href="https://github.com/zhangwengyu999/Signed_Binary_Number_Conversion" target="_blank" rel="noopener">代码下载链接</a></p>
-<p>也欢迎到我的开发性页面使用<a href="http://ultrafish.cn/plus/files/signed_binary_number_representation.html" target="_blank" rel="noopener">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a></p>
+<p>也欢迎到我的开发性页面使用<a href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor" target="_blank" rel="noopener">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#Made by Mike_Zhang</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">signedMagnitude</span><span class="hljs-params">(numd)</span>:</span><br>    outnum = <span class="hljs-string">""</span><br>    absnumd = abs(int(numd))<br>    numb = bin(absnumd)<br>    bnumb = numb[<span class="hljs-number">2</span>:]<br>    fixed = <span class="hljs-string">'&#123;:0&gt;7&#125;'</span>.format(bnumb)<br>    <span class="hljs-keyword">if</span> numd[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>] == <span class="hljs-string">"-"</span>:<br>        outnum = <span class="hljs-string">"1"</span> + fixed<br>    <span class="hljs-keyword">else</span>:<br>        outnum = <span class="hljs-string">"0"</span> + fixed<br>    print(outnum)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">onesComplement</span><span class="hljs-params">(numd)</span>:</span><br>    outnum = <span class="hljs-string">""</span><br>    <span class="hljs-keyword">if</span> numd[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>] == <span class="hljs-string">"-"</span>:<br>        numd = <span class="hljs-number">256</span> - <span class="hljs-number">1</span> - abs(int(numd))<br>    print(numd)<br>    absnumd = abs(int(numd))<br>    numb = bin(absnumd)<br>    bnumb = numb[<span class="hljs-number">2</span>:]<br>    outnum = <span class="hljs-string">'&#123;:0&gt;8&#125;'</span>.format(bnumb)<br>    print(outnum)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">twosComplement</span><span class="hljs-params">(numd)</span>:</span><br>    outnum = <span class="hljs-string">""</span><br>    <span class="hljs-keyword">if</span> numd[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>] == <span class="hljs-string">"-"</span>:<br>        numd = <span class="hljs-number">256</span> - abs(int(numd))<br>    print(numd)<br>    absnumd = abs(int(numd))<br>    numb = bin(absnumd)<br>    bnumb = numb[<span class="hljs-number">2</span>:]<br>    outnum = <span class="hljs-string">'&#123;:0&gt;8&#125;'</span>.format(bnumb)<br>    print(outnum)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">excessEightbits</span><span class="hljs-params">(numd)</span>:</span><br>    outnum = <span class="hljs-string">""</span><br>    biasednum = int(numd) + <span class="hljs-number">128</span><br>    numb = bin(biasednum)<br>    bnumb = numb[<span class="hljs-number">2</span>:]<br>    outnum = <span class="hljs-string">'&#123;:0&gt;8&#125;'</span>.format(bnumb)<br>    print(outnum)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">signedMagnitude_re</span><span class="hljs-params">(numb)</span>:</span><br>    <span class="hljs-keyword">if</span> numb[<span class="hljs-number">0</span>] == <span class="hljs-string">"0"</span>:<br>        print(int(numb, <span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">elif</span> numb[<span class="hljs-number">0</span>] == <span class="hljs-string">"1"</span>:<br>        print(<span class="hljs-string">"-"</span>, int(str(numb[<span class="hljs-number">1</span>:]), <span class="hljs-number">2</span>),sep=<span class="hljs-string">""</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">onesComplement_re</span><span class="hljs-params">(numb)</span>:</span><br>    <span class="hljs-keyword">if</span> numb[<span class="hljs-number">0</span>] == <span class="hljs-string">"0"</span>:<br>        print(int(numb, <span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">elif</span> numb[<span class="hljs-number">0</span>] == <span class="hljs-string">"1"</span>:<br>        numd = <span class="hljs-number">256</span> - <span class="hljs-number">1</span> - int(str(numb), <span class="hljs-number">2</span>)<br>        print(<span class="hljs-string">"-"</span> , numd, sep=<span class="hljs-string">""</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">twosComplement_re</span><span class="hljs-params">(numb)</span>:</span><br>    <span class="hljs-keyword">if</span> numb[<span class="hljs-number">0</span>] == <span class="hljs-string">"0"</span>:<br>        print(int(numb, <span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">elif</span> numb[<span class="hljs-number">0</span>] == <span class="hljs-string">"1"</span>:<br>        numd = <span class="hljs-number">256</span>  - int(str(numb), <span class="hljs-number">2</span>)<br>        print(<span class="hljs-string">"-"</span> , numd, sep=<span class="hljs-string">""</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">excessEightbits_re</span><span class="hljs-params">(numb)</span>:</span><br>    numd = int(str(numb), <span class="hljs-number">2</span>)<br>    print(numd - <span class="hljs-number">128</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span><br>    choice1 = input(<span class="hljs-string">"Enter(d = D to B; b = B to D):"</span>)<br>    choice2 = input(<span class="hljs-string">"Enter(s = Signed Magnitude; 1 = 1s Complement; 2 = 2sComplement; e = excess):"</span>)<br>    <span class="hljs-keyword">if</span> choice1 == <span class="hljs-string">"d"</span>:<br>        <span class="hljs-keyword">if</span> choice2 == <span class="hljs-string">"s"</span>:<br>            signedMagnitude(input(<span class="hljs-string">"Enter(-127to127):"</span>))<br>        <span class="hljs-keyword">elif</span> choice2 == <span class="hljs-string">"1"</span>:<br>            onesComplement(input(<span class="hljs-string">"Enter(-127to127):"</span>))<br>        <span class="hljs-keyword">elif</span> choice2 == <span class="hljs-string">"2"</span>:<br>            twosComplement(input(<span class="hljs-string">"Enter(-127to128):"</span>))<br>        <span class="hljs-keyword">elif</span> choice2 == <span class="hljs-string">"e"</span>:<br>            excessEightbits(input(<span class="hljs-string">"Enter(-127to128):"</span>))<br>    <span class="hljs-keyword">elif</span> choice1 == <span class="hljs-string">"b"</span>:<br>        <span class="hljs-keyword">if</span> choice2 == <span class="hljs-string">"s"</span>:<br>            signedMagnitude_re(input(<span class="hljs-string">"Enter(8bit binary):"</span>))<br>        <span class="hljs-keyword">elif</span> choice2 == <span class="hljs-string">"1"</span>:<br>            onesComplement_re(input(<span class="hljs-string">"Enter(8_bit binary):"</span>))<br>        <span class="hljs-keyword">elif</span> choice2 == <span class="hljs-string">"2"</span>:<br>            twosComplement_re(input(<span class="hljs-string">"Enter(8bit binary):"</span>))<br>        <span class="hljs-keyword">elif</span> choice2 == <span class="hljs-string">"e"</span>:<br>            excessEightbits_re(input(<span class="hljs-string">"Enter(8_bit binary):"</span>))<br>main()<br><span class="hljs-comment">#Made by Mike_Zhang</span><br></code></pre></td></tr></table></figure>
 <hr>
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>原码、反码、补码中可以深挖的东西还有好多，都十分有趣，之后会继续记录。<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
