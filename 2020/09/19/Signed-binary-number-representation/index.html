@@ -244,7 +244,7 @@ Computer System 相关文章:有符号二进制数表示方法 Signed binary num
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.1k 字
+      2.2k 字
     </span>
   
 
@@ -254,7 +254,7 @@ Computer System 相关文章:有符号二进制数表示方法 Signed binary num
       <i class="iconfont icon-clock-fill"></i>
       
       
-      30
+      31
        分钟
     </span>
   
@@ -354,9 +354,14 @@ Computer System 相关文章:有符号二进制数表示方法 Signed binary num
 </div>
 <p>以下是Python代码实现:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">signedMagnitude</span><span class="hljs-params">(numd)</span>:</span><br>    outnum = <span class="hljs-string">""</span> <span class="hljs-comment">#储存输出结果</span><br>    absnumd = abs(int(numd)) <span class="hljs-comment">#取得绝对值</span><br>    numb = bin(absnumd) <span class="hljs-comment">#把绝对值转成二进制</span><br>    bnumb = numb[<span class="hljs-number">2</span>:] <span class="hljs-comment">#去除二进制数前两位0b</span><br>    fixed = <span class="hljs-string">'&#123;:0&gt;7&#125;'</span>.format(bnumb) <span class="hljs-comment">#用0填充空位至7位</span><br>    <span class="hljs-keyword">if</span> numd[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>] == <span class="hljs-string">"-"</span>: <span class="hljs-comment">#判断是否为负数</span><br>        outnum = <span class="hljs-string">"1"</span> + fixed <span class="hljs-comment">#若是则在最高位加上1</span><br>    <span class="hljs-keyword">else</span>:<br>        outnum = <span class="hljs-string">"0"</span> + fixed <span class="hljs-comment">#若不是则在最高位加上0</span><br>    print(outnum) <span class="hljs-comment">#输出</span><br>signedMagnitude(str(input(<span class="hljs-string">"Enter(-127to127):"</span>)))<br></code></pre></td></tr></table></figure><br>上面提到, 对于8-bit来说, 用Signed Magnitude来表示, 其取值范围是-127 ~ +127, 说明只能表示255个数, 但是8-bit应该是可以总共表示256个数的, 说明有一个数被浪费了.(0被表示了两次,+0和-0)</p>
 <hr>
-<h3 id="One’s-Complement-反码"><a href="#One’s-Complement-反码" class="headerlink" title="One’s Complement (反码)"></a>One’s Complement (反码)</h3><p>One’s Complement (1的补码), 中文又称反码. 对于一个 n-bit 的数, 数x的one’s complement(反码)即为:<strong>2^n - 1 - x.</strong><br>举例来说:</p>
+<h3 id="One’s-Complement-反码"><a href="#One’s-Complement-反码" class="headerlink" title="One’s Complement (反码)"></a>One’s Complement (反码)</h3><p>One’s Complement (1的补码), 中文又称反码。对于 n-bit 的表示法, 数$x$的one’s complement(反码)即为:</p>
+<script type="math/tex; mode=display">x=\begin{cases}
+    x, & x\gt0\\
+    2^n-1-|x|, & x\le0
+\end{cases}</script><p>随后把$x$转化成相应的二进制数。</p>
+<p>举例来说:</p>
 <blockquote>
-<p>for x= 00111100<br>one’s complement of x = 2^8 - 1 - x = 100000000 - 1 - 00111100 = 11000011</p>
+<p>for $x= -60$<br>$|x|=20$ = 00111100<br>one’s complement of x = 2^8 - 1 -$|x|_2$ = 100000000 - 1 - 00111100 = 11000011</p>
 </blockquote>
 <p>可以发现, 00111100的one’s complement(反码)即为11000011, <strong>简单来说就是把原来的1变成0, 0变成1</strong>, 这也是为说明把one’s complement叫做<strong>反码</strong>.</p>
 <p>再举一个例子:</p>
@@ -424,9 +429,14 @@ Computer System 相关文章:有符号二进制数表示方法 Signed binary num
 </div>
 <p>以下是Python实现:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">onesComplement</span><span class="hljs-params">(numd)</span>:</span><br>    outnum = <span class="hljs-string">""</span><br>    <span class="hljs-keyword">if</span> numd[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>] == <span class="hljs-string">"-"</span>:<br>        numd = <span class="hljs-number">256</span> - <span class="hljs-number">1</span> - abs(int(numd)) <span class="hljs-comment">#2^n - 1 - x</span><br>    print(numd)<br>    absnumd = abs(int(numd))<br>    numb = bin(absnumd)<br>    bnumb = numb[<span class="hljs-number">2</span>:]<br>    outnum = <span class="hljs-string">'&#123;:0&gt;8&#125;'</span>.format(bnumb)<br>    print(outnum)<br>onesComplement(input(<span class="hljs-string">"Enter(-127to127):"</span>))<br></code></pre></td></tr></table></figure><br>和Signed Magnitude一样, 用one’s complement(反码)表示也会浪费一个数.(0被表示了两次,+0和-0)</p>
 <hr>
-<h3 id="Two’s-Complement-2的补码-中文又称补码"><a href="#Two’s-Complement-2的补码-中文又称补码" class="headerlink" title="Two’s Complement (2的补码)(中文又称补码)"></a>Two’s Complement (2的补码)(中文又称补码)</h3><p>Two’s Complement (2的补码), 中文又称补码. 对于一个 n-bit 的数, 数x的two’s complement(补码)即为:<strong>2^n  - x.</strong> , <strong>其实就是在反码上+1</strong>, 即, <strong>two’s complement(补码) = one’s complement(反码) + 1</strong>. 这样就可以解决one’s complement(反码)出现-0的情况, 使-128 ~ -1都能被表示, 不产生浪费.<br>举一个例子:</p>
+<h3 id="Two’s-Complement-2的补码-中文又称补码"><a href="#Two’s-Complement-2的补码-中文又称补码" class="headerlink" title="Two’s Complement (2的补码)(中文又称补码)"></a>Two’s Complement (2的补码)(中文又称补码)</h3><p>Two’s Complement (2的补码), 中文又称补码. 对于n-bit表示法, 数$x$的two’s complement(补码)即为:</p>
+<script type="math/tex; mode=display">x=\begin{cases}
+    x, & x\gt0\\
+    2^n-|x|, & x\le0
+\end{cases}</script><p>随后把$x$转化成相应的二进制数。</p>
+<p><strong>其实就是在反码上+1</strong>, 即, <strong>two’s complement(补码) = one’s complement(反码) + 1</strong>. 这样就可以解决one’s complement(反码)出现-0的情况, 使-128 ~ -1都能被表示, 不产生浪费.<br>举一个例子:</p>
 <blockquote>
-<p>+20 = 00010100<br>one’s complement(反码) = 11101011<br>two’s complement(补码) = 11101011 + 1 = 11101100<br>-20 = 11101100</p>
+<p>$x=-20$<br>$|x|=20=$ 00010100<br>one’s complement(反码) = 11101011<br>two’s complement(补码) = 11101011 + 1 = 11101100<br>-20 = 11101100</p>
 <p>对于8-bit来说, 用two’s complement(补码)来表示, 其取值范围是-128 ~ +127.</p>
 </blockquote>
 <div class="table-container">
