@@ -30,7 +30,7 @@ Definition for a binary tree node:">
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="">
   
-  <title>数据结构与算法-Binary Tree - UltraFish</title>
+  <title>数据结构与算法 - Binary Tree (持续更新) - UltraFish</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -231,7 +231,7 @@ Definition for a binary tree node:">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="数据结构与算法-Binary Tree">
+            <span class="h2" id="subtitle" title="数据结构与算法 - Binary Tree (持续更新)">
               
             </span>
 
@@ -253,7 +253,7 @@ Definition for a binary tree node:">
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.4k 字
     </span>
   
 
@@ -263,7 +263,7 @@ Definition for a binary tree node:">
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      26
        分钟
     </span>
   
@@ -293,7 +293,7 @@ Definition for a binary tree node:">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">数据结构与算法-Binary Tree</h1>
+            <h1 style="display: none">数据结构与算法 - Binary Tree (持续更新)</h1>
             
             <div class="markdown-body">
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
@@ -359,7 +359,15 @@ Definition for a binary tree node:">
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasPathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">int</span> targetSum)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) &#123;<span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;&#125;<br>        <span class="hljs-keyword">if</span> (root.val == targetSum &amp;&amp; root.left==<span class="hljs-keyword">null</span> &amp;&amp; root.right == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> hasPathSum(root.left,targetSum-root.val) <br>                || hasPathSum(root.right,targetSum-root.val);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <hr>
-<p>Last updated on 2022-03-08</p>
+<h3 id="Convert-Sorted-Array-to-Binary-Search-Tree-LeetCode-Problem-108"><a href="#Convert-Sorted-Array-to-Binary-Search-Tree-LeetCode-Problem-108" class="headerlink" title="Convert Sorted Array to Binary Search Tree - LeetCode Problem #108"></a><a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" target="_blank" rel="noopener">Convert Sorted Array to Binary Search Tree - LeetCode Problem #108</a></h3><center><img src="/2022/03/08/Binary-Tree/8.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">sortedArrayToBST</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">0</span>) &#123;<span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;&#125;<br>        <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">1</span>) &#123;<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> TreeNode(nums[<span class="hljs-number">0</span>]);&#125;<br>        <span class="hljs-keyword">int</span> mid = (nums.length-<span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>        TreeNode outTree = <span class="hljs-keyword">new</span> TreeNode(nums[mid]);<br>        <span class="hljs-keyword">int</span>[] leftArr = Arrays.copyOfRange(nums,<span class="hljs-number">0</span>,mid);<br>        <span class="hljs-keyword">int</span>[] rightArr = Arrays.copyOfRange(nums,mid+<span class="hljs-number">1</span>,nums.length);<br>        outTree.left = sortedArrayToBST(leftArr);<br>        outTree.right = sortedArrayToBST(rightArr);<br>        <span class="hljs-keyword">return</span> outTree;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="Invert-Binary-Tree-LeetCode-Problem-226"><a href="#Invert-Binary-Tree-LeetCode-Problem-226" class="headerlink" title="Invert Binary Tree - LeetCode Problem #226"></a><a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener">Invert Binary Tree - LeetCode Problem #226</a></h3><center><img src="/2022/03/08/Binary-Tree/9.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">invertTree</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> root;<br>        TreeNode temp = root.left;<br>        root.left = root.right;<br>        root.right = temp;<br>        invertTree(root.left);<br>        invertTree(root.right);<br>        <span class="hljs-keyword">return</span> root;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<p>Last updated on 2022-03-11</p>
 <hr>
 <h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Binary Tree相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
@@ -419,7 +427,7 @@ Definition for a binary tree node:">
                     
                     
                       <a href="/2022/03/08/Linked-List/">
-                        <span class="hidden-mobile">数据结构与算法-Linked List</span>
+                        <span class="hidden-mobile">数据结构与算法 - Linked List (持续更新)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
