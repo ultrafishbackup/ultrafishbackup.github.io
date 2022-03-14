@@ -1,0 +1,744 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;light&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#000000CC">
+  <meta name="description" content="Made by Mike_Zhang
+
+
+数据结构与算法相关文章：
+
+
+数据结构：数据结构与算法-Linked List数据结构与算法-Binary Tree
+算法：即将更新
+
+
+
+
+1 Introduction of Array
+Array is a collection of items.
+">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="">
+  
+  <title>数据结构与算法 - Array (持续更新) - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>UltraFish</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                所有文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn" target="_blank" rel="noopener">
+                    
+                    UltraFish Plus 主页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/Base-convertor" target="_blank" rel="noopener">
+                    
+                    多进制转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" target="_blank" rel="noopener">
+                    
+                    IEEE 754
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" target="_blank" rel="noopener">
+                    
+                    有符号数转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://plus.ultrafish.cn/Josephus-Problem" target="_blank" rel="noopener">
+                    
+                    约瑟夫问题
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/array.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="数据结构与算法 - Array (持续更新)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-14 16:31" pubdate>
+        2022年3月14日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数据结构与算法 - Array (持续更新)</h1>
+            
+            <div class="markdown-body">
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<blockquote>
+<p>数据结构与算法相关文章：</p>
+<blockquote>
+<ul>
+<li>数据结构：<br><a href="https://ultrafish.cn/2022/03/08/Linked-List/" target="_blank" rel="noopener">数据结构与算法-Linked List</a><br><a href="https://ultrafish.cn/2022/03/08/Binary-Tree/" target="_blank" rel="noopener">数据结构与算法-Binary Tree</a></li>
+<li>算法：<br>即将更新</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h1 id="1-Introduction-of-Array"><a href="#1-Introduction-of-Array" class="headerlink" title="1 Introduction of Array"></a>1 Introduction of Array</h1><blockquote>
+<p>Array is a collection of items.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-1-Array-Creation"><a href="#1-1-Array-Creation" class="headerlink" title="1.1 Array Creation"></a>1.1 Array Creation</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span>[] intArr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">5</span>];<br></code></pre></td></tr></table></figure>
+<h2 id="1-2-Array-Writing"><a href="#1-2-Array-Writing" class="headerlink" title="1.2 Array Writing"></a>1.2 Array Writing</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">intArr[<span class="hljs-number">2</span>] = <span class="hljs-number">3</span>; <span class="hljs-comment">// put 3 in the third place of the Array</span><br></code></pre></td></tr></table></figure>
+<h2 id="1-3-Array-Reading"><a href="#1-3-Array-Reading" class="headerlink" title="1.3 Array Reading"></a>1.3 Array Reading</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println(intArr[<span class="hljs-number">2</span>]);<br></code></pre></td></tr></table></figure>
+<h2 id="1-4-Array-Slicing"><a href="#1-4-Array-Slicing" class="headerlink" title="1.4 Array Slicing"></a>1.4 Array Slicing</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span>[] newArray = Arrays.copyOfRange(oldArray, startIndex, endIndex); <span class="hljs-comment">// java.util.Arrays</span><br></code></pre></td></tr></table></figure>
+<h2 id="1-5-Array-Capacity"><a href="#1-5-Array-Capacity" class="headerlink" title="1.5 Array Capacity"></a>1.5 Array Capacity</h2><blockquote>
+<p>The number of items the Array <strong>could hold</strong>;</p>
+</blockquote>
+<p>In Java, the capacity of an Array is checked by Array’s <code>length</code> attribute.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println(intArr.length);<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="1-6-Array-Length"><a href="#1-6-Array-Length" class="headerlink" title="1.6 Array Length"></a>1.6 Array Length</h2><blockquote>
+<p>The number of items <strong>currently</strong> in the Array.</p>
+</blockquote>
+<p>Array’s length need to be <strong>tracked</strong> by the programmer. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span>[] intArr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">5</span>];<br><br><span class="hljs-keyword">int</span> len = <span class="hljs-number">0</span>;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) &#123;<br>    array[i] = i;<br>    len++;<br>&#125;<br><br>System.out.println(<span class="hljs-string">"Capacity: "</span> + array.length);<br>System.out.println(<span class="hljs-string">"Length: "</span> + length);<br></code></pre></td></tr></table></figure>
+<p>Output:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Capacity: <span class="hljs-number">5</span><br>Length: <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Max-Consecutive-Ones-LeetCode-Problem-485"><a href="#Max-Consecutive-Ones-LeetCode-Problem-485" class="headerlink" title="Max Consecutive Ones - LeetCode Problem #485"></a><a href="https://leetcode.com/problems/max-consecutive-ones/" target="_blank" rel="noopener">Max Consecutive Ones - LeetCode Problem #485</a></h2><center><img src="/2022/03/14/Array/1.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">findMaxConsecutiveOnes</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> maxCount = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i : nums)&#123;<br>            count = (i == <span class="hljs-number">1</span>? count+<span class="hljs-number">1</span> : <span class="hljs-number">0</span>);<br>            maxCount = (count &gt; maxCount ? count:maxCount);<br>        &#125;<br>        <span class="hljs-keyword">return</span> maxCount;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Find-Numbers-with-Even-Number-of-Digits-LeetCode-Problem-1295"><a href="#Find-Numbers-with-Even-Number-of-Digits-LeetCode-Problem-1295" class="headerlink" title="Find Numbers with Even Number of Digits - LeetCode Problem #1295"></a><a href="https://leetcode.com/problems/find-numbers-with-even-number-of-digits/" target="_blank" rel="noopener">Find Numbers with Even Number of Digits - LeetCode Problem #1295</a></h2><center><img src="/2022/03/14/Array/2.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">findNumbers</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> total = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i : nums) &#123;<br>            <span class="hljs-keyword">if</span> (((<span class="hljs-keyword">int</span>)Math.log10(i)+<span class="hljs-number">1</span>) % <span class="hljs-number">2</span> ==<span class="hljs-number">0</span>) &#123;total += <span class="hljs-number">1</span>;&#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> total;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Squares-of-a-Sorted-Array-LeetCode-Problem-977"><a href="#Squares-of-a-Sorted-Array-LeetCode-Problem-977" class="headerlink" title="Squares of a Sorted Array - LeetCode Problem #977"></a><a href="https://leetcode.com/problems/squares-of-a-sorted-array/" target="_blank" rel="noopener">Squares of a Sorted Array - LeetCode Problem #977</a></h2><center><img src="/2022/03/14/Array/3.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] sortedSquares(<span class="hljs-keyword">int</span>[] nums) &#123;<br>        <span class="hljs-keyword">int</span>[] out = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[nums.length];<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> right = nums.length-<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> index = nums.length-<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            <span class="hljs-keyword">if</span> (Math.abs(nums[left]) &lt; Math.abs(nums[right])) &#123;<br>                out[index] = nums[right] * nums[right];<br>                right -= <span class="hljs-number">1</span>;<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                out[index] = nums[left] * nums[left];<br>                left += <span class="hljs-number">1</span>;<br>            &#125;<br>            index -=<span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> out;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="2-Array-Inserting"><a href="#2-Array-Inserting" class="headerlink" title="2 Array Inserting"></a>2 Array Inserting</h1><h2 id="Duplicate-Zeros-LeetCode-Problem-1089"><a href="#Duplicate-Zeros-LeetCode-Problem-1089" class="headerlink" title="Duplicate Zeros - LeetCode Problem #1089"></a><a href="https://leetcode.com/problems/duplicate-zeros/" target="_blank" rel="noopener">Duplicate Zeros - LeetCode Problem #1089</a></h2><center><img src="/2022/03/14/Array/4.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">duplicateZeros</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> len = arr.length;<br>        <span class="hljs-keyword">int</span> zeroCnt = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i : arr) &#123;<br>            <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span>) &#123;zeroCnt += <span class="hljs-number">1</span>;&#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j=len-<span class="hljs-number">1</span>;j&gt;=<span class="hljs-number">0</span>;j--) &#123;<br>            <span class="hljs-keyword">int</span> index = j+zeroCnt;<br>            <span class="hljs-keyword">if</span> (index &lt; len) &#123;<br>                arr[index]=arr[j];<br>            &#125;<br>            <span class="hljs-keyword">if</span> (arr[j]==<span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-keyword">if</span>(index-<span class="hljs-number">1</span>&lt;len) &#123;arr[index-<span class="hljs-number">1</span>]=<span class="hljs-number">0</span>;&#125;<br>                zeroCnt-=<span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Merge-Sorted-Array-LeetCode-Problem-88"><a href="#Merge-Sorted-Array-LeetCode-Problem-88" class="headerlink" title="Merge Sorted Array - LeetCode Problem #88"></a><a href="https://leetcode.com/problems/merge-sorted-array/" target="_blank" rel="noopener">Merge Sorted Array - LeetCode Problem #88</a></h2><center><img src="/2022/03/14/Array/5.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums1, <span class="hljs-keyword">int</span> m, <span class="hljs-keyword">int</span>[] nums2, <span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> p1 = m-<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> p2 = n-<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> p = m+n-<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (p2&gt;=<span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">if</span> (p1&gt;=<span class="hljs-number">0</span> &amp;&amp; nums1[p1]&gt;nums2[p2]) &#123;<br>                nums1[p] = nums1[p1];<br>                p-=<span class="hljs-number">1</span>;<br>                p1-=<span class="hljs-number">1</span>;<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                nums1[p] = nums2[p2];<br>                p-=<span class="hljs-number">1</span>;<br>                p2-=<span class="hljs-number">1</span>;<br>            &#125;  <br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="3-Array-Deleting"><a href="#3-Array-Deleting" class="headerlink" title="3 Array Deleting"></a>3 Array Deleting</h1><h2 id="Remove-Element-LeetCode-Problem-27"><a href="#Remove-Element-LeetCode-Problem-27" class="headerlink" title="Remove Element - LeetCode Problem #27"></a><a href="https://leetcode.com/problems/remove-element/" target="_blank" rel="noopener">Remove Element - LeetCode Problem #27</a></h2><center><img src="/2022/03/14/Array/6.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+<center><img src="/2022/03/14/Array/7.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">removeElement</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> val)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">0</span> || (nums.length == <span class="hljs-number">1</span> &amp;&amp; val == nums[<span class="hljs-number">0</span>])) &#123;<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;&#125;<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> right = nums.length-<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> outLen = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            <span class="hljs-keyword">if</span> (nums[left] == val) &#123;<br>                <span class="hljs-keyword">int</span> tmp = nums[left];<br>                nums[left] = nums[right];<br>                nums[right] = tmp;<br>                right -= <span class="hljs-number">1</span>;<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                outLen += <span class="hljs-number">1</span>;<br>                left += <span class="hljs-number">1</span>; <br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> outLen;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Remove-Duplicates-from-Sorted-Array-LeetCode-Problem-26"><a href="#Remove-Duplicates-from-Sorted-Array-LeetCode-Problem-26" class="headerlink" title="Remove Duplicates from Sorted Array - LeetCode Problem #26"></a><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">Remove Duplicates from Sorted Array - LeetCode Problem #26</a></h2><center><img src="/2022/03/14/Array/8.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+<center><img src="/2022/03/14/Array/9.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">0</span> || nums.length == <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-keyword">return</span> nums.length;<br>        &#125;<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>; <span class="hljs-comment">// end guy</span><br>        <span class="hljs-keyword">int</span> right = <span class="hljs-number">1</span>; <span class="hljs-comment">// front guy</span><br>        <span class="hljs-keyword">while</span> (right &lt; nums.length) &#123;<br>            <span class="hljs-keyword">if</span> (nums[right]!=nums[left]) &#123;<br>                left += <span class="hljs-number">1</span>; <span class="hljs-comment">// end guy move only when differ from front guy</span><br>                nums[left] = nums[right]; <span class="hljs-comment">// let front guy be thr next one to compare</span><br>            &#125;<br>            right += <span class="hljs-number">1</span>; <span class="hljs-comment">// front guy always keeps moving for getting each one compared</span><br>        &#125;<br>        <span class="hljs-keyword">return</span> left+<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="4-Array-Searching"><a href="#4-Array-Searching" class="headerlink" title="4 Array Searching"></a>4 Array Searching</h1><h2 id="Check-If-N-and-Its-Double-Exist-LeetCode-Problem-1346"><a href="#Check-If-N-and-Its-Double-Exist-LeetCode-Problem-1346" class="headerlink" title="Check If N and Its Double Exist - LeetCode Problem #1346"></a><a href="https://leetcode.com/problems/check-if-n-and-its-double-exist/" target="_blank" rel="noopener">Check If N and Its Double Exist - LeetCode Problem #1346</a></h2><center><img src="/2022/03/14/Array/10.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">checkIfExist</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>&#123;<br>        HashSet hs = <span class="hljs-keyword">new</span> HashSet();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i : arr) &#123;<br>            <span class="hljs-keyword">if</span> (hs.contains(i*<span class="hljs-number">2</span>) || (i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span> &amp;&amp; hs.contains(i/<span class="hljs-number">2</span>))) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>            &#125;<br>            hs.add(i);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Valid-Mountain-Array-LeetCode-Problem-941"><a href="#Valid-Mountain-Array-LeetCode-Problem-941" class="headerlink" title="Valid Mountain Array - LeetCode Problem #941"></a><a href="https://leetcode.com/problems/valid-mountain-array/" target="_blank" rel="noopener">Valid Mountain Array - LeetCode Problem #941</a></h2><center><img src="/2022/03/14/Array/11.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">validMountainArray</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (arr.length &lt; <span class="hljs-number">3</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> right = arr.length-<span class="hljs-number">1</span>;<br>        <br>        <span class="hljs-keyword">while</span> (left &lt;= arr.length-<span class="hljs-number">2</span> &amp;&amp; arr[left]&lt;arr[left+<span class="hljs-number">1</span>]) &#123;<br>            left += <span class="hljs-number">1</span>;<br>        &#125;<br>        <br>        <span class="hljs-keyword">if</span> (left == <span class="hljs-number">0</span> || left == arr.length-<span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br>        <br>        <span class="hljs-keyword">while</span> (right &gt;= <span class="hljs-number">1</span> &amp;&amp; arr[right]&lt;arr[right-<span class="hljs-number">1</span>]) &#123;<br>            right -= <span class="hljs-number">1</span>;<br>        &#125;<br>            <br>        <span class="hljs-keyword">return</span> left == right;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="5-In-place-Array-Operations"><a href="#5-In-place-Array-Operations" class="headerlink" title="5 In-place Array Operations"></a>5 In-place Array Operations</h1><blockquote>
+<p>Working directly in the input Array, and NOT creating a new Array, reducing space and time complexity.</p>
+</blockquote>
+<hr>
+<h2 id="Replace-Elements-with-Greatest-Element-on-Right-Side-LeetCode-Problem-1299"><a href="#Replace-Elements-with-Greatest-Element-on-Right-Side-LeetCode-Problem-1299" class="headerlink" title="Replace Elements with Greatest Element on Right Side - LeetCode Problem #1299"></a><a href="https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/" target="_blank" rel="noopener">Replace Elements with Greatest Element on Right Side - LeetCode Problem #1299</a></h2><center><img src="/2022/03/14/Array/12.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] replaceElements(<span class="hljs-keyword">int</span>[] arr) &#123;<br>        <span class="hljs-keyword">int</span> len = arr.length-<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> maxVal = -<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (len&gt;=<span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">int</span> temp = arr[len];<br>            arr[len] = maxVal;<br>            maxVal = temp&gt;maxVal? temp:maxVal;<br>            len -= <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> arr;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Move-Zeroes-LeetCode-Problem-283"><a href="#Move-Zeroes-LeetCode-Problem-283" class="headerlink" title="Move Zeroes - LeetCode Problem #283"></a><a href="https://leetcode.com/problems/move-zeroes/" target="_blank" rel="noopener">Move Zeroes - LeetCode Problem #283</a></h2><center><img src="/2022/03/14/Array/13.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> right = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (right &lt; nums.length) &#123;<br>            <span class="hljs-keyword">if</span> (nums[right] != <span class="hljs-number">0</span>) &#123;<br>                nums[left] = nums[right];<br>                left +=<span class="hljs-number">1</span>;<br>            &#125;<br>            right += <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (left &lt; nums.length) &#123;<br>            nums[left] =<span class="hljs-number">0</span>;<br>            left += <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Sort-Array-By-Parity-LeetCode-Problem-905"><a href="#Sort-Array-By-Parity-LeetCode-Problem-905" class="headerlink" title="Sort Array By Parity - LeetCode Problem #905"></a><a href="https://leetcode.com/problems/sort-array-by-parity/" target="_blank" rel="noopener">Sort Array By Parity - LeetCode Problem #905</a></h2><center><img src="/2022/03/14/Array/14.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] sortArrayByParity(<span class="hljs-keyword">int</span>[] nums) &#123;<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> right = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (right&lt;nums.length) &#123;<br>            <span class="hljs-keyword">if</span> (nums[right]%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-keyword">int</span> temp = nums[left];<br>                nums[left] = nums[right];<br>                nums[right] = temp;<br>                left += <span class="hljs-number">1</span>;<br>            &#125;<br>            right += <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> nums;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="6-Classic-Problems"><a href="#6-Classic-Problems" class="headerlink" title="6 Classic Problems"></a>6 Classic Problems</h1><h2 id="Height-Checker-LeetCode-Problem-1051"><a href="#Height-Checker-LeetCode-Problem-1051" class="headerlink" title="Height Checker - LeetCode Problem #1051"></a><a href="https://leetcode.com/problems/height-checker/" target="_blank" rel="noopener">Height Checker - LeetCode Problem #1051</a></h2><center><img src="/2022/03/14/Array/15.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">heightChecker</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] heights)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span>[] expected = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[heights.length];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> u=<span class="hljs-number">0</span>; u&lt;expected.length;u++) &#123;<br>            expected[u] = heights[u];<br>        &#125;<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;expected.length;i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;expected.length-i-<span class="hljs-number">1</span>;j++) &#123;<br>                <span class="hljs-keyword">if</span> (expected[j]&gt;expected[j+<span class="hljs-number">1</span>]) &#123;<br>                    <span class="hljs-keyword">int</span> temp = expected[j+<span class="hljs-number">1</span>];<br>                    expected[j+<span class="hljs-number">1</span>] = expected[j];<br>                    expected[j] = temp;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">int</span> diff = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k=<span class="hljs-number">0</span>; k &lt; expected.length; k++) &#123;<br>            <span class="hljs-keyword">if</span> (expected[k]!=heights[k]) &#123;<br>                diff +=<span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> diff;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Third-Maximum-Number-LeetCode-Problem-414"><a href="#Third-Maximum-Number-LeetCode-Problem-414" class="headerlink" title="Third Maximum Number - LeetCode Problem #414"></a><a href="https://leetcode.com/problems/third-maximum-number/" target="_blank" rel="noopener">Third Maximum Number - LeetCode Problem #414</a></h2><center><img src="/2022/03/14/Array/16.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">thirdMax</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>&#123;<br>        <span class="hljs-keyword">long</span> fir = Long.MIN_VALUE;<br>        <span class="hljs-keyword">long</span> sec = Long.MIN_VALUE;<br>        <span class="hljs-keyword">long</span> thi = Long.MIN_VALUE;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i:nums) &#123;<br>            <span class="hljs-keyword">if</span> (i == fir || i == sec || i == thi)&#123;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (i&gt;fir) &#123;<br>                thi = sec;<br>                sec = fir;<br>                fir = i;<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i&gt;sec) &#123;<br>                thi = sec;<br>                sec = i;<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i&gt;thi) &#123;<br>                thi = i;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>)((thi == Long.MIN_VALUE)? fir:thi);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Find-All-Numbers-Disappeared-in-an-Array-LeetCode-Problem-448"><a href="#Find-All-Numbers-Disappeared-in-an-Array-LeetCode-Problem-448" class="headerlink" title="Find All Numbers Disappeared in an Array - LeetCode Problem #448"></a><a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/" target="_blank" rel="noopener">Find All Numbers Disappeared in an Array - LeetCode Problem #448</a></h2><center><img src="/2022/03/14/Array/17.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">findDisappearedNumbers</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.length;i++) &#123;<br>            <span class="hljs-keyword">int</span> val = Math.abs(nums[i])-<span class="hljs-number">1</span>;<br>            nums[val] = nums[val]&gt;<span class="hljs-number">0</span>? -nums[val]:nums[val];<br>        &#125;<br>        List&lt;Integer&gt; out = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;nums.length;j++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[j]&gt;<span class="hljs-number">0</span>) &#123;<br>                out.add(j+<span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> out;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<p>Last updated on 2022-03-14<br><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Array相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">感谢你的支持</div></center>
+
+            </div>
+            <hr>           
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Data-Structure-and-Algorithm/">Data Structure and Algorithm</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Data-Structure-and-Algorithm/Data-Structure/">Data Structure</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Data-Structure-and-Algorithm/Data-Structure/Array/">Array</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Array/">Array</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/08/Binary-Tree/">
+                        <span class="hidden-mobile">数据结构与算法 - Binary Tree (持续更新)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","placeholder":"说点什么吧(记得写上你的昵称哦)","path":"window.location.pathname","avatar":"mp","meta":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"requiredFields":["nick"]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <!-- <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>-->
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备2020036956号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>浙公网安备 33042102000661号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+  <div>
+    &copy; 2020-2022 Mike_Zhang
+  </div>
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
