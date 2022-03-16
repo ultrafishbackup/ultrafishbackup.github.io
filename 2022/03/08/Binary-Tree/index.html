@@ -370,7 +370,7 @@ Definition for a binary tree node:">
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">invertTree</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> root;<br>        TreeNode temp = root.left;<br>        root.left = root.right;<br>        root.right = temp;<br>        invertTree(root.left);<br>        invertTree(root.right);<br>        <span class="hljs-keyword">return</span> root;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <hr>
-<p>Last updated on 2022-03-11</p>
+<p>Last updated on 2022-03-16</p>
 <hr>
 <h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Binary Tree相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
