@@ -120,11 +120,135 @@ Definition for a binary tree node:">
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Programming/">
+                    <i class="iconfont icon-bookmark"></i>
+                    Programming
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Programming/Java/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> Java
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Programming/R/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> R
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Programming/C/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> C++
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Programming/Markdown/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> Markdown
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Programming/Python/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> Python
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Computer-System/">
+                    <i class="iconfont icon-bookmark"></i>
+                    Computer System
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Computer-System/x86-64/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> x86-64
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Computer-System/Y86-64/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> Y86-64
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Computer-System/Data-Representation/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> Data Representation 
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Data-Structure-and-Algorithm/">
+                    <i class="iconfont icon-bookmark"></i>
+                    Data Structure and Algorithm
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Data-Structure-and-Algorithm/Data-Structure/Linked-List/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> Linked List
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Data-Structure-and-Algorithm/Data-Structure/Binary-Tree/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> Binary Tree
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/Data-Structure-and-Algorithm/Data-Structure/Array/">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    >>> Array
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    全部分类
+                  </a>
+                
+              </div>
             </li>
           
         
@@ -253,7 +377,7 @@ Definition for a binary tree node:">
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      1.7k 字
     </span>
   
 
@@ -371,6 +495,8 @@ Definition for a binary tree node:">
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">invertTree</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> root;<br>        TreeNode temp = root.left;<br>        root.left = root.right;<br>        root.right = temp;<br>        invertTree(root.left);<br>        invertTree(root.right);<br>        <span class="hljs-keyword">return</span> root;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <hr>
 <p>Last updated on 2022-03-16</p>
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a href="https://leetcode.com/explore/learn/card/data-structure-tree/" target="_blank" rel="noopener">Binary Tree - Explore - LeetCode</a></p>
 <hr>
 <h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Binary Tree相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
