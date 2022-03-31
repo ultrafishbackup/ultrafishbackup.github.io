@@ -247,7 +247,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      893 字
+      913 字
     </span>
   
 
@@ -257,7 +257,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      10
        分钟
     </span>
   
@@ -293,13 +293,13 @@
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
 <blockquote>
-<p>相关文章:<br><a href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/" target="_blank" rel="noopener">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a><br><a href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/" target="_blank" rel="noopener">因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项</a><br><a href="http://ultrafish.cn/2021/04/25/post-video-with-oss/" target="_blank" rel="noopener">在Hexo中用Markdown通过阿里云OSS添加视频文件</a></p>
+<p>相关文章:<br><a target="_blank" rel="noopener" href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a><br><a target="_blank" rel="noopener" href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/">因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项</a><br><a target="_blank" rel="noopener" href="http://ultrafish.cn/2021/04/25/post-video-with-oss/">在Hexo中用Markdown通过阿里云OSS添加视频文件</a></p>
 </blockquote>
 <hr>
-<p>在我之前的文章<a href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/" target="_blank" rel="noopener">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a>中介绍了如何在Blog中用Markdown添加本地视频或者网络视频. 但是都有限制: 本地视频受限于git, 能够上传的文件体积很小, 并且上传过大文件会<a href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/" target="_blank" rel="noopener">引发错误</a>; 网络视频需要用户先把视频上传到视频平台 (如: bilibili, 优酷等) 才能添加到网站中, 并且视频分辨率不高.</p>
-<p>于是, 我想到把视频放到云服务器中, 再让网站直接访问, 这样不必通过git上传文件, 也可以获取原来的画质. 我在升级我的<a href="http://ultrafish.cn/2020/10/15/blog2/" target="_blank" rel="noopener">blog2.0</a>时, 购买了阿里云的云服务器, 于是我想到可以用阿里云的OSS (Object Storage Service), 即对象存储来实现视频文件的添加.<br><a href="https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.488a4c13156lrt" target="_blank" rel="noopener">查看阿里云官方对OSS的介绍</a></p>
+<p>在我之前的文章<a target="_blank" rel="noopener" href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a>中介绍了如何在Blog中用Markdown添加本地视频或者网络视频. 但是都有限制: 本地视频受限于git, 能够上传的文件体积很小, 并且上传过大文件会<a target="_blank" rel="noopener" href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/">引发错误</a>; 网络视频需要用户先把视频上传到视频平台 (如: bilibili, 优酷等) 才能添加到网站中, 并且视频分辨率不高.</p>
+<p>于是, 我想到把视频放到云服务器中, 再让网站直接访问, 这样不必通过git上传文件, 也可以获取原来的画质. 我在升级我的<a target="_blank" rel="noopener" href="http://ultrafish.cn/2020/10/15/blog2/">blog2.0</a>时, 购买了阿里云的云服务器, 于是我想到可以用阿里云的OSS (Object Storage Service), 即对象存储来实现视频文件的添加.<br><a target="_blank" rel="noopener" href="https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.488a4c13156lrt">查看阿里云官方对OSS的介绍</a></p>
 <p>把文件上传到OSS, 获取URL, 再把URL添加到文章中, 即可在文章中添加文件, 如: 视频、图片、音乐等.</p>
-<h2 id><a href="#" class="headerlink" title></a><a id="more"></a></h2><h3 id="开通对象存储OSS服务"><a href="#开通对象存储OSS服务" class="headerlink" title="开通对象存储OSS服务"></a>开通对象存储OSS服务</h3><p>先在阿里云官网注册一个账号 (若有可以跳过).<br>并在左侧产品与服务菜单栏中找到<strong>对象存储OSS</strong>, 点击即可进入开通页面.</p>
+<h2 id><a href="#" class="headerlink" title></a><span id="more"></span></h2><h3 id="开通对象存储OSS服务"><a href="#开通对象存储OSS服务" class="headerlink" title="开通对象存储OSS服务"></a>开通对象存储OSS服务</h3><p>先在阿里云官网注册一个账号 (若有可以跳过).<br>并在左侧产品与服务菜单栏中找到<strong>对象存储OSS</strong>, 点击即可进入开通页面.</p>
 <p><img src="/2021/04/25/post-video-with-oss/1.jpg" srcset="/img/loading.gif" lazyload alt></p>
 <hr>
 <h3 id="创建Bucket并上传文件"><a href="#创建Bucket并上传文件" class="headerlink" title="创建Bucket并上传文件"></a>创建Bucket并上传文件</h3><p>Bucket是存放对象的容器, 可以存入文档, 照片, 视频等文件.<br>1.OSS服务开通后, 进入OSS页面, 点击左侧<strong>创建Bucket</strong>按钮:</p>
@@ -314,12 +314,12 @@
 <p><img src="/2021/04/25/post-video-with-oss/5.jpg" srcset="/img/loading.gif" lazyload alt></p>
 <hr>
 <h3 id="获取文件URL并添加相应代码到文章"><a href="#获取文件URL并添加相应代码到文章" class="headerlink" title="获取文件URL并添加相应代码到文章"></a>获取文件URL并添加相应代码到文章</h3><p>点击上传到Bucket的文件名, 即可找到文件URL, 并复制.</p>
-<p>添加以下代码到文章的Markdown中:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;video id=<span class="hljs-string">"video"</span> controls=<span class="hljs-string">""</span> preload=<span class="hljs-string">"none"</span> allowfullscreen=<span class="hljs-string">"true"</span> position= <span class="hljs-string">"absolute"</span> width=<span class="hljs-string">"100%"</span> poster=<span class="hljs-string">"你的URL"</span>&gt;<br>      &lt;source id=<span class="hljs-string">"mp4"</span> src=<span class="hljs-string">"你的URL"</span> type=<span class="hljs-string">"video/mp4"</span> &gt;<br>      &lt;<span class="hljs-regexp">/video&gt;</span><br></code></pre></td></tr></table></figure><br>把以上代码的两处<strong>你的URL</strong>替换成之前复制过来的<strong>文件URL</strong>.</p>
+<p>添加以下代码到文章的Markdown中:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;video id=<span class="hljs-string">&quot;video&quot;</span> controls=<span class="hljs-string">&quot;&quot;</span> preload=<span class="hljs-string">&quot;none&quot;</span> allowfullscreen=<span class="hljs-string">&quot;true&quot;</span> position= <span class="hljs-string">&quot;absolute&quot;</span> width=<span class="hljs-string">&quot;100%&quot;</span> poster=<span class="hljs-string">&quot;你的URL&quot;</span>&gt;<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mp4&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;你的URL&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;video/mp4&quot;</span> &gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span></span><br></code></pre></td></tr></table></figure><br>把以上代码的两处<strong>你的URL</strong>替换成之前复制过来的<strong>文件URL</strong>.</p>
 <p>效果如下:</p>
 <p><video id="video" controls preload="none" allowfullscreen="true" position="absolute" width="100%" poster="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpphny.mp4?versionId=CAEQFxiBgMC7__meyBciIDI5OTRjMDI4YjlhODRhNTE4NmVmODg2ZDI4NjkxODI0"><br>      <source id="mp4" src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpphny.mp4?versionId=CAEQFxiBgMC7__meyBciIDI5OTRjMDI4YjlhODRhNTE4NmVmODg2ZDI4NjkxODI0" type="video/mp4">
-      </video><br><em>( 视频来自我的文章: <a href="http://ultrafish.cn/2021/01/02/1kcpphny/" target="_blank" rel="noopener">用1000多行C++代码写给2021元旦的祝福-C++像素字实现方法</a> )</em></p>
+      </video><br><em>( 视频来自我的文章: <a target="_blank" rel="noopener" href="http://ultrafish.cn/2021/01/02/1kcpphny/">用1000多行C++代码写给2021元旦的祝福-C++像素字实现方法</a> )</em></p>
 <hr>
-<p>引用:<br><a href="https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.488a4c13156lrt" target="_blank" rel="noopener">对象存储 OSS-阿里云</a></p>
+<p>引用:<br><a target="_blank" rel="noopener" href="https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.488a4c13156lrt">对象存储 OSS-阿里云</a></p>
 <hr>
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>不仅仅可以使用OSS来上传视频, 网站中的图片, 音乐等都可以通过OSS来展示. 这样可以减少本地服务器(我的电脑)的压力, 也可以提高访问速度. 之后会继续尝试.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
