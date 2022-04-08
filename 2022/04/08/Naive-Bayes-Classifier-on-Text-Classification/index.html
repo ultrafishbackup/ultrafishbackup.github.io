@@ -14,7 +14,8 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#000000CC">
-  <meta name="description" content="Brief Introduction简介：">
+  <meta name="description" content="1 Brief Introduction入门简介：
+(点击左右按钮 或 使用键盘上的左右键切换页面)">
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="">
   
@@ -241,7 +242,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      75 字
+      1.3k 字
     </span>
   
 
@@ -251,7 +252,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      21
        分钟
     </span>
   
@@ -284,11 +285,115 @@
             <h1 style="display: none">朴素贝叶斯文本分类器 Naive Bayes Classifier on Text Classification</h1>
             
             <div class="markdown-body">
-              <h1 id="Brief-Introduction"><a href="#Brief-Introduction" class="headerlink" title="Brief Introduction"></a>Brief Introduction</h1><p>简介：</p>
-<span id="more"></span>
+              <h1 id="1-Brief-Introduction"><a href="#1-Brief-Introduction" class="headerlink" title="1 Brief Introduction"></a>1 Brief Introduction</h1><p><strong>入门简介</strong>：</p>
+<p>(点击<strong>左右按钮</strong> 或 使用键盘上的<strong>左右键</strong>切换页面)<br><span id="more"></span></p>
 <iframe src="/nodeppt/naive-bayes/index.html" width="100%" height="500" name="topFrame" scrolling="yes" noresize="noresize" frameborder="0" id="topFrame"></iframe>
 
-<p><a href="&quot;../../../../../../nodeppt/naive-bayes/index.html">全屏</a></p>
+<p><a href="&quot;../../../../../../nodeppt/naive-bayes/index.html">点击全屏 (Full Screen)</a></p>
+<hr>
+<h1 id="2-Naive-Bayes-Classifier-on-Text-Classification"><a href="#2-Naive-Bayes-Classifier-on-Text-Classification" class="headerlink" title="2 Naive Bayes Classifier on Text Classification"></a>2 Naive Bayes Classifier on Text Classification</h1><p><strong>朴素贝叶斯文本分类器原理</strong></p>
+<hr>
+<h2 id="2-1-In-English"><a href="#2-1-In-English" class="headerlink" title="2.1 In English"></a>2.1 In English</h2><p><strong>说人话</strong>：</p>
+<ul>
+<li>第一步，建立模型：<ul>
+<li>整理出训练数据中所有<strong>语句</strong>中的<strong>词语</strong>；</li>
+<li>计算出每个词语在各类中出现的频率，即</li>
+<li><script type="math/tex; mode=display">P(w_i|c_j)=\frac{\text{某词在此类中出现的次数}}{\text{此类中所有词的个数}}</script></li>
+<li>并且求出某类的<strong>初步判断概率</strong>，即</li>
+<li><script type="math/tex; mode=display">P(c_j)=\frac{\text{某类中所有语句的个数}}{\text{总的语句的个数}}</script></li>
+</ul>
+</li>
+<li>第二步，应用模型：<ul>
+<li>计算<strong>给定语句</strong>在各个类下的概率；</li>
+<li>计算语句$t$ 在类$c$中的概率，即：</li>
+<li><script type="math/tex; mode=display">(\text{初步判断概率})\times (\text{语句$t$中各个词语在类$c$中出现的频率的积})</script></li>
+<li><script type="math/tex; mode=display">=P(c)\times \prod_{w_i\in t} P(w_i|c)</script></li>
+<li>概率数值<strong>最大</strong>的即为其所属类；</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-2-In-Computer"><a href="#2-2-In-Computer" class="headerlink" title="2.2 In Computer"></a>2.2 In Computer</h2><p><strong>少说话，往下看</strong>：</p>
+<hr>
+<h3 id="The-Basic-Bayes’-Formula"><a href="#The-Basic-Bayes’-Formula" class="headerlink" title="The Basic: Bayes’ Formula"></a>The Basic: Bayes’ Formula</h3><p>贝叶斯定理</p>
+<blockquote>
+<p><strong>For inverting the conditioning</strong></p>
+</blockquote>
+<p>Suppose that $B_1,B_2,…,B_n$ are n <strong><em>exhaustive</em></strong> events and <strong><em>exhaustive</em></strong> events, then:</p>
+<script type="math/tex; mode=display">P(B_k|A)=\frac{P(B_k \cap A)}{P(A)}</script><script type="math/tex; mode=display">=\frac{P(B_k)P(A|B_k)}{P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+...+P(B_n)P(A|B_n)}</script><p>$\because P(B_k\cap A) = P(B_k)\cdot P(A|B_k) \text{ based on the Conditional Probability,}$ </p>
+<p>$\text{and }P(A)=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+…+P(B_n)P(A|B_n) \text{ based on the Law of Total probability}$</p>
+<hr>
+<h3 id="Detailed-Explanation"><a href="#Detailed-Explanation" class="headerlink" title="Detailed Explanation"></a>Detailed Explanation</h3><p><strong>详细解释</strong>：</p>
+<hr>
+<h4 id="1-Our-Goal"><a href="#1-Our-Goal" class="headerlink" title="1 Our Goal"></a>1 Our Goal</h4><p><strong>1 我们的目标</strong>：</p>
+<p>Based on the trained model, given a document (or a sentence/text), we can predict the class of the document.</p>
+<blockquote>
+<p>$d$: a given document, or sentence/text;<br>$C$: set of all possible classes, e.g. (positive, negative, neutral);<br>$c$: the final result we want, to be the predicted class of $d$.<br>Goal is to get the maximum value of $P(c|d),c \in C$, which means given the document $d$, find its class with the maximum probability.</p>
+</blockquote>
+<p>The goal: to get the <strong>maximum</strong> value of $P(c|d),c \in C$,</p>
+<p>Based on <strong>Bayes’ Formula</strong>, we have, </p>
+<script type="math/tex; mode=display">P(c|d)=\frac{P(d|c)P(c)}{P(d)}</script><p>So our final class $c$ is</p>
+<script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c\in C}P(c|d)</script><p>(MAP is maximum a posteriori = most likely class)</p>
+<script type="math/tex; mode=display">=\mathrm{argmax}_{c\in C}\frac{P(d|c)P(c)}{P(d)}</script><script type="math/tex; mode=display">=\mathrm{argmax}_{c\in C}P(d|c)P(c)</script><p>where we ignore $P(d)$, because it is not related to $c$, like a constant.</p>
+<script type="math/tex; mode=display">=\mathrm{argmax}_{c\in C}P(x_1,x_2,...,x_n|c)P(c)</script><ul>
+<li>$x_1,x_2,…,x_n$ are all words in $d$, e.g. all words in an message,</li>
+<li>$P(c),c\in C$ is the frequency of occurrence of this class, by count the relative frequencies, e.g. the frequencies of normal messages and spam messages.</li>
+</ul>
+<blockquote>
+<p>For $P(x_1,x_2,…,x_n|c)$, we have two assumptions to simplify the prediction:</p>
+<ul>
+<li><strong>Bag of Words assumption</strong>: Assume <strong>words position doesn’t matter</strong>;</li>
+<li><strong>Conditional Independence</strong>: Assume $P(x_j|c_j)$ are independent, which means each word in a message is independent with other words in the message.</li>
+</ul>
+<p>Based on the assumption, we have:</p>
+<script type="math/tex; mode=display">P(x_1,x_2,...,x_n|c)=P(x_1|c) \cdot P(x_2|c) \cdot ... \cdot P(x_n|c)=\prod_{x\in \{x_1,x_2,...,x_n\}}P(x|c)</script></blockquote>
+<p>Therefore, we can simplify the prediction $c_{MAP}$ above:</p>
+<script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c\in C}P(c)\prod_{x\in X}P(x|c),\\ X=\{x_1,x_2,...,x_n\}</script><p>As same as:</p>
+<script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c_j\in C}P(c_j)\prod_{i\in positions}P(x_i|c_j) \tag{1}</script><p>$positions$ = all word positions in the test document.</p>
+<blockquote>
+<p>for $(1)$,<br>Multiplying floating point numbers may cause underflow loss,<br>then based on,</p>
+<script type="math/tex; mode=display">\log(ab)=\log(a)+\log(b)</script></blockquote>
+<p>then for $(1)$,</p>
+<script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c_j\in C}P(c_j)\prod_{i\in positions}P(x_i|c_j)\tag{1}</script><script type="math/tex; mode=display">=\mathrm{argmax}_{c_j\in C}\Biggl[\log{P(c_j)}+\sum_{i\in positions}\log{P(x_i|c_j)}\Biggl] \tag{2}</script><p><strong>This is our final goal, next we need to get the value of each term.</strong></p>
+<hr>
+<h4 id="2-Our-Model-Building-Process"><a href="#2-Our-Model-Building-Process" class="headerlink" title="2 Our Model Building Process"></a>2 Our Model Building Process</h4><p><strong>2 我们的模型建立过程</strong>：</p>
+<ul>
+<li>For the <strong>maximum likelihood estimates</strong> $P(c_j)$:</li>
+</ul>
+<script type="math/tex; mode=display">P(c_j)=\frac{doccount(C=c_j)}{N_{doc}}</script><blockquote>
+<p>Get the <strong>frequencies</strong> of the class appear in the dataset.<br>求出某类的<strong>初步判断概率</strong>，即</p>
+<ul>
+<li><script type="math/tex; mode=display">P(c_j)=\frac{\text{某类中所有语句的个数}}{\text{总的语句的个数}}</script></li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li>For the <strong>Parameter estimation</strong> $P(w_i|c_j)$:</li>
+</ul>
+<script type="math/tex; mode=display">P(w_i|c_j)= \frac{count(w_i,c_j)}{\sum_{w \in V} count(w,c_j)}</script><p>($V$ is the vocabulary maintaining all the words used for classification in dataset we trained)<br>($V$ 代表的是所有训练集中的语句中的词汇）)</p>
+<blockquote>
+<p>Get the frequencies of the word $w_i$ appears within all word in the dataset with class $c_j$.<br>计算出每个词语在各类中出现的频率，即</p>
+<ul>
+<li><script type="math/tex; mode=display">P(w_i|c_j)=\frac{\text{某词在此类中出现的次数}}{\text{此类中所有词的个数}}</script></li>
+</ul>
+</blockquote>
+<hr>
+<p><strong><em>Problem</em></strong>:</p>
+<blockquote>
+<p>Not training of some words will lead the result to 0 directly, which is improper.</p>
+</blockquote>
+<p><strong><em>Solution</em></strong>:</p>
+<blockquote>
+<p>Laplace (add-1) Smoothing for Naive Bayes<br>默认每个词都多出现一次</p>
+</blockquote>
+<script type="math/tex; mode=display">P(w_i|c_j)= \frac{count(w_i,c_j)+1}{\sum_{w \in V} (count(w,c_j)+1)}=\frac{count(w_i,c_j)+1}{\biggl(\sum_{w \in V} count(w,c_j)\biggr)+|V|}</script><hr>
+<h4 id="3-Result-of-the-model"><a href="#3-Result-of-the-model" class="headerlink" title="3 Result of the model"></a>3 Result of the model</h4><p><strong>3 模型的结果</strong>：</p>
+<script type="math/tex; mode=display">P(c_j),P(w_i|c_j)</script><script type="math/tex; mode=display">(c_j\in C, w_i \in  \{x_1,x_2,...,x_n\})</script><hr>
+<h4 id="4-Applying-the-model"><a href="#4-Applying-the-model" class="headerlink" title="4 Applying the model"></a>4 Applying the model</h4><p><strong>4 应用模型</strong>：</p>
+<script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c_j\in C}\Biggl[\log{P(c_j)}+\sum_{i\in positions}\log{P(x_i|c_j)}\Biggl]</script><p><strong>[Example]</strong></p>
+<p>We have 3 classes: Positive, Negative, Neutral.<br>then $C={\text{positive, negative, neutral}}$</p>
+<p>We can get the model results:</p>
+<script type="math/tex; mode=display">c_{\text{positive}}=\log{P(\text{positive})}+\sum_{i\in positions}\log{P(x_i|positive)}</script><script type="math/tex; mode=display">c_{\text{negative}}=\log{P(\text{negative})}+\sum_{i\in positions}\log{P(x_i|negative)}</script><script type="math/tex; mode=display">c_{\text{neutral}}=\log{P(\text{neutral})}+\sum_{i\in positions}\log{P(x_i|neutral)}</script><p>Then we can find the class with maximum value, e.g. $c_{\text{neutral}}$ is the largest one, then the class of the tested document is Neutral.</p>
 <hr>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>COMP1433 Slides @ PolyU<br><a target="_blank" rel="noopener" href="https://youtu.be/O2L2Uv9pdDA">Naive Bayes, Clearly Explained!!! - YouTube</a></p>
 <hr>
