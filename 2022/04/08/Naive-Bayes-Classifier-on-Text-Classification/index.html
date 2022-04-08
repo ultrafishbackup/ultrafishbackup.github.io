@@ -242,7 +242,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.2k 字
     </span>
   
 
@@ -321,8 +321,10 @@
 <p><strong>For inverting the conditioning</strong></p>
 </blockquote>
 <p>Suppose that $B_1,B_2,…,B_n$ are n <strong><em>exhaustive</em></strong> events and <strong><em>exhaustive</em></strong> events, then:</p>
-<script type="math/tex; mode=display">P(B_k|A)=\frac{P(B_k \cap A)}{P(A)}</script><script type="math/tex; mode=display">=\frac{P(B_k)P(A|B_k)}{P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+...+P(B_n)P(A|B_n)}</script><p>$\because P(B_k\cap A) = P(B_k)\cdot P(A|B_k) \text{ based on the Conditional Probability,}$ </p>
-<p>$\text{and }P(A)=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+…+P(B_n)P(A|B_n) \text{ based on the Law of Total probability}$</p>
+<script type="math/tex; mode=display">P(B_k|A)=\frac{P(B_k \cap A)}{P(A)}</script><script type="math/tex; mode=display">=\frac{P(B_k)P(A|B_k)}{P(B_1)P(A|B_1)+...+P(B_n)P(A|B_n)}</script><p>$\because P(B_k\cap A) = P(B_k)\cdot P(A|B_k)$</p>
+<p>$\text{ based on the Conditional Probability,}$ </p>
+<p>$\text{and }P(A)=P(B_1)P(A|B_1)+…+P(B_n)P(A|B_n)$</p>
+<p>$\text{ based on the Law of Total probability}$</p>
 <hr>
 <h3 id="Detailed-Explanation"><a href="#Detailed-Explanation" class="headerlink" title="Detailed Explanation"></a>Detailed Explanation</h3><p><strong>详细解释</strong>：</p>
 <hr>
@@ -350,12 +352,12 @@
 <script type="math/tex; mode=display">P(x_1,x_2,...,x_n|c)=P(x_1|c) \cdot P(x_2|c) \cdot ... \cdot P(x_n|c)=\prod_{x\in \{x_1,x_2,...,x_n\}}P(x|c)</script></blockquote>
 <p>Therefore, we can simplify the prediction $c_{MAP}$ above:</p>
 <script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c\in C}P(c)\prod_{x\in X}P(x|c),\\ X=\{x_1,x_2,...,x_n\}</script><p>As same as:</p>
-<script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c_j\in C}P(c_j)\prod_{i\in positions}P(x_i|c_j) \tag{1}</script><p>$positions$ = all word positions in the test document.</p>
+<script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c_j\in C}P(c_j)\prod_{i\in positions}P(x_i|c_j)</script><p>$positions$ = all word positions in the test document.</p>
 <blockquote>
-<p>for $(1)$,<br>Multiplying floating point numbers may cause underflow loss,<br>then based on,</p>
+<p>Multiplying floating point numbers may cause underflow loss,<br>then based on,</p>
 <script type="math/tex; mode=display">\log(ab)=\log(a)+\log(b)</script></blockquote>
-<p>then for $(1)$,</p>
-<script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c_j\in C}P(c_j)\prod_{i\in positions}P(x_i|c_j)\tag{1}</script><script type="math/tex; mode=display">=\mathrm{argmax}_{c_j\in C}\Biggl[\log{P(c_j)}+\sum_{i\in positions}\log{P(x_i|c_j)}\Biggl] \tag{2}</script><p><strong>This is our final goal, next we need to get the value of each term.</strong></p>
+<p>then,</p>
+<script type="math/tex; mode=display">c_{MAP}=\mathrm{argmax}_{c_j\in C}\Biggl[\log{P(c_j)}+\sum_{i\in positions}\log{P(x_i|c_j)}\Biggl]</script><p><strong>This is our final goal, next we need to get the value of each term.</strong></p>
 <hr>
 <h4 id="2-Our-Model-Building-Process"><a href="#2-Our-Model-Building-Process" class="headerlink" title="2 Our Model Building Process"></a>2 Our Model Building Process</h4><p><strong>2 我们的模型建立过程</strong>：</p>
 <ul>
@@ -387,7 +389,7 @@
 <blockquote>
 <p>Laplace (add-1) Smoothing for Naive Bayes<br>默认每个词都多出现一次</p>
 </blockquote>
-<script type="math/tex; mode=display">P(w_i|c_j)= \frac{count(w_i,c_j)+1}{\sum_{w \in V} (count(w,c_j)+1)}=\frac{count(w_i,c_j)+1}{\biggl(\sum_{w \in V} count(w,c_j)\biggr)+|V|}</script><hr>
+<script type="math/tex; mode=display">P(w_i|c_j)= \frac{count(w_i,c_j)+1}{\sum_{w \in V} (count(w,c_j)+1)}</script><script type="math/tex; mode=display">=\frac{count(w_i,c_j)+1}{\biggl(\sum_{w \in V} count(w,c_j)\biggr)+|V|}</script><hr>
 <h4 id="3-Result-of-the-model"><a href="#3-Result-of-the-model" class="headerlink" title="3 Result of the model"></a>3 Result of the model</h4><p><strong>3 模型的结果</strong>：</p>
 <script type="math/tex; mode=display">P(c_j),P(w_i|c_j)</script><script type="math/tex; mode=display">(c_j\in C, w_i \in  \{x_1,x_2,...,x_n\})</script><hr>
 <h4 id="4-Applying-the-model"><a href="#4-Applying-the-model" class="headerlink" title="4 Applying the model"></a>4 Applying the model</h4><p><strong>4 应用模型</strong>：</p>
