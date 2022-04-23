@@ -19,13 +19,13 @@
     <meta name="description" content="Made by Mike_Zhang  在使用Arduino做项目时, 各个元件都需要使用跳线与MCU或者其他元件连接, 一旦元件数量变多, 跳线数量也会变得很多很杂, 这不利于后期的整理和调整, 也会对信号的传输造成影响, 同时外观也不好看. 因此想用蓝牙代替传统的跳线, 并且能让蓝牙模块配合单片机实现互相通信.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Arduino蓝牙模块相互通信">
-<meta property="og:url" content="https://ultrafish.cn/2021/03/08/Arduino%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E7%9B%B8%E4%BA%92%E9%80%9A%E4%BF%A1/index.html">
+<meta property="og:url" content="https://ultrafish.cn/2021/03/08/Arduino-bluetooth-transceiving/index.html">
 <meta property="og:site_name" content="UltraFish">
 <meta property="og:description" content="Made by Mike_Zhang  在使用Arduino做项目时, 各个元件都需要使用跳线与MCU或者其他元件连接, 一旦元件数量变多, 跳线数量也会变得很多很杂, 这不利于后期的整理和调整, 也会对信号的传输造成影响, 同时外观也不好看. 因此想用蓝牙代替传统的跳线, 并且能让蓝牙模块配合单片机实现互相通信.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/bluetooth.jpg">
 <meta property="article:published_time" content="2021-03-08T03:36:15.000Z">
-<meta property="article:modified_time" content="2022-03-21T14:11:45.856Z">
+<meta property="article:modified_time" content="2022-04-23T07:18:06.693Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="Arduino">
 <meta property="article:tag" content="蓝牙">
@@ -382,7 +382,7 @@
     
       
       
-        <a href="/2021/03/08/Arduino%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E7%9B%B8%E4%BA%92%E9%80%9A%E4%BF%A1/" title="Arduino蓝牙模块相互通信"
+        <a href="/2021/03/08/Arduino-bluetooth-transceiving/" title="Arduino蓝牙模块相互通信"
            class="list-group-item list-group-item-action
            active">
           <span class="category-post">Arduino蓝牙模块相互通信</span>
@@ -428,11 +428,11 @@
 <li>给两块HC-08D上电</li>
 <li>把其中一块HC-08D与USB-TTL转接板相互连接, 然后把USB-TTL转接板接上电脑</li>
 <li>打开HC-USB-P串口助手, 选择<strong>模块类型HC-08</strong>, 点击<strong>测试指令</strong>, 回复“<strong>OK</strong>”即为测试成功</li>
-<li>点击“<strong>设置模块主机</strong>”, 然后在指令文本框中输入<strong>AT</strong>, 点击<strong>数据发送</strong>, 收到回复“<strong>OK</strong>”即为测试成功, 如图:<br><img src="/2021/03/08/Arduino%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E7%9B%B8%E4%BA%92%E9%80%9A%E4%BF%A1/2.jpg" srcset="/img/loading.gif" lazyload alt></li>
+<li>点击“<strong>设置模块主机</strong>”, 然后在指令文本框中输入<strong>AT</strong>, 点击<strong>数据发送</strong>, 收到回复“<strong>OK</strong>”即为测试成功, 如图:<br><img src="/2021/03/08/Arduino-bluetooth-transceiving/2.jpg" srcset="/img/loading.gif" lazyload alt></li>
 <li>设置完成后, 两块蓝牙模块上的指示灯常亮说明连接已经成功, 之后断电后上电两块板会自动连接, 可以把两块板连接USB-TTL转接板, 并通过HC-USB-P串口助手互相给另一块板发送以及接收数据, 以测试连接的稳定性.</li>
 </ol>
 </blockquote>
-<h3 id="蓝牙模块与MCU连接方式"><a href="#蓝牙模块与MCU连接方式" class="headerlink" title="蓝牙模块与MCU连接方式"></a>蓝牙模块与MCU连接方式</h3><p><img src="/2021/03/08/Arduino%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E7%9B%B8%E4%BA%92%E9%80%9A%E4%BF%A1/1.jpg" srcset="/img/loading.gif" lazyload alt></p>
+<h3 id="蓝牙模块与MCU连接方式"><a href="#蓝牙模块与MCU连接方式" class="headerlink" title="蓝牙模块与MCU连接方式"></a>蓝牙模块与MCU连接方式</h3><p><img src="/2021/03/08/Arduino-bluetooth-transceiving/1.jpg" srcset="/img/loading.gif" lazyload alt></p>
 <p>连接方式参考上图</p>
 <blockquote>
 <p>VCC —- 5V<br>GND —- GND<br>TXD —- D5<br>RXD —- D3</p>
@@ -520,7 +520,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Arduino蓝牙模块相互通信</div>
-      <div>https://ultrafish.cn/2021/03/08/Arduino蓝牙模块相互通信/</div>
+      <div>https://ultrafish.cn/2021/03/08/Arduino-bluetooth-transceiving/</div>
     </div>
     <div class="license-meta">
       

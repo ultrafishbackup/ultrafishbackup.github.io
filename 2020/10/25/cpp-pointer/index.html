@@ -16,24 +16,24 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   所有相关文章:C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符C++中的指针pointer2 - 指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量  在之前的文章中我已经介绍了C++中指针的基本内容, 包括声明, 取地址运算符号, 赋值和运算符. 接下来我会介绍指针运算, 指向空的指针与空类型指针,">
+    <meta name="description" content="Made by Mike_Zhang   所有相关文章:C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符C++中的指针pointer2 - 指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量   123456#include &lt;iostream&gt;using namespace std;void main()&amp;#123;    in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++中的指针pointer2">
-<meta property="og:url" content="https://ultrafish.cn/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/index.html">
+<meta property="og:title" content="C++中的指针pointer">
+<meta property="og:url" content="https://ultrafish.cn/2020/10/25/cpp-pointer/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   所有相关文章:C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符C++中的指针pointer2 - 指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量  在之前的文章中我已经介绍了C++中指针的基本内容, 包括声明, 取地址运算符号, 赋值和运算符. 接下来我会介绍指针运算, 指向空的指针与空类型指针,">
+<meta property="og:description" content="Made by Mike_Zhang   所有相关文章:C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符C++中的指针pointer2 - 指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量   123456#include &lt;iostream&gt;using namespace std;void main()&amp;#123;    in">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpp2.png?versionId=CAEQGxiBgIC6.ZCf1xciIDAwZjk3NDRhMjc4NjRjZmNiMTliNTlhMDZkMjE4OTZl">
-<meta property="article:published_time" content="2020-12-06T03:30:41.000Z">
-<meta property="article:modified_time" content="2022-03-21T13:43:19.858Z">
+<meta property="og:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpp1.png?versionId=CAEQGxiBgIDc.ZCf1xciIGU5MWVmOTJkNmUzMjRjMzI4MGY0Y2MwM2Q1MTk5ZDYx">
+<meta property="article:published_time" content="2020-10-25T01:58:14.000Z">
+<meta property="article:modified_time" content="2022-04-23T07:20:03.006Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="指针">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpp2.png?versionId=CAEQGxiBgIC6.ZCf1xciIDAwZjk3NDRhMjc4NjRjZmNiMTliNTlhMDZkMjE4OTZl">
+<meta name="twitter:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpp1.png?versionId=CAEQGxiBgIDc.ZCf1xciIGU5MWVmOTJkNmUzMjRjMzI4MGY0Y2MwM2Q1MTk5ZDYx">
   
   
-  <title>C++中的指针pointer2 - UltraFish</title>
+  <title>C++中的指针pointer - UltraFish</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -240,13 +240,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpp2.png?versionId=CAEQGxiBgIC6.ZCf1xciIDAwZjk3NDRhMjc4NjRjZmNiMTliNTlhMDZkMjE4OTZl') no-repeat center center; background-size: cover;">
+     style="background: url('https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpp1.png?versionId=CAEQGxiBgIDc.ZCf1xciIGU5MWVmOTJkNmUzMjRjMzI4MGY0Y2MwM2Q1MTk5ZDYx') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="C++中的指针pointer2"></span>
+            <span id="subtitle" data-typed-text="C++中的指针pointer"></span>
           
         </div>
 
@@ -257,8 +257,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-12-06 11:30" pubdate>
-          2020年12月6日 中午
+        <time datetime="2020-10-25 09:58" pubdate>
+          2020年10月25日 上午
         </time>
       </span>
     
@@ -270,7 +270,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.5k 字
+          1.9k 字
         
       </span>
     
@@ -282,7 +282,7 @@
         
         
           <!-- compatible with older versions-->
-          21 分钟
+          16 分钟
         
       </span>
     
@@ -408,18 +408,18 @@
     
       
       
-        <a href="/2020/10/25/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer/" title="C++中的指针pointer"
+        <a href="/2020/10/25/cpp-pointer/" title="C++中的指针pointer"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">C++中的指针pointer</span>
         </a>
       
     
       
       
-        <a href="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/" title="C++中的指针pointer2"
+        <a href="/2020/12/06/cpp-pointer2/" title="C++中的指针pointer2"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">C++中的指针pointer2</span>
         </a>
       
@@ -828,30 +828,35 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">C++中的指针pointer2</h1>
+            <h1 style="display: none">C++中的指针pointer</h1>
             
             <div class="markdown-body">
               
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
 <blockquote>
-<p>所有相关文章:<br><a href="http://ultrafish.cn/2020/10/25/C++中的指针pointer/">C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符</a><br><a href="http://ultrafish.cn/2020/12/06/C++中的指针pointer2/">C++中的指针pointer2 - 指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量</a></p>
+<p>所有相关文章:<br><a href="http://ultrafish.cn/2020/10/25/cpp-pointer/">C++中的指针pointer - 指针的声明, 取地址运算符号, 指针的赋值, 指针运算符</a><br><a href="http://ultrafish.cn/2020/12/06/cpp-pointer2/">C++中的指针pointer2 - 指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量</a></p>
 </blockquote>
-<p>在<a href="http://ultrafish.cn/2020/10/25/C++中的指针pointer/">之前的文章</a>中我已经介绍了C++中指针的基本内容, 包括声明, 取地址运算符号, 赋值和运算符. 接下来我会介绍<strong>指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量.</strong></p>
-<span id="more"></span>
-<h3 id="指针运算"><a href="#指针运算" class="headerlink" title="指针运算"></a>指针运算</h3><p>指针运算就是对指针地址进行运算. 指针经过运算后, 其内存指向(地址)可能会发生变化, 其指向内存的内容(原值)也可能会发生变化. 以下举例:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> * p = &amp;a; <span class="hljs-comment">//定义指针并赋值</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, p, *p);<br>    p++; <span class="hljs-comment">//指针自加运算</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, p, *p);<br>    p++; <span class="hljs-comment">//指针自加运算</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, p, *p);<br>    p--; <span class="hljs-comment">//指针自减运算</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, p, *p);<br>&#125;<br></code></pre></td></tr></table></figure><br>输出结果:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-number">-446765300</span>, <span class="hljs-number">10</span><br><span class="hljs-number">-446765296</span>, <span class="hljs-number">-446765280</span><br><span class="hljs-number">-446765292</span>, <span class="hljs-number">32766</span><br><span class="hljs-number">-446765296</span>, <span class="hljs-number">-446765280</span><br></code></pre></td></tr></table></figure><br>由此发现, 指针运算后会使指针地址变化, 相对应的指向内存的内容也会发生变化, 但是内存内容的变化规律是和地址变化规律没有直接联系的. 另外, 指针进行加1运算后, 其地址的值并不是简单的加一, 而是而是加上一个变量对应类型的字节宽度, int对应的宽度就是sizeof(int), 也就是4. long类型宽度就是sizeof(long), 也就是8. 举例:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">long</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">long</span> * p = &amp;a;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, p, *p);<br>    p++;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, p, *p);<br>    p++;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, p, *p);<br>    p--;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, p, *p);<br>&#125;<br></code></pre></td></tr></table></figure><br>输出结果:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-number">-369174776</span>, <span class="hljs-number">10</span><br><span class="hljs-number">-369174768</span>, <span class="hljs-number">-369174752</span><br><span class="hljs-number">-369174760</span>, <span class="hljs-number">540288561</span><br><span class="hljs-number">-369174768</span>, <span class="hljs-number">-369174752</span><br></code></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="指向空的指针与空类型指针"><a href="#指向空的指针与空类型指针" class="headerlink" title="指向空的指针与空类型指针"></a>指向空的指针与空类型指针</h3><h4 id="指向空的指针"><a href="#指向空的指针" class="headerlink" title="指向空的指针"></a>指向空的指针</h4><p>指向空的指针表示为:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">void</span>* p;<br></code></pre></td></tr></table></figure><br>指向空的指针是有指向的, 即指向空类型void, 但是在后期使用时可以给其赋值不同类型的数据. 举例:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> * p = &amp;a;<br>    <span class="hljs-type">void</span>* p1 = <span class="hljs-literal">NULL</span>; <span class="hljs-comment">//定义指向空的指针 </span><br>    p1 = p; <span class="hljs-comment">//给指向空的指针重新赋值指向</span><br>    cout &lt;&lt; p1 &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<h4 id="空类型指针"><a href="#空类型指针" class="headerlink" title="空类型指针"></a>空类型指针</h4><p>空类型的指针是指未初始化的指针, 不能直接使用, 需要赋值后才能使用, 在编写代码时需要注意. 举例:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span>* p2 = <span class="hljs-literal">NULL</span>; <span class="hljs-comment">//定义空类型指针, 未初始化, 不能直接使用</span><br>    <span class="hljs-type">int</span> b = <span class="hljs-number">20</span>; <br>    p2 = &amp;b; <span class="hljs-comment">//初始化p2</span><br>    cout &lt;&lt; p2 &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">2</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, a);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>先看一段代码, 这段代码引入了一个整数型变量a,并把它赋值为2, 最后输出. 看上去十分简单, 但仔细思考一下, 程序是怎么知道变量a中到底存了什么数据呢, 或者说怎么去得到变量a中的数据呢? 其实程序通过变量名所对应的内存单元来对数据进行读取. 简单来说, 你的一位朋友想找你, 他不是直接找到你, 而是通过你所在的地址来找到你. 类似的, 程序也是通过变量相对应的内存地址来进行操作, 这时就需要引入一种新的数据类型—<strong>指针(pointer)</strong>.<br>在C/C++中, <strong>指针(pointer)</strong> 是一种特殊的数据类型, 它存储的是数值的内存地址, 指针也称指针变量.</p>
+<h2 id><a href="#" class="headerlink" title></a><span id="more"></span></h2><h3 id="指针的声明"><a href="#指针的声明" class="headerlink" title="指针的声明"></a>指针的声明</h3><p>指针的声明和一般的变量声明方式类似<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">数据类型 * 指针变量名<br><span class="hljs-comment">//如:</span><br><span class="hljs-type">int</span> * aPointer;<br><span class="hljs-type">float</span> * bPointer;<br></code></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="指向常量的指针与指针常量"><a href="#指向常量的指针与指针常量" class="headerlink" title="指向常量的指针与指针常量"></a>指向常量的指针与指针常量</h3><h4 id="指向常量的指针"><a href="#指向常量的指针" class="headerlink" title="指向常量的指针"></a>指向常量的指针</h4><p>指向常量的指针(pointer-to-const)说明<strong>指针内存指向的内容</strong>是一个常量, 使用const关键字表示, 如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> <span class="hljs-type">const</span> *p = &amp;a;<br></code></pre></td></tr></table></figure><br>其中指针内存指向的内容(<em>p)是一个常量, 其无法修改内存数据, 也就是a, 做到了“只读”.<br>但是我们可以修改p, 也就是内存指向(地址). 举例如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> b = <span class="hljs-number">20</span>;<br><span class="hljs-type">int</span> <span class="hljs-type">const</span> *p = &amp;a;<br>p = &amp;b; <span class="hljs-comment">//允许</span><br>*p = <span class="hljs-number">20</span>; <span class="hljs-comment">//报错</span><br></code></pre></td></tr></table></figure><br>总的来说, 使用指向常量的指针(pointer-to-const)可以防止我们改变指针指向的内容(</em>p), 做到“只读”, 但是不能防止我们改变指针的内存指向(地址p). 指向常量的指针也称常量指针.</p>
-<h4 id="指针常量"><a href="#指针常量" class="headerlink" title="指针常量"></a>指针常量</h4><p>指针常量(const pointer)说明这个<strong>指针本身</strong>是一个常量, 使用const关键字表示, 如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span>* <span class="hljs-type">const</span> p = &amp;a;<br></code></pre></td></tr></table></figure><br>其中指针p是常量, 其无法修改, 也就是说我们无法修改它的内存指向, 也就是地址.<br>但是我们可以修改<em>p, 也就是说我们可以修改指针指向内存的内容. 举例如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> b = <span class="hljs-number">20</span>;<br><span class="hljs-type">int</span>* <span class="hljs-type">const</span> p = &amp;a;<br>p = &amp;b; <span class="hljs-comment">//报错</span><br>*p = <span class="hljs-number">20</span>; <span class="hljs-comment">//允许</span><br></code></pre></td></tr></table></figure><br>总的来说, 使用指针常量(const pointer)可以防止我们改变指针的内存指向(地址p), 但不可以防止我们改变指向内存的内容(</em>p).</p>
-<p>两者可以用一张图总结:<br><img src="/2020/12/06/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer2/1.jpg" srcset="/img/loading.gif" lazyload alt="Pointers-to-const and const pointers"><br><em>图源: Prata S - C++ Primer Plus 6th Edition - 2011</em></p>
-<h4 id="指向常量的指针常量"><a href="#指向常量的指针常量" class="headerlink" title="指向常量的指针常量"></a>指向常量的指针常量</h4><p>指向常量的指针常量, 它的指针指向(地址p)以及它内存指向的内容(*p)都是常量, 都不能改变, 如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> <span class="hljs-type">const</span> * <span class="hljs-type">const</span> p = &amp;a;<br></code></pre></td></tr></table></figure></p>
+<h3 id="取地址运算符号"><a href="#取地址运算符号" class="headerlink" title="取地址运算符号"></a>取地址运算符号</h3><p>指针所储存的地址是通过取地址运算符号(address operator) <strong>&amp;</strong> 来获取的. 如果 <em>home</em> 是一个变量, 那&amp;<em>home</em> 就是家的地址,例如:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> a = <span class="hljs-number">2</span>;<br><span class="hljs-type">int</span> * aPointer;<br>aPointer = &amp;a;<br></code></pre></td></tr></table></figure><br>这样变量<em>a</em>的内存地址就被读取出来并且存在指针<em>aPointer</em>中了</p>
+<hr>
+<h3 id="指针的赋值"><a href="#指针的赋值" class="headerlink" title="指针的赋值"></a>指针的赋值</h3><p>有两种赋值方法<br>1.在声明时赋值:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> a = <span class="hljs-number">2</span>;<br><span class="hljs-type">int</span> * aPointer = &amp;a; <span class="hljs-comment">//声明并赋值</span><br></code></pre></td></tr></table></figure><br>2.在后期赋值:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> a = <span class="hljs-number">2</span>;<br><span class="hljs-type">int</span> * aPointer; <span class="hljs-comment">//声明</span><br>aPointer = &amp;a; <span class="hljs-comment">//赋值</span><br></code></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意:<br>在以上例子中, 指针变量名是<strong>aPointer</strong>, 不是 *aPointer,<br><strong><em>aPointer = &amp;a</em></strong> 指的是把整数型变量a的内存地址赋值给指针变量 <strong>aPointer</strong>, 若写成 *aPointer = &amp;a, 则程序会报错.</p>
+</blockquote>
+<hr>
+<h3 id="指针运算符"><a href="#指针运算符" class="headerlink" title="指针运算符"></a>指针运算符</h3><p>指针运算符和取地址运算符的作用完全相反, <strong>指针运算符(indirect value/dereferencing operator)</strong> 可以通过地址取得对应的值. 举例来说, 假设host是一个指针, 那<em>host</em>代表的是地址, <em>*host</em>代表的是那个地址所对应的值. 例如:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">2</span>;<br>    <span class="hljs-type">int</span> * aPointer = &amp;a;<br>    cout &lt;&lt; a &lt;&lt; endl; <span class="hljs-comment">//输出整数型变量a的值</span><br>    cout &lt;&lt; *aPointer &lt;&lt; endl; <span class="hljs-comment">//输出整数型变量a所对应的指针所对应的值, 即为a</span><br>&#125;<br></code></pre></td></tr></table></figure><br>上面例子所输出的两个结果是一样的, 都为2.</p>
+<hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">2</span>;<br>    <span class="hljs-type">int</span> * aPointer = &amp;a;<br>    cout &lt;&lt; a &lt;&lt; endl; <span class="hljs-comment">//输出整数型变量a的值</span><br>    cout &lt;&lt; *aPointer &lt;&lt; endl; <span class="hljs-comment">//输出整数型变量a所对应的指针所对应的值, 即为a</span><br>    *aPointer = *aPointer + <span class="hljs-number">1</span>; <span class="hljs-comment">//使用指针改变原变量的值</span><br>    cout &lt;&lt; a &lt;&lt; endl; <br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在这个例子中, 变量a和指针aPointer相当于一枚硬币的两面.<br>通过取地址运算符&amp;得到变量a的地址, 通过指针运算符 *得到地址所对应的值.<br>所以说a和 *aPointer是完全一样的, aPointer对应的值为&amp;a. 还可以通过修改 *aPointer来修改a的值.<br><img src="/2020/10/25/cpp-pointer/1.jpg" srcset="/img/loading.gif" lazyload alt="Two sides of a coin"><br><em>图源: Prata S - C++ Primer Plus 6th Edition - 2011</em></p>
 <hr>
 <p>引用:<br>Prata S - C++ Primer Plus 6th Edition - 2011</p>
 <hr>
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>本文介绍了指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量, 之后会继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>本文只讲了指针变量的简单内容, 之后会继续展开指针运算、指向空的指针和空类型指针、指向常量的指针和指针常量、指针与数组等内容, 会继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
 <p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
@@ -921,8 +926,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>C++中的指针pointer2</div>
-      <div>https://ultrafish.cn/2020/12/06/C++中的指针pointer2/</div>
+      <div>C++中的指针pointer</div>
+      <div>https://ultrafish.cn/2020/10/25/cpp-pointer/</div>
     </div>
     <div class="license-meta">
       
@@ -934,7 +939,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2020年12月6日</div>
+          <div>2020年10月25日</div>
         </div>
       
       
@@ -964,9 +969,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/20/floating%20point%20numbers%20representation/" title="Floating point numbers representation">
+                      <a href="/2020/12/06/cpp-pointer2/" title="C++中的指针pointer2">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Floating point numbers representation</span>
+                        <span class="hidden-mobile">C++中的指针pointer2</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -974,8 +979,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/25/C++%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88pointer/" title="C++中的指针pointer">
-                        <span class="hidden-mobile">C++中的指针pointer</span>
+                      <a href="/2020/10/15/blog2/" title="blog2.0-部署到阿里云服务器以及更新域名">
+                        <span class="hidden-mobile">blog2.0-部署到阿里云服务器以及更新域名</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
