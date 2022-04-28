@@ -1,0 +1,1679 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
+  
+    <meta name="description" content="Made by Mike_Zhang   所有文章:Introductory Probability Course NotePython Basic NoteLimits and Continuity NoteCalculus for Engineers Course Note  个人笔记，仅供参考FOR REFERENCE ONLY Course note of AMA1130 Calculus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calculus for Engineers Course Note">
+<meta property="og:url" content="https://ultrafish.cn/2022/04/28/calculus-for-engineers-course-note/index.html">
+<meta property="og:site_name" content="UltraFish">
+<meta property="og:description" content="Made by Mike_Zhang   所有文章:Introductory Probability Course NotePython Basic NoteLimits and Continuity NoteCalculus for Engineers Course Note  个人笔记，仅供参考FOR REFERENCE ONLY Course note of AMA1130 Calculus">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm">
+<meta property="article:published_time" content="2022-04-28T07:16:46.000Z">
+<meta property="article:modified_time" content="2022-04-28T07:38:45.011Z">
+<meta property="article:author" content="Mike_Zhang">
+<meta property="article:tag" content="Math Note">
+<meta property="article:tag" content="Limits">
+<meta property="article:tag" content="Continuity">
+<meta property="article:tag" content="Calculus">
+<meta property="article:tag" content="Differentiation">
+<meta property="article:tag" content="Integration">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm">
+  
+  
+  <title>Calculus for Engineers Course Note - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"ultrafish.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VXQrzMqOSkaPcbILQ3sQJyhw-gzGzoHsz","app_key":"y6z7EoVjISdQPvN4meqBOkvy","server_url":"https://vxqrzmqo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>UltraFish</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/collection/">
+                <i class="iconfont icon-th-large"></i>
+                收藏夹
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn">
+                    <i class="iconfont icon-home-fill"></i>
+                    UltraFish Plus 主页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">
+                    <i class="iconfont icon-briefcase"></i>
+                    多进制转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    IEEE 754
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    有符号数转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Josephus-Problem">
+                    <i class="iconfont icon-briefcase"></i>
+                    约瑟夫问题
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Calculus for Engineers Course Note"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-28 15:16" pubdate>
+          2022年4月28日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          20k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          171 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          阅读数：<span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Mathematics"
+        id="heading-540b21ecdb276f5087ee585cedd6d5d0" role="tab" data-toggle="collapse" href="#collapse-540b21ecdb276f5087ee585cedd6d5d0"
+        aria-expanded="true"
+      >
+        Mathematics
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-540b21ecdb276f5087ee585cedd6d5d0"
+           role="tabpanel" aria-labelledby="heading-540b21ecdb276f5087ee585cedd6d5d0">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2021/12/12/introductory-probability-course-note/" title="Introductory Probability Course Note"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Introductory Probability Course Note</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2021/12/14/limits-continuity-note/" title="Limits and Continuity Note"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Limits and Continuity Note</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/04/28/calculus-for-engineers-course-note/" title="Calculus for Engineers Course Note"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Calculus for Engineers Course Note</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Calculus for Engineers Course Note</h1>
+            
+            <div class="markdown-body">
+              
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<blockquote>
+<p>所有文章:<br><a href="https://ultrafish.cn/2021/12/12/introductory-probability-course-note/">Introductory Probability Course Note</a><br><a href="https://ultrafish.cn/2021/12/18/Python-basic-note/">Python Basic Note</a><br><a href="https://ultrafish.cn/2021/12/14/limits-continuity-note/">Limits and Continuity Note</a><br><a href="https://ultrafish.cn/2022/04/28/calculus-for-engineers-course-note/">Calculus for Engineers Course Note</a></p>
+</blockquote>
+<p><strong><em>个人笔记，仅供参考</em></strong><br><strong><em>FOR REFERENCE ONLY</em></strong></p>
+<p>Course note of <strong>AMA1130 Calculus for Engineers</strong>, The Hong Kong Polytechnic University, 2022.</p>
+<p>Mainly focus on <strong>functions</strong>, <strong>limits</strong>, <strong>continuity</strong>, <strong>differentiation</strong>, and <strong>integration</strong>.</p>
+<span id="more"></span>
+<hr>
+<h1 id="1-Functions"><a href="#1-Functions" class="headerlink" title="1 Functions"></a>1 Functions</h1><h2 id="1-1-Sets"><a href="#1-1-Sets" class="headerlink" title="1.1 Sets"></a>1.1 Sets</h2><blockquote>
+<p>A collection of objects</p>
+</blockquote>
+<ul>
+<li>$\Bbb{N}$: set of <strong>positive integers</strong> ${1,2,3,4,5,…}$;</li>
+<li>$\Bbb{Z}$: set of <strong>integers</strong> ${…,-3.-2.-1,0,1,2,3,…}$;</li>
+<li>$\Bbb{Q}$: set of <strong>rational numbers</strong> ${\frac{integer}{integer}}$, Q for <em>quotient</em>;</li>
+<li>$\Bbb{R}$: set of <strong>real numbers</strong>;</li>
+<li>$\Bbb{C}$: set of <strong>complex numbers</strong>;</li>
+</ul>
+<script type="math/tex; mode=display">\Bbb{N}\subset\Bbb{Z}\subset\Bbb{Q}\subset\Bbb{R}\subset\Bbb{C}</script><hr>
+<h2 id="1-2-Functions"><a href="#1-2-Functions" class="headerlink" title="1.2 Functions"></a>1.2 Functions</h2><h3 id="1-2-1-Definition"><a href="#1-2-1-Definition" class="headerlink" title="1.2.1 Definition"></a>1.2.1 Definition</h3><blockquote>
+<p>Function is a map from a set $A$ to set $B$, $f:A\to B$.<br>For each $x \in A$, there is a <strong>unique</strong> $y \in B$, such that $f(x)=y$</p>
+<script type="math/tex; mode=display">\begin{cases}
+    f(x_1) = y_1\\
+    f(x_2) = y_2
+\end{cases} \implies y_1=y_2\;\text{[uniqueness]}</script></blockquote>
+<p>Notation:</p>
+<script type="math/tex; mode=display">y=f(x)</script><p>$x$: <strong>independent</strong> variable(argument);<br>$y$: <strong>dependent</strong> variable.</p>
+<p>$Dom(f)$: <strong>domain</strong> of the function $f$, the set where $f$ is allowed to take values;<br>$Range(f)$: <strong>range</strong> of the function $f$, the set of all possible values of $f(x)$ with $x$ in the $Dom(f)$.</p>
+<hr>
+<ul>
+<li><p><strong>Sum</strong>: $(f+g)(x)=f(x)+g(x)$</p>
+</li>
+<li><p><strong>Difference</strong>: $(f-g)(x)=f(x)-g(x)$</p>
+</li>
+<li><p><strong>Product</strong>: $(fg)(x)=f(x)g(x)$</p>
+<ul>
+<li>Domains of above 3 functions:</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">Dom(f) \cap Dom(g)</script><ul>
+<li><strong>Quotient</strong>: $(\frac{f}{g})(x)=\frac{f(x)}{g(x)}\text{, when }g(x)\ne 0$</li>
+</ul>
+<ul>
+<li>Domain of this function:</li>
+</ul>
+<script type="math/tex; mode=display">\{x\in Dom(f) \cap Dom(g):g(x)\ne 0\}</script><hr>
+<h3 id="1-2-2-Absolute-Value"><a href="#1-2-2-Absolute-Value" class="headerlink" title="1.2.2 Absolute Value"></a>1.2.2 Absolute Value</h3><script type="math/tex; mode=display">y=f(x)=|x|=\begin{cases}
+    x,&\text{if\;\;$x\ge 0$,}\\
+    -x,&\text{if\;\;$x\lt 0$.}
+\end{cases}</script><p>$Dom(f)=\Bbb{R}$<br>$Range(f)=[0,\infin)$</p>
+<hr>
+<h3 id="1-2-3-Composite-Functions"><a href="#1-2-3-Composite-Functions" class="headerlink" title="1.2.3 Composite Functions"></a>1.2.3 Composite Functions</h3><blockquote>
+<p>Two functions $f:A\to B$ and $g:C\to D$, then $Range(f)\subset C$ (means $\forall x\in X$, $f(x)\in C$).<br>The composite function $g\circ f: A\to D$ is:</p>
+</blockquote>
+<script type="math/tex; mode=display">(g\circ f)(x)=g(f(x))</script><ul>
+<li><strong>Domain of Composite function:</strong></li>
+</ul>
+<p>$Dom(g\circ f) = {x\in Dom(f):f(x)\in Dom(g)} = Dom(f)\cap {x:f(x)\in Dom(g)}$</p>
+<p>$Dom(f\circ g) = {x\in Dom(g):g(x)\in Dom(f)} = Dom(g)\cap {x:g(x)\in Dom(f)}$</p>
+<blockquote>
+<p>Find the $Dom(f\circ g)$:</p>
+<ol>
+<li>Find $Dom(g)$;</li>
+<li>Find $Dom(f)$;</li>
+<li>Find $x$ such that in $Dom(g)$ <strong>and</strong> which $g(x)$ is in $Dom(f)$.</li>
+</ol>
+</blockquote>
+<p><strong>[Example]</strong></p>
+<p><img src="/2022/04/28/calculus-for-engineers-course-note/1.png" srcset="/img/loading.gif" lazyload alt></p>
+<p><strong>[Solution]</strong></p>
+<p><img src="/2022/04/28/calculus-for-engineers-course-note/2.png" srcset="/img/loading.gif" lazyload alt></p>
+<hr>
+<h3 id="1-2-4-Inverse-Functions"><a href="#1-2-4-Inverse-Functions" class="headerlink" title="1.2.4 Inverse Functions"></a>1.2.4 Inverse Functions</h3><p>If </p>
+<script type="math/tex; mode=display">(g\circ f)(x)=g(f(x))=x,\; \forall x\in Dom(f)</script><p>, then $g$ is the <strong>inverse function</strong> of $f$, as $f^{-1}$:</p>
+<script type="math/tex; mode=display">(f^{-1}\circ f)(x)=x</script><p>A one-to-one function has a inverse function.</p>
+<hr>
+<h3 id="1-2-5-One-to-one-Functions"><a href="#1-2-5-One-to-one-Functions" class="headerlink" title="1.2.5 One-to-one Functions"></a>1.2.5 One-to-one Functions</h3><blockquote>
+<p>The function <strong>never</strong> takes <strong>one the same value</strong> twice:</p>
+</blockquote>
+<script type="math/tex; mode=display">x_1\ne x_2 \iff f(x_1)\ne f(x_2)</script><h4 id="1-2-5-1-Horizontal-Line-Test"><a href="#1-2-5-1-Horizontal-Line-Test" class="headerlink" title="1.2.5.1 Horizontal Line Test"></a>1.2.5.1 Horizontal Line Test</h4><blockquote>
+<p>A function is one-to-one <strong>if and only if</strong> no horizontal line intersects its graph more than once.</p>
+</blockquote>
+<p><img src="/2022/04/28/calculus-for-engineers-course-note/3.png" srcset="/img/loading.gif" lazyload alt></p>
+<hr>
+<blockquote>
+<p>$f$ is a one-to-one function with domain $A$ and range $B$, then $f^{-1}$ has domain $B$ and range $A$:</p>
+</blockquote>
+<script type="math/tex; mode=display">f^{-1}(y)=x\iff f(x)=y,\; \forall y \in Bs</script><p><strong>[Example]</strong></p>
+<p>for one-to-one function $f$,<br>$f(1)=2,f(3)=5,f(8)=6$, </p>
+<p>then $f^{-1}(2)=1,f^{-1}(5)=3,f^{-1}(6)=8$</p>
+<blockquote>
+<p>Find the inverse function:</p>
+<ol>
+<li>Write $y=f(x)$;</li>
+<li>Solve above equation for $x$ in terms of $y$;</li>
+<li>The above result is $x=f^{-1}(y)$</li>
+</ol>
+</blockquote>
+<p><strong>[Example]</strong></p>
+<p>Find the inverse function of $f(x)=x^3+2$</p>
+<ol>
+<li>$y=f(x)=x^3+2$;</li>
+<li>$x^3=y-2 \implies x=\sqrt[3]{y-2}$;</li>
+<li>$f^{-1}(y)=x=\sqrt[3]{y-2}$.</li>
+</ol>
+<hr>
+<blockquote>
+<p>Determine whether is a one-to-one function:</p>
+<ul>
+<li>To show it is a one-to-one function:<br>show $x_1\ne x_2 \iff f(x_1)\ne f(x_2)$ or $x_1= x_2 \iff f(x_1)= f(x_2)$</li>
+<li>To show it is NOT a one-to-one function:<br>show $x_1\ne x_2$, but $f(x_1)= f(x_2)$</li>
+</ul>
+</blockquote>
+<p><strong>[Example]</strong></p>
+<p><img src="/2022/04/28/calculus-for-engineers-course-note/4.png" srcset="/img/loading.gif" lazyload alt></p>
+<hr>
+<h1 id="2-Periodic-Functions-Polynomials-Trigonometric-Functions-Exponential-Functions-Logarithmic-Functions"><a href="#2-Periodic-Functions-Polynomials-Trigonometric-Functions-Exponential-Functions-Logarithmic-Functions" class="headerlink" title="2 Periodic Functions, Polynomials, Trigonometric Functions, Exponential Functions, Logarithmic Functions"></a>2 Periodic Functions, Polynomials, Trigonometric Functions, Exponential Functions, Logarithmic Functions</h1><h2 id="2-1-Periodic-Functions"><a href="#2-1-Periodic-Functions" class="headerlink" title="2.1 Periodic Functions"></a>2.1 Periodic Functions</h2><blockquote>
+<p>A function with a positive constant $T\gt 0$ such that:</p>
+</blockquote>
+<script type="math/tex; mode=display">f(x+T)=f(x),\; \forall x \in Dom(f)</script><p>$T$ is the <strong>period</strong>.</p>
+<hr>
+<h2 id="2-2-Polynomials"><a href="#2-2-Polynomials" class="headerlink" title="2.2 Polynomials"></a>2.2 Polynomials</h2><blockquote>
+<p>A function in thr form:</p>
+</blockquote>
+<script type="math/tex; mode=display">P(x)=a_0+a_1x+a_2x^2+...+a_nx^n</script><ul>
+<li>$a_0,a_1,…,a_n\in \Bbb{R}$ are constant numbers, called the <strong>coefficients</strong>;</li>
+<li>$x\in \Bbb{R}$: independent variable;</li>
+<li><strong>Degree</strong> of $P(x)$: $n$, if $a_n\ne 0$, $deg(P)=n$;</li>
+<li><strong>Zero</strong> of $P(x)$: the <strong>root</strong>(or <strong>solution</strong>) of $P(x)=0$;</li>
+<li>Commonly used polynomials:<ul>
+<li>degree = 0: <strong>constant</strong>;</li>
+<li>degree = 1: <strong>linear</strong>;</li>
+<li>degree = 2: <strong>quadratic</strong>;</li>
+<li>degree = 3: <strong>cubic</strong>.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Dividing a polynomial $P(x)$ by $x-a$, the remainder is $P(a)$</p>
+</blockquote>
+<p><strong>[Example]</strong></p>
+<p>$P(x)=x^3-1,\;a=2,\text{then }x-a = x-2$<br>$P(x)=x^3-1=(x-2)(x^2+2x+4)+7=(x-2)(x^2+2x+4)+P(2)$</p>
+<hr>
+<ul>
+<li>Some factorization formulas for polynomials</li>
+</ul>
+<p><img src="/2022/04/28/calculus-for-engineers-course-note/5.png" srcset="/img/loading.gif" lazyload alt></p>
+<hr>
+<h2 id="2-3-Trigonometric-Functions"><a href="#2-3-Trigonometric-Functions" class="headerlink" title="2.3 Trigonometric Functions"></a>2.3 Trigonometric Functions</h2><h3 id="2-3-1-Degree-and-Radian"><a href="#2-3-1-Degree-and-Radian" class="headerlink" title="2.3.1 Degree and Radian"></a>2.3.1 Degree and Radian</h3><script type="math/tex; mode=display">360\degree=2\pi\;rad</script><script type="math/tex; mode=display">1\degree=\frac{2\pi}{360}rad,\;1\;rad=\Bigl(\frac{360}{3\pi}\Bigr)\degree</script><p><img src="/2022/04/28/calculus-for-engineers-course-note/6.png" srcset="/img/loading.gif" lazyload alt></p>
+<hr>
+<h3 id="2-3-2-Standard-position-of-angles"><a href="#2-3-2-Standard-position-of-angles" class="headerlink" title="2.3.2 Standard position of angles"></a>2.3.2 Standard position of angles</h3><ul>
+<li><strong>Standard position</strong>: in the xy-plane, its <strong>initial side</strong> on the <strong>positive x-axis</strong>;</li>
+<li><strong>Positive Angle</strong>: rotating the initial side <strong>counterclockwise</strong>;</li>
+<li><strong>Negative Angles</strong>: rotating the initial side <strong>clockwise</strong>.</li>
+</ul>
+<hr>
+<h3 id="2-3-3-Trigonometric-Functions"><a href="#2-3-3-Trigonometric-Functions" class="headerlink" title="2.3.3 Trigonometric Functions"></a>2.3.3 Trigonometric Functions</h3><center><img src="/2022/04/28/calculus-for-engineers-course-note/7.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<hr>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/8.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<ul>
+<li><p><strong>Widely used properties</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\sin (-x)=-\sin x \;\;\; \text{odd}</script></li>
+<li><script type="math/tex; mode=display">\cos (-x)=\cos x \;\;\; \text{evens}</script></li>
+<li><script type="math/tex; mode=display">\tan (-x)=-\tan x \;\;\; \text{odd}</script>-</li>
+<li><script type="math/tex; mode=display">\sin (\pi -x)=\sin x</script></li>
+<li><script type="math/tex; mode=display">\sin (\pi +x)=-\sin x</script></li>
+<li><script type="math/tex; mode=display">\cos (\pi \pm x)=-\cos x</script>-</li>
+<li><script type="math/tex; mode=display">\sin (\frac{\pi}{2} \pm x)=\cos x</script></li>
+<li><script type="math/tex; mode=display">\cos (\frac{\pi}{2} + x)=-\sin x</script></li>
+<li><script type="math/tex; mode=display">\cos (\frac{\pi}{2} - x)=\sin x</script>-</li>
+<li><script type="math/tex; mode=display">\sin (x+2n\pi)=\sin x,\;\;\; n=0,\pm 1,\pm 2,...</script></li>
+<li><script type="math/tex; mode=display">\cos (x+2n\pi)=\cos x,\;\;\; n=0,\pm 1,\pm 2,...</script></li>
+<li><script type="math/tex; mode=display">\tan (x+n\pi)=\tan x,\;\;\; n=0,\pm 1,\pm 2,...</script></li>
+<li></li>
+<li><script type="math/tex; mode=display">\cot x=\frac{\cos x}{\sin x},\;\sec x=\frac{1}{\cos x},\; \csc x=\frac{1}{\sin x}</script></li>
+<li><script type="math/tex; mode=display">\tan^2 x+1=\sec^2x,\;\cot^2 x+1=\csc^2 x</script></li>
+</ul>
+</li>
+<li><p><strong>Compound angle formulas</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\sin (A+B)=\sin A\cos B+\cos A \sin B</script></li>
+<li><script type="math/tex; mode=display">\sin (A-B)=\sin A\cos B-\cos A \sin B</script></li>
+<li></li>
+<li><script type="math/tex; mode=display">\cos (A+B)=\cos A\cos B-\sin A \sin B</script></li>
+<li><script type="math/tex; mode=display">\cos (A-B)=\cos A\cos B+\sin A \sin B</script></li>
+<li></li>
+<li><script type="math/tex; mode=display">\tan(A+B)=\frac{\tan A+\tan B}{1-\tan A \tan B}</script></li>
+<li><script type="math/tex; mode=display">\tan(A-B)=\frac{\tan A-\tan B}{1+\tan A \tan B}</script></li>
+</ul>
+</li>
+<li><p><strong>Double angle formulas</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\sin 2A=2\sin A\cos A</script></li>
+<li><script type="math/tex; mode=display">\cos 2A=\cos^2 A-\sin^2 A</script><ul>
+<li><script type="math/tex; mode=display">=1-2\sin^2 A</script></li>
+<li><script type="math/tex; mode=display">=2\cos^2 A-1</script></li>
+</ul>
+</li>
+<li><script type="math/tex; mode=display">\tan 2A=\frac{2\tan A}{1-\tan^2 A}</script></li>
+<li></li>
+<li><script type="math/tex; mode=display">\cos^2 A=\frac{1+\cos 2A}{2}</script></li>
+<li><script type="math/tex; mode=display">\sin^2 A=\frac{1-\cos 2A}{2}</script></li>
+</ul>
+</li>
+<li><p><strong>Conversion formulas</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\sin(x+y)+\sin(x-y)=2\sin x \cos y</script></li>
+<li><script type="math/tex; mode=display">\sin(x+y)-\sin(x-y)=2\cos x \sin y</script></li>
+<li></li>
+<li><script type="math/tex; mode=display">\cos(x+y)+\cos(x-y)=2\cos x \cos y</script></li>
+<li><script type="math/tex; mode=display">\cos(x+y)-\cos(x-y)=-2\sin x \sin y</script></li>
+<li></li>
+<li><script type="math/tex; mode=display">\sin(A)+\sin(B)=2\sin (\frac{A+B}{2}) \cos (\frac{A-B}{2})</script></li>
+<li><script type="math/tex; mode=display">\sin(A)-\sin(B)=2\cos (\frac{A+B}{2}) \sin (\frac{A-B}{2})</script></li>
+<li><script type="math/tex; mode=display">\cos(A)+\cos(B)=2\cos (\frac{A+B}{2}) \cos (\frac{A-B}{2})</script></li>
+<li><script type="math/tex; mode=display">\cos(A)-\cos(B)=-2\sin (\frac{A+B}{2}) \sin (\frac{A-B}{2})</script></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-4-Inverse-Trigonometric-Functions"><a href="#2-4-Inverse-Trigonometric-Functions" class="headerlink" title="2.4 Inverse Trigonometric Functions"></a>2.4 Inverse Trigonometric Functions</h2><h3 id="2-4-1-Inverse-of-sin"><a href="#2-4-1-Inverse-of-sin" class="headerlink" title="2.4.1 Inverse of $\sin$"></a>2.4.1 Inverse of $\sin$</h3><script type="math/tex; mode=display">x=\sin^{-1}(y) \iff y=\sin x,\;-\frac{\pi}{2}\le x \le \frac{\pi}{2}</script><center><img src="/2022/04/28/calculus-for-engineers-course-note/9.png" srcset="/img/loading.gif" lazyload width="30%" height="30%"></center>
+
+<ul>
+<li>$Dom(\sin^{-1})$ = $[-1,1]$</li>
+<li>$Range(\sin^{-1})$ = $[-\frac{\pi}{2},\frac{\pi}{2}]$</li>
+<li></li>
+<li>$\sin^{-1}=\arcsin$</li>
+</ul>
+<ul>
+<li><script type="math/tex; mode=display">\sin^{-1} (\sin x)=x,\;  \forall x \in [-\frac{\pi}{2},\frac{\pi}{2}]</script></li>
+<li><script type="math/tex; mode=display">\sin (\sin^{-1}y)=y,\;  \forall y \in [-1,1]</script></li>
+</ul>
+<hr>
+<h3 id="2-4-2-Inverse-of-cos"><a href="#2-4-2-Inverse-of-cos" class="headerlink" title="2.4.2 Inverse of $\cos$"></a>2.4.2 Inverse of $\cos$</h3><script type="math/tex; mode=display">x=\cos^{-1}(y) \iff y=\cos x,\;0\le x \le \pi</script><center><img src="/2022/04/28/calculus-for-engineers-course-note/10.png" srcset="/img/loading.gif" lazyload width="30%" height="30%"></center>
+
+<ul>
+<li>$Dom(\cos^{-1})$ = $[-1,1]$</li>
+<li>$Range(\cos^{-1})$ = $[0,\pi]$</li>
+<li></li>
+<li><p>$\cos^{-1}=\arccos$</p>
+</li>
+<li><script type="math/tex; mode=display">\cos^{-1} (\cos x)=x,\;  \forall x \in [0,\pi]</script></li>
+<li><script type="math/tex; mode=display">\cos (\cos^{-1}y)=y,\;\forall y \in [-1,1]</script></li>
+</ul>
+<hr>
+<h3 id="2-4-3-Inverse-of-tan"><a href="#2-4-3-Inverse-of-tan" class="headerlink" title="2.4.3 Inverse of $\tan$"></a>2.4.3 Inverse of $\tan$</h3><script type="math/tex; mode=display">x=\tan^{-1}(y) \iff y=\tan x,\;-\frac{\pi}{2}\le x \le \frac{\pi}{2}</script><center><img src="/2022/04/28/calculus-for-engineers-course-note/11.png" srcset="/img/loading.gif" lazyload width="50%" height="50%"></center>
+
+<ul>
+<li>$Dom(\tan^{-1})$ = $(-\infty,\infty)$</li>
+<li>$Range(\tan^{-1})$ = $-\frac{\pi}{2}\lt x \lt \frac{\pi}{2}$</li>
+<li></li>
+<li><p>$\tan^{-1}=\arctan$</p>
+</li>
+<li><script type="math/tex; mode=display">\tan^{-1} (\tan x)=x,\;  \forall x \in (-\frac{\pi}{2},\frac{\pi}{2})</script></li>
+<li><script type="math/tex; mode=display">\tan (\tan^{-1}y)=y,\;\forall y \in (-\infty,\infty)</script></li>
+</ul>
+<hr>
+<p><strong>Widely used properties</strong>:</p>
+<script type="math/tex; mode=display">\cos(\tan^{-1}b)=\frac{1}{\sqrt{1+b^2}}</script><hr>
+<h2 id="2-5-Exponential-Functions"><a href="#2-5-Exponential-Functions" class="headerlink" title="2.5 Exponential Functions"></a>2.5 Exponential Functions</h2><script type="math/tex; mode=display">y=a^x</script><blockquote>
+<p>a to the power x</p>
+</blockquote>
+<p><strong>base</strong>: $a&gt;0$<br><strong>exponent</strong> (index,power): $x$</p>
+<p><strong>Law of Exponents</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">a^ma^n = a^{m+n}</script></li>
+<li><script type="math/tex; mode=display">\frac{a^m}{a^n}=a^{m-n}</script></li>
+<li><script type="math/tex; mode=display">(a^m)^n=a^{mn}</script></li>
+<li><script type="math/tex; mode=display">a^0=1</script></li>
+<li><script type="math/tex; mode=display">a^{-1}=\frac{1}{a}</script></li>
+<li><script type="math/tex; mode=display">a^{-m}=\frac{1}{a^m}</script></li>
+</ul>
+<p><strong>Natural Exponential Function</strong> ($exp$):</p>
+<script type="math/tex; mode=display">\exp (x)=e^x</script><p>$e=2.718281828459$</p>
+<hr>
+<h2 id="2-6-Logarithmic-Functions"><a href="#2-6-Logarithmic-Functions" class="headerlink" title="2.6 Logarithmic Functions"></a>2.6 Logarithmic Functions</h2><script type="math/tex; mode=display">y=\log_a x, x\gt 0</script><blockquote>
+<p>the logarithm of x to the base a</p>
+</blockquote>
+<script type="math/tex; mode=display">\log_aa=1,\; \log_a1=0</script><blockquote>
+<p>Logarithmic Function the <strong>inverse</strong> of Exponential Function:</p>
+</blockquote>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/12.png" srcset="/img/loading.gif" lazyload width="40%" height="40%"></center>
+
+<hr>
+<p><strong>Rules of logarithm</strong> ($a,b,x,y\in \Bbb{R^+}$):</p>
+<ul>
+<li><script type="math/tex; mode=display">\log_a(xy)=\log_ax+\log_ay</script></li>
+<li><script type="math/tex; mode=display">\log_a(\frac{x}{y})=\log_ax-\log_ay</script></li>
+<li><script type="math/tex; mode=display">\log_ax=\frac{\log_bx}{\log_ba}</script></li>
+<li><script type="math/tex; mode=display">\log_a1=0</script></li>
+<li><script type="math/tex; mode=display">\log_ax^m=m\log_ax,\;m\in \Bbb{R}</script></li>
+<li><script type="math/tex; mode=display">\log_{a^n}x=\frac{1}{n}\log_ax,\;n\in \Bbb{R}</script></li>
+</ul>
+<p>when the base is $e=2.718281828459$, the Logarithmic Function is $in$ or $log$;</p>
+<script type="math/tex; mode=display">x=\ln y \iff y=e^x</script><hr>
+<h1 id="3-Limits"><a href="#3-Limits" class="headerlink" title="3 Limits"></a>3 Limits</h1><h2 id="3-1-Limits-Definition"><a href="#3-1-Limits-Definition" class="headerlink" title="3.1 Limits Definition"></a>3.1 Limits Definition</h2><script type="math/tex; mode=display">\lim_{x\to a}f(x)=L</script><p>Read as ‘the limit of $f(x)$, as $x$ approaches the point $a$, equals $L$’.</p>
+<blockquote>
+<p>$f(x)$ defined when $x$ around number $a$, which means in a open interval contains $a$ but never consider $x=a$, just near it. Then we can make $f(x)$ very close to $L$ by sending $x$ sufficiently close to $a$, around both sides of $a$.</p>
+</blockquote>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/13.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<hr>
+<h2 id="3-2-One-Side-Limits"><a href="#3-2-One-Side-Limits" class="headerlink" title="3.2 One-Side Limits"></a>3.2 One-Side Limits</h2><p><strong>left-hand limit</strong>:</p>
+<script type="math/tex; mode=display">\lim_{x\to a^-}f(x)=L</script><p>Read as left-hand limit of $f(x)$ as $x$ approaches $a$ is equal to $L$</p>
+<blockquote>
+<p>we can make $f(x)$ very close to $L$ by sending $x$ sufficiently close to $a$, with $x$ less than $a$, from the left of $a$.</p>
+</blockquote>
+<p><strong>right-hand limit</strong>:</p>
+<script type="math/tex; mode=display">\lim_{x\to a^+}f(x)=L</script><p>Read as right-hand limit of $f(x)$ as $x$ approaches $a$ is equal to $L$</p>
+<blockquote>
+<p>we can make $f(x)$ very close to $L$ by sending $x$ sufficiently close to $a$, with $x$ great than $a$, from the right of $a$.</p>
+</blockquote>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/14.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<hr>
+<p><strong>Theorem</strong>:</p>
+<script type="math/tex; mode=display">\lim_{x\to a}f(x)=L\iff \lim_{x\to a^-}f(x)=L \;\text{ and }\; \lim_{x\to a^+}f(x)=L</script><hr>
+<h2 id="3-3-Properties-of-Limits"><a href="#3-3-Properties-of-Limits" class="headerlink" title="3.3 Properties of Limits"></a>3.3 Properties of Limits</h2><blockquote>
+<p>$n$: positive integer<br>$k$: constant<br>Assume $\lim<em>{x\to a}f(x)$ and $\lim</em>{x\to a}g(x)$ exits.</p>
+</blockquote>
+<script type="math/tex; mode=display">\lim_{x\to a}k=k</script><script type="math/tex; mode=display">\lim_{x\to a}x=a</script><script type="math/tex; mode=display">\lim_{x\to a}kf(x)=k\lim_{x\to a}f(x)</script><script type="math/tex; mode=display">\lim_{x\to a}[f(x)\pm g(x)]=\lim_{x\to a}f(x)\pm \lim_{x\to a}g(x)</script><script type="math/tex; mode=display">\lim_{x\to a}[\frac{f(x)}{g(x)}]=\frac{\lim_{x\to a}f(x)}{\lim_{x\to a}g(x)}</script><script type="math/tex; mode=display">\lim_{x\to a}[f(x)]^n=[\lim_{x\to a}f(x)]^n</script><script type="math/tex; mode=display">\lim_{x\to a}\sqrt[n]{f(x)}=\sqrt[n]{\lim_{x\to a}f(x)}</script><p>So<br>$\forall n \in \Bbb{Z}^+$</p>
+<script type="math/tex; mode=display">\lim_{x\to a}x^n=a^n</script><script type="math/tex; mode=display">\lim_{x\to a}\sqrt[n]{x}=\sqrt[n]{a}</script><p>and,</p>
+<script type="math/tex; mode=display">\lim_{x\to 0}\frac{\sin x}{x}=1</script><script type="math/tex; mode=display">\lim_{x\to 0}\frac{x}{\sin x}=1</script><script type="math/tex; mode=display">\lim_{x\to 0}\frac{\sin (2x)}{x}=2</script><hr>
+<h2 id="3-4-Composite-functions"><a href="#3-4-Composite-functions" class="headerlink" title="3.4 Composite functions"></a>3.4 Composite functions</h2><script type="math/tex; mode=display">\lim_{x\to a}f(x)=A\text{ and }\lim_{u\to A}f(x)=B</script><script type="math/tex; mode=display">\implies \lim_{x\to a}g(f(x))=B</script><hr>
+<h2 id="3-5-Squeeze-Theorem-Sandwich-Principle"><a href="#3-5-Squeeze-Theorem-Sandwich-Principle" class="headerlink" title="3.5 Squeeze Theorem - Sandwich Principle"></a>3.5 Squeeze Theorem - Sandwich Principle</h2><p>For $f(x)\le g(x)\le h(x)$, for all near $a$, expect possibly at $a$ itself:</p>
+<script type="math/tex; mode=display">\lim_{x\to a}f(x)=\lim_{x\to a}h(x)=L</script><script type="math/tex; mode=display">\implies \lim_{x\to a}g(x)=L</script><blockquote>
+<p>Immediate consequence of the Squeeze Theorem:</p>
+</blockquote>
+<p>If $g(x)$ is bounded near $a$, expect possibly ar $a$ itself, which means $|g(x)|\le K$, $K$ is a constant for an open interval containing $a$:</p>
+<script type="math/tex; mode=display">\lim_{x\to a}f(x)=0\implies\lim_{x\to a}f(x)g(x)=0</script><p>It is also true for ons-side limits. </p>
+<hr>
+<h2 id="3-6-Infinite-limits"><a href="#3-6-Infinite-limits" class="headerlink" title="3.6 Infinite limits"></a>3.6 Infinite limits</h2><script type="math/tex; mode=display">\lim_{x\to a^+}f(x)=\infin</script><blockquote>
+<p>the value of $f(x)$ can be <strong>bigger than any prescribed positive and large number</strong> by taking $x\gt a$ and close enough to $a$, approaches Infinity as x approaches $a$ from the right. </p>
+</blockquote>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/15.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<script type="math/tex; mode=display">\frac{1}{0^-}=-\infin</script><script type="math/tex; mode=display">\frac{1}{0^+}=\infin</script><center><img src="/2022/04/28/calculus-for-engineers-course-note/16.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="3-7-Limits-at-Infinity"><a href="#3-7-Limits-at-Infinity" class="headerlink" title="3.7 Limits at Infinity"></a>3.7 Limits at Infinity</h2><script type="math/tex; mode=display">\lim_{x\to \infin}\frac{1}{x}=0</script><script type="math/tex; mode=display">\lim_{x\to -\infin}\frac{1}{x}=0</script><center><img src="/2022/04/28/calculus-for-engineers-course-note/17.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<script type="math/tex; mode=display">\lim_{x\to \infin}\frac{c}{x^r}=0</script><script type="math/tex; mode=display">\lim_{x\to -\infin}\frac{c}{x^r}=0</script><script type="math/tex; mode=display">\forall r\gt 0</script><hr>
+<h3 id="3-7-1-Limits-at-infinity-for-Polynomial"><a href="#3-7-1-Limits-at-infinity-for-Polynomial" class="headerlink" title="3.7.1 Limits at infinity for Polynomial"></a>3.7.1 Limits at infinity for Polynomial</h3><p>For <strong>polynomial</strong>:</p>
+<script type="math/tex; mode=display">P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots + a_1x+a_0, a_0\ne 0,</script><script type="math/tex; mode=display">\Downarrow</script><script type="math/tex; mode=display">\lim_{x\to \infin}P(x)=\lim_{x\to \infin}a_nx^n,</script><script type="math/tex; mode=display">\lim_{x\to -\infin}P(x)=\lim_{x\to -\infin}a_nx^n</script><hr>
+<h3 id="3-7-2-Limits-at-infinity-for-Rational-functions"><a href="#3-7-2-Limits-at-infinity-for-Rational-functions" class="headerlink" title="3.7.2 Limits at infinity for Rational functions"></a>3.7.2 Limits at infinity for Rational functions</h3><p>For <strong>Rational functions</strong>:</p>
+<script type="math/tex; mode=display">P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots + a_1x+a_0, a_0\ne 0,</script><script type="math/tex; mode=display">Q(x)=b_mx^m+b_{m-1}x^{m-1}+\cdots + b_1x+b_0, b_0\ne 0,</script><script type="math/tex; mode=display">\Downarrow</script><script type="math/tex; mode=display">\lim_{x\to \infin}\frac{P(x)}{Q(x)}=\lim_{x\to \infin}\frac{a_nx^n}{b_mx^m},</script><script type="math/tex; mode=display">\lim_{x\to -\infin}\frac{P(x)}{Q(x)}=\lim_{x\to -\infin}\frac{a_nx^n}{b_mx^m}</script><hr>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/18.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="3-8-Continuity-of-functions"><a href="#3-8-Continuity-of-functions" class="headerlink" title="3.8 Continuity of functions"></a>3.8 Continuity of functions</h2><p>$f(x)$ is <strong>continuous</strong> at a point $a$ if</p>
+<script type="math/tex; mode=display">\lim_{x\to a}f(x)=f(a)</script><p>$f(x)$ is <strong>discontinuous</strong> if any of following is true:</p>
+<ol>
+<li>$f(a)$ is not defined;</li>
+<li>$\lim_{x\to a}f(x)$ does not exist;</li>
+<li>$\lim_{x\to a}f(x)\ne f(a)$.</li>
+</ol>
+<hr>
+<p><strong>Properties of continuity</strong>:</p>
+<p>$f(x),g(x)$ are continuous at $a$, $n$ is positive integer, following are also continuous at $a$:</p>
+<p>Scalar multiple:</p>
+<script type="math/tex; mode=display">kf(x)</script><p>Sum &amp; Difference:</p>
+<script type="math/tex; mode=display">f(x)+g(x),f(x)-g(x)</script><p>Product:</p>
+<script type="math/tex; mode=display">f(x)g(x)</script><p>Quotient:</p>
+<script type="math/tex; mode=display">\frac{f(x)}{g(x)},\text{ if }g(a)\ne 0</script><p>Power:</p>
+<script type="math/tex; mode=display">[f(x)]^n</script><p>Root:</p>
+<script type="math/tex; mode=display">\sqrt[n]{f(x)}\text{ assume $f(a)\ge 0$ if $n$ is even}</script><hr>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/19.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/20.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h3 id="3-8-1-Continuous-at-the-boundary-points"><a href="#3-8-1-Continuous-at-the-boundary-points" class="headerlink" title="3.8.1 Continuous at the boundary points"></a>3.8.1 Continuous at the boundary points</h3><p>$f(x)$ in a closed interval $[a,b]$:</p>
+<ol>
+<li>$f$ is continuous at the left ending point $a$ if</li>
+</ol>
+<script type="math/tex; mode=display">\lim_{x\to a^+}f(x)=f(a)</script><ol>
+<li>$f$ is continuous at the right ending point $b$ if</li>
+</ol>
+<script type="math/tex; mode=display">\lim_{x\to b^-}f(x)=f(b)</script><hr>
+<h2 id="3-9-Intermediate-Value-theorem-IVT"><a href="#3-9-Intermediate-Value-theorem-IVT" class="headerlink" title="3.9 Intermediate Value theorem (IVT)"></a>3.9 Intermediate Value theorem (IVT)</h2><ol>
+<li>$f$ is continuous function on closed interval $[a,b]$;</li>
+<li>$f(a)\ne f(b)$;</li>
+<li>$N$ is a number between $f(a)$ and $f(b)$;</li>
+</ol>
+<p>then,</p>
+<p>there exits at least one point $c\in(a,b)$ such that $f(c)=N$. </p>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/21.png" srcset="/img/loading.gif" lazyload width="50%" height="50%"></center>
+
+<hr>
+<h1 id="4-Differentiation"><a href="#4-Differentiation" class="headerlink" title="4 Differentiation"></a>4 Differentiation</h1><h2 id="4-1-First-principle-of-differentiation"><a href="#4-1-First-principle-of-differentiation" class="headerlink" title="4.1 First principle of differentiation"></a>4.1 First principle of differentiation</h2><p>If </p>
+<script type="math/tex; mode=display">\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}</script><p>is <strong>exists</strong>, $f$ is differentiable at the point $a\in I$;<br>Then</p>
+<script type="math/tex; mode=display">f^\prime(a):=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}</script><blockquote>
+<p>the $f(a)$ must be defined. </p>
+</blockquote>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/22.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<p><strong>Right-hand side derivative:</strong></p>
+<script type="math/tex; mode=display">f^\prime_+(a):=\lim_{h\to 0^+}\frac{f(a+h)-f(a)}{h}</script><p><strong>Left-hand side derivative:</strong></p>
+<script type="math/tex; mode=display">f^\prime_-(a):=\lim_{h\to 0^-}\frac{f(a+h)-f(a)}{h}</script><hr>
+<p>If $f$ is differentiable at $a$, then</p>
+<script type="math/tex; mode=display">\lim_{x\to a^-}f(x)=\lim_{x\to a^+}f(x)=f(a)\text{ :continuous}</script><script type="math/tex; mode=display">f^\prime_+(a)=f^\prime_-(a)\text{ :derivative exists}</script><hr>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/23.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="4-2-Techniques-of-Differentiation"><a href="#4-2-Techniques-of-Differentiation" class="headerlink" title="4.2 Techniques of Differentiation"></a>4.2 Techniques of Differentiation</h2><p><strong>Constant</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\frac{d[cf(x)]}{dx}=c\frac{d[f(x)]}{dx}</script></li>
+</ul>
+<p><strong>Sum and Difference Rules</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\frac{d[f(x)\pm g(x)]}{dx}=\frac{d[f(x)]}{dx}\pm \frac{d[g(x)]}{dx}</script></li>
+</ul>
+<p><strong>Product Rule</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">[f(x)g(x)]^\prime =f^\prime(x)g(x)+f(x)g^\prime(x)</script></li>
+</ul>
+<p><strong>Quotient Rule</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\biggl[\frac{f(x)}{g(x)}\biggr]^\prime=\frac{f^\prime(x)g(x)-f(x)g^\prime(x)}{[g(x)]^2},g(x)\ne 0</script></li>
+</ul>
+<p><strong>Chain Rule</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\big[f\big(g(x)\big)\big]^\prime=f^\prime\big(g(x)\big)\cdot g^\prime (x)</script></li>
+<li><script type="math/tex; mode=display">f^\prime(a)=g^\prime(u_0)\times h^\prime(a)=g^\prime(h(a))\times h^\prime(a)</script></li>
+<li>where $u_0=h(a)$</li>
+</ul>
+<hr>
+<h2 id="4-3-Inverse-differentiation"><a href="#4-3-Inverse-differentiation" class="headerlink" title="4.3 Inverse differentiation"></a>4.3 Inverse differentiation</h2><p>$y=f(x)$ differentiable on $(a,b)$, $f^\prime(x_0)$ is nonzero at $x_0\in (a,b)$, and derivative $(f^{-1})^\prime(y_0)$ exits, where $y_0=f(x_0)$, and </p>
+<script type="math/tex; mode=display">(f^{-1})^\prime(y_0)=\frac{1}{f^\prime(x_0)}</script><center><img src="/2022/04/28/calculus-for-engineers-course-note/24.png" srcset="/img/loading.gif" lazyload width="50%" height="50%"></center>
+
+<hr>
+<p>Steps for finding $(f^{-1})^\prime(y_0)$</p>
+<ol>
+<li>solve for $x_0$ from $f(x_0)=y_0$;</li>
+<li>Find $f^\prime(x_0)$’;</li>
+<li>find $(f^{-1})^\prime(y_0)=\frac{1}{f^\prime(x_0)}$. </li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/25.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/26.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/27.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<hr>
+<h2 id="4-4-Implicit-Differentiation"><a href="#4-4-Implicit-Differentiation" class="headerlink" title="4.4 Implicit Differentiation"></a>4.4 Implicit Differentiation</h2><blockquote>
+<p>Can not express $y$ explicitly as a function of $x$. </p>
+</blockquote>
+<p>For $x^2+xy+y^2=9$, differentiate with respect to $x$:</p>
+<script type="math/tex; mode=display">\frac{d(x^2)}{dx}+\frac{d(x\cdot y)}{dx}+\frac{d(y^2)}{dx}=0\text{ (take derivative on both sides)}</script><script type="math/tex; mode=display">\implies 2x+(1\cdot y+x\cdot \frac{dy}{dx})+2y\frac{dy}{dx}=0</script><script type="math/tex; mode=display">\implies (x+2y)\frac{dy}{dx}=-2x-y</script><script type="math/tex; mode=display">\implies \frac{dy}{dx}=\frac{-2x-y}{x+2y}</script><hr>
+<h2 id="4-5-Technique-of-differentiation-of-the-type-y-f-x-g-x"><a href="#4-5-Technique-of-differentiation-of-the-type-y-f-x-g-x" class="headerlink" title="4.5 Technique of differentiation of the type $y = f(x)^{g(x)}$"></a>4.5 Technique of differentiation of the type $y = f(x)^{g(x)}$</h2><p>Find the derivative of the function $y=f(x)=x^x$, for $x&gt;0$. </p>
+<p><strong>M1:</strong></p>
+<script type="math/tex; mode=display">y=x^x</script><script type="math/tex; mode=display">lny=lnx^x=xlnx</script><script type="math/tex; mode=display">\frac{d(lny)}{dx}=\frac{d(lny)}{dy}\frac{dy}{dx}=\frac{1}{y}\frac{dy}{dx}=lnx+1</script><script type="math/tex; mode=display">\frac{dy}{dx}=y(lnx+1)=x^x(lnx+1)</script><p><strong>M2:</strong></p>
+<script type="math/tex; mode=display">\text{Using }x=e^{lnx}</script><script type="math/tex; mode=display">x^x=e^{lnx^x}=e^{xlnx}</script><script type="math/tex; mode=display">y^{\prime}={(e^{xlnx})}^{\prime}</script><script type="math/tex; mode=display">=e^{xlnx}\cdot (1\cdot lnx+x\cdot \frac{1}{x})</script><script type="math/tex; mode=display">=x^x(lnx+1)</script><hr>
+<h2 id="4-6-L’Hopital’s-Rule-for-Finding-Limits"><a href="#4-6-L’Hopital’s-Rule-for-Finding-Limits" class="headerlink" title="4.6 L’Hopital’s Rule for Finding Limits"></a>4.6 L’Hopital’s Rule for Finding Limits</h2><h3 id="4-6-1-Type-frac-0-0"><a href="#4-6-1-Type-frac-0-0" class="headerlink" title="4.6.1 Type $\frac{0}{0}$"></a>4.6.1 Type $\frac{0}{0}$</h3><ul>
+<li>$f(x),g(x)$ differentiable;</li>
+<li>$\lim<em>{x\to a}f(x)=0$, $\lim</em>{x\to a}g(x)=0$</li>
+<li>then:</li>
+</ul>
+<script type="math/tex; mode=display">\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f^\prime(x)}{f^\prime(x)}</script><hr>
+<h3 id="4-6-2-Type-frac-infin-infin"><a href="#4-6-2-Type-frac-infin-infin" class="headerlink" title="4.6.2 Type $\frac{\infin}{\infin}$"></a>4.6.2 Type $\frac{\infin}{\infin}$</h3><ul>
+<li>$f(x),g(x)$ differentiable;</li>
+<li>$\lim<em>{x\to a}f(x)=\pm \infin$, $\lim</em>{x\to a}g(x)=\pm \infin$</li>
+<li>then:</li>
+</ul>
+<script type="math/tex; mode=display">\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f^\prime(x)}{f^\prime(x)}</script><ul>
+<li>Check the form before using the L’Hopital’s rule, type $\frac{0}{1}$ is not applicable. </li>
+</ul>
+<hr>
+<h3 id="4-6-3-Using-L’Hopital’s-Rule-to-calculus-lim-x-to-a-f-x-g-x"><a href="#4-6-3-Using-L’Hopital’s-Rule-to-calculus-lim-x-to-a-f-x-g-x" class="headerlink" title="4.6.3 Using L’Hopital’s Rule to calculus $\lim_{x\to a}f(x)^{g(x)}$"></a>4.6.3 Using L’Hopital’s Rule to calculus $\lim_{x\to a}f(x)^{g(x)}$</h3><ul>
+<li>Type $1^\infin$:</li>
+</ul>
+<script type="math/tex; mode=display">\lim_{x\to 0}(\cos x)^{\frac{1}{x}}</script><script type="math/tex; mode=display">=\lim_{x\to 0}e^{ln((\cos x)^{\frac{1}{x}})}</script><script type="math/tex; mode=display">=\lim_{x\to 0}e^\frac{ln(\cos x)}{x}</script><script type="math/tex; mode=display">=e^{\lim_{x\to 0}\frac{\frac{1}{\cos x}(-\sin x)}{1}}=e^0=1</script><ul>
+<li>Type $\infin^0$:</li>
+</ul>
+<script type="math/tex; mode=display">\lim_{x\to \infin}(1+x)^{\frac{1}{x}}</script><script type="math/tex; mode=display">=\lim_{x\to \infin}e^{ln(1+x)^{\frac{1}{x}}}</script><script type="math/tex; mode=display">=\lim_{x\to \infin}e^{\frac{ln(1+x)}{x}}</script><script type="math/tex; mode=display">=e^{\lim_{x\to \infin}{\frac{\frac{1}{1+x}}{1}}}=e^0=1</script><hr>
+<h2 id="4-7-Increasing-and-Decreasing-Functions"><a href="#4-7-Increasing-and-Decreasing-Functions" class="headerlink" title="4.7 Increasing and Decreasing Functions"></a>4.7 Increasing and Decreasing Functions</h2><center><img src="/2022/04/28/calculus-for-engineers-course-note/28.png" srcset="/img/loading.gif" lazyload width="90%" height="90%"></center>
+
+<p>$f(x)$ is differentiable on open interval $J$:</p>
+<ul>
+<li>$f^\prime(x)\gt 0 \text{ on }J\implies$ $f$ is increasing on $J$;</li>
+<li>$f^\prime(x)\lt 0 \text{ on }J\implies$ $f$ is decreasing on $J$;</li>
+</ul>
+<p>If a function is increasing or decreasing on an interval:</p>
+<ul>
+<li>It must be one-to-one function;</li>
+<li>It has as inverse function;</li>
+</ul>
+<p>Existence of a <strong>unique</strong> solution: <strong>intermediate value theorem(IVT)</strong> + <strong>monotonicity</strong></p>
+<hr>
+<h2 id="4-8-Linear-approximation"><a href="#4-8-Linear-approximation" class="headerlink" title="4.8 Linear approximation"></a>4.8 Linear approximation</h2><blockquote>
+<p>Approximate a function $y=f(x)$ by a suitable linear function near a given point $a$.</p>
+</blockquote>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/29.png" srcset="/img/loading.gif" lazyload width="90%" height="90%"></center>
+
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/30.png" srcset="/img/loading.gif" lazyload width="90%" height="90%"></center>
+
+<hr>
+<h2 id="4-9-Mean-Value-Theorem-of-Differentiation"><a href="#4-9-Mean-Value-Theorem-of-Differentiation" class="headerlink" title="4.9 Mean Value Theorem of Differentiation"></a>4.9 Mean Value Theorem of Differentiation</h2><blockquote>
+<p>For $f(x)$:<br>$f(x)$ is <strong>continuous</strong> on the closed interval $[a,b]$;<br>$f(x)$ is <strong>differentiable</strong> on the open interval $(a,b)$;<br>$\exist c\in (a,b)$ such that:</p>
+<script type="math/tex; mode=display">f^\prime (c)=\frac{f(b)-f(a)}{b-a}</script><p>or <script type="math/tex">f(b)-f(a)=f^\prime (c)(b-a)</script></p>
+</blockquote>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/31.png" srcset="/img/loading.gif" lazyload width="90%" height="90%"></center>
+
+<hr>
+<h2 id="4-10-Higher-derivatives"><a href="#4-10-Higher-derivatives" class="headerlink" title="4.10 Higher derivatives"></a>4.10 Higher derivatives</h2><p>Second-order derivative of $f(x)$:</p>
+<script type="math/tex; mode=display">f^{\prime \prime}(x)=\frac{df^\prime x}{dx}</script><p>Noted as <script type="math/tex">y^{\prime \prime},f^{\prime \prime}(x),\frac{d^2y}{dx^2}</script></p>
+<hr>
+<p>$n^{th}$ derivative noted as:</p>
+<script type="math/tex; mode=display">y^{(n)},f^{(n)}(x),\frac{d^ny}{dx^n}</script><script type="math/tex; mode=display">y^{(0)}=f^{(0)}(x)=f(x)</script><hr>
+<p><strong>Leibniz’s rule</strong>:</p>
+<p>For $u(x),v(x)$, the $n^{th}$ derivative of $u(x)v(x)$ is:</p>
+<script type="math/tex; mode=display">(uv)^{(n)}=\sum_{k=0}^{n}\binom{n}{k}u^{(n-k)}v^{(k)},</script><p>or</p>
+<script type="math/tex; mode=display">(uv)^{(n)}=\sum_{k=0}^{n}\binom{n}{k}u^{(k)}v^{(n-k)}</script><p><strong>[Example]</strong>:</p>
+<script type="math/tex; mode=display">(uv)^{(3)}=\binom{3}{0}u^{(3)}v+\binom{3}{1}u^{\prime \prime}v^{\prime}+\binom{3}{2}u^{\prime}v^{\prime \prime}+\binom{3}{3}uv^{3}</script><hr>
+<h2 id="4-11-Local-maxima-and-minima"><a href="#4-11-Local-maxima-and-minima" class="headerlink" title="4.11 Local maxima and minima"></a>4.11 Local maxima and minima</h2><p><strong>Stationary point (critical point):</strong></p>
+<blockquote>
+<p>$f^{\prime}(a)=0$, then $x=a$ is the stationary point. </p>
+</blockquote>
+<h3 id="4-11-1-First-Derivative-Test"><a href="#4-11-1-First-Derivative-Test" class="headerlink" title="4.11.1 First Derivative Test"></a>4.11.1 First Derivative Test</h3><p>$f(x)$ is differential in interval $J$ containing $a$, $f^{\prime}(a)=0$: </p>
+<blockquote>
+<p>if $f^{\prime}(x)$ <strong>change from $+$ to $-$</strong> with $x$ increasing through $x=a \implies$ $f(x)$ has <strong>local maximum</strong> at $a$;<br>if $f^{\prime}(x)$ <strong>change from $-$ to $+$</strong> with $x$ increasing through $x=a \implies$ $f(x)$ has <strong>local minimum</strong> at $a$;</p>
+</blockquote>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/32.png" srcset="/img/loading.gif" lazyload width="90%" height="90%"></center>
+
+<hr>
+<h3 id="4-11-2-Second-Derivative-Test"><a href="#4-11-2-Second-Derivative-Test" class="headerlink" title="4.11.2 Second Derivative Test"></a>4.11.2 Second Derivative Test</h3><p>$f(x)$ is <strong>twice differential</strong> at $a$, and $f^{\prime}(a)=0$: </p>
+<blockquote>
+<p>$f^{\prime \prime}(a)\lt 0\text{ (concave down)} \implies$ <strong>local maximum</strong> at $a$;<br>$f^{\prime \prime}(a)\gt 0\text{ (concave down)} \implies$ <strong>local minimum</strong> at $a$;<br>$f^{\prime \prime}(a)= 0 \implies$ NO conclusion can be made.</p>
+</blockquote>
+<hr>
+<h2 id="4-12-Global-maxima-and-minima"><a href="#4-12-Global-maxima-and-minima" class="headerlink" title="4.12 Global maxima and minima"></a>4.12 Global maxima and minima</h2><p><strong>Closed interval: $J\in [a,b]$</strong></p>
+<p>Comparing the $f(x)$ at <strong>stationary points</strong> $f^{\prime}(c)=0$ and the <strong>endpoints</strong> $a$ and $b$;</p>
+<p><strong>Open interval: $J\in (a,b)$</strong><br>Comparing the $f(x)$ at <strong>stationary points</strong> $f^{\prime}(c)=0$ and the <strong>limit</strong> value at <strong>endpoints</strong> $x\to a$ and $x\to b$;</p>
+<blockquote>
+<p> if largest(smallest) value <strong>is</strong> attained in the domain $J\implies$ Global maxima(minima);<br> if largest(smallest) value <strong>is NOT</strong> attained in the domain $J\implies$ Global maxima(minima) does <strong>NOT</strong> exist; </p>
+</blockquote>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/33.png" srcset="/img/loading.gif" lazyload width="90%" height="90%"></center>
+
+<hr>
+<h1 id="5-Indefinite-Integrals"><a href="#5-Indefinite-Integrals" class="headerlink" title="5 Indefinite Integrals"></a>5 Indefinite Integrals</h1><h2 id="5-1-Definition-of-indefinite-integrals"><a href="#5-1-Definition-of-indefinite-integrals" class="headerlink" title="5.1 Definition of indefinite integrals"></a>5.1 Definition of indefinite integrals</h2><p>For </p>
+<script type="math/tex; mode=display">f(x)=\frac{d}{dx}F(x)</script><p>the $F(x)$ is called the primitive or antiderivative of $f(x)$, $f(x)$ is the derivative of F(x).</p>
+<p>Then</p>
+<script type="math/tex; mode=display">\int f(x) dx=F(x)+C</script><p>$C$ is arbitrary constant. </p>
+<p>$\int f(x)dx$ is the indefinite integral of $f(x)$, $f(x)$ is the integrand. </p>
+<hr>
+<h2 id="5-2-Table-of-indefinite-integrals"><a href="#5-2-Table-of-indefinite-integrals" class="headerlink" title="5.2 Table of indefinite integrals"></a>5.2 Table of indefinite integrals</h2><center><img src="/2022/04/28/calculus-for-engineers-course-note/34.png" srcset="/img/loading.gif" lazyload width="80%" height="80%"></center>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/35.png" srcset="/img/loading.gif" lazyload width="90%" height="90%"></center>
+
+<hr>
+<h2 id="5-3-Basic-rules-of-integration"><a href="#5-3-Basic-rules-of-integration" class="headerlink" title="5.3 Basic rules of integration"></a>5.3 Basic rules of integration</h2><script type="math/tex; mode=display">\int kf(x)dx=k\int f(x)dx \; \text{  ($k$ is a constant)}</script><script type="math/tex; mode=display">\int[f(x)+g(x)]dx=\int f(x)dx+\int g(x)dx</script><hr>
+<h2 id="5-4-Techniques-of-integration-Substitution"><a href="#5-4-Techniques-of-integration-Substitution" class="headerlink" title="5.4 Techniques of integration: Substitution"></a>5.4 Techniques of integration: Substitution</h2><blockquote>
+<p>If $u=\phi(x)$ with $\phi(x)$ and its derivative $\phi ^\prime(x)$ being continuous, then</p>
+</blockquote>
+<script type="math/tex; mode=display">\int f(\phi(x))\phi^\prime(x)dx=\int f(u)du</script><hr>
+<p><strong>[Example]</strong></p>
+<p>Find $\int x(x^2+3)^3dx$</p>
+<script type="math/tex; mode=display">\text{Let } u=x^3+3, \frac{du}{dx}=2x, dx=\frac{du}{2x}</script><script type="math/tex; mode=display">\int x(x^2+3)^3dx=\int xu^3\frac{du}{2x}=\frac{1}{2}\int u^3du=\frac{1}{2}\frac{u^4}{4}=\frac{(x^2+3)^4}{8}+C</script><p><strong>[Example]</strong></p>
+<p>Find $\int \sqrt{1-4x^2}dx$</p>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/36.png" srcset="/img/loading.gif" lazyload width="90%" height="90%"></center>
+
+<hr>
+<h2 id="5-5-Techniques-of-integration-Integration-by-parts"><a href="#5-5-Techniques-of-integration-Integration-by-parts" class="headerlink" title="5.5 Techniques of integration: Integration by parts"></a>5.5 Techniques of integration: Integration by parts</h2><blockquote>
+<p>$u(x)$ and $v(x)$ are two differentiable functions, then</p>
+</blockquote>
+<script type="math/tex; mode=display">\int u(x)v^\prime (x)dx= u(x)v(x)-\int u^\prime v(x)dx</script><script type="math/tex; mode=display">\implies \int u\;dv=uv-\int v\;du</script><hr>
+<p><strong>ILATE</strong> order for choosing $v$:</p>
+<p><strong>I</strong>: $arctan^{-1}x$;<br><strong>L</strong>: $ln(x)$;<br><strong>A</strong>: $x$:<br><strong>T</strong>: $sin(x)$;<br><strong>E</strong>: $e^x$;</p>
+<blockquote>
+<p>lower one to be $v$.</p>
+</blockquote>
+<hr>
+<p><strong>[Example]</strong></p>
+<p>Find $\int (x+2)\cos xdx$</p>
+<script type="math/tex; mode=display">1. \text{ Set }u=x+2, du=dx</script><script type="math/tex; mode=display">2.\frac{d\sin x}{dx}=\cos x\implies \cos xdx=d\sin x=dv, v= sin x</script><script type="math/tex; mode=display">\therefore \int (x+2)\cos xdx = \int (x+2)d \sin x=(x+2)\sin x- \int \sin x d(x+2)</script><script type="math/tex; mode=display">= (x+2)\sin x- \int \sin x dx</script><script type="math/tex; mode=display">= (x+2)\sin x+\cos x +C</script><hr>
+<h2 id="5-6-Partial-fractions"><a href="#5-6-Partial-fractions" class="headerlink" title="5.6 Partial fractions"></a>5.6 Partial fractions</h2><blockquote>
+<p>A proper <strong>rational</strong> function, with real coefficients, can sometimes <strong>be expressed as a sum of two or more proper rational functions</strong>, with real coefficients, called partial fractions.</p>
+</blockquote>
+<script type="math/tex; mode=display">\frac{x-3}{(2x-1)(x^2+1)}=\frac{-2}{2x-1}+\frac{x+1}{x^2+1}</script><hr>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/37.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<p><strong>[Example]</strong></p>
+<p>Resolve $f(x)=\frac{x+3}{(x-1)(x-3)}$</p>
+<script type="math/tex; mode=display">f(x)=\frac{a}{x-1}+\frac{b}{x-3}=\frac{(a+b)x-3a-b}{(x-1)(x-3)}</script><script type="math/tex; mode=display">\implies \begin{cases}
+  a+b=1\\
+  -3a-b=3
+\end{cases}\implies a=-2,b=3</script><script type="math/tex; mode=display">\therefore f(x)=\frac{-2}{x-1}+\frac{3}{x-3}</script><hr>
+<p><strong>[Example]</strong></p>
+<p>Find $\int \frac{x^2+1}{(x-1)(x-2)(3+3)}dx$</p>
+<script type="math/tex; mode=display">\frac{x^2+1}{(x-1)(x-2)(3+3)}=\frac{a}{x-1}+\frac{b}{x-2}+\frac{c}{x+3}=\frac{(a+b+c)x^2+(a-2b-3c)x-6a-3b+2c}{(x-1)(x-2)(x+3)}</script><script type="math/tex; mode=display">\implies \begin{cases}
+  a+b+c=1\\
+  a+2b-3c=0\\
+  -6a-3b+2c=1
+\end{cases}\implies a=\frac{-1}{2},b=1,c=\frac{1}{2}</script><script type="math/tex; mode=display">\therefore \int \frac{x^2+1}{(x-1)(x-2)(3+3)}dx=\int -\frac{1}{2(x-1)}+\frac{1}{x-2}+\frac{1}{2(x+3)} dx</script><script type="math/tex; mode=display">= -\frac{1}{2}\int \frac{1}{x-1}+\int \frac{1}{x-2}+\frac{1}{2} \int \frac{1}{x+3}</script><script type="math/tex; mode=display">=-\frac{1}{2}\ln |x-1|+\ln |x-2|+\frac{1}{2}\ln |x+3|+C</script><hr>
+<h1 id="6-Definite-Integrals"><a href="#6-Definite-Integrals" class="headerlink" title="6 Definite Integrals"></a>6 Definite Integrals</h1><h2 id="6-1-Definition-of-Definite-Integrals"><a href="#6-1-Definition-of-Definite-Integrals" class="headerlink" title="6.1 Definition of Definite Integrals"></a>6.1 Definition of Definite Integrals</h2><p>$f(x)$ is <strong>continuous</strong> defined on <strong>closed and finite</strong> interval $[a,b]$;<br>$E_i$ is sub-interval of $[a,b]$ with length $\Delta x_i$ and $c_i$ as any point inside;<br>The <strong>Riemann sum</strong> of the function $f(x)$ on $[a,b]$ is </p>
+<script type="math/tex; mode=display">S_N=\sum^N_{i=1}f(c_i)\Delta x_i</script><p>Then the definite integral of $f(x)$ on $[a,b]$ which is $\int^b_af(x)dx$:</p>
+<script type="math/tex; mode=display">\lim_{\forall \Delta x_i \to 0}S_N=\lim_{\forall \Delta x_i \to 0}\sum^N_{i=1}f(c_i)\Delta x_i</script><center><img src="/2022/04/28/calculus-for-engineers-course-note/38.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="6-2-Basic-Properties-of-Definite-Integrals"><a href="#6-2-Basic-Properties-of-Definite-Integrals" class="headerlink" title="6.2 Basic Properties of Definite Integrals"></a>6.2 Basic Properties of Definite Integrals</h2><ul>
+<li><script type="math/tex; mode=display">\int^a_bf(x)dx=-\int^b_af(x)dx</script></li>
+<li><script type="math/tex; mode=display">\int^a_af(x)dx=0</script></li>
+<li><script type="math/tex; mode=display">\int^b_af(x)dx=\int^b_af(t)dt=\int^b_af(u)du</script></li>
+<li><strong>Linearity</strong>:<ul>
+<li><script type="math/tex; mode=display">\int^b_a[\alpha f(x)+\beta g(x)]dx=\alpha\int^b_af(x)dx+\beta\int^b_ag(x)dx</script></li>
+</ul>
+</li>
+<li><strong>Additivity over sub-intervals</strong>, $a\lt b\lt c$:<ul>
+<li><script type="math/tex; mode=display">\int^b_af(x)dx=\int^b_cf(x)dx+\int^c_af(x)dx</script></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="6-3-Geometric-Interpretation"><a href="#6-3-Geometric-Interpretation" class="headerlink" title="6.3 Geometric Interpretation"></a>6.3 Geometric Interpretation</h2><center><img src="/2022/04/28/calculus-for-engineers-course-note/39.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="6-4-Fundamental-Theorem-of-Calculus"><a href="#6-4-Fundamental-Theorem-of-Calculus" class="headerlink" title="6.4 Fundamental Theorem of Calculus"></a>6.4 Fundamental Theorem of Calculus</h2><p>$F(x)$ be any primitive of $f(x)$:</p>
+<script type="math/tex; mode=display">\int^b_af(x)dx=F(b)-F(a)\equiv F(x) \Big|_a^b</script><p>To find $\int^b_af(x)dx$:</p>
+<ul>
+<li>Step 1: Find $F(x) = \int f(x)dx$;</li>
+<li>Step 2: Calculate $F(b)-F(a)$.</li>
+</ul>
+<hr>
+<h2 id="6-5-Reduction-Formulas-for-Definite-Integrals"><a href="#6-5-Reduction-Formulas-for-Definite-Integrals" class="headerlink" title="6.5 Reduction Formulas for Definite Integrals"></a>6.5 Reduction Formulas for Definite Integrals</h2><p>For </p>
+<script type="math/tex; mode=display">J_n=\int_0^1x^ne^xdx</script><p>$n$ is non-negative integer</p>
+<script type="math/tex; mode=display">J_n=e-nJ_{n-1},n=1,2,...</script><p>which is <strong>reduction formula</strong>.</p>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/40.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/41.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/42.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+<center><img src="/2022/04/28/calculus-for-engineers-course-note/43.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<p><a target="_blank" rel="noopener" href="http://furthermathematicst.blogspot.com/2011/06/65-reduction-formulae.html">http://furthermathematicst.blogspot.com/2011/06/65-reduction-formulae.html</a></p>
+<hr>
+<h2 id="6-6-Definite-Integrals-for-Even-and-Odd-functions"><a href="#6-6-Definite-Integrals-for-Even-and-Odd-functions" class="headerlink" title="6.6 Definite Integrals for Even and Odd functions"></a>6.6 Definite Integrals for Even and Odd functions</h2><p>if $f(x)$ is <strong>even</strong>, then</p>
+<script type="math/tex; mode=display">\int_{-a}^af(x)dx = 2\int_{0}^af(x)dx</script><p>if $f(x)$ is <strong>odd</strong>, then</p>
+<script type="math/tex; mode=display">\int_{-a}^af(x)dx = 0</script><hr>
+<h2 id="6-7-Area-Bounded-by-Curves"><a href="#6-7-Area-Bounded-by-Curves" class="headerlink" title="6.7 Area Bounded by Curves"></a>6.7 Area Bounded by Curves</h2><ul>
+<li>Area is bounded by the curve $y=f(x)\gt0$ and the <strong>x-axis</strong> over $[a,b]$:<center><img src="/2022/04/28/calculus-for-engineers-course-note/44.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+</li>
+</ul>
+<hr>
+<ul>
+<li>Area is bounded by the curve $y=f(x)\le 0$ and the <strong>x-axis</strong> over $[a,b]$:<center><img src="/2022/04/28/calculus-for-engineers-course-note/45.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+</li>
+</ul>
+<hr>
+<ul>
+<li>Area is bounded by the curve $y=f(x)$ and the <strong>x-axis</strong> over $[a,b]$, <ul>
+<li>$f(x)\ge 0$ on $[a,c]$, $f(x)\le 0$ on $[c,b]$:<center><img src="/2022/04/28/calculus-for-engineers-course-note/46.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Area is bounded by the curves $y=f(x),y=g(x)$ over $[a,b]$<ul>
+<li>$f(x)\ge g(x)$ on $[a,b]$:<center><img src="/2022/04/28/calculus-for-engineers-course-note/47.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="6-8-Mean-Value-Theorem-for-Integrals"><a href="#6-8-Mean-Value-Theorem-for-Integrals" class="headerlink" title="6.8 Mean Value Theorem for Integrals"></a>6.8 Mean Value Theorem for Integrals</h2><p>For $f(x)$ is continuous an the closed interval $[a,b]$, then there exists value $c$ of on $[a,b]$ such that</p>
+<script type="math/tex; mode=display">f(c)=\frac{1}{b-a}\int_a^bf(x)dx</script><center><img src="/2022/04/28/calculus-for-engineers-course-note/48.png" srcset="/img/loading.gif" lazyload width="50%" height="50%"></center>
+
+<hr>
+<p>Set </p>
+<script type="math/tex; mode=display">g(x)=\int f(x)dx</script><p>then</p>
+<script type="math/tex; mode=display">g^{\prime}(c)=f(c)=\frac{g(b)-g(a)}{b-a}</script><p>which is <strong>mean value theorem</strong> for derivative</p>
+<hr>
+<h2 id="6-9-Length-of-Curves"><a href="#6-9-Length-of-Curves" class="headerlink" title="6.9 Length of Curves"></a>6.9 Length of Curves</h2><blockquote>
+<p>Given $y=f(x)$ is continuous, defined on $[a,b]$, then</p>
+</blockquote>
+<script type="math/tex; mode=display">\text{Arc length of }\widehat{AB}=\int_a^b\sqrt{1+\biggl(\frac{dy}{dx}\biggr)^2}dx</script><blockquote>
+<p>Or, if $f$ is monotonically increasing or decreasing, and $c=f(a)$, $d=f(b)$, then</p>
+</blockquote>
+<script type="math/tex; mode=display">\text{Arc length of }\widehat{AB}=\int_c^d\sqrt{1+\biggl(\frac{dx}{dy}\biggr)^2}dy</script><h2 id="6-10-Volume-of-a-Solid-of-Rotation"><a href="#6-10-Volume-of-a-Solid-of-Rotation" class="headerlink" title="6.10 Volume of a Solid of Rotation"></a>6.10 Volume of a Solid of Rotation</h2><h3 id="About-the-x-axis"><a href="#About-the-x-axis" class="headerlink" title="About the x-axis"></a>About the x-axis</h3><blockquote>
+<p>Region $R$ is bounded between $y=f(x)$ and $y=g(x)$ with $f(x)\ge g(x) \ge 0$ on $[a,b]$, then</p>
+</blockquote>
+<script type="math/tex; mode=display">V=\pi \int_a^b(f(x)^2-g(x)^2)dx</script><hr>
+<h3 id="About-the-y-axis"><a href="#About-the-y-axis" class="headerlink" title="About the y-axis"></a>About the y-axis</h3><blockquote>
+<p>Region $R$ is bounded between $y=f(x)$ and $y=g(x)$ with $f(x)\ge g(x) \ge 0$ on $[a,b]$, then</p>
+</blockquote>
+<script type="math/tex; mode=display">V=2\pi \int_a^bx(f(x)-g(x))dx</script><hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>Slides of AMA1130 Calculus for Engineers, The Hong Kong Polytechnic University.</p>
+<hr>
+<p><strong><em>个人笔记，仅供参考，转载请标明出处</em></strong><br><strong><em>FOR REFERENCE ONLY</em></strong></p>
+<p><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Mathematics/" class="category-chain-item">Mathematics</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Math-Note/">#Math Note</a>
+      
+        <a href="/tags/Limits/">#Limits</a>
+      
+        <a href="/tags/Continuity/">#Continuity</a>
+      
+        <a href="/tags/Calculus/">#Calculus</a>
+      
+        <a href="/tags/Differentiation/">#Differentiation</a>
+      
+        <a href="/tags/Integration/">#Integration</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Calculus for Engineers Course Note</div>
+      <div>https://ultrafish.cn/2022/04/28/calculus-for-engineers-course-note/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mike_Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月28日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/16/build-blog-website/" title="如何搭建简单的个人博客网站">
+                        <span class="hidden-mobile">如何搭建简单的个人博客网站</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","path":"window.location.pathname","placeholder":"说点什么吧(记得写上你的昵称哦)","avatar":"mp","meta":["nick","mail"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <footer class="text-center mt-5 py-3" style="font-size:small;">
+<div class="footer-inner">
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2020036956号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>浙公网安备33042102000661号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+  <div class="footer" >
+    Copyright &copy; 2020-2022 Mike_Zhang. All rights reserved.
+  </div>
+</div>
+
+
+
+</footer>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
