@@ -1,0 +1,1892 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
+  
+    <meta name="description" content="Made by Mike_Zhang   所有文章:Introductory Probability Course NotePython Basic NoteLimits and Continuity NoteCalculus for Engineers Course NoteIntroduction to Data Analytics Course NoteIntroduction to Com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction to Data Analytics Course Note">
+<meta property="og:url" content="https://ultrafish.cn/2022/04/30/introduction-to-data-analytics-course-note/index.html">
+<meta property="og:site_name" content="UltraFish">
+<meta property="og:description" content="Made by Mike_Zhang   所有文章:Introductory Probability Course NotePython Basic NoteLimits and Continuity NoteCalculus for Engineers Course NoteIntroduction to Data Analytics Course NoteIntroduction to Com">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm">
+<meta property="article:published_time" content="2022-04-30T07:40:28.000Z">
+<meta property="article:modified_time" content="2022-04-30T08:19:02.884Z">
+<meta property="article:author" content="Mike_Zhang">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Note">
+<meta property="article:tag" content="Data Analytics">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm">
+  
+  
+  <title>Introduction to Data Analytics Course Note - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"ultrafish.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VXQrzMqOSkaPcbILQ3sQJyhw-gzGzoHsz","app_key":"y6z7EoVjISdQPvN4meqBOkvy","server_url":"https://vxqrzmqo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>UltraFish</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/collection/">
+                <i class="iconfont icon-th-large"></i>
+                收藏夹
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn">
+                    <i class="iconfont icon-home-fill"></i>
+                    UltraFish Plus 主页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">
+                    <i class="iconfont icon-briefcase"></i>
+                    多进制转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    IEEE 754
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    有符号数转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Josephus-Problem">
+                    <i class="iconfont icon-briefcase"></i>
+                    约瑟夫问题
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Introduction to Data Analytics Course Note"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-30 15:40" pubdate>
+          2022年4月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          30k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          254 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          阅读数：<span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Data Science"
+        id="heading-c78e2ad97b328dbafbd49edf182136f3" role="tab" data-toggle="collapse" href="#collapse-c78e2ad97b328dbafbd49edf182136f3"
+        aria-expanded="true"
+      >
+        Data Science
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-c78e2ad97b328dbafbd49edf182136f3"
+           role="tabpanel" aria-labelledby="heading-c78e2ad97b328dbafbd49edf182136f3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2022/04/30/introduction-to-data-analytics-course-note/" title="Introduction to Data Analytics Course Note"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Introduction to Data Analytics Course Note</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Introduction to Data Analytics Course Note</h1>
+            
+            <div class="markdown-body">
+              
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<blockquote>
+<p>所有文章:<br><a href="https://ultrafish.cn/2021/12/12/introductory-probability-course-note/">Introductory Probability Course Note</a><br><a href="https://ultrafish.cn/2021/12/18/Python-basic-note/">Python Basic Note</a><br><a href="https://ultrafish.cn/2021/12/14/limits-continuity-note/">Limits and Continuity Note</a><br><a href="https://ultrafish.cn/2022/04/28/calculus-for-engineers-course-note/">Calculus for Engineers Course Note</a><br><a href="https://ultrafish.cn/2022/04/30/introduction-to-data-analytics-course-note/">Introduction to Data Analytics Course Note</a><br><a href="https://ultrafish.cn/2022/04/30/introduction-to-computer-systems-course-note/">Introduction to Computer Systems Course Note</a></p>
+</blockquote>
+<p><strong><em>个人笔记，仅供参考</em></strong><br><strong><em>FOR REFERENCE ONLY</em></strong></p>
+<p>Course note of <strong>COMP1433 Introduction to Data Analytics</strong>, The Hong Kong Polytechnic University, 2022.</p>
+<p>Mainly focus on</p>
+<p>Mathematical tools for data analytics</p>
+<ul>
+<li>Probability and Statistics;</li>
+<li>Calculus (differentiation and integration);</li>
+<li>Linear Algebra (vector and matrix basics);</li>
+</ul>
+<p>Programming with R language</p>
+<ul>
+<li>Basics;</li>
+<li>Data Input and Manipulation;</li>
+<li>Statistics;</li>
+<li>Data Analytics.</li>
+</ul>
+<span id="more"></span>
+<hr>
+<h1 id="1-An-Introduction"><a href="#1-An-Introduction" class="headerlink" title="1 An Introduction"></a>1 An Introduction</h1><h2 id="1-1-Probability-amp-Statistics"><a href="#1-1-Probability-amp-Statistics" class="headerlink" title="1.1 Probability &amp; Statistics"></a>1.1 Probability &amp; Statistics</h2><p><img src="/2022/04/30/introduction-to-data-analytics-course-note/1-1.png" srcset="/img/loading.gif" lazyload alt="Probability &amp; Statistics"></p>
+<hr>
+<h2 id="1-2-Calculus-Preliminary"><a href="#1-2-Calculus-Preliminary" class="headerlink" title="1.2 Calculus Preliminary"></a>1.2 Calculus Preliminary</h2><p><img src="/2022/04/30/introduction-to-data-analytics-course-note/1-2.png" srcset="/img/loading.gif" lazyload alt="Calculus Preliminary"></p>
+<hr>
+<h2 id="1-3-Derivatives-of-Common-Functions"><a href="#1-3-Derivatives-of-Common-Functions" class="headerlink" title="1.3 Derivatives of Common Functions"></a>1.3 Derivatives of Common Functions</h2><p><img src="/2022/04/30/introduction-to-data-analytics-course-note/1-3.png" srcset="/img/loading.gif" lazyload alt="Derivatives of Common Functions"></p>
+<hr>
+<h2 id="1-4-Matrix-Product"><a href="#1-4-Matrix-Product" class="headerlink" title="1.4 Matrix Product"></a>1.4 Matrix Product</h2><p><img src="/2022/04/30/introduction-to-data-analytics-course-note/1-4.png" srcset="/img/loading.gif" lazyload alt="Matrix Product"></p>
+<hr>
+<h1 id="2-Probability"><a href="#2-Probability" class="headerlink" title="2 Probability"></a>2 Probability</h1><h2 id="2-1-Sample-Space"><a href="#2-1-Sample-Space" class="headerlink" title="2.1 Sample Space"></a>2.1 Sample Space</h2><ul>
+<li><strong>The set of all possible outcomes of an experiment.</strong></li>
+</ul>
+<hr>
+<h2 id="2-2-Event"><a href="#2-2-Event" class="headerlink" title="2.2 Event"></a>2.2 Event</h2><ul>
+<li><strong>Subsets of the sample space.</strong></li>
+</ul>
+<hr>
+<h2 id="2-3-Frequency"><a href="#2-3-Frequency" class="headerlink" title="2.3 Frequency"></a>2.3 Frequency</h2><blockquote>
+<p>Run a random experiment $n$ times, during which an event $A$ occurs $m$ times:</p>
+</blockquote>
+<p>frequency of $A$’s occurrence is <script type="math/tex">f_A=\frac{m}{n}</script></p>
+<hr>
+<h2 id="2-4-Probability"><a href="#2-4-Probability" class="headerlink" title="2.4 Probability"></a>2.4 Probability</h2><blockquote>
+<p>a numerical description of <strong>how likely</strong> an event is to occur and or how likely that a proposition is true.</p>
+</blockquote>
+<p>The probability of $A$ occurs:</p>
+<script type="math/tex; mode=display">\lim_{n\to +\infin}f_A \equiv P(A)=p</script><blockquote>
+<ul>
+<li>$0\le P(E)\le 1$ for each even $E$;</li>
+<li>$P(S)=1$;</li>
+</ul>
+<p>If the events, A and B, are <strong>disjoint events</strong>(mutually exclusive), the probability that <strong><em>either event occurs</em></strong> is</p>
+<script type="math/tex; mode=display">P(A\cup B) = P(A)+P(B) \\ =P(A)+P(B)-P(A \cap B)\; \mathrm where\; P(A \cap B)=0</script></blockquote>
+<hr>
+<h2 id="2-5-Conditional-Probability"><a href="#2-5-Conditional-Probability" class="headerlink" title="2.5 Conditional Probability"></a>2.5 Conditional Probability</h2><blockquote>
+<p>The probability of an event $A$ given that <strong><em>an event $B$ has occurred</em></strong>, is called the conditional probability of $A$ given $B$ and is denoted by the symbol $P(A|B)$ and read as ‘the probability of $A$ given that $B$ has already occurred.</p>
+<p>If $A$ and $B$ are two events with $P(A)\neq 0$ and $P(B)\neq 0$,then</p>
+</blockquote>
+<script type="math/tex; mode=display">P(A|B)=\frac{P(A,B)}{P(B)}\;\; and\;\;P(B|A)=\frac{P(B,A)}{P(A)}</script><p>The probability that <strong><em>both of the two events $A$ and $B$ occur</em></strong> is</p>
+<script type="math/tex; mode=display">P(A\cap B) = P(A)\cdot P(B|A)= P(B)\cdot P(A|B)</script><hr>
+<h2 id="2-6-Law-of-Total-Probability"><a href="#2-6-Law-of-Total-Probability" class="headerlink" title="2.6 Law of Total Probability"></a>2.6 Law of Total Probability</h2><blockquote>
+<p>Assume that $B_1,B_2,…,B_n$ are <strong><em>collectively exhaustive</em></strong> events where $P(B_i)\gt 0$, for $i=1,2,…,n$ and $B_i$ and $B_j$ are <strong><em>mutually exclusive</em></strong> events for $i\neq j$.<br>Then for any event $A$:</p>
+</blockquote>
+<script type="math/tex; mode=display">P(A)=P(B_1, A)+P(B_2, A)+...+P(B_n, A)</script><script type="math/tex; mode=display">=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+...+P(B_n)P(A|B_n)</script><hr>
+<h2 id="2-7-Bayes’-Formula"><a href="#2-7-Bayes’-Formula" class="headerlink" title="2.7 Bayes’ Formula"></a>2.7 Bayes’ Formula</h2><blockquote>
+<p><strong>Inverts the conditioning</strong></p>
+</blockquote>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-1.png" srcset="/img/loading.gif" lazyload alt></p>
+<blockquote>
+<p>Suppose that $B_1,B_2,…,B_n$ are n <strong><em>exhaustive</em></strong> events and <strong><em>exhaustive</em></strong> events, then:</p>
+</blockquote>
+<script type="math/tex; mode=display">P(B_k|A)=\frac{P(B_k \cap A)}{P(A)}</script><script type="math/tex; mode=display">=\frac{P(B_k)P(A|B_k)}{P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+...+P(B_n)P(A|B_n)}</script><p>$\because P(B_k\cap A) = P(B_k)\cdot P(A|B_k) $<br>$ \text{ :based on the Conditional Probability}$ </p>
+<p>$\text{,and }P(A)=P(B_1)P(A|B_1)+P(B_2)P(A|B_2)+…+P(B_n)P(A|B_n) $<br>$\text{based on the Law of Total probability}$</p>
+<hr>
+<h2 id="2-8-Independent-Events"><a href="#2-8-Independent-Events" class="headerlink" title="2.8 Independent Events"></a>2.8 Independent Events</h2><blockquote>
+<p><strong>knowing $F$ occurred doesn’t change the probability of $E$:</strong></p>
+</blockquote>
+<script type="math/tex; mode=display">P(E,F)=P(E)P(F)</script><p>In this case:</p>
+<script type="math/tex; mode=display">\because P(E, F)=P(E)\cdot P(F)\\ \therefore P(E|F)=\frac{P(E, F)}{P(F)}=P(E)</script><hr>
+<h2 id="2-9-Text-Classification"><a href="#2-9-Text-Classification" class="headerlink" title="2.9 Text Classification"></a>2.9 Text Classification</h2><ul>
+<li>Learn: <strong>text map to labels</strong>.</li>
+</ul>
+<hr>
+<h2 id="2-10-Naive-Bayes-classifier"><a href="#2-10-Naive-Bayes-classifier" class="headerlink" title="2.10 Naïve Bayes classifier"></a>2.10 Naïve Bayes classifier</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/O2L2Uv9pdDA">Naive Bayes, Clearly Explained!!! - YouTube</a></p>
+</blockquote>
+<p><strong>Bayes’ Rule Applied to Documents and Classes (Multinomial Naive Bayes)</strong></p>
+<ul>
+<li>A <strong>generative</strong> and <strong>linear</strong> classifier.</li>
+<li>Naive Bayes classifier has many <strong>assumptions including ignoring the words order and words are independent with each other</strong>, which makes it does <strong>not exhibit high accuracy</strong>.</li>
+</ul>
+<blockquote>
+<p>$d$: document;<br>$c$: class;<br>To get the maximum value of $P(c|d),c \in C$, which means given the document $d$, find its class with the maximum probability.</p>
+</blockquote>
+<p>The goal: to get the maximum value of </p>
+<script type="math/tex; mode=display">P(c|d)=\frac{P(d|c)P(c)}{P(d)}</script><p>which is</p>
+<script type="math/tex; mode=display">c_{MAP}=\argmax_{c\in C}P(c|d)</script><p>$MAP$ is maximum a posteriori = most likely class,</p>
+<script type="math/tex; mode=display">=\argmax_{c\in C}\frac{P(d|c)P(c)}{P(d)}</script><p>Bayes’ Formula,</p>
+<script type="math/tex; mode=display">=\argmax_{c\in C}P(d|c)P(c)</script><p>where $P(d)$ is not related to $c$,</p>
+<script type="math/tex; mode=display">=\argmax_{c\in C}P(x_1,x_2,...,x_n|c)P(c)</script><p>where $d$ is represented with $x_1,x_2,…,x_n$, e.g. words in an email,<br>and $P(c)$ is the frequency of occurrence of this class, by count the relative frequencies, e.g. the frequencies of normal emails and spam emails,</p>
+<p>Based on:</p>
+<p><strong>Bag of Words assumption</strong>: Assume position doesn’t matter;<br><strong>Conditional Independence</strong>: Assume $P(x_j|c_j)$ are independent;</p>
+<p>then,</p>
+<script type="math/tex; mode=display">P(x_1,x_2,...,x_n|c)=P(x_1|c) \cdot P(x_2|c) \cdot ... \cdot P(x_n|c)=\prod_{x\in X}P(x|c)</script><script type="math/tex; mode=display">X=\{x_1,x_2,...,x_n\}</script><p>therefore</p>
+<script type="math/tex; mode=display">c_{NB}=\argmax_{c\in C}P(c_j)\prod_{x\in X}P(x|c),X=\{x_1,x_2,...,x_n\}</script><p>then for all words:</p>
+<script type="math/tex; mode=display">c_{NB}=\argmax_{c_j\in C}P(c_j)\prod_{i\in positions}P(x_i|c_j) \tag{1}</script><p>$positions$ = all word positions in the test document</p>
+<p>for $(1)$,</p>
+<p>Multiplying floating point numbers may cause underflow loss,<br>then based on,</p>
+<script type="math/tex; mode=display">\log(ab)=\log(a)+\log(b)</script><p>then for $(1)$,</p>
+<script type="math/tex; mode=display">c_{NB}=\argmax_{c_j\in C}P(c_j)\prod_{i\in positions}P(x_i|c_j)\tag{1}</script><script type="math/tex; mode=display">=\argmax_{c_j\in C}\Biggl[\log{P(c_j)}+\sum_{i\in positions}\log{P(x_i|c_j)}\Biggl] \tag{2}</script><ul>
+<li>For the <strong>maximum likelihood estimates</strong> $P(c_j)$:</li>
+</ul>
+<script type="math/tex; mode=display">P(c_j)=\frac{doccount(C=c_j)}{N_{doc}}</script><blockquote>
+<p>Get the <strong>frequencies</strong> of the class appear in the dataset.</p>
+</blockquote>
+<ul>
+<li>For the <strong>Parameter estimation</strong> $P(w_i|c_j)$:</li>
+</ul>
+<script type="math/tex; mode=display">P(w_i|c_j)= \frac{count(w_i,c_j)}{\sum_{w \in V} count(w,c_j)}</script><p>($V$ is the vocabulary maintaining all the words used for classification in dataset we trained)</p>
+<blockquote>
+<p>Get the frequencies of the word $w_i$ appears within all word in the dataset with class $c_j$.</p>
+</blockquote>
+<hr>
+<p><strong><em>Problem</em></strong>:</p>
+<blockquote>
+<p>No training of some words will lead the result to 0 directly, which is improper.</p>
+</blockquote>
+<p><strong><em>Solution</em></strong>:</p>
+<blockquote>
+<p>Laplace (add-1) Smoothing for Naive Bayes</p>
+</blockquote>
+<script type="math/tex; mode=display">P(w_i|c_j)= \frac{count(w_i,c_j)+1}{\sum_{w \in V} (count(w,c_j)+1)}=\frac{count(w_i,c_j)+1}{\biggl(\sum_{w \in V} count(w,c_j)\biggr)+|V|}</script><hr>
+<p><strong><em>Problem</em></strong>:</p>
+<blockquote>
+<p>For the Unknown word.</p>
+</blockquote>
+<p><strong><em>Solution</em></strong>:</p>
+<blockquote>
+<p>Ignore them, remove them from the test document</p>
+</blockquote>
+<hr>
+<p><strong><em>Problem</em></strong>:</p>
+<blockquote>
+<p>Deal with the stopwords(e.g., <code>the</code>, <code>a</code>)</p>
+</blockquote>
+<p><strong><em>Solution</em></strong>:</p>
+<blockquote>
+<p>Sort the whole vocabulary by <strong>frequency</strong> in the training, call the <strong>top 10 or 50</strong> words the stopwords list, and <strong>remove</strong> them from the dataset.<br>It’s more common to <strong>ignore stopwords lists</strong> and <strong>only use all the words</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="2-11-Tutorial-Exercises-Discrete-Random-Variables"><a href="#2-11-Tutorial-Exercises-Discrete-Random-Variables" class="headerlink" title="2.11 Tutorial: Exercises - Discrete Random Variables"></a>2.11 Tutorial: Exercises - Discrete Random Variables</h2><p><strong>[Example]</strong></p>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-2.png" srcset="/img/loading.gif" lazyload alt></p>
+<hr>
+<p><strong>[Solution]</strong></p>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-3.png" srcset="/img/loading.gif" lazyload alt></p>
+<blockquote>
+<p><strong>PMF: Probability Mass Function</strong></p>
+</blockquote>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-4.png" srcset="/img/loading.gif" lazyload alt></p>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-5.png" srcset="/img/loading.gif" lazyload alt></p>
+<blockquote>
+<p><strong>CDF: Cumulative Distribution Function</strong></p>
+</blockquote>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-6.png" srcset="/img/loading.gif" lazyload alt></p>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-7.png" srcset="/img/loading.gif" lazyload alt></p>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-8.png" srcset="/img/loading.gif" lazyload alt></p>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-9.png" srcset="/img/loading.gif" lazyload alt></p>
+<p><img src="/2022/04/30/introduction-to-data-analytics-course-note/2-10.png" srcset="/img/loading.gif" lazyload alt></p>
+<hr>
+<h1 id="3-Statistics-Basics-for-Data-Analytics"><a href="#3-Statistics-Basics-for-Data-Analytics" class="headerlink" title="3 Statistics Basics for Data Analytics"></a>3 Statistics Basics for Data Analytics</h1><h2 id="3-1-Expectation-of-Random-Variables"><a href="#3-1-Expectation-of-Random-Variables" class="headerlink" title="3.1 Expectation of Random Variables"></a>3.1 Expectation of Random Variables</h2><p>Mean of $X$</p>
+<script type="math/tex; mode=display">E[X]=\sum_kx_kP(X=x_k)=\sum_kp_X(x_k)</script><blockquote>
+<p>the weighted average sum of $X$</p>
+</blockquote>
+<ul>
+<li>$E[aX]=aE[X]$</li>
+<li>$E[aX+b]=aE[X]+bs$</li>
+</ul>
+<p>For the <strong>probability density function</strong>(PDF) $f(x)=P(X=x)$:</p>
+<script type="math/tex; mode=display">E[X]=\int_a^bxf(x)dx</script><hr>
+<h2 id="3-2-Variance-and-Standard-Deviation-of-Radom-Variables"><a href="#3-2-Variance-and-Standard-Deviation-of-Radom-Variables" class="headerlink" title="3.2 Variance and Standard Deviation of Radom Variables"></a>3.2 Variance and Standard Deviation of Radom Variables</h2><p>$\mu = E[X]$</p>
+<p>the <strong>Variance</strong>:</p>
+<script type="math/tex; mode=display">Var(X)=E[(X-\mu)^2]=\sum_k(x_k-\mu)^2p_X(x_k)\\Var(X)=E[X^2]-\mu^2</script><blockquote>
+<p>The weighted square distance from the mean.</p>
+</blockquote>
+<p>the <strong>Standard Deviation</strong>:</p>
+<script type="math/tex; mode=display">\sigma(X)=\sqrt{Var(X)}</script><blockquote>
+<p>The weighted distance from the mean. </p>
+</blockquote>
+<p>For the <strong>probability density function</strong>(PDF) $f(x)=P(X=x)$:</p>
+<script type="math/tex; mode=display">Var(X)=E[(X-\mu)^2]=\int_a^b(x-\mu)^2f(x)dx</script><script type="math/tex; mode=display">Var(X)=E[X^2]-\mu^2=\int_a^bx^2f(x)dx-\biggl(\int_a^bxf(x)dx\biggr)^2</script><hr>
+<script type="math/tex; mode=display">E(aX)=aE(X)</script><script type="math/tex; mode=display">E(aX+b)=aE(X)+b</script><script type="math/tex; mode=display">E(X+Y)=E(X)+E(Y)</script><script type="math/tex; mode=display">E(XY)=E(X)\times E(Y)</script><script type="math/tex; mode=display">Var(X+Y)=Var(X)+Var(Y)</script><hr>
+<h2 id="3-3-Sample-Statistics"><a href="#3-3-Sample-Statistics" class="headerlink" title="3.3 Sample Statistics"></a>3.3 Sample Statistics</h2><ul>
+<li><p>Assumptions:</p>
+<ul>
+<li>The population is <strong>infinite</strong> (or very <strong>large</strong>).</li>
+<li>The observations are <strong>independent</strong>.</li>
+</ul>
+</li>
+<li><p>Statistic itself is a random variable</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-3-1-Sample-Mean"><a href="#3-3-1-Sample-Mean" class="headerlink" title="3.3.1 Sample Mean"></a>3.3.1 Sample Mean</h3><script type="math/tex; mode=display">\bar{X}=\frac{1}{n}(X_1+X_2+...+X_n)</script><hr>
+<h3 id="3-3-2-Sample-Variance-and-Standard-Deviation"><a href="#3-3-2-Sample-Variance-and-Standard-Deviation" class="headerlink" title="3.3.2 Sample Variance and Standard Deviation"></a>3.3.2 Sample Variance and Standard Deviation</h3><p><strong>Sample Variance</strong>:</p>
+<script type="math/tex; mode=display">S=\frac{1}{n-1}\sum^n_{k=1}(X_k-\bar{X})^2</script><p><strong>Standard Deviation</strong>:</p>
+<script type="math/tex; mode=display">S=\sqrt{\frac{1}{n-1}\sum^n_{k=1}(X_k-\bar{X})^2}</script><hr>
+<h3 id="3-3-3-Other-of-Sample-Statistics"><a href="#3-3-3-Other-of-Sample-Statistics" class="headerlink" title="3.3.3 Other of Sample Statistics"></a>3.3.3 Other of Sample Statistics</h3><ul>
+<li><strong>order statistic</strong>:  observation are <strong>ordered</strong> in size;</li>
+<li><strong>sample median</strong>:<ul>
+<li>$n$ is <strong>odd</strong>: <strong>mid-value</strong> of the order statistic;</li>
+<li>$n$ is <strong>even</strong>:  <strong>average</strong> of the <strong>two middle values</strong>;</li>
+</ul>
+</li>
+<li><strong>sample range</strong>: Max - Min</li>
+</ul>
+<hr>
+<h3 id="3-3-4-Expected-Value-and-Variance-of-Sample-Mean"><a href="#3-3-4-Expected-Value-and-Variance-of-Sample-Mean" class="headerlink" title="3.3.4 Expected Value and Variance of Sample Mean"></a>3.3.4 Expected Value and Variance of Sample Mean</h3><p><strong>Sample Mean</strong>:</p>
+<script type="math/tex; mode=display">\bar{X}=\frac{1}{n}(X_1+X_2+...+X_n)</script><p>It is also a <strong>Radom Variable</strong>.</p>
+<p>The <strong>Expected value of Sample Mean</strong>: </p>
+<script type="math/tex; mode=display">\mu_{\bar{X}}=E[\bar{X}]=E\biggl[\frac{1}{n}(X_1+X_2+...+X_n)\biggr]=\mu</script><p>The <strong>Variance of Sample Mean:</strong></p>
+<script type="math/tex; mode=display">\sigma_{\bar{X}}^2=Var[\bar{X}]=\frac{\sigma^2}{n}</script><p>($n\to +\infin \implies \sigma_{\bar{X}}^2 \to 0$)</p>
+<p><strong>[Proof]</strong></p>
+<p>Set:</p>
+<script type="math/tex; mode=display">S=x_1+x_2+...+x_n\\n\bar{X}=S</script><p>Then:</p>
+<script type="math/tex; mode=display">Var[\bar{X}]=E[\bar{X}^2]-\mu^2\\=\frac{1}{n^2}E[S^2]-\mu^2\\=\frac{1}{n^2}E[(x_1+x_2+...+x_n)^2]-\mu^2\\=\frac{1}{n^2}E\biggl[\sum_{i=1}^nx_i^2+\sum_{i\ne j}x_ix_j\biggr]-\mu^2\\=\frac{1}{n^2}\biggl[nE[x_i^2]+n(n-1)E(x_ix_j)\biggr]-\mu^2\\=\frac{1}{n^2}\biggl[n(\sigma^2+\mu^2)+n(n-1)\mu^2\biggr]-\mu^2\\=\frac{\sigma^2}{n}</script><hr>
+<h3 id="3-3-5-Markov-Inequality-and-Chebyshev’s-Inequality"><a href="#3-3-5-Markov-Inequality-and-Chebyshev’s-Inequality" class="headerlink" title="3.3.5 Markov Inequality and Chebyshev’s Inequality"></a>3.3.5 Markov Inequality and Chebyshev’s Inequality</h3><p><strong>Markov Inequality</strong>:</p>
+<p>$X\ge 0,\epsilon \gt 0$</p>
+<script type="math/tex; mode=display">P(X\ge \epsilon)\le \frac{E[X]}{\epsilon}</script><p><strong>[Proof]</strong></p>
+<script type="math/tex; mode=display">E[X]=\sum_{x\ge 0}xp(x)\ge \sum_{x\ge \epsilon}xp(x)\ge \epsilon \sum_{x\ge \epsilon}p(x)=\epsilon P(X\ge \epsilon)</script><p><strong>Chebyshev’s Inequality</strong>:</p>
+<script type="math/tex; mode=display">P(|X-\mu |\ge \epsilon)\le \frac{\sigma^2}{\epsilon^2}</script><p><strong>[Proof]</strong></p>
+<p>$P(|X-\mu |\ge \epsilon)=P((X-\mu )^2\ge \epsilon^2)\le \frac{E[(X-\mu )^2]}{\epsilon^2}=\frac{\sigma^2}{\epsilon^2}$</p>
+<hr>
+<h3 id="3-3-6-Law-of-Large-Number"><a href="#3-3-6-Law-of-Large-Number" class="headerlink" title="3.3.6 Law of Large Number"></a>3.3.6 Law of Large Number</h3><p>According to the <strong>Chebyshev’s Inequality</strong>:</p>
+<script type="math/tex; mode=display">P(|X-\mu |\ge \epsilon)\le \frac{\sigma^2}{\epsilon^2}</script><p>then, for any random variables: </p>
+<script type="math/tex; mode=display">P(|X-\mu |\ge \epsilon)\ge 1-\frac{\sigma_{\bar{X}}^2}{\epsilon^2}=1-\frac{\sigma^2}{n\epsilon^2}</script><p>for $n\to +\infin,\; P(|X-\mu |\ge \epsilon)=1,\; \forall \epsilon \gt 0$</p>
+<blockquote>
+<p>Means the sample mean approximates the population mean for <strong>very large $n$</strong>.</p>
+</blockquote>
+<hr>
+<h3 id="3-3-7-General-and-Standard-Normal"><a href="#3-3-7-General-and-Standard-Normal" class="headerlink" title="3.3.7 General and Standard Normal"></a>3.3.7 General and Standard Normal</h3><script type="math/tex; mode=display">f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2\sigma^2}(x-\mu )^2}</script><p>$X$ is general normal, $X\sim N(\mu ,\sigma^2)$</p>
+<p>Properties:</p>
+<ul>
+<li>$E[X]=\mu$</li>
+<li>$Var(X)=\mu^2$</li>
+<li>$\frac{X-\mu}{\sigma}\sim N(0,1)$</li>
+</ul>
+<hr>
+<p>when $\mu =0,\sigma=1$:</p>
+<script type="math/tex; mode=display">f(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2\sigma^2}x^2}</script><p>$X$ is standard normal, $X\sim N(0,1)$</p>
+<hr>
+<h3 id="3-3-8-Central-Limit-Theorem"><a href="#3-3-8-Central-Limit-Theorem" class="headerlink" title="3.3.8 Central Limit Theorem"></a>3.3.8 Central Limit Theorem</h3><p><strong>Sample Mean</strong>:</p>
+<script type="math/tex; mode=display">\bar{X}=\frac{1}{n}(X_1+X_2+...+X_n)</script><p>The <strong>Expected value of Sample Mean</strong>: </p>
+<script type="math/tex; mode=display">\mu_{\bar{X}}=E[\bar{X}]=E\biggl[\frac{1}{n}(X_1+X_2+...+X_n)\biggr]=\mu</script><p>The <strong>Variance of Sample Mean:</strong></p>
+<script type="math/tex; mode=display">\sigma_{\bar{X}}^2=Var[\bar{X}]=\frac{\sigma^2}{n}</script><ul>
+<li><p>$\bar{X}$ is approximately <strong>general normal</strong> (or satisfies normal distribution) for very large $n$.</p>
+</li>
+<li><p>$\frac{X-\mu_{\bar{X}}}{\sigma}=\frac{X-\mu}{\frac{\sigma}{\sqrt{n}}}$ is approximately <strong>normal normal</strong> for very large $n$.</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-3-9-Confidence-Interval-Estimate"><a href="#3-3-9-Confidence-Interval-Estimate" class="headerlink" title="3.3.9 Confidence Interval Estimate"></a>3.3.9 Confidence Interval Estimate</h3><p>For the continuous random variable $X$, $\forall x \in \Bbb{R}$</p>
+<script type="math/tex; mode=display">f(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2\sigma^2}x^2}</script><p>So $X\sim N(0,1)$</p>
+<p>For thr cumulative distribution function:</p>
+<script type="math/tex; mode=display">F(x)=P(X\le x)=\Phi(x)</script><p>or,</p>
+<script type="math/tex; mode=display">F(x)=P(|X|\le x)=P(-x\le X \le x)=1-2\Phi(-x),(x\gt 0)</script><center><img src="/2022/04/30/introduction-to-data-analytics-course-note/1.png" srcset="/img/loading.gif" lazyload width="40%" height="40%"></center>
+
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/2.png" srcset="/img/loading.gif" lazyload width="40%" height="40%"></center>
+
+<hr>
+<p>Then for $\frac{X-\mu}{\frac{\sigma}{\sqrt{n}}}$ is approximately standard normal for very large $n$.</p>
+<script type="math/tex; mode=display">P\biggl(|\frac{X-\mu}{\frac{\sigma}{\sqrt{n}}}|\le z\biggr)\\=P(|X-\mu|\le \frac{\sigma z}{\sqrt{n}})\\=P(\mu \in [\bar{X}-\frac{\sigma z}{\sqrt{n}},\bar{X}+\frac{\sigma z}{\sqrt{n}}])\\\approxeq 1-2\Phi(-z)</script><p><strong>[Example]</strong></p>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/3.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<hr>
+<h3 id="3-3-10-Hypothesis-Testing"><a href="#3-3-10-Hypothesis-Testing" class="headerlink" title="3.3.10 Hypothesis Testing"></a>3.3.10 Hypothesis Testing</h3><p><strong>[Example]</strong></p>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/4.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/5.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<p>For hypothesis $H$, p-value = $p$;</p>
+<p>We <strong>accept</strong> $H$ at the level of significance $A$, where $p\gt A$;<br>We <strong>reject</strong> $H$ at  the level of significance $R$, where $p\lt R$;</p>
+<hr>
+<h2 id="3-4-Naive-Bayes-classifier-Cont"><a href="#3-4-Naive-Bayes-classifier-Cont" class="headerlink" title="3.4 Naïve Bayes classifier (Cont.)"></a>3.4 Naïve Bayes classifier (Cont.)</h2><p>See in <a href="#210-naïve-bayes-classifier">2.10</a></p>
+<hr>
+<h2 id="3-5-Tutorial-–-Statistic-Basics"><a href="#3-5-Tutorial-–-Statistic-Basics" class="headerlink" title="3.5 Tutorial – Statistic Basics"></a>3.5 Tutorial – Statistic Basics</h2><center><img src="/2022/04/30/introduction-to-data-analytics-course-note/6.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/7.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/8.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/9.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<hr>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/10.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/11.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/12.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<hr>
+<h1 id="4-Linear-Algebra-Basics"><a href="#4-Linear-Algebra-Basics" class="headerlink" title="4 Linear Algebra Basics"></a>4 Linear Algebra Basics</h1><h2 id="4-1-Vectors"><a href="#4-1-Vectors" class="headerlink" title="4.1 Vectors"></a>4.1 Vectors</h2><blockquote>
+<p>An order list of numbers:</p>
+</blockquote>
+<script type="math/tex; mode=display">\begin{pmatrix}
+  -1 & 0 & 3.6 & 7.2
+\end{pmatrix}or
+\begin{pmatrix}
+  -1 \\ 0 \\ 3.6 \\ 7.2
+\end{pmatrix}</script><p><strong>Dimension</strong>: count of entires;<br><strong>n-vector</strong>: Vector of dimension $n$;<br><strong>Scalars</strong>: numbers in the vector.</p>
+<h3 id="4-1-1-Vectors-Addition"><a href="#4-1-1-Vectors-Addition" class="headerlink" title="4.1.1 Vectors Addition"></a>4.1.1 Vectors Addition</h3><blockquote>
+<p>Adding the <strong>corresponding</strong> elements, to form another vector of the <strong>same size</strong>. </p>
+</blockquote>
+<script type="math/tex; mode=display">\begin{pmatrix}
+  1 \\ 2 \\ 3 \\ 4
+\end{pmatrix}+\begin{pmatrix}
+  5 \\ 6 \\ 7 \\ 8
+\end{pmatrix}=\begin{pmatrix}
+  6 \\ 8 \\ 10 \\ 12
+\end{pmatrix}</script><p><strong>Properties</strong>:<br>$a,b,c$ are same size vectors;</p>
+<script type="math/tex; mode=display">a+b=b+a\;\text{ (Communicative)}</script><script type="math/tex; mode=display">(a+b)+c=a+(b+c)\;\text{ (Associative)}</script><script type="math/tex; mode=display">a+0=0+a</script><script type="math/tex; mode=display">a-a=0\;\\\text{(0 is a zero vector with all entries as 0)}</script><hr>
+<h3 id="4-1-2-Scalar-Vector-Multiplication"><a href="#4-1-2-Scalar-Vector-Multiplication" class="headerlink" title="4.1.2 Scalar-Vector Multiplication"></a>4.1.2 Scalar-Vector Multiplication</h3><p>Scalar: $\beta$;<br>n-vector: $a$;</p>
+<script type="math/tex; mode=display">\beta a=(\beta a_1,\beta a_2,\cdots ,\beta a_n)</script><p><strong>Properties</strong>:</p>
+<script type="math/tex; mode=display">(\beta \gamma)a= \beta (\gamma a)\;\text{(Associative)}</script><script type="math/tex; mode=display">(\beta + \gamma)a=\beta a + \gamma a\;\text{(Left Distributive)}</script><script type="math/tex; mode=display">\beta (a + b)=\beta a + \beta b\;\text{(Right Distributive)}</script><hr>
+<h3 id="4-1-3-Inner-Product"><a href="#4-1-3-Inner-Product" class="headerlink" title="4.1.3 Inner Product"></a>4.1.3 Inner Product</h3><blockquote>
+<p>dot product</p>
+</blockquote>
+<p>n-vector $a$ and $b$:</p>
+<script type="math/tex; mode=display">a^Tb=a_1b_1+a_2b_2+\cdots + a_nb_n</script><p><strong>Properties</strong>:</p>
+<script type="math/tex; mode=display">a^Tb = b^Ta</script><script type="math/tex; mode=display">(\gamma a)^Tb=\gamma (a^Tb)</script><script type="math/tex; mode=display">(a+b)^T c=a^Tc + b^Tc</script><script type="math/tex; mode=display">(a+b)^T(c+d)=a^Tc + b^Tc+a^Td+b^Td</script><hr>
+<h3 id="4-1-4-Vector-Norm"><a href="#4-1-4-Vector-Norm" class="headerlink" title="4.1.4 Vector Norm"></a>4.1.4 Vector Norm</h3><blockquote>
+<p>Euclidean Norm of <strong>n-vector</strong>:</p>
+</blockquote>
+<script type="math/tex; mode=display">\lVert x \rVert=\sqrt{x_1^2+x_2^2+\cdots + x_n^2}=\sqrt{x^Tx}</script><p><strong>Properties</strong>:</p>
+<ul>
+<li>Homogeneity:<script type="math/tex; mode=display">\lVert \beta x \rVert = |\beta| \lVert x \rVert</script></li>
+<li>Triangle Inequality:<script type="math/tex; mode=display">\lVert x+y \rVert\le \lVert x \rVert+\lVert y \rVert</script></li>
+<li>Non-negativity:<script type="math/tex; mode=display">\lVert x \rVert\ge 0</script></li>
+<li>Definiteness:<script type="math/tex; mode=display">\lVert x \rVert=0\iff x=0</script></li>
+</ul>
+<hr>
+<h3 id="4-1-5-Vector-Distance"><a href="#4-1-5-Vector-Distance" class="headerlink" title="4.1.5 Vector Distance"></a>4.1.5 Vector Distance</h3><blockquote>
+<p>Euclidean Distance of two n-vector:</p>
+</blockquote>
+<script type="math/tex; mode=display">\lVert x-y \rVert=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2+\cdots + (x_n-y_n)^2}</script><hr>
+<h3 id="4-1-6-Vector-Angle"><a href="#4-1-6-Vector-Angle" class="headerlink" title="4.1.6 Vector Angle"></a>4.1.6 Vector Angle</h3><blockquote>
+<p>Angle $\theta$ between two non-zero vector $a$ and $b$:</p>
+</blockquote>
+<script type="math/tex; mode=display">\cos \theta = \frac{a^Tb}{\lVert a \rVert\cdot \lVert b \rVert}</script><script type="math/tex; mode=display">\iff a^Tb=\cos \theta \cdot {\lVert a \rVert\cdot \lVert b \rVert}</script><p><strong>Properties</strong>:</p>
+<ul>
+<li>$\theta = \frac{\pi}{2}$: $a\bot b$;</li>
+<li>$\theta = 0$: $a$ and $b$ are aligned, $a^Tb={\lVert a \rVert\cdot \lVert b \rVert}$;</li>
+<li>$\theta = \pi$: $a$ and $b$ are anti-aligned, $a^Tb=-{\lVert a \rVert\cdot \lVert b \rVert}$;</li>
+<li>$\theta \in (0,\frac{\pi}{2})$: $a$ and $b$ make a acute angle, $a^Tb\gt 0$;</li>
+<li>$\theta \in (\frac{\pi}{2},\pi)$: $a$ and $b$ make a obtuse angle, $a^Tb\lt 0$. </li>
+</ul>
+<p>Proof:</p>
+<script type="math/tex; mode=display">LHS=\cos \theta=\cos (\alpha-\beta)</script><script type="math/tex; mode=display">= \cos \alpha \cos \beta + \sin \alpha\sin \beta</script><script type="math/tex; mode=display">= \frac{a_xb_x}{\lVert a \rVert\cdot \lVert b \rVert}+\frac{a_yb_y}{\lVert a \rVert\cdot \lVert b \rVert}</script><script type="math/tex; mode=display">= \frac{a_xb_x+a_yb_y}{\lVert a \rVert\cdot \lVert b \rVert}</script><script type="math/tex; mode=display">= \frac{a^Tb}{\lVert a \rVert\cdot \lVert b \rVert}=RHS</script><hr>
+<h2 id="4-2-Clustering"><a href="#4-2-Clustering" class="headerlink" title="4.2 Clustering"></a>4.2 Clustering</h2><p>$N$ n-vector, $x_1,x_2,\cdots, x_n$:<br>Cluster them into $k$ clusters(groups),</p>
+<blockquote>
+<p>Goal is to make vectors in the same cluster to be <strong>close</strong> to each other. </p>
+</blockquote>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/13.png" srcset="/img/loading.gif" lazyload width="60%" height="60%"></center>
+
+<hr>
+<h3 id="4-2-1-Clustering-Objective"><a href="#4-2-1-Clustering-Objective" class="headerlink" title="4.2.1 Clustering Objective"></a>4.2.1 Clustering Objective</h3><p><strong>Group Assignment</strong>:<br>$c<em>i$: the index of a group;<br>Assigned to vector $x_i,\; x_i\in G</em>{c_i}$. </p>
+<p><strong>Group Representatives</strong>:<br>n-vectors $z_1,z_2,\cdots,z_k$</p>
+<p><strong>Clustering Objective</strong>:</p>
+<script type="math/tex; mode=display">J^{cluster}=\frac{1}{N}\sum^N_{i=1}\lVert x_i-z_{c_i}\rVert^2</script><blockquote>
+<p>Smaller, the better</p>
+</blockquote>
+<hr>
+<h3 id="4-2-2-K-means-Clustering-Algorithm"><a href="#4-2-2-K-means-Clustering-Algorithm" class="headerlink" title="4.2.2 K-means Clustering Algorithm"></a>4.2.2 K-means Clustering Algorithm</h3><blockquote>
+<p>Repeatedly alternate between updating the <strong>group assignments</strong>, and then updating the <strong>representatives</strong>, then $J^{cluster}$ goes down. </p>
+</blockquote>
+<p>Algorithm:<br><strong>Given</strong> $x_1,x_2,\cdots , x_N$ N vectors, and initially $z_1,z_2,\cdots , z_k$ k representatives which is <strong>randomly</strong> selected at begin;<br><strong>Repeat</strong>:</p>
+<ul>
+<li><strong>Update group assignments</strong>: assign $i$ to $G<em>j$, $i= argmin</em>{j’}\lVert x<em>i-z</em>{j’}\rVert$, let $x_i$ assigned to the group associated with the <strong>nearest</strong> representative;</li>
+<li><strong>Update representatives</strong>: $z<em>j=\frac{1}{|G_j|}\sum</em>{i\in G_j}x_i$, to be the <strong>mean</strong> of the vectors in group $j$. </li>
+</ul>
+<p><strong>Until</strong> group representative stop change. </p>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/4b5d3muPQmA">StatQuest: K-means clustering</a></p>
+<hr>
+<h2 id="4-3-Matrices"><a href="#4-3-Matrices" class="headerlink" title="4.3 Matrices"></a>4.3 Matrices</h2><blockquote>
+<p>Rectangular array of numbers:</p>
+</blockquote>
+<script type="math/tex; mode=display">\begin{pmatrix}
+  1 & 3 & 5\\2& 4& 6
+\end{pmatrix}</script><p>A $2\times 3$ matrix, $M_{2,3}$</p>
+<ul>
+<li>size: (row dimension)×(column dimension), e.g., $2\times 3$;</li>
+<li>entries: the elements;</li>
+<li>$M_{i,j}$: entry at $i^{th}$ row and $j^{th}$ column;</li>
+<li>equal: have <strong>same size</strong> and all <strong>corresponding</strong> entries are <strong>equal</strong>;</li>
+</ul>
+<p><strong>column vector</strong>: $n\times 1$ Matrix;</p>
+<p><strong>row vector</strong>: $1\times n$ Matrix;</p>
+<p><strong>number</strong>: $1\times 1$ Matrix;</p>
+<hr>
+<h3 id="4-3-1-Transpose-of-Matrices"><a href="#4-3-1-Transpose-of-Matrices" class="headerlink" title="4.3.1 Transpose of Matrices"></a>4.3.1 Transpose of Matrices</h3><blockquote>
+<p>$A^T$: Transpose of Matrices</p>
+</blockquote>
+<script type="math/tex; mode=display">(A^T)_{i,j} = A_{j,i}</script><script type="math/tex; mode=display">\begin{pmatrix}
+  1 & 3 & 5\\2& 4& 6
+\end{pmatrix}^T=\begin{pmatrix}
+  1&2\\3&4\\5&6
+\end{pmatrix}</script><hr>
+<h3 id="4-3-2-Addition-Subtraction-and-Scalar-Multiplication-of-Matrices"><a href="#4-3-2-Addition-Subtraction-and-Scalar-Multiplication-of-Matrices" class="headerlink" title="4.3.2 Addition, Subtraction, and Scalar Multiplication of Matrices"></a>4.3.2 Addition, Subtraction, and Scalar Multiplication of Matrices</h3><ul>
+<li>Add: <strong>Same size matrix</strong></li>
+</ul>
+<script type="math/tex; mode=display">(A+B)_{i,j}=A_{i,j}+B_{i,j}</script><ul>
+<li>Subtract: <strong>Same size matrix</strong></li>
+</ul>
+<script type="math/tex; mode=display">(A-B)_{i,j}=A_{i,j}-B_{i,j}</script><ul>
+<li>Scalar multiplication:</li>
+</ul>
+<script type="math/tex; mode=display">(\alpha A)_{i,j} = \alpha A_{i,j}</script><p><strong>Properties:</strong></p>
+<script type="math/tex; mode=display">A+B= B+A</script><script type="math/tex; mode=display">\alpha(A+B) = \alpha A + \alpha B</script><script type="math/tex; mode=display">(A+B)^T=A^T+B^T</script><hr>
+<h3 id="4-3-3-Matrix–Vector-Product"><a href="#4-3-3-Matrix–Vector-Product" class="headerlink" title="4.3.3 Matrix–Vector Product"></a>4.3.3 Matrix–Vector Product</h3><blockquote>
+<p>matrix $A$ of $m\times n$, n-vector $x$, $y=Ax$:</p>
+</blockquote>
+<script type="math/tex; mode=display">y_i=A_{i,1}x_1+A_{i,2}x_2+\cdots, A_{i,n}x_n</script><script type="math/tex; mode=display">\begin{pmatrix}
+  1 & 3 & 5\\2& 4& 6
+\end{pmatrix}\begin{pmatrix}
+  0\\1\\2
+\end{pmatrix}=\begin{pmatrix}
+  13\\16
+\end{pmatrix}</script><hr>
+<h3 id="4-3-4-Matrix-Multiplication"><a href="#4-3-4-Matrix-Multiplication" class="headerlink" title="4.3.4 Matrix Multiplication"></a>4.3.4 Matrix Multiplication</h3><blockquote>
+<p>matrix $A$ of $m\times p$, $B$ of $p\times n$, $C=AB$:</p>
+</blockquote>
+<script type="math/tex; mode=display">C_{i,j}=\sum_{k=1}^pA_{i,k}B_{k,j}</script><script type="math/tex; mode=display">\begin{pmatrix}
+  1 & 3 & 5\\2& 4& 6
+\end{pmatrix}\begin{pmatrix}
+  0 & 0\\1&1\\2&1
+\end{pmatrix}=\begin{pmatrix}
+  13& 8\\16&10
+\end{pmatrix}</script><hr>
+<h1 id="5-Calculus-Basics"><a href="#5-Calculus-Basics" class="headerlink" title="5 Calculus Basics"></a>5 Calculus Basics</h1><h2 id="5-1-Functions"><a href="#5-1-Functions" class="headerlink" title="5.1 Functions"></a>5.1 Functions</h2><script type="math/tex; mode=display">y = f(x)</script><blockquote>
+<p>$y$ is a function of $x$, the value of x corresponds to <strong>one and only one</strong> value of $y$. </p>
+</blockquote>
+<p>$x$: independent variable;<br>$y$: dependent variable. </p>
+<hr>
+<h3 id="5-1-1-Optimization-of-a-Function"><a href="#5-1-1-Optimization-of-a-Function" class="headerlink" title="5.1.1 Optimization of a Function"></a>5.1.1 Optimization of a Function</h3><p><strong>Optimization</strong>: Find a set of variables $x_1,x_2,\cdots,x_n$ that <strong>maximize or minimize</strong> $f(x_1,x_2,\cdots,x_n)$. </p>
+<hr>
+<h2 id="5-2-Derivatives"><a href="#5-2-Derivatives" class="headerlink" title="5.2 Derivatives"></a>5.2 Derivatives</h2><p><strong>Derivative</strong> of $f(x)$: </p>
+<ul>
+<li>The <strong>slope of tangent line</strong> (instantaneous rate of change) at $(x,f(x))$;</li>
+</ul>
+<p><strong>Differentiation</strong>: </p>
+<ul>
+<li>the <strong>process</strong> of calculating <strong>derivative</strong> of $f(x)$;</li>
+</ul>
+<script type="math/tex; mode=display">\frac{dy}{dx}=f^\prime(x)=\lim_{\Delta x \to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}</script><hr>
+<h3 id="5-2-1-Useful-Derivative-Rules"><a href="#5-2-1-Useful-Derivative-Rules" class="headerlink" title="5.2.1 Useful Derivative Rules"></a>5.2.1 Useful Derivative Rules</h3><p><strong>Power Rule</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\frac{d(x^p)}{dx}=px^{p-1}</script></li>
+</ul>
+<p><strong>Exponential Rule</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\frac{d(b^x)}{dx}=b^x lnb</script></li>
+<li><script type="math/tex; mode=display">\frac{d(e^x)}{dx}=e^x</script></li>
+</ul>
+<p><strong>Logarithm Rule</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\frac{d(log_bx)}{dx}=\frac{1}{x lnb}</script></li>
+<li><script type="math/tex; mode=display">\frac{d(lnx)}{dx}=\frac{1}{x}</script></li>
+</ul>
+<p><strong>Derivatives for constants</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\frac{dC}{dx}=0</script></li>
+</ul>
+<hr>
+<h3 id="5-2-2-Properties-of-Derivatives"><a href="#5-2-2-Properties-of-Derivatives" class="headerlink" title="5.2.2 Properties of Derivatives"></a>5.2.2 Properties of Derivatives</h3><p><strong>Constant</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\frac{d[cf(x)]}{dx}=c\frac{d[f(x)]}{dx}</script></li>
+</ul>
+<p><strong>Sum and Difference Rules</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\frac{d[f(x)\pm g(x)]}{dx}=\frac{d[f(x)]}{dx}\pm \frac{d[g(x)]}{dx}</script></li>
+</ul>
+<p><strong>Product Rule</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">[f(x)g(x)]^\prime =f^\prime(x)g(x)+f(x)g^\prime(x)</script></li>
+</ul>
+<p><strong>Quotient Rule</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\biggl[\frac{f(x)}{g(x)}\biggr]^\prime=\frac{f^\prime(x)g(x)-f(x)g^\prime(x)}{[g(x)]^2},g(x)\ne 0</script></li>
+</ul>
+<p><strong>Chain Rule</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">\big[f\big(g(x)\big)\big]^\prime=f^\prime\big(g(x)\big)\cdot g^\prime (x)</script></li>
+</ul>
+<hr>
+<h3 id="5-2-3-Partial-Derivatives"><a href="#5-2-3-Partial-Derivatives" class="headerlink" title="5.2.3 Partial Derivatives"></a>5.2.3 Partial Derivatives</h3><ul>
+<li>For a function with several variables;</li>
+<li>Derivative with respect to <strong>one of those variables</strong>;</li>
+<li>with others as <strong>constants</strong>;</li>
+<li>Denoted as $\frac{\delta f}{\delta x}$ or $\frac{df}{dx}$. </li>
+</ul>
+<hr>
+<h3 id="5-2-4-Gradient"><a href="#5-2-4-Gradient" class="headerlink" title="5.2.4 Gradient"></a>5.2.4 Gradient</h3><ul>
+<li>For $f(x_1,x_2,\cdots,x_n)$,</li>
+<li>Gradient is the vector holding all partial derivatives:</li>
+<li>$\nabla f = (\frac{\delta f}{\delta x_1},\frac{\delta f}{\delta x_2},\cdots, \frac{\delta f}{\delta x_n})$;</li>
+<li>It points the direction of the <strong>greatest rate of change</strong>. </li>
+</ul>
+<hr>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/14.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<script type="math/tex; mode=display">w=w_0-\eta \frac{dl(w)}{dw}</script><ul>
+<li>Moving in the <strong>opposite</strong> direction of the <strong>gradient</strong> of the loss function. </li>
+<li>$\eta$: the moving step length, to avoid pass the goal. </li>
+</ul>
+<hr>
+<h3 id="5-2-5-The-Training-of-Machine-Learning"><a href="#5-2-5-The-Training-of-Machine-Learning" class="headerlink" title="5.2.5 The Training of Machine Learning"></a>5.2.5 The Training of Machine Learning</h3><p><strong>Generative Classifier</strong>:</p>
+<ul>
+<li>Calculus the probability of each object;</li>
+<li>Run model for each one;</li>
+<li>e.g. Naïve Bayes classifier. </li>
+</ul>
+<p><strong>Discriminative Classifier</strong>:</p>
+<ul>
+<li>Distinguish one from another;</li>
+</ul>
+<p><strong>Input</strong>: $x_1,x_2,\cdots,x_n$, the <strong>feature</strong> representation;<br><strong>Output</strong>: $\hat{y}$, the <strong>prediction</strong>, via $p(y|x)$ function.<br><strong>The object function to learn</strong>: <strong>cross-entropy loss</strong>, using gradient descent tor optimizing. </p>
+<p><strong>Linear Regression</strong>:</p>
+<ul>
+<li>Input: <strong>feature</strong> $x_1,x_2,\cdots,x_n$, and <strong>weight</strong> over feature $\theta_1,\theta_2,\cdots,\theta_n$;</li>
+<li>Output: $\hat{y}=h_\theta(x)=f(\theta^Tx)$, where $f(a)=a$, which is <strong>linear</strong>.</li>
+</ul>
+<hr>
+<p>In order to get from numbers to 0-to-1, need to use <strong>sigmoid</strong> or <strong>logistic</strong> <strong>function</strong>:</p>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/15.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<p><strong>Sigmoid or Logistic Regression</strong>:</p>
+<ul>
+<li>Input: <strong>feature</strong> $x_1,x_2,\cdots,x_n$, and <strong>weight</strong> over feature $\theta_1,\theta_2,\cdots,\theta_n$;</li>
+<li>Output: $\hat{y}=h_\theta(x)=f(\theta^Tx)$, where $f(a)=\frac{1}{1+exp(-a)}$, which is <strong>sigmoid</strong> or <strong>logistic</strong>.</li>
+<li>Only fix to binary classification, not 3 or 4…</li>
+</ul>
+<p>A recipe:</p>
+<ol>
+<li><strong>Training Data</strong>: ${x<em>i,y_i}</em>{i=1}^N$, where $x$ is the feature and $y$ is the label. </li>
+<li><strong>Decision function</strong>: $\hat{y}=f_\theta (x_i)$, where $f$ is the sigmoid function;</li>
+<li><strong>Loss function</strong>: $l(\hat{y},y_i)\in \Bbb{R}$;</li>
+<li><strong>The Goal</strong>: $\theta^*=argmin<em>\theta \sum^N</em>{i=1}l(f_\theta (x_i),y_i)$;</li>
+<li>Training with <strong>SGD</strong>, small steps opposite the gradient: <script type="math/tex">\theta^{(t+1)}=\theta^{(t)}-\eta_t \nabla l(f_\theta(x_i),y_i)</script></li>
+</ol>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/16.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="5-3-Integrals"><a href="#5-3-Integrals" class="headerlink" title="5.3 Integrals"></a>5.3 Integrals</h2><p><strong>Definite Integrals</strong>: </p>
+<script type="math/tex; mode=display">F(x)=\int^x_af(t)dt</script><ul>
+<li>$f(x)$: integrand;</li>
+<li>$F(x)$: antiderivative of $f(x)$. </li>
+</ul>
+<p><strong>Indefinite integrals</strong>:</p>
+<script type="math/tex; mode=display">\int f(x)dx= F(x)+C</script><hr>
+<h3 id="5-3-1-Properties-of-Integrals"><a href="#5-3-1-Properties-of-Integrals" class="headerlink" title="5.3.1 Properties of Integrals"></a>5.3.1 Properties of Integrals</h3><p><strong>Sum and Difference Rules</strong>:</p>
+<script type="math/tex; mode=display">\int[f(x)\pm g(x)]dx=\int f(x)dx \pm \int g(x)dx</script><p><strong>Power Rule</strong>:</p>
+<script type="math/tex; mode=display">\int u^pdu=\begin{cases}
+  \frac{u^{p+1}}{p+1}+C,&p\ne-1\\
+  ln|u|+C,&p=-1
+\end{cases}</script><p><strong>Exponential Rule</strong>:</p>
+<script type="math/tex; mode=display">\int e^udu=e^u+C</script><p><strong>Chain Rule</strong>:</p>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/17.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h1 id="6-Programming-with-R"><a href="#6-Programming-with-R" class="headerlink" title="6 Programming with R"></a>6 Programming with R</h1><h2 id="6-1-R-Basic"><a href="#6-1-R-Basic" class="headerlink" title="6.1 R Basic"></a>6.1 R Basic</h2><ul>
+<li>Created objects are held in memory;</li>
+<li>The workspace (the collection of objects you currently have) is not saved on disk unless you tell R to do so;</li>
+<li>Save: <code>save.image()</code>;</li>
+<li>Check the current working directory: <code>getwd()</code>;</li>
+<li>Save to a specific file and location: <code>save.image(&quot;path&quot;)</code></li>
+<li>List the objects in the current workspace: <code>ls()</code>, <code>ls(pattern=&quot;x&quot;)</code>;</li>
+<li>Remove onr or more objects: <code>remove(x,x2)</code>;</li>
+<li>Quit R: <code>q()</code>;</li>
+<li>Load the workspace: <code>load(&quot;path&quot;)</code>;</li>
+<li>Help:</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs r">help.start<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>  <span class="hljs-comment"># general help </span><br>help<span class="hljs-punctuation">(</span>foo<span class="hljs-punctuation">)</span>  <span class="hljs-comment"># help about function foo </span><br><span class="hljs-operator">?</span>foo <span class="hljs-comment"># same thing</span><br>apropos<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;foo&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># list all function containing string foo </span><br>example<span class="hljs-punctuation">(</span>foo<span class="hljs-punctuation">)</span>  <span class="hljs-comment"># show an example of function foo</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li><p>Assignment operators:</p>
+<ul>
+<li><code>&lt;-</code>: An arrow formed by a smaller than character and a hyphen without a space;</li>
+<li><code>=</code>: equal character;</li>
+</ul>
+</li>
+<li><p>Naming rules:</p>
+<ul>
+<li><strong>CANNOT</strong> contain ‘strange’ symbols like <code>!, +, -, #</code>;</li>
+<li>A dot <code>.</code> and an underscore <code>_</code> are <strong>allowed</strong>, also a name <strong>starting</strong> with a dot;</li>
+<li>CAN contain a number but <strong>CANNOT start with a number</strong>;</li>
+<li><strong>Case sensitive</strong>, <code>X</code> and <code>x</code> are two different objects, as well as <code>temp</code> and <code>temP</code>.</li>
+</ul>
+</li>
+<li><p>Check packages currently attached in the system: <code>search()</code>;</p>
+</li>
+<li>Check available library can be used in the system: <code>library()</code>;</li>
+</ul>
+<hr>
+<h2 id="6-2-R-Data-types"><a href="#6-2-R-Data-types" class="headerlink" title="6.2 R Data types"></a>6.2 R Data types</h2><h3 id="6-2-1-Vectors"><a href="#6-2-1-Vectors" class="headerlink" title="6.2.1 Vectors"></a>6.2.1 Vectors</h3><p><strong>Vector</strong> is the core element of R, it includes scalars, characters, logical values, <strong>but not mixed</strong>. </p>
+<p>Using <code>c(...)</code> to initialize:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> v <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span><span class="hljs-number">6</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> v<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span><br></code></pre></td></tr></table></figure>
+<p>Concatenate two vector into a new vector:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> v2 <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> vc <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span>v<span class="hljs-punctuation">,</span>v2<span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> vc<br> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Starts at index 1 instead of 0!</strong></p>
+</blockquote>
+<p>ELements referencing: </p>
+<ol>
+<li><p><code>v[x]</code></p>
+ <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> v <span class="hljs-operator">&lt;-</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span><span class="hljs-number">6</span><span class="hljs-punctuation">,</span><span class="hljs-number">7</span><span class="hljs-punctuation">,</span><span class="hljs-number">8</span><span class="hljs-punctuation">,</span><span class="hljs-number">9</span><span class="hljs-punctuation">,</span><span class="hljs-number">10</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span><br><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">1</span><br><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-number">0</span><span class="hljs-punctuation">]</span><br>numeric<span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>v[n:m]</code><br><strong>inclusively</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-operator">:</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span><br><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-number">4</span><span class="hljs-operator">:</span><span class="hljs-number">10</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>Accessing from 1 to n+1:<code>v[1:(n+1)]</code>, instead of<code>v[1:n+1]</code>;</p>
+</blockquote>
+</li>
+<li><p><code>v[c(a,b,c,...)]</code><br>Accessing via <strong>data vector</strong>;</p>
+ <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span><br><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">6</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>v[-x]</code><br>Ignore some elements;</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-operator">-</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-operator">-</span><span class="hljs-number">5</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span><span class="hljs-operator">-</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>v[x&lt;y]</code><br>Accessing via boolean expression, <code>TRUE</code> for selected, <code>FALSE</code> for ignore;</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span>v<span class="hljs-operator">&gt;</span><span class="hljs-number">5</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span><br><span class="hljs-operator">&gt;</span> v<span class="hljs-punctuation">[</span>v <span class="hljs-operator">%%</span> <span class="hljs-number">2</span> <span class="hljs-operator">==</span> <span class="hljs-number">1</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span> <span class="hljs-number">7</span> <span class="hljs-number">9</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>names()</code><br> Give names to some elements, and accessing via names;</p>
+ <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> value <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">names</span><span class="hljs-punctuation">(</span>value<span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&#x27;one&#x27;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&#x27;two&#x27;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&#x27;three&#x27;</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> value<br>  one   two three <br>    <span class="hljs-number">1</span>     <span class="hljs-number">2</span>     <span class="hljs-number">3</span> <br><span class="hljs-operator">&gt;</span> value<span class="hljs-punctuation">[</span><span class="hljs-string">&#x27;one&#x27;</span><span class="hljs-punctuation">]</span><br>one <br>  <span class="hljs-number">1</span><br><span class="hljs-operator">&gt;</span> value<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&#x27;one&#x27;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&#x27;three&#x27;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><br>  one three <br>    <span class="hljs-number">1</span>     <span class="hljs-number">3</span> <br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h3 id="6-2-2-Matrices"><a href="#6-2-2-Matrices" class="headerlink" title="6.2.2 Matrices"></a>6.2.2 Matrices</h3><p>两种方法：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> mymatrix <span class="hljs-operator">&lt;-</span> matrix<span class="hljs-punctuation">(</span>v<span class="hljs-punctuation">,</span> nrow<span class="hljs-operator">=</span>r<span class="hljs-punctuation">,</span> ncol<span class="hljs-operator">=</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">,</span> byrow<span class="hljs-operator">=</span><span class="hljs-literal">FALSE</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-built_in">dimnames</span><span class="hljs-operator">=</span><span class="hljs-built_in">list</span><span class="hljs-punctuation">(</span>char_vector_rownames<span class="hljs-punctuation">,</span> char_vector_colnames<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">dim</span><span class="hljs-punctuation">(</span>v<span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;-</span>  <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>Based on vector <code>v</code>, create a <code>r*c</code> matrix</li>
+<li>Created <strong>column by column</strong></li>
+<li><code>byrow=FALSE</code>: fill the matrices by columns (default)</li>
+<li><code>dimnames</code>: provides optional labels for the columns and rows</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> v <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span><span class="hljs-number">6</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> m <span class="hljs-operator">&lt;-</span> matrix<span class="hljs-punctuation">(</span>v<span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-operator">&gt;</span> m<br>     <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>    <span class="hljs-number">1</span>    <span class="hljs-number">3</span>    <span class="hljs-number">5</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>    <span class="hljs-number">2</span>    <span class="hljs-number">4</span>    <span class="hljs-number">6</span><br><br><span class="hljs-operator">&gt;</span> zerom <span class="hljs-operator">&lt;-</span> matrix<span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> zerom<br>     <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>    <span class="hljs-number">0</span>    <span class="hljs-number">0</span>    <span class="hljs-number">0</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>    <span class="hljs-number">0</span>    <span class="hljs-number">0</span>    <span class="hljs-number">0</span><br><br><span class="hljs-operator">&gt;</span> nam <span class="hljs-operator">&lt;-</span> matrix<span class="hljs-punctuation">(</span><span class="hljs-literal">NA</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> nam<br>     <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>   <span class="hljs-literal">NA</span>   <span class="hljs-literal">NA</span>   <span class="hljs-literal">NA</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>   <span class="hljs-literal">NA</span>   <span class="hljs-literal">NA</span>   <span class="hljs-literal">NA</span><br></code></pre></td></tr></table></figure>
+<p><code>byrow=TRUE</code>: fill the matrices by row: </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> rowm <span class="hljs-operator">&lt;-</span> matrix<span class="hljs-punctuation">(</span>v<span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span>byrow<span class="hljs-operator">=</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> rowm<br>     <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>    <span class="hljs-number">1</span>    <span class="hljs-number">2</span>    <span class="hljs-number">3</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>    <span class="hljs-number">4</span>    <span class="hljs-number">5</span>    <span class="hljs-number">6</span><br></code></pre></td></tr></table></figure>
+<p>Convert vector directly into matrix:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> v <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span><span class="hljs-number">6</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">dim</span><span class="hljs-punctuation">(</span>v<span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> v<br>     <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>    <span class="hljs-number">1</span>    <span class="hljs-number">3</span>    <span class="hljs-number">5</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span>    <span class="hljs-number">2</span>    <span class="hljs-number">4</span>    <span class="hljs-number">6</span><br></code></pre></td></tr></table></figure>
+<hr>
+<p><strong>[Example]</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># generates 5 x 4 numeric matrix</span><br>y<span class="hljs-operator">&lt;-</span>matrix<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">20</span><span class="hljs-punctuation">,</span> nrow<span class="hljs-operator">=</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span>ncol<span class="hljs-operator">=</span><span class="hljs-number">4</span><span class="hljs-punctuation">)</span> <br><span class="hljs-comment"># another examples</span><br>cells <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">26</span><span class="hljs-punctuation">,</span><span class="hljs-number">24</span><span class="hljs-punctuation">,</span><span class="hljs-number">68</span><span class="hljs-punctuation">)</span><br>rnames <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;R1&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;R2&quot;</span><span class="hljs-punctuation">)</span><br>cnames <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;C1&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;C2&quot;</span><span class="hljs-punctuation">)</span><br>mymatrix <span class="hljs-operator">&lt;-</span> matrix<span class="hljs-punctuation">(</span>cells<span class="hljs-punctuation">,</span> nrow<span class="hljs-operator">=</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span> ncol<span class="hljs-operator">=</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>    byrow<span class="hljs-operator">=</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span> <span class="hljs-built_in">dimnames</span><span class="hljs-operator">=</span><span class="hljs-built_in">list</span><span class="hljs-punctuation">(</span>rnames<span class="hljs-punctuation">,</span> cnames<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">#Identify rows, columns or elements using subscripts. </span><br>y<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># 4th column of matrix</span><br>y<span class="hljs-punctuation">[</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># 3rd row of matrix</span><br>y<span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-operator">:</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># rows 2,3,4 of columns 1,2,3</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="6-2-3-Dataframes"><a href="#6-2-3-Dataframes" class="headerlink" title="6.2.3 Dataframes"></a>6.2.3 Dataframes</h3><blockquote>
+<p>A data frame is more general than a matrix, in that different columns can have different modes (numeric, character, factor, etc.). </p>
+</blockquote>
+<p>Creation form <strong>Column</strong> Data:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> dfrm <span class="hljs-operator">&lt;-</span> data.frame<span class="hljs-punctuation">(</span>v1<span class="hljs-punctuation">,</span>v2<span class="hljs-punctuation">,</span>v3<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs r">d <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">)</span> <br>e <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;red&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;white&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;red&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NA</span><span class="hljs-punctuation">)</span> <br>f <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span><span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span> <br>mydata <span class="hljs-operator">&lt;-</span> data.frame<span class="hljs-punctuation">(</span>d<span class="hljs-punctuation">,</span>e<span class="hljs-punctuation">,</span>f<span class="hljs-punctuation">)</span> <br><span class="hljs-built_in">names</span><span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;ID&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;Color&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;Passed&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">#variable names</span><br></code></pre></td></tr></table></figure>
+<p>Identify the elements of a Dataframe:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs r">mydata<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># columns 1,2 of dataframe </span><br>mydata<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;ID&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;Passed&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># columns ID and Passed from dataframe </span><br>mydata<span class="hljs-operator">$</span>ID <span class="hljs-comment">#variables ID in the dataframe</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="6-2-4-Lists"><a href="#6-2-4-Lists" class="headerlink" title="6.2.4 Lists"></a>6.2.4 Lists</h3><blockquote>
+<p>A list is an <strong>ordered collection of objects</strong> (components). It allows you to gather a variety of (even unrelated) objects under one name. </p>
+</blockquote>
+<p><strong>List Creation</strong>:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> l <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">list</span><span class="hljs-punctuation">(</span>a<span class="hljs-punctuation">,</span>b<span class="hljs-punctuation">,</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> l <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">list</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> l<br><span class="hljs-punctuation">[[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">1</span><br><br><span class="hljs-punctuation">[[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span><br><br><span class="hljs-punctuation">[[</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<p><strong>List containing</strong>:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">v <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span>list1<span class="hljs-punctuation">,</span>list2<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p><strong>List Position Indexing</strong>:</p>
+<p>Identify elements of a list:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">l<span class="hljs-punctuation">[[</span>n<span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># return an element</span><br></code></pre></td></tr></table></figure>
+<p>or </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">l<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span>...<span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># return a list of elements</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>  <code>l[n]</code><br>    Special case, return a <strong>list</strong> of <strong>only one</strong> element. </p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> l <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">list</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> l<span class="hljs-punctuation">[[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># return an element</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span><br><br><span class="hljs-operator">&gt;</span> l<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># return a List</span><br><span class="hljs-punctuation">[[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">1</span><br><br><span class="hljs-punctuation">[[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span><br><br><span class="hljs-punctuation">[[</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3</span><br><br><span class="hljs-operator">&gt;</span> l<span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># return a List</span><br><span class="hljs-punctuation">[[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="6-3-Data-Input-and-Processing"><a href="#6-3-Data-Input-and-Processing" class="headerlink" title="6.3 Data Input and Processing"></a>6.3 Data Input and Processing</h2><p><strong>Import Data</strong>:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">mydata <span class="hljs-operator">&lt;-</span> read.table<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;c:/mydata.csv&quot;</span><span class="hljs-punctuation">,</span> header<span class="hljs-operator">=</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span> sep<span class="hljs-operator">=</span><span class="hljs-string">&quot;,&quot;</span><span class="hljs-punctuation">,</span> row.names<span class="hljs-operator">=</span><span class="hljs-string">&quot;id&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p><strong>Export Data</strong>:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">write.table<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;c:/mydata.txt&quot;</span><span class="hljs-punctuation">,</span> sep<span class="hljs-operator">=</span><span class="hljs-string">&quot;\t&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p>Viewing data:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># list objects in the working environment</span><br>ls<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># list the variables in mydata</span><br><span class="hljs-built_in">names</span><span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># list the structure of mydata</span><br>str<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># dimensions of an object</span><br><span class="hljs-built_in">dim</span><span class="hljs-punctuation">(</span>object<span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># class of an object (numeric, matrix, dataframe, etc)</span><br><span class="hljs-built_in">class</span><span class="hljs-punctuation">(</span>object<span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># print mydata</span><br>mydata <br><br><span class="hljs-comment"># print first 10 rows of mydata</span><br>head<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">,</span> n<span class="hljs-operator">=</span><span class="hljs-number">10</span><span class="hljs-punctuation">)</span> <br><br><span class="hljs-comment"># print last 5 rows of mydata</span><br>tail<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">,</span> n<span class="hljs-operator">=</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<h3 id="6-3-1-Missing-Data"><a href="#6-3-1-Missing-Data" class="headerlink" title="6.3.1 Missing Data"></a>6.3.1 Missing Data</h3><p><code>NA</code>: not available;<br><code>NaN</code>: Not a NUmber(dividing by zero);</p>
+<ul>
+<li><code>is.na(x)</code>: returns TRUE of x is missing</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r">y <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-literal">NA</span><span class="hljs-punctuation">)</span><br><span class="hljs-built_in">is.na</span><span class="hljs-punctuation">(</span>y<span class="hljs-punctuation">)</span> <span class="hljs-comment"># returns a vector (F F F T)</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>na.rm=TRUE</code>: remove missing data</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs r">x <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-literal">NA</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span> <br>mean<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span> <span class="hljs-comment"># returns NA</span><br>mean<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">,</span> na.rm<span class="hljs-operator">=</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># returns 2</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>complete.cases()</code>: returns a logical vector indicating which cases are complete.</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># list rows of data that have missing values </span><br>mydata<span class="hljs-punctuation">[</span><span class="hljs-operator">!</span>complete.cases<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>na.omit()</code>: returns the object with list-wise deletion of missing values.</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># create new dataset without missing data</span><br>newdata <span class="hljs-operator">&lt;-</span> na.omit<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="6-4-New-Variable"><a href="#6-4-New-Variable" class="headerlink" title="6.4 New Variable"></a>6.4 New Variable</h2><blockquote>
+<p>Use the assignment operator <code>&lt;-</code> or <code>=</code> to create new variables.</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r">mydata<span class="hljs-operator">$</span><span class="hljs-built_in">sum</span> <span class="hljs-operator">&lt;-</span> mydata<span class="hljs-operator">$</span>x1 <span class="hljs-operator">+</span> mydata<span class="hljs-operator">$</span>x2 <br>mydata<span class="hljs-operator">$</span>mean <span class="hljs-operator">&lt;-</span> <span class="hljs-punctuation">(</span>mydata<span class="hljs-operator">$</span>x1 <span class="hljs-operator">+</span> mydata<span class="hljs-operator">$</span>x2<span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+<p>or using <code>attach</code>:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs r">attach<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">)</span> <br>mydata<span class="hljs-operator">$</span><span class="hljs-built_in">sum</span> <span class="hljs-operator">&lt;-</span> x1 <span class="hljs-operator">+</span> x2 <br>mydata<span class="hljs-operator">$</span>mean <span class="hljs-operator">&lt;-</span> <span class="hljs-punctuation">(</span>x1 <span class="hljs-operator">+</span> x2<span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-number">2</span> <br>detach<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p>or,</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">mydata <span class="hljs-operator">&lt;-</span> transform<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">,</span> <span class="hljs-built_in">sum</span> <span class="hljs-operator">=</span> x1 <span class="hljs-operator">+</span> x2<span class="hljs-punctuation">,</span> mean <span class="hljs-operator">=</span> <span class="hljs-punctuation">(</span>x1 <span class="hljs-operator">+</span> x2<span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="6-5-Arithmetic-Operators"><a href="#6-5-Arithmetic-Operators" class="headerlink" title="6.5 Arithmetic Operators"></a>6.5 Arithmetic Operators</h2><center><img src="/2022/04/30/introduction-to-data-analytics-course-note/18.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="6-6-Logical-Operators"><a href="#6-6-Logical-Operators" class="headerlink" title="6.6 Logical Operators"></a>6.6 Logical Operators</h2><center><img src="/2022/04/30/introduction-to-data-analytics-course-note/19.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="6-7-Control-Structure"><a href="#6-7-Control-Structure" class="headerlink" title="6.7 Control Structure"></a>6.7 Control Structure</h2><ul>
+<li>if-else:</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>cond<span class="hljs-punctuation">)</span> expr <br><span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span>cond<span class="hljs-punctuation">)</span> expr1 <span class="hljs-keyword">else</span> expr2 <br></code></pre></td></tr></table></figure>
+<ul>
+<li>for:</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>var <span class="hljs-keyword">in</span> seq<span class="hljs-punctuation">)</span> expr<br></code></pre></td></tr></table></figure>
+<ul>
+<li>while:</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-keyword">while</span> <span class="hljs-punctuation">(</span>cond<span class="hljs-punctuation">)</span> expr<br></code></pre></td></tr></table></figure>
+<ul>
+<li>switch:</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-built_in">switch</span><span class="hljs-punctuation">(</span>expr<span class="hljs-punctuation">,</span> ...<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>ifelse:</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">ifelse<span class="hljs-punctuation">(</span>test<span class="hljs-punctuation">,</span>yes<span class="hljs-punctuation">,</span>no<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="6-8-Numeric-Functions"><a href="#6-8-Numeric-Functions" class="headerlink" title="6.8 Numeric Functions"></a>6.8 Numeric Functions</h2><center><img src="/2022/04/30/introduction-to-data-analytics-course-note/20.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="6-9-Character-Functions"><a href="#6-9-Character-Functions" class="headerlink" title="6.9 Character Functions"></a>6.9 Character Functions</h2><center><img src="/2022/04/30/introduction-to-data-analytics-course-note/21.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="6-10-Probability-Functions"><a href="#6-10-Probability-Functions" class="headerlink" title="6.10 Probability Functions"></a>6.10 Probability Functions</h2><center><img src="/2022/04/30/introduction-to-data-analytics-course-note/22.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/23.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="6-11-Statistical-Functions"><a href="#6-11-Statistical-Functions" class="headerlink" title="6.11 Statistical Functions"></a>6.11 Statistical Functions</h2><center><img src="/2022/04/30/introduction-to-data-analytics-course-note/24.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/25.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="6-12-Barplot"><a href="#6-12-Barplot" class="headerlink" title="6.12 Barplot"></a>6.12 Barplot</h2><p>Using <code>ggplot2</code> library</p>
+<p>Install:<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> install.packages<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;ggplot2&quot;</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> library<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;ggplot2&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure></p>
+<p>Barplot mainly use for <strong>category</strong>, on <strong>discrete</strong> data.</p>
+<p>Example:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> y<span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> x<span class="hljs-operator">=</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&#x27;a&#x27;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&#x27;b&#x27;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&#x27;c&#x27;</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> r <span class="hljs-operator">=</span> data.frame<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">,</span>y<span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> chartTest <span class="hljs-operator">&lt;-</span> ggplot<span class="hljs-punctuation">(</span>r<span class="hljs-punctuation">,</span>aes<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span>x<span class="hljs-punctuation">,</span>y<span class="hljs-operator">=</span>y<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span>geom_bar<span class="hljs-punctuation">(</span>fill<span class="hljs-operator">=</span><span class="hljs-string">&quot;grey&quot;</span><span class="hljs-punctuation">,</span>stat<span class="hljs-operator">=</span><span class="hljs-string">&quot;identity&quot;</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> chartTest<br></code></pre></td></tr></table></figure>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/26.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<ul>
+<li><code>ggtitle</code>: chart title;</li>
+<li><code>xlab</code>,<code>ylab</code>: Label for x-axis/y-axis;</li>
+<li><code>Identity</code>: Make the heights of the bars to represent values in the data.</li>
+<li><code>fill</code>: fill with colors or fill with some properties;</li>
+<li><code>position</code>: <code>=&quot;dodge&quot;</code> To create <strong>interleaved</strong> bars;</li>
+</ul>
+<hr>
+<h2 id="6-13-Histograms"><a href="#6-13-Histograms" class="headerlink" title="6.13 Histograms"></a>6.13 Histograms</h2><p>Mainly use for the frequency distribution of a quantitative variable, on <strong>continuous</strong> variable.</p>
+<p>Example:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> chart1 <span class="hljs-operator">&lt;-</span> ggplot<span class="hljs-punctuation">(</span>chic<span class="hljs-punctuation">,</span>aes<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span>temp<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span>geom_histogram<span class="hljs-punctuation">(</span>binwidth <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> chart1<br></code></pre></td></tr></table></figure>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/27.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h2 id="6-14-Scatter-Plot"><a href="#6-14-Scatter-Plot" class="headerlink" title="6.14 Scatter Plot"></a>6.14 Scatter Plot</h2><p>Mainly for the relations between data. </p>
+<p>Example</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> chart2 <span class="hljs-operator">&lt;-</span> ggplot<span class="hljs-punctuation">(</span>chic<span class="hljs-punctuation">,</span>aes<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span>time<span class="hljs-punctuation">,</span>y<span class="hljs-operator">=</span>temp<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span>geom_point<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> chart2<br></code></pre></td></tr></table></figure>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/28.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<ul>
+<li>Set the <code>color</code>:</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> chart2 <span class="hljs-operator">&lt;-</span> ggplot<span class="hljs-punctuation">(</span>chic<span class="hljs-punctuation">,</span>aes<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span>time<span class="hljs-punctuation">,</span>y<span class="hljs-operator">=</span>temp<span class="hljs-punctuation">,</span>color<span class="hljs-operator">=</span>season<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span>geom_point<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> chart2<br></code></pre></td></tr></table></figure>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/29.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<ul>
+<li>Set the <code>shape</code>:</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> chart2 <span class="hljs-operator">&lt;-</span> ggplot<span class="hljs-punctuation">(</span>chic<span class="hljs-punctuation">,</span>aes<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span>time<span class="hljs-punctuation">,</span>y<span class="hljs-operator">=</span>temp<span class="hljs-punctuation">,</span>shape<span class="hljs-operator">=</span>season<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span>geom_point<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> chart2<br></code></pre></td></tr></table></figure>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/30.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h1 id="7-Data-Analytics-with-R"><a href="#7-Data-Analytics-with-R" class="headerlink" title="7 Data Analytics with R"></a>7 Data Analytics with R</h1><h2 id="7-1-Simulations"><a href="#7-1-Simulations" class="headerlink" title="7.1 Simulations"></a>7.1 Simulations</h2><blockquote>
+<p>A simulation is an approximate imitation of the operation of a process or system.</p>
+</blockquote>
+<hr>
+<h3 id="7-1-1-Generate-Random-Numbers"><a href="#7-1-1-Generate-Random-Numbers" class="headerlink" title="7.1.1 Generate Random Numbers"></a>7.1.1 Generate Random Numbers</h3><ul>
+<li><code>rnorm</code>($\text{amount},\mu,\sigma$): generate <strong>random Normal variates</strong> with a given <strong>mean</strong> and <strong>standard deviation</strong>;<ul>
+<li>generated <strong>continuously</strong> variables;</li>
+</ul>
+</li>
+<li><code>dnorm</code>:  evaluate the <strong>Normal probability density</strong> (with a given mean/SD) at a point (or vector of points);</li>
+<li><code>pnorm</code>: evaluate the <strong>cumulative distribution function</strong> for a Normal distribution. </li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> x <span class="hljs-operator">&lt;-</span> rnorm<span class="hljs-punctuation">(</span><span class="hljs-number">10</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># N(0,1)</span><br><span class="hljs-operator">&gt;</span> x<br> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.1842525</span> <span class="hljs-operator">-</span><span class="hljs-number">1.3713305</span> <span class="hljs-operator">-</span><span class="hljs-number">0.5991677</span>  <span class="hljs-number">0.2945451</span>  <span class="hljs-number">0.3897943</span> <span class="hljs-operator">-</span><span class="hljs-number">1.2080762</span> <span class="hljs-operator">-</span><span class="hljs-number">0.3636760</span> <span class="hljs-operator">-</span><span class="hljs-number">1.6266727</span> <span class="hljs-operator">-</span><span class="hljs-number">0.2564784</span>  <span class="hljs-number">1.1017795</span><br><span class="hljs-operator">&gt;</span> x <span class="hljs-operator">&lt;-</span> rnorm<span class="hljs-punctuation">(</span><span class="hljs-number">10</span><span class="hljs-punctuation">,</span> <span class="hljs-number">20</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># N(20,2^2)</span><br><span class="hljs-operator">&gt;</span> x<br> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">21.51156</span> <span class="hljs-number">19.52353</span> <span class="hljs-number">21.97489</span> <span class="hljs-number">21.48278</span> <span class="hljs-number">20.17869</span> <span class="hljs-number">18.09011</span> <span class="hljs-number">19.60970</span> <span class="hljs-number">21.85104</span> <span class="hljs-number">20.96596</span> <span class="hljs-number">18.80738</span><br><span class="hljs-operator">&gt;</span> summary<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span><br>   Min. <span class="hljs-number">1</span>st Qu.  Median    Mean <span class="hljs-number">3</span>rd Qu.    Max. <br>  <span class="hljs-number">18.09</span>   <span class="hljs-number">19.55</span>   <span class="hljs-number">20.57</span>   <span class="hljs-number">20.40</span>   <span class="hljs-number">21.50</span>   <span class="hljs-number">21.97</span> <br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="7-1-2-Number-Seed"><a href="#7-1-2-Number-Seed" class="headerlink" title="7.1.2 Number Seed"></a>7.1.2 Number Seed</h3><blockquote>
+<p>A random seed is a number used to <strong>initialize</strong> a <strong>pseudorandom</strong> number generator (a starting point). </p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">set.seed<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> set.seed<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> rnorm<span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># with seed of 1</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.6264538</span>  <span class="hljs-number">0.1836433</span> <span class="hljs-operator">-</span><span class="hljs-number">0.8356286</span>  <span class="hljs-number">1.5952808</span>  <span class="hljs-number">0.3295078</span><br><span class="hljs-operator">&gt;</span> rnorm<span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># without seed of 1</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.8204684</span>  <span class="hljs-number">0.4874291</span>  <span class="hljs-number">0.7383247</span>  <span class="hljs-number">0.5757814</span> <span class="hljs-operator">-</span><span class="hljs-number">0.3053884</span><br><span class="hljs-operator">&gt;</span> set.seed<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> rnorm<span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># with seed of 1, the same result with the first one</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.6264538</span>  <span class="hljs-number">0.1836433</span> <span class="hljs-operator">-</span><span class="hljs-number">0.8356286</span>  <span class="hljs-number">1.5952808</span>  <span class="hljs-number">0.3295078</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="7-1-3-Simulating-a-Linear-Model"><a href="#7-1-3-Simulating-a-Linear-Model" class="headerlink" title="7.1.3 Simulating a Linear Model"></a>7.1.3 Simulating a Linear Model</h3><script type="math/tex; mode=display">y=\beta_0+\beta_1x+\epsilon(\beta_0=0.5,\beta_1=2)</script><script type="math/tex; mode=display">\epsilon\sim N(0,2^2), x\sim N(0,1^2)</script><script type="math/tex; mode=display">\Downarrow</script><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> set.seed<span class="hljs-punctuation">(</span><span class="hljs-number">20</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> x <span class="hljs-operator">&lt;-</span> rnorm<span class="hljs-punctuation">(</span><span class="hljs-number">100</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> e <span class="hljs-operator">&lt;-</span> rnorm<span class="hljs-punctuation">(</span><span class="hljs-number">100</span><span class="hljs-punctuation">,</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> y <span class="hljs-operator">&lt;-</span> 0.5 <span class="hljs-operator">+</span> <span class="hljs-number">2</span> <span class="hljs-operator">*</span> x <span class="hljs-operator">+</span> e<br><span class="hljs-operator">&gt;</span> summary<span class="hljs-punctuation">(</span>y<span class="hljs-punctuation">)</span><br>   Min. <span class="hljs-number">1</span>st Qu.  Median    Mean <span class="hljs-number">3</span>rd Qu.    Max. <br><span class="hljs-operator">-</span><span class="hljs-number">6.4084</span> <span class="hljs-operator">-</span><span class="hljs-number">1.5402</span>  <span class="hljs-number">0.6789</span>  <span class="hljs-number">0.6893</span>  <span class="hljs-number">2.9303</span>  <span class="hljs-number">6.5052</span> <br><span class="hljs-operator">&gt;</span> <br><span class="hljs-operator">&gt;</span> plot<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">,</span>y<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/31.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h3 id="7-1-4-Random-Sampling"><a href="#7-1-4-Random-Sampling" class="headerlink" title="7.1.4 Random Sampling"></a>7.1.4 Random Sampling</h3><blockquote>
+<p>The <code>sample()</code> function draws randomly from a specified set of (scalar) objects allowing you to sample from arbitrary distributions of numbers.</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># Sample Numbers</span><br><span class="hljs-operator">&gt;</span> set.seed<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> sample<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">10</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">9</span> <span class="hljs-number">4</span> <span class="hljs-number">7</span> <span class="hljs-number">1</span><br><span class="hljs-operator">&gt;</span> sample<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">10</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span> <span class="hljs-number">7</span> <span class="hljs-number">3</span> <span class="hljs-number">6</span><br><br><span class="hljs-comment"># Sample Letters</span><br><span class="hljs-operator">&gt;</span> sample<span class="hljs-punctuation">(</span><span class="hljs-built_in">letters</span><span class="hljs-punctuation">,</span> <span class="hljs-number">5</span><span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-string">&quot;r&quot;</span> <span class="hljs-string">&quot;s&quot;</span> <span class="hljs-string">&quot;a&quot;</span> <span class="hljs-string">&quot;u&quot;</span> <span class="hljs-string">&quot;w&quot;</span><br><br><span class="hljs-comment"># Do a random permutation</span><br><span class="hljs-operator">&gt;</span> sample<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">10</span><span class="hljs-punctuation">)</span><br> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">10</span>  <span class="hljs-number">6</span>  <span class="hljs-number">9</span>  <span class="hljs-number">2</span>  <span class="hljs-number">1</span>  <span class="hljs-number">5</span>  <span class="hljs-number">8</span>  <span class="hljs-number">4</span>  <span class="hljs-number">3</span>  <span class="hljs-number">7</span><br><span class="hljs-operator">&gt;</span> sample<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">10</span><span class="hljs-punctuation">)</span><br> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span>  <span class="hljs-number">5</span> <span class="hljs-number">10</span>  <span class="hljs-number">2</span>  <span class="hljs-number">8</span>  <span class="hljs-number">6</span>  <span class="hljs-number">1</span>  <span class="hljs-number">4</span>  <span class="hljs-number">3</span>  <span class="hljs-number">9</span>  <span class="hljs-number">7</span><br><br><span class="hljs-comment"># Sample with Replacement </span><br><span class="hljs-operator">&gt;</span> sample<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">10</span><span class="hljs-punctuation">,</span> replace <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><br> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span>  <span class="hljs-number">3</span>  <span class="hljs-number">6</span> <span class="hljs-number">10</span> <span class="hljs-number">10</span>  <span class="hljs-number">6</span>  <span class="hljs-number">4</span>  <span class="hljs-number">4</span> <span class="hljs-number">10</span>  <span class="hljs-number">9</span>  <span class="hljs-number">7</span><br></code></pre></td></tr></table></figure>
+<p><strong>To sample a data frame:</strong></p>
+<blockquote>
+<p>sample the <strong>indices</strong> into an object rather than the elements of the object itself.</p>
+</blockquote>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/32.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+
+
+<hr>
+<h2 id="7-2-Monte-Carlo-Simulation"><a href="#7-2-Monte-Carlo-Simulation" class="headerlink" title="7.2 Monte Carlo Simulation"></a>7.2 Monte Carlo Simulation</h2><blockquote>
+<p>A method of estimating the value of an unknown quantity using the principles of <strong>inferential statistics</strong> </p>
+<p>Inferential statistics: </p>
+<blockquote>
+<p>Population: a set of examples </p>
+<p>Sample: a proper subset of a population </p>
+<p>Key fact: a <strong>random</strong> sample <strong>tends to exhibit</strong> the same properties as the population from which it is drawn</p>
+</blockquote>
+</blockquote>
+<p><strong>Confidence</strong> in our estimate depends upon two things</p>
+<ul>
+<li>Size of sample;</li>
+<li>Variance of sample.</li>
+</ul>
+<p><strong>Monte Carlo Principal</strong>:</p>
+<ul>
+<li><p>In repeated independent tests with the same actual probability 𝑝 of a particular outcome in each test,the chance that the fraction of times that outcome occurs differs from p converges to zero as the number of trials goes to infinity </p>
+</li>
+<li><p>Intuition: if deviations from expected behaviour occur, these deviations are likely to be evened out by opposite deviations in the future.</p>
+</li>
+<li></li>
+<li><p>Monte Carlo simulation is based on <strong>the law of large numbers</strong>.</p>
+</li>
+<li><p>The confidence of the estimation largely depends on the variance of samples.</p>
+</li>
+<li><p>The training method of Naïve Bayes can be seen as the Monte Carlo simulation. </p>
+</li>
+<li><p>Larger sample size may be helpful to draw unbiased results.</p>
+</li>
+<li><p>It is <strong>NOT</strong> a very effective method possibly allow 100% accuracy.</p>
+</li>
+</ul>
+<hr>
+<h3 id="Poisson-distribution"><a href="#Poisson-distribution" class="headerlink" title="Poisson distribution"></a>Poisson distribution</h3><p>is often used to model rare events that are extremely unlikely to occur within a very short period of time or simultaneously (e.g. within 0.0001s).</p>
+<blockquote>
+<p>describes the probability of a given number of <strong>events occurring in a fixed interval of time and/or space</strong>.</p>
+</blockquote>
+<h3 id="Exponential-Distribution"><a href="#Exponential-Distribution" class="headerlink" title="Exponential Distribution"></a>Exponential Distribution</h3><blockquote>
+<p>used to model the <strong>time that elapses before an event occurs</strong>, e.g., the time between two events. </p>
+</blockquote>
+<p><strong>Exponential Distribution VS. Poisson Distribution</strong><br>The inter-arrival times of events in a Poisson process with rate $\lambda$ is exponential and mean $\frac{1}{\lambda}$.</p>
+<hr>
+<h2 id="7-3-Regression-and-Time-series-Analysis"><a href="#7-3-Regression-and-Time-series-Analysis" class="headerlink" title="7.3 Regression and Time-series Analysis"></a>7.3 Regression and Time-series Analysis</h2><h3 id="7-3-1-Linear-Regression"><a href="#7-3-1-Linear-Regression" class="headerlink" title="7.3.1 Linear Regression"></a>7.3.1 Linear Regression</h3><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>Having <strong>bivariate</strong> data $(x_i,y_i)$,</p>
+<p><strong>Goal</strong>: find a model of the relationship between $x$ and $y$, and build a function $y=f(x)$ fitting the data.</p>
+<p><strong>Assumptions</strong>: $x_i$ is not random, and $y_i$ is function of $x_i$ plus some random noise.</p>
+<p>$x$: the <strong>independent</strong> or <strong>predictor</strong> variable;<br>$y$: the <strong>dependent</strong> or <strong>response</strong> variable.</p>
+<hr>
+<h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><p><strong>Goal</strong>: find line $y=\beta_1x+\beta_0$ fitting the data.</p>
+<p><strong>Assumptions</strong>:  Each $y_i$ is <strong>predicted</strong> by $x_i$ up to some error $\epsilon_i$: </p>
+<script type="math/tex; mode=display">y_i=\beta_1x_i+\beta_0+\epsilon_i</script><p>So the error is:</p>
+<script type="math/tex; mode=display">\epsilon_i=y_i-\beta_1x_i-\beta_0</script><p>Our goal is to find the $\beta_1$ and $\beta_0$ that minimize the sum of the squares of the errors which is:</p>
+<script type="math/tex; mode=display">S(\beta_0,\beta_1)=\sum_i \epsilon_i^2=\sum_i(y_i-\beta_1x_i-\beta_0)</script><p>Assume the found $\beta_1$ and $\beta_0$: $\hat{\beta_1}$ and $\hat{\beta_0}$:</p>
+<p><strong>Need to use calculus to find.</strong></p>
+<script type="math/tex; mode=display">\hat{\beta_1} = \frac{S_{xy}}{S_{xx}},\; \hat{\beta_0}=\bar{y}-\beta_1\bar{x}</script><p>where:</p>
+<script type="math/tex; mode=display">\bar{x}=\frac{1}{n}\sum_ix_i,\; \bar{y}=\frac{1}{n}\sum_iy_i</script><script type="math/tex; mode=display">S_{xx}=\frac{1}{n-1}\sum_i(x_i-\bar{x})^2\; \text{ : Sample Variance}</script><script type="math/tex; mode=display">S_{xy}=\frac{1}{n-1}\sum_i(x_i-\bar{x})(y_i-\bar{y})\; \text{ : Sample Covariance of $x$ and $y$}</script><p>Or <strong>simply</strong>:</p>
+<script type="math/tex; mode=display">S_{xx} = \sum x_i^2-\frac{1}{n}(\sum x_i)^2</script><script type="math/tex; mode=display">S_{xy} = \sum x_iy_i-\frac{1}{n}(\sum x_i)(\sum y_i)</script><hr>
+<h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><p><strong>Linear Regression</strong> is <strong>not</strong> only fit in the line, can be in parabola.</p>
+<p><strong>Simple Linear Regression</strong> is fit a line to bivariate data.</p>
+<hr>
+<h4 id="Residuals"><a href="#Residuals" class="headerlink" title="Residuals"></a>Residuals</h4><p>The error $\epsilon_i$ is called the <strong>residual</strong>, which is random noise or measurement error.</p>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/33.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h4 id="Homoscedasticity-and-Heteroscedasticity"><a href="#Homoscedasticity-and-Heteroscedasticity" class="headerlink" title="Homoscedasticity and Heteroscedasticity"></a>Homoscedasticity and Heteroscedasticity</h4><p><strong>Homoscedasticity</strong>: the residuals $\epsilon_i$ have the <strong>same variance</strong> for all $i$, means data points should hover near the regression line <strong>more evenly</strong>.</p>
+<p><strong>Heteroscedasticity</strong>: the residuals $\epsilon_i$ have the <strong>different variance</strong> for all $i$, means data points would not hover near the regression line <strong>more evenly</strong>.</p>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/34.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h4 id="Linear-Regression-for-Multivariate"><a href="#Linear-Regression-for-Multivariate" class="headerlink" title="Linear Regression for Multivariate"></a>Linear Regression for Multivariate</h4><p>multivariate data: $(x_1,x_2,…,x_i,y_i)$</p>
+<p>The fit line is $y=\beta_0+\beta_1x_1+\beta_2x_2+…+\beta_ix_i$</p>
+<p>So,</p>
+<script type="math/tex; mode=display">S(\beta_1,\beta_2,...,\beta_i)=\sum_i(\beta_0+\beta_1x_1+\beta_2x_2+...+\beta_ix_i-y_i)^2</script><hr>
+<h3 id="7-3-2-Polynomial-Regression"><a href="#7-3-2-Polynomial-Regression" class="headerlink" title="7.3.2 Polynomial Regression"></a>7.3.2 Polynomial Regression</h3><p>Linear Regression’s <strong>Linear</strong> means the exponent of $\beta_i$ is 1;<br>Polynomial Regression’s <strong>Polynomial</strong> means the exponent of $\beta_i$ can be greater than 1.</p>
+<p>For parabola:</p>
+<p>The fit curve is $y=\beta_0+\beta_1x+\beta_2x^2$</p>
+<p>So, </p>
+<script type="math/tex; mode=display">S(\beta_1,\beta_2,\beta_3)=\sum_i(\beta_0+\beta_1x_1+\beta_2x_2^2-y_i)^2</script><hr>
+<h3 id="7-3-3-Fit-Measurement"><a href="#7-3-3-Fit-Measurement" class="headerlink" title="7.3.3 Fit Measurement"></a>7.3.3 Fit Measurement</h3><p>For </p>
+<script type="math/tex; mode=display">y=(y_1,y_2,...,y_n)</script><script type="math/tex; mode=display">\hat{h}=(\hat{y_1},\hat{y_2},...,\hat{y_n})</script><p>Total Sum of Squares (TSS): </p>
+<script type="math/tex; mode=display">\sum_i(y_i-\bar{y})^2\; \text{ : variance}</script><p>Residual Sum of Squares (RSS):</p>
+<script type="math/tex; mode=display">\sum_i(y_i-\hat{y_i})^2\; \text{ : real - predicted}</script><p>The goodness of fit:</p>
+<script type="math/tex; mode=display">R^2=1-\frac{RSS}{TSS}</script><p>With larger variance, more complicated.</p>
+<hr>
+<p><strong>Overfitting</strong>:</p>
+<p>More complex model, better fitness;<br>Tradeoff between goodness of fit and complexity.</p>
+<hr>
+<h3 id="7-3-4-Time-series-Analysis"><a href="#7-3-4-Time-series-Analysis" class="headerlink" title="7.3.4 Time-series Analysis"></a>7.3.4 Time-series Analysis</h3><center><img src="/2022/04/30/introduction-to-data-analytics-course-note/35.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+<center><img src="/2022/04/30/introduction-to-data-analytics-course-note/36.png" srcset="/img/loading.gif" lazyload width="70%" height="70%"></center>
+
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>Slides of COMP1433 Introduction to Data Analytics, The Hong Kong Polytechnic University.</p>
+<hr>
+<p><strong><em>个人笔记，仅供参考，转载请标明出处</em></strong><br><strong><em>FOR REFERENCE ONLY</em></strong></p>
+<p><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Data-Science/" class="category-chain-item">Data Science</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Machine-Learning/">#Machine Learning</a>
+      
+        <a href="/tags/Note/">#Note</a>
+      
+        <a href="/tags/Data-Analytics/">#Data Analytics</a>
+      
+        <a href="/tags/AI/">#AI</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Introduction to Data Analytics Course Note</div>
+      <div>https://ultrafish.cn/2022/04/30/introduction-to-data-analytics-course-note/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mike_Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月30日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/30/introduction-to-computer-systems-course-note/" title="Introduction to Computer Systems Course Note">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Introduction to Computer Systems Course Note</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/28/calculus-for-engineers-course-note/" title="Calculus for Engineers Course Note">
+                        <span class="hidden-mobile">Calculus for Engineers Course Note</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","path":"window.location.pathname","placeholder":"说点什么吧(记得写上你的昵称哦)","avatar":"mp","meta":["nick","mail"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <footer class="text-center mt-5 py-3" style="font-size:small;">
+<div class="footer-inner">
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2020036956号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>浙公网安备33042102000661号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+  <div class="footer" >
+    Copyright &copy; 2020-2022 Mike_Zhang. All rights reserved.
+  </div>
+</div>
+
+
+
+</footer>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
