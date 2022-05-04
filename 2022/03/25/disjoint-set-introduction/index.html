@@ -16,16 +16,16 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   数据结构与算法相关文章：   数据结构：数据结构与算法-Linked List数据结构与算法-Binary Tree数据结构与算法-Array数据结构与算法-Disjoint Set 算法：即将更新     本文记录并查集(Disjoint Set)的学习，包括Graph的简介，Union和Find的实现，以及其的优化。     1 Introductio">
+    <meta name="description" content="Made by Mike_Zhang   数据结构与算法相关文章：   数据结构：Linked List ProblemsBinary Tree ProblemsArray ProblemsDisjoint Set Introduction 算法：约瑟夫问题的高效解决方法 Josephus Problem with PythonUltraFish Plus - 在线约瑟夫问题计算器 Online">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构与算法 - Disjoint Set (持续更新)">
-<meta property="og:url" content="https://ultrafish.cn/2022/03/25/Disjoint-Set/index.html">
+<meta property="og:title" content="Disjoint Set Introduction - 并查集简介">
+<meta property="og:url" content="https://ultrafish.cn/2022/03/25/disjoint-set-introduction/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   数据结构与算法相关文章：   数据结构：数据结构与算法-Linked List数据结构与算法-Binary Tree数据结构与算法-Array数据结构与算法-Disjoint Set 算法：即将更新     本文记录并查集(Disjoint Set)的学习，包括Graph的简介，Union和Find的实现，以及其的优化。     1 Introductio">
+<meta property="og:description" content="Made by Mike_Zhang   数据结构与算法相关文章：   数据结构：Linked List ProblemsBinary Tree ProblemsArray ProblemsDisjoint Set Introduction 算法：约瑟夫问题的高效解决方法 Josephus Problem with PythonUltraFish Plus - 在线约瑟夫问题计算器 Online">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/disjoint-set.png">
 <meta property="article:published_time" content="2022-03-25T07:26:37.000Z">
-<meta property="article:modified_time" content="2022-04-08T01:22:19.540Z">
+<meta property="article:modified_time" content="2022-05-04T03:14:56.477Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="Java">
@@ -35,7 +35,7 @@
 <meta name="twitter:image" content="https://ultrafish.cn/img/disjoint-set.png">
   
   
-  <title>数据结构与算法 - Disjoint Set (持续更新) - UltraFish</title>
+  <title>Disjoint Set Introduction - 并查集简介 - UltraFish</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -272,7 +272,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数据结构与算法 - Disjoint Set (持续更新)"></span>
+            <span id="subtitle" data-typed-text="Disjoint Set Introduction - 并查集简介"></span>
           
         </div>
 
@@ -308,7 +308,7 @@
         
         
           <!-- compatible with older versions-->
-          93 分钟
+          94 分钟
         
       </span>
     
@@ -480,10 +480,10 @@
     
       
       
-        <a href="/2022/03/14/Array/" title="数据结构与算法 - Array (持续更新)"
+        <a href="/2022/03/14/array-problems/" title="Array Problems (持续更新)"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">数据结构与算法 - Array (持续更新)</span>
+          <span class="category-post">Array Problems (持续更新)</span>
         </a>
       
     
@@ -517,10 +517,10 @@
     
       
       
-        <a href="/2022/03/08/Binary-Tree/" title="数据结构与算法 - Binary Tree (持续更新)"
+        <a href="/2022/03/08/binary-tree-problems/" title="Binary Tree Problems (持续更新)"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">数据结构与算法 - Binary Tree (持续更新)</span>
+          <span class="category-post">Binary Tree Problems (持续更新)</span>
         </a>
       
     
@@ -554,10 +554,10 @@
     
       
       
-        <a href="/2022/03/25/Disjoint-Set/" title="数据结构与算法 - Disjoint Set (持续更新)"
+        <a href="/2022/03/25/disjoint-set-introduction/" title="Disjoint Set Introduction - 并查集简介"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">数据结构与算法 - Disjoint Set (持续更新)</span>
+          <span class="category-post">Disjoint Set Introduction - 并查集简介</span>
         </a>
       
     
@@ -591,10 +591,10 @@
     
       
       
-        <a href="/2022/03/08/Linked-List/" title="数据结构与算法 - Linked List (持续更新)"
+        <a href="/2022/03/08/linked-list-problems/" title="Linked List Problems (持续更新)"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">数据结构与算法 - Linked List (持续更新)</span>
+          <span class="category-post">Linked List Problems (持续更新)</span>
         </a>
       
     
@@ -625,7 +625,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">数据结构与算法 - Disjoint Set (持续更新)</h1>
+            <h1 style="display: none">Disjoint Set Introduction - 并查集简介</h1>
             
             <div class="markdown-body">
               
@@ -635,35 +635,32 @@
 <p>数据结构与算法相关文章：</p>
 <blockquote>
 <ul>
-<li>数据结构：<br><a href="https://ultrafish.cn/2022/03/08/Linked-List/">数据结构与算法-Linked List</a><br><a href="https://ultrafish.cn/2022/03/08/Binary-Tree/">数据结构与算法-Binary Tree</a><br><a href="https://ultrafish.cn/2022/03/14/Array/">数据结构与算法-Array</a><br><a href="https://ultrafish.cn/2022/03/25/Disjoint-Set/">数据结构与算法-Disjoint Set</a></li>
-<li>算法：<br>即将更新</li>
+<li>数据结构：<br><a href="https://ultrafish.cn/2022/03/08/linked-list-problems/">Linked List Problems</a><br><a href="https://ultrafish.cn/2022/03/08/binary-tree-problems/">Binary Tree Problems</a><br><a href="https://ultrafish.cn/2022/03/14/array-problems/">Array Problems</a><br><a href="https://ultrafish.cn/2022/03/25/disjoint-set-introduction/">Disjoint Set Introduction</a></li>
+<li>算法：<br><a href="https://ultrafish.cn/2020/08/05/josephus-problem/">约瑟夫问题的高效解决方法 Josephus Problem with Python</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Josephus-Problem">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a><br><a href="https://ultrafish.cn/2021/11/04/domino-matching/">多米诺配对问题 Domino Matching with Python</a></li>
 </ul>
 </blockquote>
 </blockquote>
 <hr>
 <p>本文记录并查集(Disjoint Set)的学习，包括Graph的简介，Union和Find的实现，以及其的优化。</p>
 <hr>
-<iframe src="/nodeppt/demo/slide.html" width="100%" height="500" name="topFrame" scrolling="yes" noresize="noresize" frameborder="0" id="topFrame"></iframe>
-
-
-<h1 id="1-Introduction-of-Graph"><a href="#1-Introduction-of-Graph" class="headerlink" title="1 Introduction of Graph"></a>1 Introduction of Graph</h1><h2 id="1-1-Undirected-Graph"><a href="#1-1-Undirected-Graph" class="headerlink" title="1.1 Undirected Graph"></a>1.1 Undirected Graph</h2><center><img src="/2022/03/25/Disjoint-Set/2.png" srcset="/img/loading.gif" lazyload width="60%" alt="Undirected Graph"></center>
+<h1 id="1-Introduction-of-Graph"><a href="#1-Introduction-of-Graph" class="headerlink" title="1 Introduction of Graph"></a>1 Introduction of Graph</h1><h2 id="1-1-Undirected-Graph"><a href="#1-1-Undirected-Graph" class="headerlink" title="1.1 Undirected Graph"></a>1.1 Undirected Graph</h2><center><img src="/2022/03/25/disjoint-set-introduction/2.png" srcset="/img/loading.gif" lazyload width="60%" alt="Undirected Graph"></center>
 
 <p>Graph $G=(V,E)$</p>
 <p>$V=$ the set of all vertices (nodes);<br>$E=$ edges (arcs) between pairs of vertices.</p>
 <p>Undirected Graph: each edge do NOT have direction, having a two-way relation.</p>
 <span id="more"></span>
 <hr>
-<h2 id="1-2-Directed-Graph"><a href="#1-2-Directed-Graph" class="headerlink" title="1.2 Directed Graph"></a>1.2 Directed Graph</h2><center><img src="/2022/03/25/Disjoint-Set/3.png" srcset="/img/loading.gif" lazyload width="60%" alt="Directed Graph"></center>
+<h2 id="1-2-Directed-Graph"><a href="#1-2-Directed-Graph" class="headerlink" title="1.2 Directed Graph"></a>1.2 Directed Graph</h2><center><img src="/2022/03/25/disjoint-set-introduction/3.png" srcset="/img/loading.gif" lazyload width="60%" alt="Directed Graph"></center>
 
 <p>Directed Graph: every edges are directional.</p>
 <hr>
-<h2 id="1-3-Weighted-Graph"><a href="#1-3-Weighted-Graph" class="headerlink" title="1.3 Weighted Graph"></a>1.3 Weighted Graph</h2><center><img src="/2022/03/25/Disjoint-Set/4.png" srcset="/img/loading.gif" lazyload width="60%" alt="Weighted Graph"></center>
+<h2 id="1-3-Weighted-Graph"><a href="#1-3-Weighted-Graph" class="headerlink" title="1.3 Weighted Graph"></a>1.3 Weighted Graph</h2><center><img src="/2022/03/25/disjoint-set-introduction/4.png" srcset="/img/loading.gif" lazyload width="60%" alt="Weighted Graph"></center>
 
 <p>Weighted Graph: each edge has an associated weight.</p>
 <hr>
 <h2 id="1-4-Terminologies"><a href="#1-4-Terminologies" class="headerlink" title="1.4 Terminologies"></a>1.4 Terminologies</h2><p><code>Vertex</code>: The node of a graph;<br><code>Edge</code>: The connection between two vertices;<br><code>Path</code>: The sequence of vertices from one vertex to another;<br><code>Path Length</code>: The number of edges in a path;<br><code>Cycle</code>: A path with same starting vertex and endpoint vertex;<br><code>Connectivity</code>: Two vertices are connected if there exists at least one path between them;<br><code>Degree of a Vertex</code>: The number of edges connecting the vertex in a unweighted graph;<br><code>In-Degree</code>: For weighted graph, the number of edges <strong>incident to</strong> a vertex, In-degree of vertex 2 is 3;<br><code>Out-Degree</code>: For weighted graph, the number of edges <strong>incident from</strong> a vertex, In-degree of vertex 2 is 1;</p>
 <hr>
-<h1 id="2-Disjoint-Set"><a href="#2-Disjoint-Set" class="headerlink" title="2 Disjoint Set"></a>2 Disjoint Set</h1><h2 id="2-1-Introduction"><a href="#2-1-Introduction" class="headerlink" title="2.1 Introduction"></a>2.1 Introduction</h2><center><img src="/2022/03/25/Disjoint-Set/5.png" srcset="/img/loading.gif" lazyload width="60%" alt="Graph"></center>
+<h1 id="2-Disjoint-Set"><a href="#2-Disjoint-Set" class="headerlink" title="2 Disjoint Set"></a>2 Disjoint Set</h1><h2 id="2-1-Introduction"><a href="#2-1-Introduction" class="headerlink" title="2.1 Introduction"></a>2.1 Introduction</h2><center><img src="/2022/03/25/disjoint-set-introduction/5.png" srcset="/img/loading.gif" lazyload width="60%" alt="Graph"></center>
 
 <p>In graph, <strong>Disjoint set</strong> (并查集) can help us quickly check (Find) whether given two vertices is <strong>connected</strong> or not, e.g., vertex 1,3 are connected for there is a path 1-0-2-3, vertex 3,5 is not connected for there is no path from 3 to 5. It also can help us <strong>union</strong> two disjoint set into a set and maintain their relationship. </p>
 <blockquote>
@@ -674,13 +671,13 @@
 <li><strong>Union</strong> function to add node into the disjoint set.</li>
 </ul>
 <p>A root array, each index represent each vertex; the value of each element refers to vertex’s <strong>parent</strong></p>
-<center><img src="/2022/03/25/Disjoint-Set/7.png" srcset="/img/loading.gif" lazyload width="90%" alt="Basic Disjoint Set Implementation - Union"></center>
+<center><img src="/2022/03/25/disjoint-set-introduction/7.png" srcset="/img/loading.gif" lazyload width="90%" alt="Basic Disjoint Set Implementation - Union"></center>
 
 <hr>
 <ul>
 <li><strong>check</strong> function, using <strong>find</strong> function to find the parent of the vertex until the parent of the vertex is itself means the root is found, then compare whether their root is same or not, same means connected.</li>
 </ul>
-<center><img src="/2022/03/25/Disjoint-Set/8.png" srcset="/img/loading.gif" lazyload width="90%" alt="Basic Disjoint Set Implementation - Find"></center>
+<center><img src="/2022/03/25/disjoint-set-introduction/8.png" srcset="/img/loading.gif" lazyload width="90%" alt="Basic Disjoint Set Implementation - Find"></center>
 
 
 <hr>
@@ -691,13 +688,13 @@
 <p><strong>Advantage</strong>:<br>It directly stores the root node of a vertex in the root array instead of the parent node, which makes the Find function become access the value of the index in the array, making the Find function much faster.</p>
 <p><strong>Drawback</strong>:<br>But it slows down the Union function, because the root array stores root(s) of each node in the disjoint set, every Union function needs to update a specific root, which is found by traversing the entire set. For Union(A,B), we have to every node has a same root as root(B), and then update them to root(A)</p>
 <p><strong>Directly stores the root node of a vertex in the root array</strong>:</p>
-<center><img src="/2022/03/25/Disjoint-Set/9.png" srcset="/img/loading.gif" lazyload width="90%" alt="Quick Find"></center>
+<center><img src="/2022/03/25/disjoint-set-introduction/9.png" srcset="/img/loading.gif" lazyload width="90%" alt="Quick Find"></center>
 
 <p><strong>Faster finding, just access the value at the index</strong>:</p>
-<center><img src="/2022/03/25/Disjoint-Set/11.png" srcset="/img/loading.gif" lazyload width="90%" alt="Quick Find"></center>
+<center><img src="/2022/03/25/disjoint-set-introduction/11.png" srcset="/img/loading.gif" lazyload width="90%" alt="Quick Find"></center>
 
 <p><strong>Slow down the union function</strong>, for entire set traversing, especially union a big set:</p>
-<center><img src="/2022/03/25/Disjoint-Set/10.png" srcset="/img/loading.gif" lazyload width="90%" alt="Quick Find"></center>
+<center><img src="/2022/03/25/disjoint-set-introduction/10.png" srcset="/img/loading.gif" lazyload width="90%" alt="Quick Find"></center>
 
 <p>Java implementation:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">QuickFind</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span>[] root;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">QuickFind</span><span class="hljs-params">(<span class="hljs-type">int</span> size)</span> &#123;<br>        root = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[size];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; size; i++) &#123;<br>            root[i] = i;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> &#123; <span class="hljs-comment">// Directly stores the root node</span><br>        <span class="hljs-keyword">return</span> root[x]; <span class="hljs-comment">// return the value of index as the root</span><br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">union</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rootX</span> <span class="hljs-operator">=</span> find(x);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rootY</span> <span class="hljs-operator">=</span> find(y);<br>        <span class="hljs-keyword">if</span> (rootX != rootY) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; root.length; i++) &#123; <span class="hljs-comment">// Traversing entire set</span><br>                <span class="hljs-keyword">if</span> (root[i] == rootY) &#123; <span class="hljs-comment">// Who has the same root as y,</span><br>                    root[i] = rootX; <span class="hljs-comment">// change its root to root of x</span><br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isConnected</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;<br>        <span class="hljs-keyword">return</span> find(x) == find(y);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getRootArr</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i:root) &#123;<br>            sb.append(Integer.toString(i));<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -727,13 +724,13 @@
 <p><strong>Quick Find</strong> take <strong>exactly</strong> $N\times O(N)= O(N^2)$ time;<br><strong>Quick Union</strong> take <strong>at most</strong> $N\times O(N)= O(N^2)$ time.</p>
 <hr>
 <h2 id="2-5-Union-by-Rank-Optimized-Union"><a href="#2-5-Union-by-Rank-Optimized-Union" class="headerlink" title="2.5 Union by Rank - Optimized Union"></a>2.5 Union by Rank - Optimized Union</h2><p>Abovementioned, Quick Union will take $O(N^2)$ in the worst case when all vertices connected in a line:</p>
-<center><img src="/2022/03/25/Disjoint-Set/12.png" srcset="/img/loading.gif" lazyload width="50%" alt="Union by Rank"></center>
+<center><img src="/2022/03/25/disjoint-set-introduction/12.png" srcset="/img/loading.gif" lazyload width="50%" alt="Union by Rank"></center>
 
 <blockquote>
 <p>We can optimize Quick Union by assigning each vertex a <strong>rank</strong> attribute, which indicate the <strong>height</strong> of each node, e.g., the height of node 0 is 1, node 4 is 5 in above picture.</p>
 </blockquote>
 <p>When connecting two root node, <strong>we choose the root with larger rank as the parent node of another</strong>, which can make the rank of each node unchanged. Otherwise, the highest rank will be increased. </p>
-<center><img src="/2022/03/25/Disjoint-Set/13.png" srcset="/img/loading.gif" lazyload width="80%" alt="Union by Rank"></center>
+<center><img src="/2022/03/25/disjoint-set-introduction/13.png" srcset="/img/loading.gif" lazyload width="80%" alt="Union by Rank"></center>
 
 <p>Java implementation:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">QuickUnion</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span>[] root;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span>[] rank; <span class="hljs-comment">// rank attribute</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">QuickUnion</span><span class="hljs-params">(<span class="hljs-type">int</span> size)</span> &#123;<br>        root = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[size];<br>        rank = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[size];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; size; i++) &#123;<br>            root[i] = i;<br>            rank[i] = <span class="hljs-number">1</span>; <span class="hljs-comment">// initial the rank as 1</span><br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> &#123;<br>        <span class="hljs-keyword">while</span> (root[x] != x) &#123;<br>            x = root[x];<br>        &#125;<br>        <span class="hljs-keyword">return</span> x;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">union</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rootX</span> <span class="hljs-operator">=</span> find(x);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rootY</span> <span class="hljs-operator">=</span> find(y);<br>        <span class="hljs-keyword">if</span> (rootX != rootY) &#123;<br>            <span class="hljs-comment">// choose the root with larger rank as parent</span><br>            <span class="hljs-keyword">if</span> (rank[rootX] &gt; rank[rootY]) &#123; <br>                root[rootY] = rootX;<br>            &#125; <br>            <span class="hljs-comment">// choose the root with larger rank as parent</span><br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (rank[rootX] &lt; rank[rootY]) &#123; <br>                root[rootX] = rootY;<br>            &#125; <br>            <span class="hljs-comment">// if same rank</span><br>            <span class="hljs-keyword">else</span> &#123; <br>                root[rootY] = rootX; <span class="hljs-comment">// choose x as parent by default</span><br>                rank[rootX] += <span class="hljs-number">1</span>; <span class="hljs-comment">// increasing the rank of x by 1</span><br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isConnected</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;<br>        <span class="hljs-keyword">return</span> find(x) == find(y);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getRootArr</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i:root) &#123;<br>            sb.append(Integer.toString(i));<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -742,13 +739,13 @@
 <p>Output:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">11111</span><br></code></pre></td></tr></table></figure>
 <p>which is:</p>
-<center><img src="/2022/03/25/Disjoint-Set/14.png" srcset="/img/loading.gif" lazyload width="60%" alt="Union by Rank"></center>
+<center><img src="/2022/03/25/disjoint-set-introduction/14.png" srcset="/img/loading.gif" lazyload width="60%" alt="Union by Rank"></center>
 
 <p><strong>Time Complexity</strong>:</p>
 <p><code>find()</code>: $\le O(\log N)$, for the worst case, we have to traverse all vertices to get the root, e.g. all vertices connected in a line<br><code>union()</code>: $\le O(\log N)$, it composites two <code>find()</code> functions, in the worst case, it also takes $O(N)$ time.</p>
 <hr>
 <h2 id="2-6-Path-Compression-Optimized-Find"><a href="#2-6-Path-Compression-Optimized-Find" class="headerlink" title="2.6 Path Compression - Optimized Find"></a>2.6 Path Compression - Optimized Find</h2><p>In the above Quick Union, we find the root of a node by traversing, if we want to find its root again, we have to repeat the traversing again. We can optimize it by <strong>Path Compression</strong>, which can <strong>update the parent node of each traversed one to the finally found root node</strong>, then when we find the root again, the root has already been stored in the array, saving a lot of time. This optimization can be done with <strong>recursion</strong>. </p>
-<center><img src="/2022/03/25/Disjoint-Set/15.png" srcset="/img/loading.gif" lazyload width="60%" alt="Path Compression"></center>
+<center><img src="/2022/03/25/disjoint-set-introduction/15.png" srcset="/img/loading.gif" lazyload width="60%" alt="Path Compression"></center>
 
 <p>Java implementation:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">QuickUnion</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span>[] root;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">QuickUnion</span><span class="hljs-params">(<span class="hljs-type">int</span> size)</span> &#123;<br>        root = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[size];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; size; i++) &#123;<br>            root[i] = i;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> &#123;<br>        <span class="hljs-keyword">if</span> (root[x] == x) &#123;<br>            <span class="hljs-keyword">return</span> x;<br>        &#125;<br>        <span class="hljs-comment">// Recursively updating each traversed node</span><br>        <span class="hljs-keyword">return</span> root[x] = find(root[x]); <br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">union</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rootX</span> <span class="hljs-operator">=</span> find(x);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rootY</span> <span class="hljs-operator">=</span> find(y);<br>        <span class="hljs-keyword">if</span> (rootX != rootY) &#123;<br>           root[rootY] = rootX;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isConnected</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> &#123;<br>        <span class="hljs-keyword">return</span> find(x) == find(y);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getRootArr</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i:root) &#123;<br>            sb.append(Integer.toString(i));<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -844,8 +841,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>数据结构与算法 - Disjoint Set (持续更新)</div>
-      <div>https://ultrafish.cn/2022/03/25/Disjoint-Set/</div>
+      <div>Disjoint Set Introduction - 并查集简介</div>
+      <div>https://ultrafish.cn/2022/03/25/disjoint-set-introduction/</div>
     </div>
     <div class="license-meta">
       
