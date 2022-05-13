@@ -16,12 +16,12 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang  数据结构与算法相关文章：  Data Structure:Disjoint Set Introduction - 并查集简介Linked List Introduction - 链表简介  Problem Set:Algorithm Analysis Introduction - 算法分析简介Linked List Problems (持续更新)Binary">
+    <meta name="description" content="Made by Mike_Zhang  数据结构与算法相关文章：  Data Structure: Disjoint Set Introduction - 并查集简介 Linked List Introduction - 链表简介  Problem Set: Algorithm Analysis Introduction - 算法分析简介 Linked List Problems (持续更新) B">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多米诺配对问题 Domino Matching with Python">
 <meta property="og:url" content="https://ultrafish.cn/2021/11/04/domino-matching/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang  数据结构与算法相关文章：  Data Structure:Disjoint Set Introduction - 并查集简介Linked List Introduction - 链表简介  Problem Set:Algorithm Analysis Introduction - 算法分析简介Linked List Problems (持续更新)Binary">
+<meta property="og:description" content="Made by Mike_Zhang  数据结构与算法相关文章：  Data Structure: Disjoint Set Introduction - 并查集简介 Linked List Introduction - 链表简介  Problem Set: Algorithm Analysis Introduction - 算法分析简介 Linked List Problems (持续更新) B">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/domino_matching2.png?versionId=CAEQIhiBgIDTodSo5xciIGJmMTRiMWI5ZTIxMTQ3MmQ5MzY2NjRjOWNhMzA5YzIz">
 <meta property="article:published_time" content="2021-11-04T06:36:32.000Z">
@@ -44,6 +44,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -661,17 +663,31 @@
             
             <div class="markdown-body">
               
-              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+              <p><em><strong>Made by Mike_Zhang</strong></em></p>
 <hr>
 <p>数据结构与算法相关文章：</p>
 <blockquote>
-<p>Data Structure:<br><a href="https://ultrafish.cn/2022/03/25/disjoint-set-introduction/">Disjoint Set Introduction - 并查集简介</a><br><a href="https://ultrafish.cn/2022/05/08/linked-list-introduction/">Linked List Introduction - 链表简介</a></p>
+<p>Data Structure:<br>
+<a href="https://ultrafish.cn/2022/03/25/disjoint-set-introduction/">Disjoint Set Introduction - 并查集简介</a><br>
+<a href="https://ultrafish.cn/2022/05/08/linked-list-introduction/">Linked List Introduction - 链表简介</a></p>
 <blockquote>
-<p>Problem Set:<br><a href="https://ultrafish.cn/2022/05/13/algorithm-analysis-introduction/">Algorithm Analysis Introduction - 算法分析简介</a><br><a href="https://ultrafish.cn/2022/03/08/linked-list-problems/">Linked List Problems (持续更新)</a><br><a href="https://ultrafish.cn/2022/03/08/binary-tree-problems/">Binary Tree Problems (持续更新)</a><br><a href="https://ultrafish.cn/2022/03/14/array-problems/">Array Problems (持续更新)</a></p>
+<p>Problem Set:<br>
+<a href="https://ultrafish.cn/2022/05/13/algorithm-analysis-introduction/">Algorithm Analysis Introduction - 算法分析简介</a><br>
+<a href="https://ultrafish.cn/2022/03/08/linked-list-problems/">Linked List Problems (持续更新)</a><br>
+<a href="https://ultrafish.cn/2022/03/08/binary-tree-problems/">Binary Tree Problems (持续更新)</a><br>
+<a href="https://ultrafish.cn/2022/03/14/array-problems/">Array Problems (持续更新)</a></p>
 </blockquote>
-<p>Algorithm:<br><a href="https://ultrafish.cn/2022/05/13/algorithm-analysis-introduction/">Algorithm Analysis Introduction - 算法分析简介</a><br><a href="https://ultrafish.cn/2020/08/05/josephus-problem/">约瑟夫问题的高效解决方法 Josephus Problem with Python</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Josephus-Problem">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a><br><a href="https://ultrafish.cn/2021/11/04/domino-matching/">多米诺配对问题 Domino Matching with Python</a></p>
 </blockquote>
-<h3 id="1-Preview"><a href="#1-Preview" class="headerlink" title="1. Preview"></a>1. Preview</h3><p><strong>Domino Matching(多米诺配对)</strong> 问题来自于我的一门名为 <em>Computational Thinking and Problem Solving (计算思维和问题解决 )</em> 的课，主要培养我们的计算思维。<br><span id="more"></span></p>
+<blockquote>
+<p>Algorithm:<br>
+<a href="https://ultrafish.cn/2022/05/13/algorithm-analysis-introduction/">Algorithm Analysis Introduction - 算法分析简介</a><br>
+<a href="https://ultrafish.cn/2020/08/05/josephus-problem/">约瑟夫问题的高效解决方法 Josephus Problem with Python</a><br>
+<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Josephus-Problem">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a><br>
+<a href="https://ultrafish.cn/2021/11/04/domino-matching/">多米诺配对问题 Domino Matching with Python</a></p>
+</blockquote>
+<h3 id="1-preview"><a class="markdownIt-Anchor" href="#1-preview"></a> 1. Preview</h3>
+<p><strong>Domino Matching(多米诺配对)</strong> 问题来自于我的一门名为 <em>Computational Thinking and Problem Solving (计算思维和问题解决 )</em> 的课，主要培养我们的计算思维。</p>
+<span id="more"></span>
 <center><img src="/2021/11/04/domino-matching/1.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
 <br>
     <div style="color:orange; 
@@ -680,7 +696,6 @@
     color: #999;
     padding: 0px;">多米诺骨牌 Dominos</div>
 </center>
-
 <p>情景：</p>
 <blockquote>
 <p>如上图所示，有四块多米诺骨牌（1～4），每块都有<strong>上和下两部分组成</strong>，上下两部分的成分是相同的（同为字母、同为数字…），每块多米诺骨牌都<strong>存在无数块</strong>。</p>
@@ -698,7 +713,6 @@
     color: #999;
     padding: 0px;">多米诺骨牌配对体 Matched Domino</div>
 </center>
-
 <hr>
 <p>示例：</p>
 <center><img src="/2021/11/04/domino-matching/7.png" srcset="/img/loading.gif" lazyload width="90%" height="90%">
@@ -709,10 +723,11 @@
     color: #999;
     padding: 0px;">多米诺骨牌配对体 Matched Domino</div>
 </center>
-
 <hr>
-<h3 id="2-Computational-Thinking"><a href="#2-Computational-Thinking" class="headerlink" title="2. Computational Thinking"></a>2. Computational Thinking</h3><p>我们可能会对每一种组合进行尝试，但在此过程中会有一些影响组合决定的条件。</p>
-<h4 id="2-1-Two-Conditions"><a href="#2-1-Two-Conditions" class="headerlink" title="2.1 Two Conditions"></a>2.1 Two Conditions</h4><p>当<strong>尝试</strong>把下一个多米诺骨牌连接到现有的组合体时，即将产生的新组合体会有<strong>两个检查条件</strong>：</p>
+<h3 id="2-computational-thinking"><a class="markdownIt-Anchor" href="#2-computational-thinking"></a> 2. Computational Thinking</h3>
+<p>我们可能会对每一种组合进行尝试，但在此过程中会有一些影响组合决定的条件。</p>
+<h4 id="21-two-conditions"><a class="markdownIt-Anchor" href="#21-two-conditions"></a> 2.1 Two Conditions</h4>
+<p>当<strong>尝试</strong>把下一个多米诺骨牌连接到现有的组合体时，即将产生的新组合体会有<strong>两个检查条件</strong>：</p>
 <blockquote>
 <ol>
 <li>其是否为<strong>完全</strong>配对体(Matched Domino)，也就是最后我们希望得到的配对体。</li>
@@ -728,7 +743,6 @@
     color: #999;
     padding: 0px;">完全配对体 Matched Domino</div>
 </center>
-
 <center><img src="/2021/11/04/domino-matching/41.png" srcset="/img/loading.gif" lazyload width="90%" height="90%">
 <br>
     <div style="color:orange; 
@@ -737,7 +751,6 @@
     color: #999;
     padding: 0px;">部分配对体 Partially Matched Domino</div>
 </center>
-
 <center><img src="/2021/11/04/domino-matching/6.png" srcset="/img/loading.gif" lazyload width="90%" height="90%">
 <br>
     <div style="color:orange; 
@@ -746,16 +759,21 @@
     color: #999;
     padding: 0px;">非部分配对体 Non-Partially Matched Domino<br>(非完全配对体 Non-Matched Domino)</div>
 </center>
-
 <hr>
 <blockquote>
 <p>在第一个例子中，若将[21,1]多米诺骨牌连接到原有组合体后，使原有组合体变成<strong>完全配对体 (Matched Domino)</strong>，因此[21,1]多米诺骨牌为下一个连接的选择，并且其为最后一块多米诺骨牌。</p>
+</blockquote>
+<blockquote>
 <p>在第二个例子中，若将[2,1]多米诺骨牌连接到原有组合体后，会使原有组合体变成<strong>部分配对体 (Partially Matched Domino)</strong>，因此[2,1]多米诺骨牌可以作为下一个连接的选择。</p>
+</blockquote>
+<blockquote>
 <p>在第三个例子中，若将[12,1]多米诺骨牌连接到原有组合体后，会使原有组合体变成<strong>非部分配对体 (Non-Partially Matched Domino)</strong>，因此[12,1]多米诺骨牌不能作为下一个连接的选择。</p>
 </blockquote>
 <p>通过这两个检查条件，可以判断哪些多米诺骨牌可以成为下一个连接的选择。</p>
 <hr>
-<h4 id="2-2-Starting-Domino"><a href="#2-2-Starting-Domino" class="headerlink" title="2.2 Starting Domino"></a>2.2 Starting Domino</h4><p>万事开头难。<br>上面明确了选择多米诺骨牌的中间过程，但是还需要确定第一块多米诺骨牌的选择。</p>
+<h4 id="22-starting-domino"><a class="markdownIt-Anchor" href="#22-starting-domino"></a> 2.2 Starting Domino</h4>
+<p>万事开头难。<br>
+上面明确了选择多米诺骨牌的中间过程，但是还需要确定第一块多米诺骨牌的选择。</p>
 <p>可以明确的是，最后的组合体上下两部分一定是相同的。因此，第一块多米诺骨牌的上下两部分肯定是部分相同的。也就是说第一块多米诺骨牌的“组合体”肯定是<strong>部分配对体 (Partially Matched Domino)</strong>。</p>
 <p>例如：</p>
 <center><img src="/2021/11/04/domino-matching/1.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
@@ -766,7 +784,6 @@
     color: #999;
     padding: 0px;">多米诺骨牌 Dominos</div>
 </center>
-
 <p>上图所示的一组多米诺骨牌中，只有3号是<strong>部分配对体 (Partially Matched Domino)</strong>，因此只有其可以作为第一块多米诺骨牌。</p>
 <hr>
 <center><img src="/2021/11/04/domino-matching/71.png" srcset="/img/loading.gif" lazyload width="75%" height="75%">
@@ -777,10 +794,10 @@
     color: #999;
     padding: 0px;">多米诺骨牌 Dominos</div>
 </center>
-
 <p>上图所示的一组多米诺骨牌中，只有1号是<strong>部分配对体 (Partially Matched Domino)</strong>，因此只有其可以作为第一块多米诺骨牌。</p>
 <hr>
-<h4 id="4-3-Process"><a href="#4-3-Process" class="headerlink" title="4.3 Process"></a>4.3 Process</h4><p>根据以上思考，可以产生对此问题的处理步骤：</p>
+<h4 id="43-process"><a class="markdownIt-Anchor" href="#43-process"></a> 4.3 Process</h4>
+<p>根据以上思考，可以产生对此问题的处理步骤：</p>
 <blockquote>
 <ol>
 <li>找到<strong>第一块多米诺骨牌</strong>；</li>
@@ -793,13 +810,17 @@
 </ol>
 </blockquote>
 <hr>
-<h3 id="3-Problem-Solving-with-Python-Code"><a href="#3-Problem-Solving-with-Python-Code" class="headerlink" title="3. Problem Solving with Python Code"></a>3. Problem Solving with Python Code</h3><p>以下为多米诺配对问题 (Domino Matching) 的 Python 解决方法。</p>
+<h3 id="3-problem-solving-with-python-code"><a class="markdownIt-Anchor" href="#3-problem-solving-with-python-code"></a> 3. Problem Solving with Python Code</h3>
+<p>以下为多米诺配对问题 (Domino Matching) 的 Python 解决方法。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Domino_Matching_Problem.git">代码链接</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Made by Mike_Zhang</span><br><span class="hljs-comment"># Domino Matching</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">isMatchedDomino</span>(<span class="hljs-params">inDomino</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    function to check whether this Domino is matched</span><br><span class="hljs-string"></span><br><span class="hljs-string">    parameter:</span><br><span class="hljs-string">        - inDomino: Domino to check</span><br><span class="hljs-string">    return:</span><br><span class="hljs-string">        - True: it is matched</span><br><span class="hljs-string">        - False : it is NOT matched</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    upperList = []<br>    lowerList = []<br>    <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> inDomino:<br>        upperList.append(d[<span class="hljs-number">0</span>])<br>        lowerList.append(d[<span class="hljs-number">1</span>])<br>    upper = <span class="hljs-string">&quot;&quot;</span>.join(upperList)<br>    lower = <span class="hljs-string">&quot;&quot;</span>.join(lowerList)<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">len</span>(upper)==<span class="hljs-built_in">len</span>(lower)):<br>        <span class="hljs-keyword">if</span> (upper == lower):<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">isPartialMatched</span>(<span class="hljs-params">inDomino</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    function to check whether a part of this Domino is matched, part refers to the longest part of a Domino having same lenth of upper half and lower half part</span><br><span class="hljs-string">    e.g., [[&quot;a&quot;,&quot;ab&quot;],[&quot;b&quot;,&quot;ca&quot;]] is Partially Matched, [[&quot;a&quot;,&quot;ab&quot;],[&quot;b&quot;,&quot;ca&quot;],[&quot;ca&quot;,&quot;a&quot;],[&quot;abc&quot;,&quot;c&quot;]] is NOT Partially Matched</span><br><span class="hljs-string"></span><br><span class="hljs-string">    parameter:</span><br><span class="hljs-string">        - inDomino: Domino to check</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    return: </span><br><span class="hljs-string">        - mark:</span><br><span class="hljs-string">            - True: Partially Matched</span><br><span class="hljs-string">            - False: NOT Partially Matched</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    upperList = []<br>    lowerList = []<br>    <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> inDomino:<br>        upperList.append(d[<span class="hljs-number">0</span>])<br>        lowerList.append(d[<span class="hljs-number">1</span>])<br>    upper = <span class="hljs-string">&quot;&quot;</span>.join(upperList)<br>    lower = <span class="hljs-string">&quot;&quot;</span>.join(lowerList)<br>    i = <span class="hljs-built_in">min</span>(<span class="hljs-built_in">len</span>(upper),<span class="hljs-built_in">len</span>(lower))-<span class="hljs-number">1</span><br>    mark = <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">while</span>(mark == <span class="hljs-literal">True</span> <span class="hljs-keyword">and</span> i &gt;= <span class="hljs-number">0</span>):<br>        <span class="hljs-keyword">if</span> (upper[i] != lower[i]):<br>            mark = <span class="hljs-literal">False</span><br>        i=i-<span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> mark<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">getStartDominoList</span>(<span class="hljs-params">inDominoList</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    function to get a list of Dominos that each one is partially matched Domino</span><br><span class="hljs-string">    e.g. getStartDominoList([[&quot;010&quot;,&quot;0&quot;],[&quot;111&quot;,&quot;000&quot;],[&quot;001&quot;,&quot;0101&quot;],[&quot;11&quot;,&quot;10110&quot;]]) = [[&quot;010&quot;,&quot;0&quot;]]</span><br><span class="hljs-string">    getStartDominoList([[&quot;b&quot;,&quot;ca&quot;],[&quot;abc&quot;,&quot;c&quot;],[&quot;a&quot;,&quot;ab&quot;],[&quot;ca&quot;,&quot;a&quot;]]) = [[&quot;a&quot;,&quot;ab&quot;]]</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    the first Domino in a matched Domino must be selected from that list of Dominos</span><br><span class="hljs-string"></span><br><span class="hljs-string">    parameter:</span><br><span class="hljs-string">        - inDominoList: a list of Dominos to check</span><br><span class="hljs-string">    return:</span><br><span class="hljs-string">        - a list of required Dominos</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    resultList = []<br>    <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> inDominoList:<br>        <span class="hljs-keyword">if</span> (isPartialMatched([d])):<br>            resultList.append(d)<br>    <span class="hljs-keyword">return</span> resultList<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">isNextDominoValid</span>(<span class="hljs-params">inDomino,inNext,Dominos</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    the CORE function </span><br><span class="hljs-string">    to recursively check whether next Domino can generate a matched Domino after appending to the original Domino,</span><br><span class="hljs-string">    and finally modify the original Domino to a matched Domino, if can generate.</span><br><span class="hljs-string"></span><br><span class="hljs-string">    parameter:</span><br><span class="hljs-string">        - inDomino: the original Domino</span><br><span class="hljs-string">        - inNext: the next Domino </span><br><span class="hljs-string">        - Dominos: all given Dominos</span><br><span class="hljs-string">    return:</span><br><span class="hljs-string">        - flag: </span><br><span class="hljs-string">            - True: can generate a matched Domino</span><br><span class="hljs-string">            - False: can NOT generate a matched Domino</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    flag = <span class="hljs-literal">False</span><br>    inDomino.append(inNext)<br>    <span class="hljs-keyword">if</span> (isMatchedDomino(inDomino) == <span class="hljs-literal">True</span>):<br>        flag = <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">elif</span> (isPartialMatched(inDomino) == <span class="hljs-literal">False</span>):<br>        flag = <span class="hljs-literal">False</span><br>        inDomino.pop()<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> Dominos:<br>            <span class="hljs-keyword">if</span> (isNextDominoValid(inDomino,d,Dominos)):<br>                flag = <span class="hljs-literal">True</span><br>                <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">return</span> flag<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    Dominos = [[<span class="hljs-string">&quot;b&quot;</span>,<span class="hljs-string">&quot;ca&quot;</span>],[<span class="hljs-string">&quot;abc&quot;</span>,<span class="hljs-string">&quot;c&quot;</span>],[<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;ab&quot;</span>],[<span class="hljs-string">&quot;ca&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>]]<br>    <span class="hljs-comment">#Dominos = [[&quot;010&quot;,&quot;0&quot;],[&quot;111&quot;,&quot;000&quot;],[&quot;001&quot;,&quot;0101&quot;],[&quot;11&quot;,&quot;10110&quot;]]</span><br>    <span class="hljs-comment">#Dominos = [[&quot;001&quot;,&quot;00&quot;],[&quot;0&quot;,&quot;100&quot;]]</span><br><br>    flag = <span class="hljs-literal">False</span><br>    resultDominos = <span class="hljs-built_in">list</span>()<br>    startDominoList = getStartDominoList(Dominos)<br><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">len</span>(startDominoList) == <span class="hljs-number">0</span>):<br>        flag = <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">for</span> startDomino <span class="hljs-keyword">in</span> startDominoList:<br>            tmpList = <span class="hljs-built_in">list</span>()<br>            tmpList.append(startDomino)<br>            <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> Dominos:<br>                <span class="hljs-keyword">if</span> (isNextDominoValid(tmpList,d,Dominos)):<br>                    resultDominos = tmpList<br>                    flag = <span class="hljs-literal">True</span><br>                    <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">if</span> (flag == <span class="hljs-literal">True</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Yes, exist a solution:&quot;</span>)<br>        <span class="hljs-built_in">print</span>(resultDominos)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;No, not exist any solutions&quot;</span>)<br><br>main()<br><span class="hljs-comment"># Domino Matching</span><br><span class="hljs-comment"># Made by Mike_Zhang</span><br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>解决多米诺配对问题的方法有很多种，我的方法并非最优解，欢迎大家尝试。<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h3 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h3>
+<p>解决多米诺配对问题的方法有很多种，我的方法并非最优解，欢迎大家尝试。<br>
+最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
-<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<p><em><strong>原创文章，转载请标明出处</strong></em><br>
+<em><strong>Made by Mike_Zhang</strong></em></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
 <br>
@@ -1006,7 +1027,6 @@
 
   
   
-
 
 
 
@@ -1313,44 +1333,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

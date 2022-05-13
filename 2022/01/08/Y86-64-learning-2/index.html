@@ -16,12 +16,12 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   Computer System 相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representationUltraFish Plus - 有符号二进制数转换器 Signed binary number convertorUltr">
+    <meta name="description" content="Made by Mike_Zhang   Computer System 相关文章: 有符号二进制数表示方法 Signed binary number representation 浮点数二进制数表示方法 Floating point numbers representation UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Y86-64学习2-Y86-64 SEQ Stages">
 <meta property="og:url" content="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   Computer System 相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representationUltraFish Plus - 有符号二进制数转换器 Signed binary number convertorUltr">
+<meta property="og:description" content="Made by Mike_Zhang   Computer System 相关文章: 有符号二进制数表示方法 Signed binary number representation 浮点数二进制数表示方法 Floating point numbers representation UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/y8664.png">
 <meta property="article:published_time" content="2022-01-08T01:19:35.000Z">
@@ -45,6 +45,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -566,10 +568,19 @@
             
             <div class="markdown-body">
               
-              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+              <p><em><strong>Made by Mike_Zhang</strong></em></p>
 <hr>
 <blockquote>
-<p>Computer System 相关文章:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/">有符号二进制数表示方法 Signed binary number representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/">浮点数二进制数表示方法 Floating point numbers representation</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">UltraFish Plus - 浮点数表示方法转换器 Floating Point Numbers Representation Convertor</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">UltraFish Plus - 多进制整数转换器 Multiple Bases Unsigned Integer Convertor</a><br><a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/">Y86-64学习1-State &amp; Instruction &amp; Basic Encoding</a><br><a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/">Y86-64学习2-Y86-64 SEQ Stages</a><br><a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br><a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/">x86-64学习2-Control</a></p>
+<p>Computer System 相关文章:<br>
+<a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/">有符号二进制数表示方法 Signed binary number representation</a><br>
+<a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/">浮点数二进制数表示方法 Floating point numbers representation</a><br>
+<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a><br>
+<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">UltraFish Plus - 浮点数表示方法转换器 Floating Point Numbers Representation Convertor</a><br>
+<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">UltraFish Plus - 多进制整数转换器 Multiple Bases Unsigned Integer Convertor</a><br>
+<a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/">Y86-64学习1-State &amp; Instruction &amp; Basic Encoding</a><br>
+<a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/">Y86-64学习2-Y86-64 SEQ Stages</a><br>
+<a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br>
+<a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/">x86-64学习2-Control</a></p>
 </blockquote>
 <hr>
 <blockquote>
@@ -577,8 +588,10 @@
 </blockquote>
 <hr>
 <span id="more"></span>
-<h1 id="1-Stages-Description"><a href="#1-Stages-Description" class="headerlink" title="1 Stages Description"></a>1 Stages Description</h1><p>6 stages: Fetch, Decode, Execute, Memory, Write Back, and PC Update.</p>
-<h2 id="1-1-Fetch"><a href="#1-1-Fetch" class="headerlink" title="1.1 Fetch"></a>1.1 Fetch</h2><ul>
+<h1 id="1-stages-description"><a class="markdownIt-Anchor" href="#1-stages-description"></a> 1 Stages Description</h1>
+<p>6 stages: Fetch, Decode, Execute, Memory, Write Back, and PC Update.</p>
+<h2 id="11-fetch"><a class="markdownIt-Anchor" href="#11-fetch"></a> 1.1 Fetch</h2>
+<ul>
 <li>According to the <strong>PC</strong> as the <strong>RAM address</strong>, read <strong>instruction byte</strong> from memory;</li>
 <li>Read <strong>first two 4-bit(1 Byte) instruction specifier byte</strong>, including the <code>icode</code> and <code>ifun</code>;</li>
 <li>Read the <strong>register specifier byte</strong> - <code>rA</code> and <code>rB</code>;</li>
@@ -586,15 +599,18 @@
 <li>Compute the next instruction address following the current one, <code>valP = PC + len(fetched instruction)</code></li>
 </ul>
 <hr>
-<h2 id="1-2-Decode"><a href="#1-2-Decode" class="headerlink" title="1.2 Decode"></a>1.2 Decode</h2><p>Read register value from Register File.</p>
+<h2 id="12-decode"><a class="markdownIt-Anchor" href="#12-decode"></a> 1.2 Decode</h2>
+<p>Read register value from Register File.</p>
 <ul>
 <li>Read from <code>rA</code>, <code>rB</code>;</li>
 <li>Assign value to <code>valA</code> and <code>valB</code>;</li>
 <li>OR read from <strong>stack pointer</strong> <code>%rsp</code>(e.g., <code>pushq</code>, <code>popq</code>, <code>call</code>, <code>ret</code>).</li>
 </ul>
 <hr>
-<h2 id="1-3-Execute"><a href="#1-3-Execute" class="headerlink" title="1.3 Execute"></a>1.3 Execute</h2><ul>
-<li>The ALU(Arithmetic/Logic Unit):<ul>
+<h2 id="13-execute"><a class="markdownIt-Anchor" href="#13-execute"></a> 1.3 Execute</h2>
+<ul>
+<li>The ALU(Arithmetic/Logic Unit):
+<ul>
 <li>Do the <strong>operation</strong> based on the <code>ifun</code>, or</li>
 <li>Compute the <strong>effective memory address</strong>(e.g., base address <code>ADD</code> displacement), or</li>
 <li>Increase or decrease the <strong>stack pointer</strong>.</li>
@@ -604,26 +620,33 @@
 <li>Set the <code>CC</code> (Condition Code);</li>
 </ul>
 <blockquote>
-<p>For <code>cmovXX</code>(conditional move) and <code>jXX</code>(jump) instruction:<br>This stage will evaluate the <code>CC</code> with <code>ifun</code>(<strong>move condition OR jump condition</strong>);<br>if condition holds, do the move or jump.</p>
+<p>For <code>cmovXX</code>(conditional move) and <code>jXX</code>(jump) instruction:<br>
+This stage will evaluate the <code>CC</code> with <code>ifun</code>(<strong>move condition OR jump condition</strong>);<br>
+if condition holds, do the move or jump.</p>
 </blockquote>
 <hr>
-<h2 id="1-4-Memory"><a href="#1-4-Memory" class="headerlink" title="1.4 Memory"></a>1.4 Memory</h2><ul>
+<h2 id="14-memory"><a class="markdownIt-Anchor" href="#14-memory"></a> 1.4 Memory</h2>
+<ul>
 <li>8-byte;</li>
-<li>Write data into memory, usually write into $M_8[valE]$;</li>
+<li>Write data into memory, usually write into <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>M</mi><mn>8</mn></msub><mo stretchy="false">[</mo><mi>v</mi><mi>a</mi><mi>l</mi><mi>E</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">M_8[valE]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mclose">]</span></span></span></span>;</li>
 <li>Read data from memory, store in <code>valM</code>.</li>
 </ul>
 <hr>
-<h2 id="1-5-Write-Back"><a href="#1-5-Write-Back" class="headerlink" title="1.5 Write Back"></a>1.5 Write Back</h2><ul>
+<h2 id="15-write-back"><a class="markdownIt-Anchor" href="#15-write-back"></a> 1.5 Write Back</h2>
+<ul>
 <li>Write the data back to <strong>register</strong> from the <strong>Decode Stage</strong> (e.g., <code>rA</code>, <code>rB</code>, <code>%rsp</code>)</li>
 </ul>
 <hr>
-<h2 id="1-6-PC-Update"><a href="#1-6-PC-Update" class="headerlink" title="1.6 PC Update"></a>1.6 PC Update</h2><ul>
+<h2 id="16-pc-update"><a class="markdownIt-Anchor" href="#16-pc-update"></a> 1.6 PC Update</h2>
+<ul>
 <li>Set <code>PC</code> (Program Counter) to the address of <code>next instruction</code>;</li>
 <li>In Fetch Stage, <code>valP = PC + len(fetched instruction)</code> does not update the value of <code>PC</code>, but in this Stage, assign valP to <code>PC</code> to truly update <code>PC</code>, <code>PC = valP</code>;</li>
 <li>Based on execute result, set <code>PC</code> to <code>valC</code> or <code>valP</code>(e.g., in <code>jXX</code> or <code>cmovXX</code>).</li>
 </ul>
 <hr>
-<h1 id="2-Stages-Implementation"><a href="#2-Stages-Implementation" class="headerlink" title="2 Stages Implementation"></a>2 Stages Implementation</h1><h2 id="2-1-OPq-rrmovq-irmovq-Implementation"><a href="#2-1-OPq-rrmovq-irmovq-Implementation" class="headerlink" title="2.1 OPq rrmovq irmovq Implementation"></a>2.1 <code>OPq</code> <code>rrmovq</code> <code>irmovq</code> Implementation</h2><ul>
+<h1 id="2-stages-implementation"><a class="markdownIt-Anchor" href="#2-stages-implementation"></a> 2 Stages Implementation</h1>
+<h2 id="21-opq-rrmovq-irmovq-implementation"><a class="markdownIt-Anchor" href="#21-opq-rrmovq-irmovq-implementation"></a> 2.1 <code>OPq</code> <code>rrmovq</code> <code>irmovq</code> Implementation</h2>
+<ul>
 <li><strong>Compute a value and store the result in a register.</strong></li>
 </ul>
 <center><img src="/2022/01/08/Y86-64-learning-2/1.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
@@ -634,15 +657,15 @@
     color: #999;
     padding: 0px;">Computations in sequential implementation of Y86-64 instructions(OPq, rrmovq, irmovq)(CS: APP)</div>
 </center>
-
 <blockquote>
-<p>$M_x[PC]$ refers to accessing <code>x</code> bytes at location of <code>PC</code> in memory.</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>M</mi><mi>x</mi></msub><mo stretchy="false">[</mo><mi>P</mi><mi>C</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">M_x[PC]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">]</span></span></span></span> refers to accessing <code>x</code> bytes at location of <code>PC</code> in memory.</p>
 </blockquote>
 <p><strong>Common</strong>:</p>
 <ul>
-<li><strong>Fetch</strong>: <ul>
-<li><code>icode</code>, <code>ifun</code>: $M_1[PC]$;</li>
-<li><code>rA</code>, <code>rB</code>: $M_1[PC+1]$;</li>
+<li><strong>Fetch</strong>:
+<ul>
+<li><code>icode</code>, <code>ifun</code>: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>M</mi><mn>1</mn></msub><mo stretchy="false">[</mo><mi>P</mi><mi>C</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">M_1[PC]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">]</span></span></span></span>;</li>
+<li><code>rA</code>, <code>rB</code>: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>M</mi><mn>1</mn></msub><mo stretchy="false">[</mo><mi>P</mi><mi>C</mi><mo>+</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">M_1[PC+1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>;</li>
 </ul>
 </li>
 <li><strong>Memory</strong>: <strong>No</strong> operation on memory;</li>
@@ -651,47 +674,57 @@
 </ul>
 <p><strong>Diff</strong>:</p>
 <ul>
-<li><code>OPq rA, rB</code><ul>
+<li><code>OPq rA, rB</code>
+<ul>
 <li>2-byte</li>
 <li><code>6(PC)</code> | <code>fn</code> | <code>rA(PC+1)</code> | <code>rB</code></li>
-<li><strong>Decode</strong>:<ul>
+<li><strong>Decode</strong>:
+<ul>
 <li>Read both <code>rA</code> and <code>rB</code>;</li>
 </ul>
 </li>
-<li><strong>Execute</strong>:<ul>
+<li><strong>Execute</strong>:
+<ul>
 <li><code>valB</code>(rB) <code>OP</code> <code>valA</code>(rA) (<code>OP</code> based on <code>ifun</code>)</li>
 <li>Set <code>CC</code></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><code>rrmovq rA, rB</code><ul>
+<li><code>rrmovq rA, rB</code>
+<ul>
 <li>2-byte</li>
 <li><code>2(PC)</code> | <code>0</code> | <code>rA(PC+1)</code> | <code>rB</code></li>
-<li><strong>Decode</strong>: <ul>
+<li><strong>Decode</strong>:
+<ul>
 <li>Read <code>rA</code> only;</li>
 </ul>
 </li>
-<li><strong>Execute</strong>: <ul>
-<li><code>valE = 0 + valA</code> $\to$ <code>valE = valA</code> ;</li>
+<li><strong>Execute</strong>:
+<ul>
+<li><code>valE = 0 + valA</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>valE = valA</code> ;</li>
 <li><strong>No</strong> set to <code>CC</code>;</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><code>irmovq V,rB</code><ul>
+<li><code>irmovq V,rB</code>
+<ul>
 <li>10-byte</li>
 <li><code>3(PC)</code> | <code>0</code> | <code>F(PC+1)</code>| <code>rB</code> | <code>V(PC+2)</code></li>
-<li><strong>Fetch</strong>:<ul>
-<li>valC = $M_8[PC+2]$ to get the constant words;</li>
+<li><strong>Fetch</strong>:
+<ul>
+<li>valC = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>M</mi><mn>8</mn></msub><mo stretchy="false">[</mo><mi>P</mi><mi>C</mi><mo>+</mo><mn>2</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">M_8[PC+2]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">]</span></span></span></span> to get the constant words;</li>
 </ul>
 </li>
-<li><strong>Decode</strong>:<ul>
+<li><strong>Decode</strong>:
+<ul>
 <li><strong>No</strong> read from register;</li>
 </ul>
 </li>
-<li><strong>Execute</strong>:<ul>
-<li><code>valE = 0 + valC</code> $\to$ <code>valE = valC</code> ;</li>
+<li><strong>Execute</strong>:
+<ul>
+<li><code>valE = 0 + valC</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>valE = valC</code> ;</li>
 <li><strong>No</strong> set to <code>CC</code>;</li>
 </ul>
 </li>
@@ -710,7 +743,6 @@
     color: #999;
     padding: 0px;">Example 1 of Computations in sequential implementation of Y86-64 instructions(CS: APP)</div>
 </center>
-
 <p><strong>Example 2</strong>:</p>
 <center><img src="/2022/01/08/Y86-64-learning-2/2.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
@@ -720,9 +752,9 @@
     color: #999;
     padding: 0px;">Example 2 of Computations in sequential implementation of Y86-64 instructions(CS: APP)</div>
 </center>
-
 <hr>
-<h2 id="2-2-rmmovq-mrmovq-Implementation"><a href="#2-2-rmmovq-mrmovq-Implementation" class="headerlink" title="2.2 rmmovq mrmovq Implementation"></a>2.2 <code>rmmovq</code> <code>mrmovq</code> Implementation</h2><ul>
+<h2 id="22-rmmovq-mrmovq-implementation"><a class="markdownIt-Anchor" href="#22-rmmovq-mrmovq-implementation"></a> 2.2 <code>rmmovq</code> <code>mrmovq</code> Implementation</h2>
+<ul>
 <li><strong>Read or write memory</strong></li>
 </ul>
 <center><img src="/2022/01/08/Y86-64-learning-2/4.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
@@ -733,11 +765,11 @@
     color: #999;
     padding: 0px;">Computations in sequential implementation of Y86-64 instructions(rmmovq, mrmovq)(CS: APP)</div>
 </center>
-
 <p><strong>Common</strong>:</p>
 <ul>
 <li>Same Fetch Stage</li>
-<li><strong>Execute</strong>:<ul>
+<li><strong>Execute</strong>:
+<ul>
 <li><code>valB</code>: the value of register <code>rB</code>, as the <strong>base address</strong>;</li>
 <li><code>valC</code>: the value of the constant word, as the <strong>displacement</strong>;</li>
 <li>valE: the <strong>effective address</strong> = <code>valB</code> <code>ADD</code> <code>valC</code>;</li>
@@ -747,32 +779,38 @@
 </ul>
 <p><strong>Diff</strong>:</p>
 <ul>
-<li><code>rmmovq</code><ul>
+<li><code>rmmovq</code>
+<ul>
 <li>10-byte</li>
 <li><code>4(PC)</code> | <code>0</code> | <code>rA(PC+1)</code> | <code>rB</code> | <code>D(PC+2)</code></li>
-<li><code>rA</code> $\to$ <code>rB</code>, register $\to$ memory</li>
-<li><strong>Decode</strong>:<ul>
+<li><code>rA</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>rB</code>, register <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> memory</li>
+<li><strong>Decode</strong>:
+<ul>
 <li><code>valA</code>: R[rA], as the value to <strong>write into memory</strong>;</li>
 <li><code>valB</code>: R[rB], as the <strong>base address</strong>;</li>
 </ul>
 </li>
-<li><strong>Memory</strong>:<ul>
+<li><strong>Memory</strong>:
+<ul>
 <li><strong>write</strong> <code>valA</code> into <strong>memory</strong> at effective address <code>valE</code> from <strong>register</strong>;</li>
 </ul>
 </li>
 <li><strong>Write Back</strong>: NO write back to register;</li>
 </ul>
 </li>
-<li><code>mrmovq</code>:<ul>
+<li><code>mrmovq</code>:
+<ul>
 <li>10-byte</li>
 <li><code>5(PC)</code> | <code>0</code> | <code>rA(PC+1)</code> | <code>rB</code> | <code>D(PC+2)</code></li>
-<li><code>rB</code> $\to$ <code>rA</code>, memory $\to$ register</li>
-<li><strong>Decode</strong>:<ul>
+<li><code>rB</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>rA</code>, memory <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> register</li>
+<li><strong>Decode</strong>:
+<ul>
 <li><code>valB</code>: R[rB], as the <strong>base address</strong>;</li>
 <li>the value to write into register is read from memory</li>
 </ul>
 </li>
-<li><strong>Memory</strong>:<ul>
+<li><strong>Memory</strong>:
+<ul>
 <li><strong>read</strong> value from <strong>memory</strong> at effective address <code>valE</code>, as <code>valM</code>;</li>
 </ul>
 </li>
@@ -789,10 +827,9 @@
     color: #999;
     padding: 0px;">Example 3 of Computations in sequential implementation of Y86-64 instructions(CS: APP)</div>
 </center>
-
-
 <hr>
-<h2 id="2-3-pushq-popq-Implementation"><a href="#2-3-pushq-popq-Implementation" class="headerlink" title="2.3 pushq popq Implementation"></a>2.3 <code>pushq</code> <code>popq</code> Implementation</h2><ul>
+<h2 id="23-pushq-popq-implementation"><a class="markdownIt-Anchor" href="#23-pushq-popq-implementation"></a> 2.3 <code>pushq</code> <code>popq</code> Implementation</h2>
+<ul>
 <li><strong>Push or pop the stack</strong></li>
 </ul>
 <center><img src="/2022/01/08/Y86-64-learning-2/6.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
@@ -803,47 +840,53 @@
     color: #999;
     padding: 0px;">Computations in sequential implementation of Y86-64 instructions(pushq, popq)(CS: APP)</div>
 </center>
-
 <ul>
-<li><code>pushq rA</code><ul>
+<li><code>pushq rA</code>
+<ul>
 <li>2-byte</li>
 <li><code>A(PC)</code> | <code>0</code> | <code>rA(PC+1)</code> | <code>F</code></li>
-<li><strong>Decode</strong>:<ul>
+<li><strong>Decode</strong>:
+<ul>
 <li><code>valA</code>: read from <code>rA</code>, as the value <strong>push</strong> into memory;</li>
 <li><code>valB</code>: read from <code>%rsp</code>, as the <strong>top pointer of stack</strong>;</li>
 </ul>
 </li>
-<li><strong>Execute</strong>:<ul>
+<li><strong>Execute</strong>:
+<ul>
 <li><code>valE = valB - 8</code>, push the <strong>top pointer of stack forward</strong>, <code>valE</code> as the new peak;</li>
 </ul>
 </li>
-<li><strong>Memory</strong>:<ul>
+<li><strong>Memory</strong>:
+<ul>
 <li><strong>write</strong> the value <code>valA</code> into the stack at the <strong>new</strong> top address <code>valE</code> in the memory;</li>
 </ul>
 </li>
-<li><strong>Write Back</strong>:<ul>
+<li><strong>Write Back</strong>:
+<ul>
 <li><code>R[%rsp] = valE</code>, truly <strong>update the stack pointer</strong> <code>%rsp</code>.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><code>popq rA</code><ul>
+<li><code>popq rA</code>
+<ul>
 <li>2-byte</li>
 <li><code>B(PC)</code> | <code>0</code> | <code>rA(PC+1)</code> | <code>F</code></li>
-<li><strong>Decode</strong>:<ul>
+<li><strong>Decode</strong>:</li>
 <li><code>valA</code>: read from <code>%rsp</code>, <strong>unincremented</strong> value, as the <strong>peak</strong> of stack in the memory;</li>
 <li><code>valB</code>: read from <code>%rsp</code>, <strong>incremented</strong> value, as the <strong>top pointer of stack</strong>, will be incremented;</li>
-</ul>
-</li>
-<li><strong>Execute</strong>:<ul>
+<li><strong>Execute</strong>:
+<ul>
 <li><code>valE = valB + 8</code>, push the <strong>top pointer of stack backward</strong>, <code>valE</code> as the new peak;</li>
 </ul>
 </li>
-<li><strong>Memory</strong>:<ul>
+<li><strong>Memory</strong>:
+<ul>
 <li><strong>read</strong> the value at address <code>valA</code> from the stack at the <strong>original</strong> top address <code>valA</code> in the memory, as <code>valM</code>;</li>
 </ul>
 </li>
-<li><strong>Write Back</strong>:<ul>
+<li><strong>Write Back</strong>:
+<ul>
 <li><code>R[%rsp] = valE</code>, truly <strong>update the stack pointer</strong> <code>%rsp</code>.</li>
 <li><code>R[A] = valM</code>, <strong>write</strong> the popped value from memory <code>valM</code> into register <code>rA</code>.</li>
 </ul>
@@ -860,7 +903,6 @@
     color: #999;
     padding: 0px;">Example 4 of Computations in sequential implementation of Y86-64 instructions(CS: APP)</div>
 </center>
-
 <p><strong>Example 5</strong>:</p>
 <center><img src="/2022/01/08/Y86-64-learning-2/8.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
@@ -870,9 +912,9 @@
     color: #999;
     padding: 0px;">Example 5 of Computations in sequential implementation of Y86-64 instructions(CS: APP)</div>
 </center>
-
 <hr>
-<h2 id="2-4-jXX-call-ret-cmovXX-Implementation"><a href="#2-4-jXX-call-ret-cmovXX-Implementation" class="headerlink" title="2.4 jXX call ret cmovXX Implementation"></a>2.4 <code>jXX</code> <code>call</code> <code>ret</code> <code>cmovXX</code> Implementation</h2><ul>
+<h2 id="24-jxx-call-ret-cmovxx-implementation"><a class="markdownIt-Anchor" href="#24-jxx-call-ret-cmovxx-implementation"></a> 2.4 <code>jXX</code> <code>call</code> <code>ret</code> <code>cmovXX</code> Implementation</h2>
+<ul>
 <li><strong>Control transfer</strong></li>
 </ul>
 <center><img src="/2022/01/08/Y86-64-learning-2/9.png" srcset="/img/loading.gif" lazyload width="70%" height="70%">
@@ -883,7 +925,6 @@
     color: #999;
     padding: 0px;">Computations in sequential implementation of Y86-64 instructions(jXX, call, ret)(CS: APP)</div>
 </center>
-
 <center><img src="/2022/01/08/Y86-64-learning-2/10.png" srcset="/img/loading.gif" lazyload width="40%" height="40%">
 <br>
     <div style="color:orange; 
@@ -892,21 +933,24 @@
     color: #999;
     padding: 0px;">Computations in sequential implementation of Y86-64 instructions(cmovXX)(CS: APP)</div>
 </center>
-
-
 <ul>
-<li><code>jXX Dest</code><ul>
+<li>
+<p><code>jXX Dest</code></p>
+<ul>
 <li>9-byte</li>
 <li><code>7(PC)</code> | <code>fn</code> | <code>Dest(PC+1)</code></li>
-<li><strong>Fetch</strong>: <ul>
+<li><strong>Fetch</strong>:
+<ul>
 <li><code>valC</code>: as the <strong>destination</strong> address for jump;</li>
 <li><code>valP</code>: the address of <strong>next</strong> instruction for non-jump;</li>
 </ul>
 </li>
 <li><strong>NO</strong> decode stage;</li>
-<li><strong>Execute</strong>:<ul>
+<li><strong>Execute</strong>:
+<ul>
 <li>Evaluate the <code>CC</code> with <code>ifun</code>(<strong>move condition OR jump condition</strong>);</li>
-<li>Cnd = flag: <code>1</code> or <code>0</code><ul>
+<li>Cnd = flag: <code>1</code> or <code>0</code>
+<ul>
 <li><code>1</code>: hold condition, <code>PC = valC, jump</code>;</li>
 <li><code>0</code> : escape condition, <code>PC = valP, next</code>;</li>
 </ul>
@@ -914,8 +958,10 @@
 </ul>
 </li>
 <li>NO memory and register read or write;</li>
-<li><strong>PC Update</strong>:<ul>
-<li>PC $\leftarrow$ <code>Cnd?valC:valP</code>:<ul>
+<li><strong>PC Update</strong>:
+<ul>
+<li>PC <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>←</mo></mrow><annotation encoding="application/x-tex">\leftarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">←</span></span></span></span> <code>Cnd?valC:valP</code>:
+<ul>
 <li>if (Cnd == 1): PC = valC;</li>
 <li>if (Cnd == 0): PC = valP;</li>
 </ul>
@@ -924,14 +970,16 @@
 </li>
 </ul>
 </li>
-<li><p><code>cmovXX rA, rB</code></p>
+<li>
+<p><code>cmovXX rA, rB</code></p>
 <ul>
 <li>2-byte</li>
 <li><code>2(PC)</code> | <code>fn</code> | <code>rA(PC+1)</code> | <code>rB</code></li>
 <li>Combination of <code>rrmovq</code> and <strong>conditional instruction</strong>;</li>
 </ul>
 </li>
-<li><p><code>call Dest</code></p>
+<li>
+<p><code>call Dest</code></p>
 <ul>
 <li>9-byte</li>
 <li><code>7(PC)</code> | <code>fn</code> | <code>Dest(PC+1)</code></li>
@@ -939,7 +987,9 @@
 <li><strong>Write</strong> the <strong>next address</strong> <code>valP</code> into the memory, for <strong>return</strong>;</li>
 </ul>
 </li>
-<li><code>ret</code><ul>
+<li>
+<p><code>ret</code></p>
+<ul>
 <li>1-byte</li>
 <li><code>9(PC)</code> | <code>0</code></li>
 <li>Based on <code>popq</code>;</li>
@@ -957,7 +1007,6 @@
     color: #999;
     padding: 0px;">Example 6 of Computations in sequential implementation of Y86-64 instructions(CS: APP)</div>
 </center>
-
 <p><strong>Example 7</strong>:</p>
 <center><img src="/2022/01/08/Y86-64-learning-2/12.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
@@ -967,7 +1016,6 @@
     color: #999;
     padding: 0px;">Example 7 of Computations in sequential implementation of Y86-64 instructions(CS: APP)</div>
 </center>
-
 <p><strong>Example 8</strong>:</p>
 <center><img src="/2022/01/08/Y86-64-learning-2/13.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
@@ -977,13 +1025,16 @@
     color: #999;
     padding: 0px;">Example 8 of Computations in sequential implementation of Y86-64 instructions(CS: APP)</div>
 </center>
-
 <hr>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>B. Randal, D. R. O’Hallaron, <em>Computer systems : a programmer’s perspective</em>, Third edition. Boston: Pearson, 2016.</p>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<p>B. Randal, D. R. O’Hallaron, <em>Computer systems : a programmer’s perspective</em>, Third edition. Boston: Pearson, 2016.</p>
 <hr>
-<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Y86-64相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
+<p>Y86-64相关的知识会继续学习，继续更新.<br>
+最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
-<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<p><em><strong>原创文章，转载请标明出处</strong></em><br>
+<em><strong>Made by Mike_Zhang</strong></em></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
 <br>
@@ -1193,7 +1244,6 @@
 
   
   
-
 
 
 
@@ -1500,44 +1550,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

@@ -16,12 +16,12 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   所有文章:Java基础学习1—声明和初始化与修饰符Java基础学习2—表达式、控制流与I&#x2F;O基础Java异常处理 Basic Exception handling in JavaJava中byte数据类型在显式类型转换时超出其取值范围的转换过程Java面向对象编程(OOP)的封装性(Encapsulation)Java面向对象编程(OOP)的继承性(Inh">
+    <meta name="description" content="Made by Mike_Zhang   所有文章: Java基础学习1—声明和初始化与修饰符 Java基础学习2—表达式、控制流与I&#x2F;O 基础Java异常处理 Basic Exception handling in Java Java中byte数据类型在显式类型转换时超出其取值范围的转换过程 Java面向对象编程(OOP)的封装性(Encapsulation) Java面向对象编程(OOP)的继">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础学习2-表达式、控制流与I&#x2F;O">
 <meta property="og:url" content="https://ultrafish.cn/2021/09/17/Java-learning-2/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   所有文章:Java基础学习1—声明和初始化与修饰符Java基础学习2—表达式、控制流与I&#x2F;O基础Java异常处理 Basic Exception handling in JavaJava中byte数据类型在显式类型转换时超出其取值范围的转换过程Java面向对象编程(OOP)的封装性(Encapsulation)Java面向对象编程(OOP)的继承性(Inh">
+<meta property="og:description" content="Made by Mike_Zhang   所有文章: Java基础学习1—声明和初始化与修饰符 Java基础学习2—表达式、控制流与I&#x2F;O 基础Java异常处理 Basic Exception handling in Java Java中byte数据类型在显式类型转换时超出其取值范围的转换过程 Java面向对象编程(OOP)的封装性(Encapsulation) Java面向对象编程(OOP)的继">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/java.jpeg">
 <meta property="article:published_time" content="2021-09-17T08:15:00.000Z">
@@ -44,6 +44,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -872,15 +874,24 @@
             
             <div class="markdown-body">
               
-              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+              <p><em><strong>Made by Mike_Zhang</strong></em></p>
 <hr>
 <blockquote>
-<p>所有文章:<br><a href="https://ultrafish.cn/2021/09/02/Java-learning-1/">Java基础学习1—声明和初始化与修饰符</a><br><a href="https://ultrafish.cn/2021/09/17/Java-learning-2/">Java基础学习2—表达式、控制流与I/O</a><br><a href="https://ultrafish.cn/2021/10/08/Java-learning-3/">基础Java异常处理 Basic Exception handling in Java</a><br><a href="https://ultrafish.cn/2020/08/15/Java-data-type-conversion/">Java中byte数据类型在显式类型转换时超出其取值范围的转换过程</a><br><a href="https://ultrafish.cn/2021/03/07/Java-oop-encapsulation/">Java面向对象编程(OOP)的封装性(Encapsulation)</a><br><a href="https://ultrafish.cn/2020/09/13/Java-oop-inheritance/">Java面向对象编程(OOP)的继承性(Inheritance)</a><br><a href="https://ultrafish.cn/2021/10/02/Java-oop-polymorphism/">Java面向对象编程(OOP)的多态性(Polymorphism)</a><br><a href="https://ultrafish.cn/2021/10/05/Java-oop-interface/">Java面向对象编程之接口 Java OOP Interface</a></p>
+<p>所有文章:<br>
+<a href="https://ultrafish.cn/2021/09/02/Java-learning-1/">Java基础学习1—声明和初始化与修饰符</a><br>
+<a href="https://ultrafish.cn/2021/09/17/Java-learning-2/">Java基础学习2—表达式、控制流与I/O</a><br>
+<a href="https://ultrafish.cn/2021/10/08/Java-learning-3/">基础Java异常处理 Basic Exception handling in Java</a><br>
+<a href="https://ultrafish.cn/2020/08/15/Java-data-type-conversion/">Java中byte数据类型在显式类型转换时超出其取值范围的转换过程</a><br>
+<a href="https://ultrafish.cn/2021/03/07/Java-oop-encapsulation/">Java面向对象编程(OOP)的封装性(Encapsulation)</a><br>
+<a href="https://ultrafish.cn/2020/09/13/Java-oop-inheritance/">Java面向对象编程(OOP)的继承性(Inheritance)</a><br>
+<a href="https://ultrafish.cn/2021/10/02/Java-oop-polymorphism/">Java面向对象编程(OOP)的多态性(Polymorphism)</a><br>
+<a href="https://ultrafish.cn/2021/10/05/Java-oop-interface/">Java面向对象编程之接口 Java OOP Interface</a></p>
 </blockquote>
 <span id="more"></span>
 <p>本文将记录Java基础学习的三大内容 - <strong>表达式 (Expressions)</strong> 、<strong>控制流 (Control Flow)</strong> 与 <strong>I/O</strong>。</p>
 <hr>
-<h2 id="1-表达式-Expressions"><a href="#1-表达式-Expressions" class="headerlink" title="1. 表达式 (Expressions)"></a>1. 表达式 (Expressions)</h2><h3 id="1-1-转义字符-Escape-Character"><a href="#1-1-转义字符-Escape-Character" class="headerlink" title="1.1 转义字符 (Escape Character)"></a>1.1 转义字符 (Escape Character)</h3><div class="table-container">
+<h2 id="1-表达式-expressions"><a class="markdownIt-Anchor" href="#1-表达式-expressions"></a> 1. 表达式 (Expressions)</h2>
+<h3 id="11-转义字符-escape-character"><a class="markdownIt-Anchor" href="#11-转义字符-escape-character"></a> 1.1 转义字符 (Escape Character)</h3>
 <table>
 <thead>
 <tr>
@@ -916,17 +927,17 @@
 <td style="text-align:center">换页-光标移动至下页开头</td>
 </tr>
 <tr>
-<td style="text-align:center">‘\\\’</td>
+<td style="text-align:center">‘\\’</td>
 <td style="text-align:center">backslash</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center">‘\‘’</td>
+<td style="text-align:center">‘\’’</td>
 <td style="text-align:center">single quote</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center">‘\“‘</td>
+<td style="text-align:center">‘\&quot;’</td>
 <td style="text-align:center">double quote</td>
 <td style="text-align:center"></td>
 </tr>
@@ -942,36 +953,36 @@
 </tr>
 <tr>
 <td style="text-align:center">‘\u0000’</td>
-<td style="text-align:center">Unicode字符 4位16进制数 (‘\u0000’为空字符)</td>
+<td style="text-align:center">Unicode字符 4位16进制数 (’\u0000’为空字符)</td>
 <td style="text-align:center">范围0~65535</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>运行以下代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JavaLearningTwo</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;1. Hello World!\n&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;2. \tHello World!&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;3. Hello World!\b&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;4. Hello World!\rHi World!&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;5. Hello World!\f&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;6. Hello World!&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">1.</span> Hello World!<br><br><span class="hljs-number">2.</span> 	Hello World!<br><span class="hljs-number">3.</span> Hello World<br>Hi World!<br><span class="hljs-number">5.</span> Hello World!<br><span class="hljs-number">6.</span> Hello World!<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="1-2-运算符-Operator"><a href="#1-2-运算符-Operator" class="headerlink" title="1.2 运算符 (Operator)"></a>1.2 运算符 (Operator)</h3><h4 id="1-2-1-数字运算符-Arithmetic-Operator"><a href="#1-2-1-数字运算符-Arithmetic-Operator" class="headerlink" title="1.2.1 数字运算符 (Arithmetic Operator)"></a>1.2.1 数字运算符 (Arithmetic Operator)</h4><div class="table-container">
+<h3 id="12-运算符-operator"><a class="markdownIt-Anchor" href="#12-运算符-operator"></a> 1.2 运算符 (Operator)</h3>
+<h4 id="121-数字运算符-arithmetic-operator"><a class="markdownIt-Anchor" href="#121-数字运算符-arithmetic-operator"></a> 1.2.1 数字运算符 (Arithmetic Operator)</h4>
 <table>
 <thead>
 <tr>
 <th style="text-align:center">数字运算符 (Arithmetic Operator)</th>
-<th style="text-align:center">描述 </th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">+</td>
-<td style="text-align:center">addition </td>
+<td style="text-align:center">addition</td>
 </tr>
 <tr>
 <td style="text-align:center">-</td>
 <td style="text-align:center">subtraction</td>
 </tr>
 <tr>
-<td style="text-align:center">$*$</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∗</mo></mrow><annotation encoding="application/x-tex">*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span></span></span></span></td>
 <td style="text-align:center">multiplication</td>
 </tr>
 <tr>
@@ -984,26 +995,32 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="1-2-2-字符串连接符-String-Concatenation"><a href="#1-2-2-字符串连接符-String-Concatenation" class="headerlink" title="1.2.2 字符串连接符 (String Concatenation)"></a>1.2.2 字符串连接符 (String Concatenation)</h4><p>$+$为字符串连接符 (String Concatenation)，例子如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">aString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;This&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">bString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;is&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">cString</span> <span class="hljs-operator">=</span> aString + bString;<br><span class="hljs-type">Stirng</span> <span class="hljs-variable">dString</span> <span class="hljs-operator">=</span> cStirng + <span class="hljs-string">&quot;my book&quot;</span>; <span class="hljs-comment">// dString = &quot;This is my book&quot;</span><br></code></pre></td></tr></table></figure></p>
-<h4 id="1-2-3-自增与自减运算符-Increment-and-Decrement-Operator"><a href="#1-2-3-自增与自减运算符-Increment-and-Decrement-Operator" class="headerlink" title="1.2.3 自增与自减运算符 (Increment and Decrement Operator)"></a>1.2.3 自增与自减运算符 (Increment and Decrement Operator)</h4><p>例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i++;<br><span class="hljs-comment">// ...</span><br><span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i--;<br></code></pre></td></tr></table></figure><br>类似于：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i;<br>i = i + <span class="hljs-number">1</span>;<br><span class="hljs-comment">// ...</span><br><span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i;<br>i = i - <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure></p>
+<h4 id="122-字符串连接符-string-concatenation"><a class="markdownIt-Anchor" href="#122-字符串连接符-string-concatenation"></a> 1.2.2 字符串连接符 (String Concatenation)</h4>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo></mrow><annotation encoding="application/x-tex">+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">+</span></span></span></span>为字符串连接符 (String Concatenation)，例子如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">aString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;This&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">bString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;is&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">cString</span> <span class="hljs-operator">=</span> aString + bString;<br><span class="hljs-type">Stirng</span> <span class="hljs-variable">dString</span> <span class="hljs-operator">=</span> cStirng + <span class="hljs-string">&quot;my book&quot;</span>; <span class="hljs-comment">// dString = &quot;This is my book&quot;</span><br></code></pre></td></tr></table></figure>
+<h4 id="123-自增与自减运算符-increment-and-decrement-operator"><a class="markdownIt-Anchor" href="#123-自增与自减运算符-increment-and-decrement-operator"></a> 1.2.3 自增与自减运算符 (Increment and Decrement Operator)</h4>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i++;<br><span class="hljs-comment">// ...</span><br><span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i--;<br></code></pre></td></tr></table></figure>
+<p>类似于：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i;<br>i = i + <span class="hljs-number">1</span>;<br><span class="hljs-comment">// ...</span><br><span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i;<br>i = i - <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>上面的例子中，自增或自减符号位于变量后，则先进行赋值操作，再对变量进行自增或自减。若自增或自减符号位于变量前，则先对变量进行自增或自减，再进行赋值操作。如下：</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> ++i;<br><span class="hljs-comment">// ...</span><br><span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> --i;<br></code></pre></td></tr></table></figure>
-<p>类似于：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>i = i + <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i;<br><span class="hljs-comment">// ...</span><br>i = i - <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i;<br></code></pre></td></tr></table></figure></p>
-<h4 id="1-2-4-逻辑运算符-Logical-Operator"><a href="#1-2-4-逻辑运算符-Logical-Operator" class="headerlink" title="1.2.4 逻辑运算符 (Logical Operator)"></a>1.2.4 逻辑运算符 (Logical Operator)</h4><div class="table-container">
+<p>类似于：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>i = i + <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i;<br><span class="hljs-comment">// ...</span><br>i = i - <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i;<br></code></pre></td></tr></table></figure>
+<h4 id="124-逻辑运算符-logical-operator"><a class="markdownIt-Anchor" href="#124-逻辑运算符-logical-operator"></a> 1.2.4 逻辑运算符 (Logical Operator)</h4>
 <table>
 <thead>
 <tr>
 <th style="text-align:center">数字逻辑运算符</th>
-<th style="text-align:center">描述 </th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">&lt;</td>
-<td style="text-align:center">less than  </td>
+<td style="text-align:center">less than</td>
 </tr>
 <tr>
 <td style="text-align:center">&lt;=</td>
@@ -1027,8 +1044,6 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1060,9 +1075,9 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="1-2-5-位运算符-Bitwise-Operator"><a href="#1-2-5-位运算符-Bitwise-Operator" class="headerlink" title="1.2.5 位运算符 (Bitwise Operator)"></a>1.2.5 位运算符 (Bitwise Operator)</h4><p>假设：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">byte</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> (<span class="hljs-type">byte</span>)<span class="hljs-number">0B10101010</span>;<br><span class="hljs-type">byte</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> (<span class="hljs-type">byte</span>)<span class="hljs-number">0B00100000</span>;<br></code></pre></td></tr></table></figure></p>
-<div class="table-container">
+<h4 id="125-位运算符-bitwise-operator"><a class="markdownIt-Anchor" href="#125-位运算符-bitwise-operator"></a> 1.2.5 位运算符 (Bitwise Operator)</h4>
+<p>假设：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">byte</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> (<span class="hljs-type">byte</span>)<span class="hljs-number">0B10101010</span>;<br><span class="hljs-type">byte</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> (<span class="hljs-type">byte</span>)<span class="hljs-number">0B00100000</span>;<br></code></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -1109,21 +1124,34 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="1-2-6-赋值运算符-Assignment-Operator"><a href="#1-2-6-赋值运算符-Assignment-Operator" class="headerlink" title="1.2.6 赋值运算符 (Assignment Operator)"></a>1.2.6 赋值运算符 (Assignment Operator)</h4><p><code>=</code>为赋值符号，把一个值赋值给某一变量，语法如下：</p>
+<h4 id="126-赋值运算符-assignment-operator"><a class="markdownIt-Anchor" href="#126-赋值运算符-assignment-operator"></a> 1.2.6 赋值运算符 (Assignment Operator)</h4>
+<p><code>=</code>为赋值符号，把一个值赋值给某一变量，语法如下：</p>
 <p><code>variable = expression</code></p>
-<p>例子：<br><code>i = 2;</code></p>
-<p>以下情况会从右往左进行赋值：<br><code>i = j = 3;</code><br>相当于：<br><code>j = 3;</code><br><code>i = j;</code></p>
-<h4 id="1-2-7-复合赋值运算符-Compound-Assignment-Operator"><a href="#1-2-7-复合赋值运算符-Compound-Assignment-Operator" class="headerlink" title="1.2.7 复合赋值运算符 (Compound Assignment Operator)"></a>1.2.7 复合赋值运算符 (Compound Assignment Operator)</h4><p>语法如下：<br><code>variable op= expression</code></p>
-<p>相当于：<br><code>variable = variable op expression</code></p>
-<p>例如：<br><code>i =+ 1;</code> 相当于：<code>i = i + 1</code></p>
+<p>例子：<br>
+<code>i = 2;</code></p>
+<p>以下情况会从右往左进行赋值：<br>
+<code>i = j = 3;</code><br>
+相当于：<br>
+<code>j = 3;</code><br>
+<code>i = j;</code></p>
+<h4 id="127-复合赋值运算符-compound-assignment-operator"><a class="markdownIt-Anchor" href="#127-复合赋值运算符-compound-assignment-operator"></a> 1.2.7 复合赋值运算符 (Compound Assignment Operator)</h4>
+<p>语法如下：<br>
+<code>variable op= expression</code></p>
+<p>相当于：<br>
+<code>variable = variable op expression</code></p>
+<p>例如：<br>
+<code>i =+ 1;</code> 相当于：<code>i = i + 1</code></p>
 <p>若出现下列的表达式，则需要根据<strong>运算符号优先级</strong>来判断运算顺序：</p>
 <p><code>i = j += (k * 2) / 8</code></p>
 <p><strong>运算符号优先级</strong>详见1.2.9节。</p>
-<h4 id="1-2-8-条件表达式-Conditional-Expression"><a href="#1-2-8-条件表达式-Conditional-Expression" class="headerlink" title="1.2.8 条件表达式 (Conditional Expression)"></a>1.2.8 条件表达式 (Conditional Expression)</h4><p>语法如下：<br><code>boolean-expression ? exp1 : exp2</code></p>
-<p>例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println((num % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)? <span class="hljs-string">&quot;EVEN&quot;</span> : <span class="hljs-string">&quot;ODD&quot;</span>)<br><br></code></pre></td></tr></table></figure></p>
-<p>解释：<br>如果 <code>boolean-expression == true</code> 那么<strong>整个表达式</strong>等于<code>exp1</code>，否则等于<code>exp2</code>。</p>
-<h4 id="1-2-9-运算符优先级-Operator-Precedence"><a href="#1-2-9-运算符优先级-Operator-Precedence" class="headerlink" title="1.2.9 运算符优先级 (Operator Precedence)"></a>1.2.9 运算符优先级 (Operator Precedence)</h4><div class="table-container">
+<h4 id="128-条件表达式-conditional-expression"><a class="markdownIt-Anchor" href="#128-条件表达式-conditional-expression"></a> 1.2.8 条件表达式 (Conditional Expression)</h4>
+<p>语法如下：<br>
+<code>boolean-expression ? exp1 : exp2</code></p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println((num % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)? <span class="hljs-string">&quot;EVEN&quot;</span> : <span class="hljs-string">&quot;ODD&quot;</span>)<br><br></code></pre></td></tr></table></figure>
+<p>解释：<br>
+如果 <code>boolean-expression == true</code> 那么<strong>整个表达式</strong>等于<code>exp1</code>，否则等于<code>exp2</code>。</p>
+<h4 id="129-运算符优先级-operator-precedence"><a class="markdownIt-Anchor" href="#129-运算符优先级-operator-precedence"></a> 1.2.9 运算符优先级 (Operator Precedence)</h4>
 <table>
 <thead>
 <tr>
@@ -1159,7 +1187,7 @@
 <td style="text-align:center">L to R</td>
 </tr>
 <tr>
-<td style="text-align:center">—</td>
+<td style="text-align:center">–</td>
 <td style="text-align:center">post-decrement</td>
 <td style="text-align:center">1</td>
 <td style="text-align:center">L to R</td>
@@ -1177,7 +1205,7 @@
 <td style="text-align:center"><strong>R to L</strong></td>
 </tr>
 <tr>
-<td style="text-align:center">—</td>
+<td style="text-align:center">–</td>
 <td style="text-align:center">pre-decrement</td>
 <td style="text-align:center">2</td>
 <td style="text-align:center"><strong>R to L</strong></td>
@@ -1388,45 +1416,58 @@
 </tr>
 </tbody>
 </table>
-</div>
 <hr>
-<h2 id="2-控制流-Control-Flow"><a href="#2-控制流-Control-Flow" class="headerlink" title="2. 控制流 (Control Flow)"></a>2. 控制流 (Control Flow)</h2><h3 id="2-1-条件语句-Conditional-Statement"><a href="#2-1-条件语句-Conditional-Statement" class="headerlink" title="2.1 条件语句 (Conditional Statement)"></a>2.1 条件语句 (Conditional Statement)</h3><h4 id="2-1-1-if-表达式"><a href="#2-1-1-if-表达式" class="headerlink" title="2.1.1 if 表达式"></a>2.1.1 <code>if</code> 表达式</h4><p>语法如下：</p>
+<h2 id="2-控制流-control-flow"><a class="markdownIt-Anchor" href="#2-控制流-control-flow"></a> 2. 控制流 (Control Flow)</h2>
+<h3 id="21-条件语句-conditional-statement"><a class="markdownIt-Anchor" href="#21-条件语句-conditional-statement"></a> 2.1 条件语句 (Conditional Statement)</h3>
+<h4 id="211-if-表达式"><a class="markdownIt-Anchor" href="#211-if-表达式"></a> 2.1.1 <code>if</code> 表达式</h4>
+<p>语法如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (booleanExpression)<br>  trueBody<br><span class="hljs-keyword">else</span><br>  falseBody<br></code></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (firstBooleanExpression)<br>  firstBody<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (secondBooleanExpression)<br>  secondBody<br><span class="hljs-keyword">else</span><br>  thirdBody<br></code></pre></td></tr></table></figure>
 <p><code>trueBody</code>、<code>falseBody</code>、<code>firstBody</code>、<code>secondBody</code>和<code>thirdBody</code>可以为单行的语句或者是语句块（写在<code>&#123;&#125;</code>内），例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (booleanExpression)&#123;<br>  trueBody1<br>  trueBody2<br>  trueBody3<br>&#125;<br><span class="hljs-keyword">else</span><br>  falseBody<br></code></pre></td></tr></table></figure>
-<h4 id="2-1-2-switch-表达式"><a href="#2-1-2-switch-表达式" class="headerlink" title="2.1.2 switch 表达式"></a>2.1.2 <code>switch</code> 表达式</h4><p>语法如下：</p>
+<h4 id="212-switch-表达式"><a class="markdownIt-Anchor" href="#212-switch-表达式"></a> 2.1.2 <code>switch</code> 表达式</h4>
+<p>语法如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">switch</span>(selector) &#123; <br>  <span class="hljs-keyword">case</span> value1:<br>    statement; <br>    <span class="hljs-keyword">break</span>; <br>  <span class="hljs-keyword">case</span> value2: <br>    statement; <br>    <span class="hljs-keyword">break</span>; <br>  <span class="hljs-keyword">case</span> value3: <br>    statement; <br>    <span class="hljs-keyword">break</span>; <br> <br> <span class="hljs-comment">// ... </span><br>  <span class="hljs-keyword">default</span>: <br>    statement; <br>&#125;<br></code></pre></td></tr></table></figure>
-<p><code>selector</code>会与每个<code>value</code>进行比较，若相等则运行后面的<code>statement</code>语句，若没有一个相等的，则运行<code>default</code>之后的语句。 每个<code>case</code>中的<code>break;</code>语句是可选择的，一般选择加上，以便满足<code>case</code>条件后直接退出，若不加，则会运行其之后的语句，直到遇到<code>break;</code>语句再退出。<br><code>default</code> 语句后一般不需要<code>break;</code>语句，因为此语句通常放在最后，运行default后会直接退出。但是如果<code>default</code> 语句后还有语句，则需要<code>break;</code>语句。但是不推荐<code>default</code> 语句后再加语句，这违背了初衷，只有前面所有情况都不满足之后再使用<code>default</code> 语句。因此推荐把<code>default</code> 语句放在最后，此时，可选择是否加上<code>break;</code>语句。</p>
+<p><code>selector</code>会与每个<code>value</code>进行比较，若相等则运行后面的<code>statement</code>语句，若没有一个相等的，则运行<code>default</code>之后的语句。 每个<code>case</code>中的<code>break;</code>语句是可选择的，一般选择加上，以便满足<code>case</code>条件后直接退出，若不加，则会运行其之后的语句，直到遇到<code>break;</code>语句再退出。<br>
+<code>default</code> 语句后一般不需要<code>break;</code>语句，因为此语句通常放在最后，运行default后会直接退出。但是如果<code>default</code> 语句后还有语句，则需要<code>break;</code>语句。但是不推荐<code>default</code> 语句后再加语句，这违背了初衷，只有前面所有情况都不满足之后再使用<code>default</code> 语句。因此推荐把<code>default</code> 语句放在最后，此时，可选择是否加上<code>break;</code>语句。</p>
 <blockquote>
-<p><code>selector</code>应为整型数据，如<code>char</code>,<code>byte</code>,<code>short</code>,<code>int</code>,<code>boolean</code>,<code>String</code>或者<code>enum</code>。<br>如需要使用非整型数据，如<code>long</code>,<code>float</code>或者<code>double</code>，则需要使用<code>if</code>语句。</p>
+<p><code>selector</code>应为整型数据，如<code>char</code>,<code>byte</code>,<code>short</code>,<code>int</code>,<code>boolean</code>,<code>String</code>或者<code>enum</code>。<br>
+如需要使用非整型数据，如<code>long</code>,<code>float</code>或者<code>double</code>，则需要使用<code>if</code>语句。</p>
 </blockquote>
 <hr>
-<h3 id="2-2-循环语句-Loop-Statement"><a href="#2-2-循环语句-Loop-Statement" class="headerlink" title="2.2 循环语句 (Loop Statement)"></a>2.2 循环语句 (Loop Statement)</h3><h4 id="2-2-1-while-循环"><a href="#2-2-1-while-循环" class="headerlink" title="2.2.1  while 循环"></a>2.2.1  <code>while</code> 循环</h4><p>语法如下：</p>
+<h3 id="22-循环语句-loop-statement"><a class="markdownIt-Anchor" href="#22-循环语句-loop-statement"></a> 2.2 循环语句 (Loop Statement)</h3>
+<h4 id="221-while-循环"><a class="markdownIt-Anchor" href="#221-while-循环"></a> 2.2.1  <code>while</code> 循环</h4>
+<p>语法如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">while</span> (booleanExpression)<br>  loopBody<br></code></pre></td></tr></table></figure>
 <p>例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">5</span>)&#123;<br>  System.out.println(i);<br>  i++;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h4 id="2-2-2-do-while-循环"><a href="#2-2-2-do-while-循环" class="headerlink" title="2.2.2 do-while 循环"></a>2.2.2 <code>do-while</code> 循环</h4><p>语法如下：</p>
+<h4 id="222-do-while-循环"><a class="markdownIt-Anchor" href="#222-do-while-循环"></a> 2.2.2 <code>do-while</code> 循环</h4>
+<p>语法如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">do</span><br>  loopBody<br><span class="hljs-title function_">while</span> <span class="hljs-params">(booleanExpression)</span><br></code></pre></td></tr></table></figure>
 <p>例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">do</span> &#123;<br>  System.out.println(i);<br>  i++;<br>  &#125; <span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">5</span>);<br></code></pre></td></tr></table></figure>
 <p>与<code>while</code>循环不同的是，每一次<code>do-while</code>循环先执行循环体的语句，最后进行循环条件的判断。这种循环可以实现进入循环后再询问用户的输入，不用在循环前询问。</p>
-<h4 id="2-2-3-for-循环"><a href="#2-2-3-for-循环" class="headerlink" title="2.2.3 for 循环"></a>2.2.3 <code>for</code> 循环</h4><p>语法如下：</p>
+<h4 id="223-for-循环"><a class="markdownIt-Anchor" href="#223-for-循环"></a> 2.2.3 <code>for</code> 循环</h4>
+<p>语法如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (initialization; booleanCondition; increment)<br>  loopBody<br></code></pre></td></tr></table></figure>
 <p>例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++)&#123;<br>  System.out.println(i);<br>  i++;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><code>for</code> 循环可以转换为<code>while</code> 循环，如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">initialization;<br><span class="hljs-keyword">while</span> (booleanExpression)<br>  loopBody;<br>  increment;<br></code></pre></td></tr></table></figure>
-<h4 id="2-2-4-for-each-循环"><a href="#2-2-4-for-each-循环" class="headerlink" title="2.2.4 for-each 循环"></a>2.2.4 <code>for-each</code> 循环</h4><p>语法如下：</p>
+<h4 id="224-for-each-循环"><a class="markdownIt-Anchor" href="#224-for-each-循环"></a> 2.2.4 <code>for-each</code> 循环</h4>
+<p>语法如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (elementType name : container)<br>  loopBody<br></code></pre></td></tr></table></figure>
 <p><code>container</code>为<code>elementType</code>类型的数组，此循环会遍历数组内的元素。例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] arr = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;;<br><span class="hljs-type">int</span> total;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i : arr)<br>  total += i;<br></code></pre></td></tr></table></figure>
 <p>此循环遍历<code>arr</code>数组的全部元素，最后得出其总和。</p>
-<p>注意：<br><code>for-each</code> 循环并不会访问到具体的元素及其下标，因此以下代码是不合法的：</p>
+<p>注意：<br>
+<code>for-each</code> 循环并不会访问到具体的元素及其下标，因此以下代码是不合法的：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] arr = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i : arr)<br>  i++; <span class="hljs-comment">// Error</span><br></code></pre></td></tr></table></figure>
-<p>所以如果要进行对具体元素的修改，则需要用<code>for</code>或者<code>while</code>循环，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] arr = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++)&#123;<br>  arr[i]++;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+<p>所以如果要进行对具体元素的修改，则需要用<code>for</code>或者<code>while</code>循环，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] arr = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++)&#123;<br>  arr[i]++;<br>&#125;<br></code></pre></td></tr></table></figure>
 <hr>
-<h4 id="2-2-5-强制跳转-Unconditional-Branching"><a href="#2-2-5-强制跳转-Unconditional-Branching" class="headerlink" title="2.2.5 强制跳转 (Unconditional Branching)"></a>2.2.5 强制跳转 (Unconditional Branching)</h4><p>   <code>return</code></p>
+<h4 id="225-强制跳转-unconditional-branching"><a class="markdownIt-Anchor" href="#225-强制跳转-unconditional-branching"></a> 2.2.5 强制跳转 (Unconditional Branching)</h4>
+<p><code>return</code></p>
 <blockquote>
 <ol>
 <li>当一个方法的返回值被定义为<code>void</code>后，只有运行完此方法的最后一行代码之后才会跳出此方法。但是当一个方法的返回值定义到一个具体的数据类型，当运行到<code>return</code>关键字后就会跳出此方法。</li>
@@ -1434,15 +1475,23 @@
 </ol>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">abs</span><span class="hljs-params">(<span class="hljs-type">int</span> num)</span>&#123;<br>  <span class="hljs-keyword">if</span>(num &lt; <span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">return</span> -num <span class="hljs-comment">// if negative, return -num and exit the loop</span><br>  <span class="hljs-keyword">return</span> num <span class="hljs-comment">// else return num</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>   <code>break</code><br>   <code>break</code>语句可以跳出目前所在的循环体(e.g. <code>for</code>, <code>while</code>, <code>do-while</code>, <code>switch</code>)。跳出后开始执行此循环的后一行代码。</p>
+<p><code>break</code><br>
+<code>break</code>语句可以跳出目前所在的循环体(e.g. <code>for</code>, <code>while</code>, <code>do-while</code>, <code>switch</code>)。跳出后开始执行此循环的后一行代码。</p>
 <hr>
-<p>   <code>continue</code><br>   <code>continue</code>语句会跳过其后的本次正在循环的代码，并且开始执行此循环体的下一次循环（如果还满足循环的条件），并不会像<code>break</code>语句一样直接跳出循环体。</p>
+<p><code>continue</code><br>
+<code>continue</code>语句会跳过其后的本次正在循环的代码，并且开始执行此循环体的下一次循环（如果还满足循环的条件），并不会像<code>break</code>语句一样直接跳出循环体。</p>
 <hr>
-<h2 id="3-I-O"><a href="#3-I-O" class="headerlink" title="3. I/O"></a>3. I/O</h2><h3 id="3-1-输出-output"><a href="#3-1-输出-output" class="headerlink" title="3.1 输出 (output)"></a>3.1 输出 (output)</h3><p>语法如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.print(<span class="hljs-string">&quot;Hello,World!&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;Hello,World!&quot;</span>); <span class="hljs-comment">// followed by a newline</span><br></code></pre></td></tr></table></figure><br><code>System.out</code>对象属于<code>java.io.PrintStream</code>类的一个实例</p>
-<h3 id="3-2-输入-input"><a href="#3-2-输入-input" class="headerlink" title="3.2 输入 (input)"></a>3.2 输入 (input)</h3><p>一般语法如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Example</span>&#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>    <span class="hljs-type">Scanner</span> <span class="hljs-variable">input</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>    System.out.print(<span class="hljs-string">&quot;Enter :&quot;</span>);<br>    <span class="hljs-type">double</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> input.nextDouble();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<p><code>Scanner</code>会根据<strong>分隔符</strong>把输入内容分成好几个<strong>小节</strong>后再进行一一读取。<br><strong>分隔符</strong>一般为whitespace(i.e. space, tabs, and newlines)</p>
+<h2 id="3-io"><a class="markdownIt-Anchor" href="#3-io"></a> 3. I/O</h2>
+<h3 id="31-输出-output"><a class="markdownIt-Anchor" href="#31-输出-output"></a> 3.1 输出 (output)</h3>
+<p>语法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.print(<span class="hljs-string">&quot;Hello,World!&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;Hello,World!&quot;</span>); <span class="hljs-comment">// followed by a newline</span><br></code></pre></td></tr></table></figure>
+<p><code>System.out</code>对象属于<code>java.io.PrintStream</code>类的一个实例</p>
+<h3 id="32-输入-input"><a class="markdownIt-Anchor" href="#32-输入-input"></a> 3.2 输入 (input)</h3>
+<p>一般语法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Example</span>&#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>    <span class="hljs-type">Scanner</span> <span class="hljs-variable">input</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>    System.out.print(<span class="hljs-string">&quot;Enter :&quot;</span>);<br>    <span class="hljs-type">double</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> input.nextDouble();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><code>Scanner</code>会根据<strong>分隔符</strong>把输入内容分成好几个<strong>小节</strong>后再进行一一读取。<br>
+<strong>分隔符</strong>一般为whitespace(i.e. space, tabs, and newlines)</p>
 <p><code>Scanner</code>的方法有以下几种：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1485,13 +1534,18 @@
 </tr>
 </tbody>
 </table>
-</div>
 <hr>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>B. Eckel, <em>Thinking in java</em>. Upper Saddle River, N.Y. Prentice Hall, 2014.<br>M. Goodrich, R. Tamassia, and A. O’reilly, <em>Data Structures and Algorithms in Java, 6th Edition</em>. John Wiley &amp; Sons, 2014.<br>Java转义字符, <em>知乎专栏</em>. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30158394">https://zhuanlan.zhihu.com/p/30158394</a> (accessed Sep. 14, 2021).</p>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
+<p>B. Eckel, <em>Thinking in java</em>. Upper Saddle River, N.Y. Prentice Hall, 2014.<br>
+M. Goodrich, R. Tamassia, and A. O’reilly, <em>Data Structures and Algorithms in Java, 6th Edition</em>. John Wiley &amp; Sons, 2014.<br>
+Java转义字符, <em>知乎专栏</em>. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30158394">https://zhuanlan.zhihu.com/p/30158394</a> (accessed Sep. 14, 2021).</p>
 <hr>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Java相关的基础知识十分重要，会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h2 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h2>
+<p>Java相关的基础知识十分重要，会继续学习，继续更新.<br>
+最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
-<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<p><em><strong>原创文章，转载请标明出处</strong></em><br>
+<em><strong>Made by Mike_Zhang</strong></em></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
 <br>
@@ -1705,7 +1759,6 @@
 
   
   
-
 
 
 
@@ -2012,44 +2065,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

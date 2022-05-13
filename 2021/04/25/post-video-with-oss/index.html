@@ -16,12 +16,12 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   相关文章:在Hexo中用Markdown添加网络或本地视频以及GIF动图因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项在Hexo中用Markdown通过阿里云OSS添加视频文件   在我之前的文章在Hexo中用Markdown添加网络或本地视频以及GIF动图中介绍了如何在Blog中用Markdown添加本地视频或者网络">
+    <meta name="description" content="Made by Mike_Zhang   相关文章: 在Hexo中用Markdown添加网络或本地视频以及GIF动图 因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项 在Hexo中用Markdown通过阿里云OSS添加视频文件   在我之前的文章在Hexo中用Markdown添加网络或本地视频以及GIF动图中介绍了如何在Blog中用Markdown添加本地视频或">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Hexo中用Markdown通过阿里云OSS添加视频文件">
 <meta property="og:url" content="https://ultrafish.cn/2021/04/25/post-video-with-oss/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   相关文章:在Hexo中用Markdown添加网络或本地视频以及GIF动图因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项在Hexo中用Markdown通过阿里云OSS添加视频文件   在我之前的文章在Hexo中用Markdown添加网络或本地视频以及GIF动图中介绍了如何在Blog中用Markdown添加本地视频或者网络">
+<meta property="og:description" content="Made by Mike_Zhang   相关文章: 在Hexo中用Markdown添加网络或本地视频以及GIF动图 因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项 在Hexo中用Markdown通过阿里云OSS添加视频文件   在我之前的文章在Hexo中用Markdown添加网络或本地视频以及GIF动图中介绍了如何在Blog中用Markdown添加本地视频或">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/oss.png?versionId=CAEQGxiBgMDpnJKZ1xciIDJiMTVkMjYyNDE0ZTQ0NzBhYjkyNzM0Yjk5YzA5MTUy">
 <meta property="article:published_time" content="2021-04-25T07:02:21.000Z">
@@ -45,6 +45,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -631,40 +633,61 @@
             
             <div class="markdown-body">
               
-              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+              <p><em><strong>Made by Mike_Zhang</strong></em></p>
 <hr>
 <blockquote>
-<p>相关文章:<br><a href="http://ultrafish.cn/2020/08/23/online-or-local-video-gif-in-markdown/">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a><br><a href="http://ultrafish.cn/2020/09/06/Spawnfailed-error/">因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项</a><br><a href="http://ultrafish.cn/2021/04/25/post-video-with-oss/">在Hexo中用Markdown通过阿里云OSS添加视频文件</a></p>
+<p>相关文章:<br>
+<a href="http://ultrafish.cn/2020/08/23/online-or-local-video-gif-in-markdown/">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a><br>
+<a href="http://ultrafish.cn/2020/09/06/Spawnfailed-error/">因上传过大文件而导致hexo部署时Spawn failed报错的解决方法以及注意事项</a><br>
+<a href="http://ultrafish.cn/2021/04/25/post-video-with-oss/">在Hexo中用Markdown通过阿里云OSS添加视频文件</a></p>
 </blockquote>
 <hr>
-<p>在我之前的文章<a href="http://ultrafish.cn/2020/08/23/在Hexo中用Markdown添加网络或本地视频以及GIF动图/">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a>中介绍了如何在Blog中用Markdown添加本地视频或者网络视频. 但是都有限制: 本地视频受限于git, 能够上传的文件体积很小, 并且上传过大文件会<a href="http://ultrafish.cn/2020/09/06/因上传过大文件而导致hexo部署时Spawnfailed报错的解决方法以及注意事项/">引发错误</a>; 网络视频需要用户先把视频上传到视频平台 (如: bilibili, 优酷等) 才能添加到网站中, 并且视频分辨率不高.</p>
-<p>于是, 我想到把视频放到云服务器中, 再让网站直接访问, 这样不必通过git上传文件, 也可以获取原来的画质. 我在升级我的<a href="http://ultrafish.cn/2020/10/15/blog2/">blog2.0</a>时, 购买了阿里云的云服务器, 于是我想到可以用阿里云的OSS (Object Storage Service), 即对象存储来实现视频文件的添加.<br><a target="_blank" rel="noopener" href="https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.488a4c13156lrt">查看阿里云官方对OSS的介绍</a></p>
+<p>在我之前的文章<a href="http://ultrafish.cn/2020/08/23/%E5%9C%A8Hexo%E4%B8%AD%E7%94%A8Markdown%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%BB%9C%E6%88%96%E6%9C%AC%E5%9C%B0%E8%A7%86%E9%A2%91%E4%BB%A5%E5%8F%8AGIF%E5%8A%A8%E5%9B%BE/">在Hexo中用Markdown添加网络或本地视频以及GIF动图</a>中介绍了如何在Blog中用Markdown添加本地视频或者网络视频. 但是都有限制: 本地视频受限于git, 能够上传的文件体积很小, 并且上传过大文件会<a href="http://ultrafish.cn/2020/09/06/%E5%9B%A0%E4%B8%8A%E4%BC%A0%E8%BF%87%E5%A4%A7%E6%96%87%E4%BB%B6%E8%80%8C%E5%AF%BC%E8%87%B4hexo%E9%83%A8%E7%BD%B2%E6%97%B6Spawnfailed%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">引发错误</a>; 网络视频需要用户先把视频上传到视频平台 (如: bilibili, 优酷等) 才能添加到网站中, 并且视频分辨率不高.</p>
+<p>于是, 我想到把视频放到云服务器中, 再让网站直接访问, 这样不必通过git上传文件, 也可以获取原来的画质. 我在升级我的<a href="http://ultrafish.cn/2020/10/15/blog2/">blog2.0</a>时, 购买了阿里云的云服务器, 于是我想到可以用阿里云的OSS (Object Storage Service), 即对象存储来实现视频文件的添加.<br>
+<a target="_blank" rel="noopener" href="https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.488a4c13156lrt">查看阿里云官方对OSS的介绍</a></p>
 <p>把文件上传到OSS, 获取URL, 再把URL添加到文章中, 即可在文章中添加文件, 如: 视频、图片、音乐等.</p>
-<h2 id><a href="#" class="headerlink" title></a><span id="more"></span></h2><h3 id="开通对象存储OSS服务"><a href="#开通对象存储OSS服务" class="headerlink" title="开通对象存储OSS服务"></a>开通对象存储OSS服务</h3><p>先在阿里云官网注册一个账号 (若有可以跳过).<br>并在左侧产品与服务菜单栏中找到<strong>对象存储OSS</strong>, 点击即可进入开通页面.</p>
+<h2 id="-more-"><a class="markdownIt-Anchor" href="#-more-"></a> <span id="more"></span></h2>
+<h3 id="开通对象存储oss服务"><a class="markdownIt-Anchor" href="#开通对象存储oss服务"></a> 开通对象存储OSS服务</h3>
+<p>先在阿里云官网注册一个账号 (若有可以跳过).<br>
+并在左侧产品与服务菜单栏中找到<strong>对象存储OSS</strong>, 点击即可进入开通页面.</p>
 <p><img src="/2021/04/25/post-video-with-oss/1.jpg" srcset="/img/loading.gif" lazyload alt></p>
 <hr>
-<h3 id="创建Bucket并上传文件"><a href="#创建Bucket并上传文件" class="headerlink" title="创建Bucket并上传文件"></a>创建Bucket并上传文件</h3><p>Bucket是存放对象的容器, 可以存入文档, 照片, 视频等文件.<br>1.OSS服务开通后, 进入OSS页面, 点击左侧<strong>创建Bucket</strong>按钮:</p>
+<h3 id="创建bucket并上传文件"><a class="markdownIt-Anchor" href="#创建bucket并上传文件"></a> 创建Bucket并上传文件</h3>
+<p>Bucket是存放对象的容器, 可以存入文档, 照片, 视频等文件.<br>
+1.OSS服务开通后, 进入OSS页面, 点击左侧<strong>创建Bucket</strong>按钮:</p>
 <p><img src="/2021/04/25/post-video-with-oss/2.jpg" srcset="/img/loading.gif" lazyload alt></p>
 <p>2.填写<strong>Bucket名称</strong>, 存储类型选择<strong>标准存储</strong>, 读写权限选择<strong>公共读</strong>, 其他选项保持默认或根据需求修改, 最后点击确认:</p>
-<p><img src="/2021/04/25/post-video-with-oss/3.jpg" srcset="/img/loading.gif" lazyload alt><br>现在, Bucket已经创建完成.</p>
-<p>3.上传文件<br>点击创建好的Bucket名称, 进入管理页面. 点击<strong>上传文件</strong>, 选择文件即可上传:</p>
+<p><img src="/2021/04/25/post-video-with-oss/3.jpg" srcset="/img/loading.gif" lazyload alt><br>
+现在, Bucket已经创建完成.</p>
+<p>3.上传文件<br>
+点击创建好的Bucket名称, 进入管理页面. 点击<strong>上传文件</strong>, 选择文件即可上传:</p>
 <p><img src="/2021/04/25/post-video-with-oss/4.jpg" srcset="/img/loading.gif" lazyload alt></p>
 <hr>
-<h3 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h3><p>为确保上传的文件添加到博客网站后不被盗用以及下载, 需要给OSS设置防盗链.</p>
-<p>在左侧菜单栏选择<strong>权限管理</strong>, 找到<strong>防盗链</strong>, 在<strong>Referer</strong>一栏中填入你的blog域名, 记得在域名前加上“ <em> ”, 以及在域名后加上“ / ”, 把权限扩大到blog网站的所有页面. 然后关闭<strong>空Referer</strong>选项, 最后点击<em>*保存</em></em>.</p>
+<h3 id="设置权限"><a class="markdownIt-Anchor" href="#设置权限"></a> 设置权限</h3>
+<p>为确保上传的文件添加到博客网站后不被盗用以及下载, 需要给OSS设置防盗链.</p>
+<p>在左侧菜单栏选择<strong>权限管理</strong>, 找到<strong>防盗链</strong>, 在<strong>Referer</strong>一栏中填入你的blog域名, 记得在域名前加上“ * ”, 以及在域名后加上“ / ”, 把权限扩大到blog网站的所有页面. 然后关闭<strong>空Referer</strong>选项, 最后点击<strong>保存</strong>.</p>
 <p><img src="/2021/04/25/post-video-with-oss/5.jpg" srcset="/img/loading.gif" lazyload alt></p>
 <hr>
-<h3 id="获取文件URL并添加相应代码到文章"><a href="#获取文件URL并添加相应代码到文章" class="headerlink" title="获取文件URL并添加相应代码到文章"></a>获取文件URL并添加相应代码到文章</h3><p>点击上传到Bucket的文件名, 即可找到文件URL, 并复制.</p>
-<p>添加以下代码到文章的Markdown中:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;video id=<span class="hljs-string">&quot;video&quot;</span> controls=<span class="hljs-string">&quot;&quot;</span> preload=<span class="hljs-string">&quot;none&quot;</span> allowfullscreen=<span class="hljs-string">&quot;true&quot;</span> position= <span class="hljs-string">&quot;absolute&quot;</span> width=<span class="hljs-string">&quot;100%&quot;</span> poster=<span class="hljs-string">&quot;你的URL&quot;</span>&gt;<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mp4&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;你的URL&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;video/mp4&quot;</span> &gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span></span><br></code></pre></td></tr></table></figure><br>把以上代码的两处<strong>你的URL</strong>替换成之前复制过来的<strong>文件URL</strong>.</p>
-<p>效果如下:</p>
-<p><video id="video" controls preload="none" allowfullscreen="true" position="absolute" width="100%" poster="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpphny.mp4?versionId=CAEQFxiBgMC7__meyBciIDI5OTRjMDI4YjlhODRhNTE4NmVmODg2ZDI4NjkxODI0"><br>      <source id="mp4" src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpphny.mp4?versionId=CAEQFxiBgMC7__meyBciIDI5OTRjMDI4YjlhODRhNTE4NmVmODg2ZDI4NjkxODI0" type="video/mp4">
-      </video><br><em>( 视频来自我的文章: <a href="http://ultrafish.cn/2021/01/02/1kcpphny/">用1000多行C++代码写给2021元旦的祝福-C++像素字实现方法</a> )</em></p>
+<h3 id="获取文件url并添加相应代码到文章"><a class="markdownIt-Anchor" href="#获取文件url并添加相应代码到文章"></a> 获取文件URL并添加相应代码到文章</h3>
+<p>点击上传到Bucket的文件名, 即可找到文件URL, 并复制.</p>
+<p>添加以下代码到文章的Markdown中:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;video id=<span class="hljs-string">&quot;video&quot;</span> controls=<span class="hljs-string">&quot;&quot;</span> preload=<span class="hljs-string">&quot;none&quot;</span> allowfullscreen=<span class="hljs-string">&quot;true&quot;</span> position= <span class="hljs-string">&quot;absolute&quot;</span> width=<span class="hljs-string">&quot;100%&quot;</span> poster=<span class="hljs-string">&quot;你的URL&quot;</span>&gt;<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mp4&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;你的URL&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;video/mp4&quot;</span> &gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p>把以上代码的两处<strong>你的URL</strong>替换成之前复制过来的<strong>文件URL</strong>.</p>
+<p>效果如下:<br>
+<video id="video" controls preload="none" allowfullscreen="true" position="absolute" width="100%" poster="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpphny.mp4?versionId=CAEQFxiBgMC7__meyBciIDI5OTRjMDI4YjlhODRhNTE4NmVmODg2ZDI4NjkxODI0"><br>
+<source id="mp4" src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/cpphny.mp4?versionId=CAEQFxiBgMC7__meyBciIDI5OTRjMDI4YjlhODRhNTE4NmVmODg2ZDI4NjkxODI0" type="video/mp4"><br>
+</video><br>
+<em>( 视频来自我的文章: <a href="http://ultrafish.cn/2021/01/02/1kcpphny/">用1000多行C<ins>代码写给2021元旦的祝福-C</ins>像素字实现方法</a> )</em></p>
 <hr>
-<p>引用:<br><a target="_blank" rel="noopener" href="https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.488a4c13156lrt">对象存储 OSS-阿里云</a></p>
+<p>引用:<br>
+<a target="_blank" rel="noopener" href="https://help.aliyun.com/product/31815.html?spm=a2c4g.11186623.6.540.488a4c13156lrt">对象存储 OSS-阿里云</a></p>
 <hr>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>不仅仅可以使用OSS来上传视频, 网站中的图片, 音乐等都可以通过OSS来展示. 这样可以减少本地服务器(我的电脑)的压力, 也可以提高访问速度. 之后会继续尝试.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h2 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h2>
+<p>不仅仅可以使用OSS来上传视频, 网站中的图片, 音乐等都可以通过OSS来展示. 这样可以减少本地服务器(我的电脑)的压力, 也可以提高访问速度. 之后会继续尝试.<br>
+最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
-<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<p><em><strong>原创文章，转载请标明出处</strong></em><br>
+<em><strong>Made by Mike_Zhang</strong></em></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
 <br>
@@ -873,7 +896,6 @@
 
   
   
-
 
 
 
@@ -1180,44 +1202,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

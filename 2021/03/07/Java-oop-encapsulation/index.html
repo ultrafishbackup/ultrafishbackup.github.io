@@ -16,12 +16,12 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   所有文章:Java基础学习1—声明和初始化与修饰符Java基础学习2—表达式、控制流与I&#x2F;O基础Java异常处理 Basic Exception handling in JavaJava中byte数据类型在显式类型转换时超出其取值范围的转换过程Java面向对象编程(OOP)的封装性(Encapsulation)Java面向对象编程(OOP)的继承性(Inh">
+    <meta name="description" content="Made by Mike_Zhang   所有文章: Java基础学习1—声明和初始化与修饰符 Java基础学习2—表达式、控制流与I&#x2F;O 基础Java异常处理 Basic Exception handling in Java Java中byte数据类型在显式类型转换时超出其取值范围的转换过程 Java面向对象编程(OOP)的封装性(Encapsulation) Java面向对象编程(OOP)的继">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java面向对象编程(OOP)的封装性(Encapsulation)">
 <meta property="og:url" content="https://ultrafish.cn/2021/03/07/Java-oop-encapsulation/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   所有文章:Java基础学习1—声明和初始化与修饰符Java基础学习2—表达式、控制流与I&#x2F;O基础Java异常处理 Basic Exception handling in JavaJava中byte数据类型在显式类型转换时超出其取值范围的转换过程Java面向对象编程(OOP)的封装性(Encapsulation)Java面向对象编程(OOP)的继承性(Inh">
+<meta property="og:description" content="Made by Mike_Zhang   所有文章: Java基础学习1—声明和初始化与修饰符 Java基础学习2—表达式、控制流与I&#x2F;O 基础Java异常处理 Basic Exception handling in Java Java中byte数据类型在显式类型转换时超出其取值范围的转换过程 Java面向对象编程(OOP)的封装性(Encapsulation) Java面向对象编程(OOP)的继">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/java.jpeg">
 <meta property="article:published_time" content="2021-03-07T07:21:18.000Z">
@@ -44,6 +44,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -872,24 +874,43 @@
             
             <div class="markdown-body">
               
-              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+              <p><em><strong>Made by Mike_Zhang</strong></em></p>
 <hr>
 <blockquote>
-<p>所有文章:<br><a href="https://ultrafish.cn/2021/09/02/Java-learning-1/">Java基础学习1—声明和初始化与修饰符</a><br><a href="https://ultrafish.cn/2021/09/17/Java-learning-2/">Java基础学习2—表达式、控制流与I/O</a><br><a href="https://ultrafish.cn/2021/10/08/Java-learning-3/">基础Java异常处理 Basic Exception handling in Java</a><br><a href="https://ultrafish.cn/2020/08/15/Java-data-type-conversion/">Java中byte数据类型在显式类型转换时超出其取值范围的转换过程</a><br><a href="https://ultrafish.cn/2021/03/07/Java-oop-encapsulation/">Java面向对象编程(OOP)的封装性(Encapsulation)</a><br><a href="https://ultrafish.cn/2020/09/13/Java-oop-inheritance/">Java面向对象编程(OOP)的继承性(Inheritance)</a><br><a href="https://ultrafish.cn/2021/10/02/Java-oop-polymorphism/">Java面向对象编程(OOP)的多态性(Polymorphism)</a><br><a href="https://ultrafish.cn/2021/10/05/Java-oop-interface/">Java面向对象编程之接口 Java OOP Interface</a></p>
+<p>所有文章:<br>
+<a href="https://ultrafish.cn/2021/09/02/Java-learning-1/">Java基础学习1—声明和初始化与修饰符</a><br>
+<a href="https://ultrafish.cn/2021/09/17/Java-learning-2/">Java基础学习2—表达式、控制流与I/O</a><br>
+<a href="https://ultrafish.cn/2021/10/08/Java-learning-3/">基础Java异常处理 Basic Exception handling in Java</a><br>
+<a href="https://ultrafish.cn/2020/08/15/Java-data-type-conversion/">Java中byte数据类型在显式类型转换时超出其取值范围的转换过程</a><br>
+<a href="https://ultrafish.cn/2021/03/07/Java-oop-encapsulation/">Java面向对象编程(OOP)的封装性(Encapsulation)</a><br>
+<a href="https://ultrafish.cn/2020/09/13/Java-oop-inheritance/">Java面向对象编程(OOP)的继承性(Inheritance)</a><br>
+<a href="https://ultrafish.cn/2021/10/02/Java-oop-polymorphism/">Java面向对象编程(OOP)的多态性(Polymorphism)</a><br>
+<a href="https://ultrafish.cn/2021/10/05/Java-oop-interface/">Java面向对象编程之接口 Java OOP Interface</a></p>
 </blockquote>
 <hr>
 <blockquote>
-<h4 id="面向对象编程-OOP-简单介绍"><a href="#面向对象编程-OOP-简单介绍" class="headerlink" title="面向对象编程(OOP)简单介绍"></a>面向对象编程(OOP)简单介绍</h4><p><strong>面向对象编程(Object Oriented Programming, OOP)</strong> 是一种计算机编程架构(一种编程方法). 它的核心在于把需要处理的问题进行建模, 即把问题抽象为对象(object). 对象被分成两个部分, <strong>静态部分</strong>和<strong>动态部分</strong>. <strong>静态部分</strong>指的是对象的<strong>属性</strong>, 以人举例, 属性包括人的身高、体重、年龄等特性. <strong>动态部分</strong>指的是对象的<strong>行为或方法</strong>, 以人举例, 行为包括人的吃饭、睡觉、讲话等动作. 在某一方面具有相同特性的事物可以被归为同一类事物, 而 <strong>类(class)</strong> 就是这些同一类事物的统称, 比如说, 婴儿、青少年,、年轻人、老人等都属于人这一类, 鸡、鸭、猪等都是属于家禽这一类. 类是对某一类对象的抽象描述, 类封装了对象的属性和行为.<br>了解更多有关OOP的知识, 请参考百度百科—<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/面向对象程序设计/24792">面向对象程序设计</a>.<br>面向对象编程(OOP)具有以下三个特点:<br><strong>封装性(Encapsulation)</strong><br><strong>继承性(Inheritance)</strong><br><strong>多态性(Polymorphism)</strong></p>
+<h4 id="面向对象编程oop简单介绍"><a class="markdownIt-Anchor" href="#面向对象编程oop简单介绍"></a> 面向对象编程(OOP)简单介绍</h4>
+<p><strong>面向对象编程(Object Oriented Programming, OOP)</strong> 是一种计算机编程架构(一种编程方法). 它的核心在于把需要处理的问题进行建模, 即把问题抽象为对象(object). 对象被分成两个部分, <strong>静态部分</strong>和<strong>动态部分</strong>. <strong>静态部分</strong>指的是对象的<strong>属性</strong>, 以人举例, 属性包括人的身高、体重、年龄等特性. <strong>动态部分</strong>指的是对象的<strong>行为或方法</strong>, 以人举例, 行为包括人的吃饭、睡觉、讲话等动作. 在某一方面具有相同特性的事物可以被归为同一类事物, 而 <strong>类(class)</strong> 就是这些同一类事物的统称, 比如说, 婴儿、青少年,、年轻人、老人等都属于人这一类, 鸡、鸭、猪等都是属于家禽这一类. 类是对某一类对象的抽象描述, 类封装了对象的属性和行为.<br>
+了解更多有关OOP的知识, 请参考百度百科—<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/24792">面向对象程序设计</a>.<br>
+面向对象编程(OOP)具有以下三个特点:<br>
+<strong>封装性(Encapsulation)</strong><br>
+<strong>继承性(Inheritance)</strong><br>
+<strong>多态性(Polymorphism)</strong></p>
 </blockquote>
 <hr>
 <span id="more"></span>
-<h4 id="封装性-Encapsulation"><a href="#封装性-Encapsulation" class="headerlink" title="封装性(Encapsulation)"></a>封装性(Encapsulation)</h4><p>封装性是OOP的核心思想, 目的是将类的静态部分和动态部分, 即类的属性和方法封装起来, 使某一对象的实现过程隐藏起来, 使用者只能看到对象的交互层面, 无须知道此对象内部是如何工作的. 封装性(Encapsulation)能保证类内部的完整性, 使用者既能使用某一类, 又不会影响到类内部的数据和结构, 提高了安全性.</p>
+<h4 id="封装性encapsulation"><a class="markdownIt-Anchor" href="#封装性encapsulation"></a> 封装性(Encapsulation)</h4>
+<p>封装性是OOP的核心思想, 目的是将类的静态部分和动态部分, 即类的属性和方法封装起来, 使某一对象的实现过程隐藏起来, 使用者只能看到对象的交互层面, 无须知道此对象内部是如何工作的. 封装性(Encapsulation)能保证类内部的完整性, 使用者既能使用某一类, 又不会影响到类内部的数据和结构, 提高了安全性.</p>
 <hr>
-<h4 id="类的属性和方法"><a href="#类的属性和方法" class="headerlink" title="类的属性和方法"></a>类的属性和方法</h4><h5 id="1-类的属性-Field"><a href="#1-类的属性-Field" class="headerlink" title="1. 类的属性 (Field)"></a>1. 类的属性 (Field)</h5><p>类的属性又称为成员变量, 英文为Field. 以下代码构造了一个Book类, Book为类的名称, 设置了两个属性, 字符串类的name, 用于存储书名, 以及整数类型的page, 用于存储页数. 属性可以设置初始值, 如不设置初始值, 则会有默认值.</p>
+<h4 id="类的属性和方法"><a class="markdownIt-Anchor" href="#类的属性和方法"></a> 类的属性和方法</h4>
+<h5 id="1-类的属性-field"><a class="markdownIt-Anchor" href="#1-类的属性-field"></a> 1. 类的属性 (Field)</h5>
+<p>类的属性又称为成员变量, 英文为Field. 以下代码构造了一个Book类, Book为类的名称, 设置了两个属性, 字符串类的name, 用于存储书名, 以及整数类型的page, 用于存储页数. 属性可以设置初始值, 如不设置初始值, 则会有默认值.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Book</span>&#123; <span class="hljs-comment">// 构造名为Book的类</span><br>    String name; <span class="hljs-comment">// 构造Book类的一个属性name, 理解为书名</span><br>    <span class="hljs-type">int</span> page; <span class="hljs-comment">// 构造Book类的另一个属性page, 理解为页数</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h5 id="2-类的方法-Method"><a href="#2-类的方法-Method" class="headerlink" title="2. 类的方法 (Method)"></a>2. 类的方法 (Method)</h5><p>类的方法又称为成员方法, 英文为Method.</p>
+<h5 id="2-类的方法-method"><a class="markdownIt-Anchor" href="#2-类的方法-method"></a> 2. 类的方法 (Method)</h5>
+<p>类的方法又称为成员方法, 英文为Method.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Book</span>&#123; <span class="hljs-comment">// 构造名为Book的类</span><br>    String name; <span class="hljs-comment">// 构造Book类的一个属性name, 理解为书名</span><br>    <span class="hljs-type">int</span> page; <span class="hljs-comment">// 构造Book类的另一个属性page, 理解为页数</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String inName)</span>&#123; <span class="hljs-comment">// 构造一个名为setName的方法, 用于设置Book类的name属性.</span><br>        name = inName;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span>&#123; <span class="hljs-comment">// 构造一个名为getName的方法, 用于获取Book类的name属性</span><br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>以上代码给Book类添加了两个方法.<br>第一个方法setName为设置Book类的name属性, 即给书本一个名字. public为权限修饰符, public表示此方法可以被本类, 子类以及其他包中的类使用, 理解为公开的. void表示此方法无返回值, 理解为表示返回值为空. setName为方法的名称. 括号中的inName是方法的参数(parameter), String表明了参数的数据类型. name = inName; 表示把对象的name属性设置为setName中的参数inName, 例如:</p>
+<p>以上代码给Book类添加了两个方法.<br>
+第一个方法setName为设置Book类的name属性, 即给书本一个名字. public为权限修饰符, public表示此方法可以被本类, 子类以及其他包中的类使用, 理解为公开的. void表示此方法无返回值, 理解为表示返回值为空. setName为方法的名称. 括号中的inName是方法的参数(parameter), String表明了参数的数据类型. name = inName; 表示把对象的name属性设置为setName中的参数inName, 例如:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Book</span> <span class="hljs-variable">mybook</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>(); <span class="hljs-comment">// 构造Book类的对象</span><br><span class="hljs-type">String</span> <span class="hljs-variable">mybookname</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ABC&quot;</span>; <span class="hljs-comment">// 书名存入变量</span><br>mybook.setName(mybookname); <span class="hljs-comment">// 调用Book的setName方法, 设置书名为ABC</span><br></code></pre></td></tr></table></figure>
 <p>第二个方法getName为获取并输出书的名字, String表示此方法有返回值, 并且返回值为字符串类型. return name; 表示返回对象的name属性, 例如:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Book</span> <span class="hljs-variable">mybook</span>  <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>(); <span class="hljs-comment">// 构造Book类的对象</span><br><span class="hljs-type">String</span> <span class="hljs-variable">mybookname</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ABC&quot;</span>; <span class="hljs-comment">// 书名存入变量</span><br>mybook.setName(mybookname); <span class="hljs-comment">// 调用Book的setName方法, 设置书名为ABC</span><br>System.out.println(mybook.getName()); <span class="hljs-comment">// 调用Book的getName方法, 获取书的名字并打印输出, 输出的即为方法的返回值“ABC”</span><br></code></pre></td></tr></table></figure>
@@ -902,8 +923,14 @@
 <p>当以上某一方法被使用时，编译器会根据 <strong>方法名</strong> 和 <strong>参数类型（数量、类型以及排列顺序）</strong> 来调用相对应的方法。</p>
 </blockquote>
 <hr>
-<h5 id="3-类的构造方法-Constructor"><a href="#3-类的构造方法-Constructor" class="headerlink" title="3. 类的构造方法 (Constructor)"></a>3. 类的构造方法 (Constructor)</h5><p>类的构造方法(Constructor)是一种的特殊的方法, 每次用类实例化一个对象时, 构造方法会自动调用.<br>构造方法有三个特性:<br><strong>&gt;构造方法的名称与类的名称相同;</strong><br><strong>&gt;构造方法没有返回值, 但是不需要用void修饰字符;</strong><br><strong>&gt;可含参数，但不能是<code>this</code>.</strong>  <a href="https://ultrafish.cn/2021/09/02/Java-learning-1/#1-3-this-%E4%BF%AE%E9%A5%B0%E7%AC%A6">(点此了解<code>this</code>)</a></p>
-<p>例如:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Book</span>&#123; <span class="hljs-comment">// 构造名为Book的类</span><br>    String name; <span class="hljs-comment">// 构造Book类的一个属性name, 理解为书名</span><br>    <span class="hljs-type">int</span> page; <span class="hljs-comment">// 构造Book类的另一个属性page, 理解为页数</span><br>    <br>    Book()&#123; <span class="hljs-comment">// 无参构造方法</span><br>        System.out.println(<span class="hljs-string">&quot;成功创建一个Book类对象&quot;</span>); <br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Book</span><span class="hljs-params">(String initName)</span>&#123; <span class="hljs-comment">// 有参构造方法</span><br>        name = initName; <span class="hljs-comment">// 有参数的构造方法, 创建对象时就设置对象name属性, 即为书名</span><br>        System.out.println(<span class="hljs-string">&quot;成功创建一个Book类对象&quot;</span>); <span class="hljs-comment">// 每当Book类创建一个实例对象, 会输出一语句</span><br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String inName)</span>&#123; <span class="hljs-comment">// 构造一个名为setName的方法, 用于设置Book类的name属性.</span><br>        name = inName;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span>&#123; <span class="hljs-comment">// 构造一个名为getName的方法, 用于获取Book类的name属性</span><br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+<h5 id="3-类的构造方法-constructor"><a class="markdownIt-Anchor" href="#3-类的构造方法-constructor"></a> 3. 类的构造方法 (Constructor)</h5>
+<p>类的构造方法(Constructor)是一种的特殊的方法, 每次用类实例化一个对象时, 构造方法会自动调用.<br>
+构造方法有三个特性:<br>
+<strong>&gt;构造方法的名称与类的名称相同;</strong><br>
+<strong>&gt;构造方法没有返回值, 但是不需要用void修饰字符;</strong><br>
+<strong>&gt;可含参数，但不能是<code>this</code>.</strong>  <a href="https://ultrafish.cn/2021/09/02/Java-learning-1/#1-3-this-%E4%BF%AE%E9%A5%B0%E7%AC%A6">(点此了解<code>this</code>)</a></p>
+<p>例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Book</span>&#123; <span class="hljs-comment">// 构造名为Book的类</span><br>    String name; <span class="hljs-comment">// 构造Book类的一个属性name, 理解为书名</span><br>    <span class="hljs-type">int</span> page; <span class="hljs-comment">// 构造Book类的另一个属性page, 理解为页数</span><br>    <br>    Book()&#123; <span class="hljs-comment">// 无参构造方法</span><br>        System.out.println(<span class="hljs-string">&quot;成功创建一个Book类对象&quot;</span>); <br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Book</span><span class="hljs-params">(String initName)</span>&#123; <span class="hljs-comment">// 有参构造方法</span><br>        name = initName; <span class="hljs-comment">// 有参数的构造方法, 创建对象时就设置对象name属性, 即为书名</span><br>        System.out.println(<span class="hljs-string">&quot;成功创建一个Book类对象&quot;</span>); <span class="hljs-comment">// 每当Book类创建一个实例对象, 会输出一语句</span><br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String inName)</span>&#123; <span class="hljs-comment">// 构造一个名为setName的方法, 用于设置Book类的name属性.</span><br>        name = inName;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span>&#123; <span class="hljs-comment">// 构造一个名为getName的方法, 用于获取Book类的name属性</span><br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <p>注：若一个类没有构造方法，在编译时编译器会自动加入一个无参的空构造方法，也会在对象创建时被调用。但是如果只定义了有参构造方法，在创建对象时调用无参构造方法是不合法的，例如：</p>
@@ -920,27 +947,46 @@
 <p>在创建对象时，会根据不同的参数类型调用相对应参数类型的构造函数，实现一一对应。</p>
 </blockquote>
 <hr>
-<h4 id="权限修饰符-Visibility-Modifiers"><a href="#权限修饰符-Visibility-Modifiers" class="headerlink" title="权限修饰符 (Visibility Modifiers)"></a>权限修饰符 (Visibility Modifiers)</h4><p>Java中的权限修饰符主要包括<strong>private</strong>, <strong>protected</strong>和<strong>public</strong>. 这三个权限修饰符决定了类, 类的属性和类的方法的访问范围. </p>
+<h4 id="权限修饰符-visibility-modifiers"><a class="markdownIt-Anchor" href="#权限修饰符-visibility-modifiers"></a> 权限修饰符 (Visibility Modifiers)</h4>
+<p>Java中的权限修饰符主要包括<strong>private</strong>, <strong>protected</strong>和<strong>public</strong>. 这三个权限修饰符决定了类, 类的属性和类的方法的访问范围.</p>
 <blockquote>
-<p><strong>private</strong><br>设置为<strong>private</strong>的属性和方法<strong>只能在本类中使用</strong>, 同包其他类或子类 以及 其他包的类或子类不可使用</p>
-<p><strong>protected</strong><br>设置为<strong>protected</strong>的属性和方法<strong>只能在本类 以及 同包其他类或子类中使用</strong>, 其他包的类或子类不可使用</p>
-<p><strong>public</strong><br>设置为<strong>public</strong>的属性和方法<strong>能在本类, 同包其他类或子类 以及 其他包的类或子类中都可以使用</strong></p>
+<p><strong>private</strong><br>
+设置为<strong>private</strong>的属性和方法<strong>只能在本类中使用</strong>, 同包其他类或子类 以及 其他包的类或子类不可使用</p>
+</blockquote>
+<blockquote>
+<p><strong>protected</strong><br>
+设置为<strong>protected</strong>的属性和方法<strong>只能在本类 以及 同包其他类或子类中使用</strong>, 其他包的类或子类不可使用</p>
+</blockquote>
+<blockquote>
+<p><strong>public</strong><br>
+设置为<strong>public</strong>的属性和方法<strong>能在本类, 同包其他类或子类 以及 其他包的类或子类中都可以使用</strong></p>
 </blockquote>
 <p>具体见<a href="https://ultrafish.cn/2021/09/02/Java-learning-1/#2-2-%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6-Access-Control-Modifiers">Java基础学习1—声明和初始化与修饰符</a></p>
 <hr>
-<h4 id="对象-object"><a href="#对象-object" class="headerlink" title="对象 (object)"></a>对象 (object)</h4><p>对象(object)是某一类的实例, 有具体的属性和方法.</p>
-<h5 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h5><p>Java中通过 <strong>new</strong> 操作符号来创建对象, 语法为: <strong>类名 对象名 = new 类名( );</strong><br>每次创建一个实例, 都会调用一次类的构造方法.</p>
+<h4 id="对象-object"><a class="markdownIt-Anchor" href="#对象-object"></a> 对象 (object)</h4>
+<p>对象(object)是某一类的实例, 有具体的属性和方法.</p>
+<h5 id="对象的创建"><a class="markdownIt-Anchor" href="#对象的创建"></a> 对象的创建</h5>
+<p>Java中通过 <strong>new</strong> 操作符号来创建对象, 语法为: <strong>类名 对象名 = new 类名( );</strong><br>
+每次创建一个实例, 都会调用一次类的构造方法.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Book</span> <span class="hljs-variable">mybook</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>(); <span class="hljs-comment">// 无参数, 无构造方法参数</span><br><span class="hljs-type">Book</span> <span class="hljs-variable">mybook</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>(<span class="hljs-string">&quot;My Book Name&quot;</span>); <span class="hljs-comment">// 有参数, My Book Name为构造方法的参数, 设置书名</span><br></code></pre></td></tr></table></figure>
-<p>例如:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Book</span>&#123; <span class="hljs-comment">// 构造名为Book的类</span><br>    String name; <span class="hljs-comment">// 构造Book类的一个属性name, 理解为书名</span><br>    <span class="hljs-type">int</span> page; <span class="hljs-comment">// 构造Book类的另一个属性page, 理解为页数</span><br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Book</span><span class="hljs-params">(String initName)</span>&#123; <span class="hljs-comment">// 构造方法</span><br>        name = initName; <span class="hljs-comment">// 有参数的构造方法, 创建对象时就设置对象name属性, 即为书名</span><br>        System.out.println(<span class="hljs-string">&quot;成功创建一个Book类对象&quot;</span>); <span class="hljs-comment">// 每当Book类创建一个实例对象, 会输出一语句</span><br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String inName)</span>&#123; <span class="hljs-comment">// 构造一个名为setName的方法, 用于设置Book类的name属性.</span><br>        name = inName;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span>&#123; <span class="hljs-comment">// 构造一个名为getName的方法, 用于获取Book类的name属性</span><br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <span class="hljs-comment">// 主方法</span><br>		<span class="hljs-type">Book</span> <span class="hljs-variable">mybook</span>  <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>(<span class="hljs-string">&quot;My Book Name&quot;</span>); <span class="hljs-comment">// 构造一个名为mybook的Book类对象, 并使用构造方法设置name属性</span><br><br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<h5 id="对象属性和行为的访问"><a href="#对象属性和行为的访问" class="headerlink" title="对象属性和行为的访问"></a>对象属性和行为的访问</h5><p>对象属性和行为的访问结构为“对象.属性”或“对象.方法”, 例如:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">mybook.name; <span class="hljs-comment">// 获取mybook的name属性</span><br>mybook.getName(); <span class="hljs-comment">// 获取mybook的name属性, 并返回name的值</span><br>mybook.setName(<span class="hljs-string">&quot;My Another Book&quot;</span>); <span class="hljs-comment">// 调用mybook的成员方法, 设置name属性为“My Another Book”</span><br></code></pre></td></tr></table></figure></p>
+<p>例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Book</span>&#123; <span class="hljs-comment">// 构造名为Book的类</span><br>    String name; <span class="hljs-comment">// 构造Book类的一个属性name, 理解为书名</span><br>    <span class="hljs-type">int</span> page; <span class="hljs-comment">// 构造Book类的另一个属性page, 理解为页数</span><br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Book</span><span class="hljs-params">(String initName)</span>&#123; <span class="hljs-comment">// 构造方法</span><br>        name = initName; <span class="hljs-comment">// 有参数的构造方法, 创建对象时就设置对象name属性, 即为书名</span><br>        System.out.println(<span class="hljs-string">&quot;成功创建一个Book类对象&quot;</span>); <span class="hljs-comment">// 每当Book类创建一个实例对象, 会输出一语句</span><br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String inName)</span>&#123; <span class="hljs-comment">// 构造一个名为setName的方法, 用于设置Book类的name属性.</span><br>        name = inName;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span>&#123; <span class="hljs-comment">// 构造一个名为getName的方法, 用于获取Book类的name属性</span><br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <span class="hljs-comment">// 主方法</span><br>		<span class="hljs-type">Book</span> <span class="hljs-variable">mybook</span>  <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>(<span class="hljs-string">&quot;My Book Name&quot;</span>); <span class="hljs-comment">// 构造一个名为mybook的Book类对象, 并使用构造方法设置name属性</span><br><br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="对象属性和行为的访问"><a class="markdownIt-Anchor" href="#对象属性和行为的访问"></a> 对象属性和行为的访问</h5>
+<p>对象属性和行为的访问结构为“对象.属性”或“对象.方法”, 例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">mybook.name; <span class="hljs-comment">// 获取mybook的name属性</span><br>mybook.getName(); <span class="hljs-comment">// 获取mybook的name属性, 并返回name的值</span><br>mybook.setName(<span class="hljs-string">&quot;My Another Book&quot;</span>); <span class="hljs-comment">// 调用mybook的成员方法, 设置name属性为“My Another Book”</span><br></code></pre></td></tr></table></figure>
 <p>例如:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Book</span>&#123; <span class="hljs-comment">// 构造名为Book的类</span><br>    String name; <span class="hljs-comment">// 构造Book类的一个属性name, 理解为书名</span><br>    <span class="hljs-type">int</span> page; <span class="hljs-comment">// 构造Book类的另一个属性page, 理解为页数</span><br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Book</span><span class="hljs-params">(String initName)</span>&#123; <span class="hljs-comment">// 构造方法</span><br>        name = initName; <span class="hljs-comment">// 有参数的构造方法, 创建对象时就设置对象name属性, 即为书名</span><br>        System.out.println(<span class="hljs-string">&quot;成功创建一个Book类对象&quot;</span>); <span class="hljs-comment">// 每当Book类创建一个实例对象, 会输出一语句</span><br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String inName)</span>&#123; <span class="hljs-comment">// 构造一个名为setName的方法, 用于设置Book类的name属性.</span><br>        name = inName;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span>&#123; <span class="hljs-comment">// 构造一个名为getName的方法, 用于获取Book类的name属性</span><br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <span class="hljs-comment">// 主方法</span><br>	    <span class="hljs-type">Book</span> <span class="hljs-variable">mybook</span>  <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>(<span class="hljs-string">&quot;My Book Name&quot;</span>); <span class="hljs-comment">// 构造一个名为mybook的Book类对象, 并使用构造方法设置name属性</span><br>        System.out.println(mybook.name); <span class="hljs-comment">// 通过对象的属性获取属性值</span><br>        System.out.println(mybook.getName()); <span class="hljs-comment">// 通过对象的方法获取属性值</span><br>        <br>        mybook.setName(<span class="hljs-string">&quot;My Another Book&quot;</span>); <span class="hljs-comment">// 通过对象属性重置属性值</span><br>        mybook.page = <span class="hljs-number">100</span>; <span class="hljs-comment">// 通过对象属性重置属性值</span><br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <hr>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>B. Eckel, <em>Thinking in java</em>. Upper Saddle River, N.Y. Prentice Hall, 2014.<br>M. Goodrich, R. Tamassia, and A. O’reilly, <em>Data Structures and Algorithms in Java, 6th Edition</em>. John Wiley &amp; Sons, 2014.</p>
+<h4 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h4>
+<p>B. Eckel, <em>Thinking in java</em>. Upper Saddle River, N.Y. Prentice Hall, 2014.<br>
+M. Goodrich, R. Tamassia, and A. O’reilly, <em>Data Structures and Algorithms in Java, 6th Edition</em>. John Wiley &amp; Sons, 2014.</p>
 <hr>
-<h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>Java中OOP相关的知识是十分重要的, 会继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h4 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h4>
+<p>Java中OOP相关的知识是十分重要的, 会继续更新.<br>
+最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
-<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<p><em><strong>原创文章，转载请标明出处</strong></em><br>
+<em><strong>Made by Mike_Zhang</strong></em></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
 <br>
@@ -1154,7 +1200,6 @@
 
   
   
-
 
 
 
@@ -1461,44 +1506,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
