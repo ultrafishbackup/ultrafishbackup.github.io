@@ -16,12 +16,12 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   Computer System 相关文章: 有符号二进制数表示方法 Signed binary number representation 浮点数二进制数表示方法 Floating point numbers representation UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor">
+    <meta name="description" content="Made by Mike_Zhang   Computer System 相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representationUltraFish Plus - 有符号二进制数转换器 Signed binary number convertorUltr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Y86-64学习1-State &amp; Instruction &amp; Basic Encoding">
 <meta property="og:url" content="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   Computer System 相关文章: 有符号二进制数表示方法 Signed binary number representation 浮点数二进制数表示方法 Floating point numbers representation UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor">
+<meta property="og:description" content="Made by Mike_Zhang   Computer System 相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representationUltraFish Plus - 有符号二进制数转换器 Signed binary number convertorUltr">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/y8664.png">
 <meta property="article:published_time" content="2022-01-04T02:20:49.000Z">
@@ -45,8 +45,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -568,28 +566,16 @@
             
             <div class="markdown-body">
               
-              <p><em><strong>Made by Mike_Zhang</strong></em></p>
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
 <blockquote>
-<p>Computer System 相关文章:<br>
-<a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/">有符号二进制数表示方法 Signed binary number representation</a><br>
-<a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/">浮点数二进制数表示方法 Floating point numbers representation</a><br>
-<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a><br>
-<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">UltraFish Plus - 浮点数表示方法转换器 Floating Point Numbers Representation Convertor</a><br>
-<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">UltraFish Plus - 多进制整数转换器 Multiple Bases Unsigned Integer Convertor</a><br>
-<a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/">Y86-64学习1-State &amp; Instruction &amp; Basic Encoding</a><br>
-<a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/">Y86-64学习2-Y86-64 SEQ Stages</a><br>
-<a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br>
-<a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/">x86-64学习2-Control</a></p>
+<p>Computer System 相关文章:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/">有符号二进制数表示方法 Signed binary number representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/">浮点数二进制数表示方法 Floating point numbers representation</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">UltraFish Plus - 浮点数表示方法转换器 Floating Point Numbers Representation Convertor</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">UltraFish Plus - 多进制整数转换器 Multiple Bases Unsigned Integer Convertor</a><br><a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/">Y86-64学习1-State &amp; Instruction &amp; Basic Encoding</a><br><a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/">Y86-64学习2-Y86-64 SEQ Stages</a><br><a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br><a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/">x86-64学习2-Control</a></p>
 </blockquote>
 <hr>
-<h1 id="1-accessible-modifiable-state"><a class="markdownIt-Anchor" href="#1-accessible-modifiable-state"></a> 1 Accessible &amp; Modifiable State</h1>
-<p><strong>Y86-64 programmer-visible state</strong></p>
+<h1 id="1-Accessible-amp-Modifiable-State"><a href="#1-Accessible-amp-Modifiable-State" class="headerlink" title="1 Accessible &amp; Modifiable State"></a>1 Accessible &amp; Modifiable State</h1><p><strong>Y86-64 programmer-visible state</strong></p>
 <blockquote>
-<p>The programmer can <strong>access and modify</strong> these processor state.<br>
-Similar to x86-64, but <strong>more simpler and less compact</strong>.</p>
+<p>The programmer can <strong>access and modify</strong> these processor state.<br>Similar to x86-64, but <strong>more simpler and less compact</strong>.<br><span id="more"></span></p>
 </blockquote>
-<span id="more"></span>
 <center><img src="/2022/01/04/Y86-64-learning-1/1.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
     <div style="color:orange; 
@@ -598,6 +584,7 @@ Similar to x86-64, but <strong>more simpler and less compact</strong>.</p>
     color: #999;
     padding: 0px;">Y86-64 programmer-visible state(CS: APP)</div>
 </center>
+
 <blockquote>
 <p>Comparing with the <strong>register</strong> part of x86-64:</p>
 </blockquote>
@@ -609,9 +596,9 @@ Similar to x86-64, but <strong>more simpler and less compact</strong>.</p>
     color: #999;
     padding: 0px;">x86-64 Integer registers(CS: APP)</div>
 </center>
+
 <hr>
-<h2 id="11-y86-64-program-registers"><a class="markdownIt-Anchor" href="#11-y86-64-program-registers"></a> 1.1 Y86-64 Program Registers</h2>
-<ul>
+<h2 id="1-1-Y86-64-Program-Registers"><a href="#1-1-Y86-64-Program-Registers" class="headerlink" title="1.1 Y86-64 Program Registers"></a>1.1 Y86-64 Program Registers</h2><ul>
 <li><strong>15</strong> Program Resister;</li>
 <li>No <code>%r15</code>, to simplify the encoding;</li>
 <li><strong>64-bit</strong> word, <strong>8 words</strong>;</li>
@@ -625,9 +612,9 @@ Similar to x86-64, but <strong>more simpler and less compact</strong>.</p>
     color: #999;
     padding: 0px;">Y86-64 Program Registers(CS: APP)</div>
 </center>
+
 <hr>
-<h2 id="12-condition-codes"><a class="markdownIt-Anchor" href="#12-condition-codes"></a> 1.2 Condition Codes</h2>
-<ul>
+<h2 id="1-2-Condition-Codes"><a href="#1-2-Condition-Codes" class="headerlink" title="1.2 Condition Codes"></a>1.2 Condition Codes</h2><ul>
 <li><strong>CC</strong>: Condition Code;</li>
 <li>3 <strong>single-bit</strong> codes;</li>
 <li><strong>ZF</strong>, <strong>SF</strong>, <strong>OF</strong>;</li>
@@ -636,27 +623,23 @@ Similar to x86-64, but <strong>more simpler and less compact</strong>.</p>
 <li><strong>OF</strong>: Overflow Flag. The most recent operation caused a <strong>two’s-complement overflow</strong>—either negative or positive.</li>
 </ul>
 <hr>
-<h2 id="13-program-counter"><a class="markdownIt-Anchor" href="#13-program-counter"></a> 1.3 Program Counter</h2>
-<ul>
+<h2 id="1-3-Program-Counter"><a href="#1-3-Program-Counter" class="headerlink" title="1.3 Program Counter"></a>1.3 Program Counter</h2><ul>
 <li><strong>PC</strong>: Program Counter;</li>
 <li>Store the address of currently executing instruction.</li>
 </ul>
 <hr>
-<h2 id="14-memory"><a class="markdownIt-Anchor" href="#14-memory"></a> 1.4 Memory</h2>
-<ul>
+<h2 id="1-4-Memory"><a href="#1-4-Memory" class="headerlink" title="1.4 Memory"></a>1.4 Memory</h2><ul>
 <li>Virtual memory;</li>
 <li>In the Operand forms, only represented in <strong>base</strong> and <strong>displacement</strong>, NO index and scale in x86-64.</li>
 </ul>
 <hr>
-<h2 id="15-program-state"><a class="markdownIt-Anchor" href="#15-program-state"></a> 1.5 Program State</h2>
-<ul>
+<h2 id="1-5-Program-State"><a href="#1-5-Program-State" class="headerlink" title="1.5 Program State"></a>1.5 Program State</h2><ul>
 <li><strong>Stat</strong>: Program State;</li>
 <li>The overall state of program execution;</li>
 <li><strong>Normal operation</strong> or <strong>exception</strong>.</li>
 </ul>
 <hr>
-<h1 id="2-y86-64-instructions"><a class="markdownIt-Anchor" href="#2-y86-64-instructions"></a> 2 Y86-64 Instructions</h1>
-<center><img src="/2022/01/04/Y86-64-learning-1/4.png" srcset="/img/loading.gif" lazyload width="70%" height="70%">
+<h1 id="2-Y86-64-Instructions"><a href="#2-Y86-64-Instructions" class="headerlink" title="2 Y86-64 Instructions"></a>2 Y86-64 Instructions</h1><center><img src="/2022/01/04/Y86-64-learning-1/4.png" srcset="/img/loading.gif" lazyload width="70%" height="70%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -664,36 +647,33 @@ Similar to x86-64, but <strong>more simpler and less compact</strong>.</p>
     color: #999;
     padding: 0px;">Y86-64 Instructions Set(CS: APP)</div>
 </center>
+
 <ul>
 <li>A <strong>subset</strong> of x86-64 instruction set;</li>
 <li><strong>8-byte</strong> integer operations;</li>
 <li><strong>fewer</strong> address modes;</li>
 <li><strong>smaller</strong> set of operations;</li>
-<li>Each instruction set including:
-<ul>
-<li>1-byte <em><strong>instruction specifier</strong></em> (e.g., <code>0|0</code> for <code>halt</code>), including(<code>op|fn</code>):
-<ul>
-<li>4-bit <strong>operation code(<code>op</code>)</strong> and,</li>
+<li>Each instruction set including:<ul>
+<li>1-byte <strong><em>instruction specifier</em></strong> (e.g., <code>0|0</code> for <code>halt</code>), including(<code>op|fn</code>):<ul>
+<li>4-bit <strong>operation code(<code>op</code>)</strong> and, </li>
 <li>4-bit <strong>function code(<code>fn</code>)</strong> to specify a particular function ;</li>
 </ul>
 </li>
-<li>(possibly) 1-byte <em><strong>register specifier</strong></em> (e.g., <code>rA|rB</code>, <code>F|rB</code>);</li>
-<li>(possibly) 8-byte <em><strong>constant word</strong></em> (e.g., <code>V</code>, <code>D</code>, <code>Dest</code>);</li>
+<li>(possibly) 1-byte <strong><em>register specifier</em></strong> (e.g., <code>rA|rB</code>, <code>F|rB</code>);</li>
+<li>(possibly) 8-byte <strong><em>constant word</em></strong> (e.g., <code>V</code>, <code>D</code>, <code>Dest</code>);</li>
 </ul>
 </li>
-<li>4 types of instruction: <strong>1-byte, 2-byte, 9-byte, and 10-byte instruction</strong>;
-<ul>
-<li>1-byte: <code>halt</code>, <code>nop</code>, <code>ret</code> (only <em><strong>instruction specifier</strong></em>);</li>
-<li>2-byte: <code>rrmovq rA, rB</code>, <code>OPq rA, rB</code>, <code>cmovXX rA, rB</code>, <code>pushq rA</code>, <code>popq rA</code> (only <em><strong>instruction specifier</strong></em> + <em><strong>register specifier</strong></em>);</li>
-<li>9-byte: <code>jXX Dest</code>, <code>call Dest</code> (only <em><strong>instruction specifier</strong></em> + <em><strong>constant word</strong></em>);</li>
-<li>10-byte: <code>irmovq V, D(rB)</code>, <code>rmmovq rA, D(rB)</code>, <code>mrmovq D(rB), rA</code> (<em><strong>instruction specifier</strong></em> + <em><strong>register specifier</strong></em> + <em><strong>constant word</strong></em>);</li>
+<li>4 types of instruction: <strong>1-byte, 2-byte, 9-byte, and 10-byte instruction</strong>;<ul>
+<li>1-byte: <code>halt</code>, <code>nop</code>, <code>ret</code> (only <strong><em>instruction specifier</em></strong>);</li>
+<li>2-byte: <code>rrmovq rA, rB</code>, <code>OPq rA, rB</code>, <code>cmovXX rA, rB</code>, <code>pushq rA</code>, <code>popq rA</code> (only <strong><em>instruction specifier</em></strong> + <strong><em>register specifier</em></strong>);</li>
+<li>9-byte: <code>jXX Dest</code>, <code>call Dest</code> (only <strong><em>instruction specifier</em></strong> + <strong><em>constant word</em></strong>);</li>
+<li>10-byte: <code>irmovq V, D(rB)</code>, <code>rmmovq rA, D(rB)</code>, <code>mrmovq D(rB), rA</code> (<strong><em>instruction specifier</em></strong> + <strong><em>register specifier</em></strong> + <strong><em>constant word</em></strong>);</li>
 </ul>
 </li>
 <li>Encoded in <strong>hexadecimal</strong> value.</li>
 </ul>
 <hr>
-<h2 id="21-movq-instructions"><a class="markdownIt-Anchor" href="#21-movq-instructions"></a> 2.1 <code>movq</code> Instructions</h2>
-<center><img src="/2022/01/04/Y86-64-learning-1/5.png" srcset="/img/loading.gif" lazyload width="70%" height="70%">
+<h2 id="2-1-movq-Instructions"><a href="#2-1-movq-Instructions" class="headerlink" title="2.1 movq Instructions"></a>2.1 <code>movq</code> Instructions</h2><center><img src="/2022/01/04/Y86-64-learning-1/5.png" srcset="/img/loading.gif" lazyload width="70%" height="70%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -701,27 +681,24 @@ Similar to x86-64, but <strong>more simpler and less compact</strong>.</p>
     color: #999;
     padding: 0px;">Y86-64 movq instructions(CS: APP)</div>
 </center>
+
 <ul>
 <li>subset of x86-64 movq instruction set;</li>
-<li>Indicating the movement: <strong>source</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>destination</strong>;
-<ul>
+<li>Indicating the movement: <strong>source</strong> $\to$ <strong>destination</strong>;<ul>
 <li><strong>Source</strong>: <em>first character</em> - immediate(<code>i</code>), register(<code>r</code>), memory(<code>m</code>);</li>
 <li><strong>Destination</strong>: <em>second character</em> - register(<code>r</code>), memory(<code>m</code>);</li>
 </ul>
 </li>
-<li>NO <strong>memory(<code>m</code>)</strong> location <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> another <strong>memory(<code>m</code>)</strong> location;</li>
-<li>NO <strong>immediate(<code>i</code>)</strong> data <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>memory(<code>m</code>)</strong>;</li>
+<li>NO <strong>memory(<code>m</code>)</strong> location $\rightarrow$ another <strong>memory(<code>m</code>)</strong> location;</li>
+<li>NO <strong>immediate(<code>i</code>)</strong> data $\rightarrow$ <strong>memory(<code>m</code>)</strong>;</li>
 </ul>
 <blockquote>
-<p>The movement is from the <strong>first argument</strong> to the <strong>second argument</strong>, usually <code>rA(V)</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>rB</code>,<br>
-except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>rA</code></p>
+<p>The movement is from the <strong>first argument</strong> to the <strong>second argument</strong>, usually <code>rA(V)</code> $\to$ <code>rB</code>,<br>except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> $\to$ <code>rA</code></p>
 </blockquote>
 <ul>
-<li>
-<p>The <strong>immediate value(<code>V</code>)</strong> and <strong>displacement(<code>D</code>)</strong> is <strong>8-byte</strong> constant word.</p>
+<li><p>The <strong>immediate value(<code>V</code>)</strong> and <strong>displacement(<code>D</code>)</strong> is <strong>8-byte</strong> constant word.</p>
 </li>
-<li>
-<p>memory reference: only <strong>base</strong> and <strong>displacement</strong>(e.g., <code>D(rB)</code>, <code>rB</code> for <strong>base</strong>, <code>D</code> for <strong>displacement</strong>), NO second index register or scale;</p>
+<li><p>memory reference: only <strong>base</strong> and <strong>displacement</strong>(e.g., <code>D(rB)</code>, <code>rB</code> for <strong>base</strong>, <code>D</code> for <strong>displacement</strong>), NO second index register or scale;</p>
 </li>
 </ul>
 <center><img src="/2022/01/04/Y86-64-learning-1/6.png" srcset="/img/loading.gif" lazyload width="70%" height="70%">
@@ -732,9 +709,9 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">x86-64 Operand forms(CS: APP) (Y86-64's in red box)</div>
 </center>
+
 <hr>
-<h2 id="22-opq-integer-operation-instructions"><a class="markdownIt-Anchor" href="#22-opq-integer-operation-instructions"></a> 2.2 <code>OPq</code> Integer Operation Instructions</h2>
-<center><img src="/2022/01/04/Y86-64-learning-1/8.png" srcset="/img/loading.gif" lazyload width="40%" height="40%">
+<h2 id="2-2-OPq-Integer-Operation-Instructions"><a href="#2-2-OPq-Integer-Operation-Instructions" class="headerlink" title="2.2 OPq Integer Operation Instructions"></a>2.2 <code>OPq</code> Integer Operation Instructions</h2><center><img src="/2022/01/04/Y86-64-learning-1/8.png" srcset="/img/loading.gif" lazyload width="40%" height="40%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -742,6 +719,7 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Y86-64 OPq instructions(CS: APP)</div>
 </center>
+
 <center><img src="/2022/01/04/Y86-64-learning-1/7.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
     <div style="color:orange; 
@@ -750,6 +728,7 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">x86-64 Integer arithmetic operations(CS: APP) (Y86-64's in red box)</div>
 </center>
+
 <ul>
 <li>subset of x86-64 Integer arithmetic operations;</li>
 <li>2-byte instruction;</li>
@@ -766,9 +745,9 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Function codes for Y86-64 instruction set(CS: APP)(Operation part)</div>
 </center>
+
 <hr>
-<h2 id="23-jxx-jump-instructions"><a class="markdownIt-Anchor" href="#23-jxx-jump-instructions"></a> 2.3 <code>jXX</code> Jump Instructions</h2>
-<center><img src="/2022/01/04/Y86-64-learning-1/11.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
+<h2 id="2-3-jXX-Jump-Instructions"><a href="#2-3-jXX-Jump-Instructions" class="headerlink" title="2.3 jXX Jump Instructions"></a>2.3 <code>jXX</code> Jump Instructions</h2><center><img src="/2022/01/04/Y86-64-learning-1/11.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -776,6 +755,7 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Y86-64 jXX instructions(CS: APP)</div>
 </center>
+
 <center><img src="/2022/01/04/Y86-64-learning-1/9.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
     <div style="color:orange; 
@@ -784,6 +764,7 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">x86-64 Jump instructions(CS: APP) (Y86-64's in red box)</div>
 </center>
+
 <ul>
 <li>subset of x86-64 Jump instructions;</li>
 <li>9-byte instruction;</li>
@@ -799,9 +780,9 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Function codes for Y86-64 instruction set(CS: APP)(Branches part)</div>
 </center>
+
 <hr>
-<h2 id="24-cmovxx-conditional-move-instructions"><a class="markdownIt-Anchor" href="#24-cmovxx-conditional-move-instructions"></a> 2.4 <code>cmovXX</code> Conditional Move Instructions</h2>
-<center><img src="/2022/01/04/Y86-64-learning-1/12.png" srcset="/img/loading.gif" lazyload width="40%" height="40%">
+<h2 id="2-4-cmovXX-Conditional-Move-Instructions"><a href="#2-4-cmovXX-Conditional-Move-Instructions" class="headerlink" title="2.4 cmovXX Conditional Move Instructions"></a>2.4 <code>cmovXX</code> Conditional Move Instructions</h2><center><img src="/2022/01/04/Y86-64-learning-1/12.png" srcset="/img/loading.gif" lazyload width="40%" height="40%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -809,6 +790,7 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Y86-64 jXX instructions(CS: APP)</div>
 </center>
+
 <center><img src="/2022/01/04/Y86-64-learning-1/10.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
     <div style="color:orange; 
@@ -817,6 +799,7 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">x86-64 Conditional move instructions(CS: APP) (Y86-64's in red box)</div>
 </center>
+
 <ul>
 <li>subset of x86-64 Conditional move instructions;</li>
 <li>2-byte instruction;</li>
@@ -833,9 +816,9 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Function codes for Y86-64 instruction set(CS: APP)(Moves part)</div>
 </center>
+
 <hr>
-<h2 id="25-call-instructions"><a class="markdownIt-Anchor" href="#25-call-instructions"></a> 2.5 <code>call</code> Instructions</h2>
-<center><img src="/2022/01/04/Y86-64-learning-1/13.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
+<h2 id="2-5-call-Instructions"><a href="#2-5-call-Instructions" class="headerlink" title="2.5 call Instructions"></a>2.5 <code>call</code> Instructions</h2><center><img src="/2022/01/04/Y86-64-learning-1/13.png" srcset="/img/loading.gif" lazyload width="60%" height="60%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -843,6 +826,7 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Y86-64 call instructions(CS: APP)</div>
 </center>
+
 <ul>
 <li>9-byte instruction;</li>
 <li><strong>First</strong>, push the <strong>return address</strong> into the stack, the <strong>return address</strong> refers to the address of the instruction <strong>immediately after</strong> the <code>call</code> instruction;</li>
@@ -858,13 +842,13 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Y86-64 ret instructions(CS: APP)</div>
 </center>
+
 <ul>
 <li>1-byte instruction;</li>
 <li>the instruction <strong>pop</strong> the address from stack, then set the <code>PC</code> to that address.</li>
 </ul>
 <hr>
-<h2 id="26-pushq-popq-instructions"><a class="markdownIt-Anchor" href="#26-pushq-popq-instructions"></a> 2.6 <code>pushq</code> &amp; <code>popq</code> Instructions</h2>
-<center><img src="/2022/01/04/Y86-64-learning-1/15.png" srcset="/img/loading.gif" lazyload width="30%" height="30%">
+<h2 id="2-6-pushq-amp-popq-Instructions"><a href="#2-6-pushq-amp-popq-Instructions" class="headerlink" title="2.6 pushq &amp; popq Instructions"></a>2.6 <code>pushq</code> &amp; <code>popq</code> Instructions</h2><center><img src="/2022/01/04/Y86-64-learning-1/15.png" srcset="/img/loading.gif" lazyload width="30%" height="30%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -872,6 +856,7 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Y86-64 pushq & popq instructions(CS: APP)</div>
 </center>
+
 <ul>
 <li>2-byte instruction;</li>
 <li>as same as in x86-64 Push and pop instructions:</li>
@@ -884,9 +869,9 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">x86-64 Push and pop instructions(CS: APP)</div>
 </center>
+
 <hr>
-<h2 id="27-halt-instructions"><a class="markdownIt-Anchor" href="#27-halt-instructions"></a> 2.7 <code>halt</code> Instructions</h2>
-<center><img src="/2022/01/04/Y86-64-learning-1/17.png" srcset="/img/loading.gif" lazyload width="30%" height="30%">
+<h2 id="2-7-halt-Instructions"><a href="#2-7-halt-Instructions" class="headerlink" title="2.7 halt Instructions"></a>2.7 <code>halt</code> Instructions</h2><center><img src="/2022/01/04/Y86-64-learning-1/17.png" srcset="/img/loading.gif" lazyload width="30%" height="30%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -894,13 +879,13 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Y86-64 halt instruction(CS: APP)</div>
 </center>
+
 <ul>
 <li>Stops instruction execution;</li>
 <li>1-byte instruction.</li>
 </ul>
 <hr>
-<h2 id="28-nop-instructions"><a class="markdownIt-Anchor" href="#28-nop-instructions"></a> 2.8 <code>nop</code> Instructions</h2>
-<center><img src="/2022/01/04/Y86-64-learning-1/18.png" srcset="/img/loading.gif" lazyload width="30%" height="30%">
+<h2 id="2-8-nop-Instructions"><a href="#2-8-nop-Instructions" class="headerlink" title="2.8 nop Instructions"></a>2.8 <code>nop</code> Instructions</h2><center><img src="/2022/01/04/Y86-64-learning-1/18.png" srcset="/img/loading.gif" lazyload width="30%" height="30%">
 <br>
     <div style="color:orange; 
     border-bottom: 15px solid rgba(0,0,0,0);
@@ -908,18 +893,16 @@ except <code>mrmovq D(rB), rA</code>, which is <code>rB</code> <span class="kate
     color: #999;
     padding: 0px;">Y86-64 nop instruction(CS: APP)</div>
 </center>
+
 <ul>
 <li>Do nothing;</li>
 <li>1-byte instruction.</li>
 </ul>
 <hr>
-<h1 id="3-encoding"><a class="markdownIt-Anchor" href="#3-encoding"></a> 3 Encoding</h1>
-<h2 id="31-instruction-specifier"><a class="markdownIt-Anchor" href="#31-instruction-specifier"></a> 3.1 Instruction Specifier</h2>
-<blockquote>
+<h1 id="3-Encoding"><a href="#3-Encoding" class="headerlink" title="3 Encoding"></a>3 Encoding</h1><h2 id="3-1-Instruction-Specifier"><a href="#3-1-Instruction-Specifier" class="headerlink" title="3.1 Instruction Specifier"></a>3.1 Instruction Specifier</h2><blockquote>
 <p>Having been mentioned in <em>Section 2</em>.</p>
 </blockquote>
-<p>Every instruction has a type specifier, which is the first byte.<br>
-It can be separated into two 4-bit parts, <strong>operation code</strong> and <strong>function code</strong>.</p>
+<p>Every instruction has a type specifier, which is the first byte.<br>It can be separated into two 4-bit parts, <strong>operation code</strong> and <strong>function code</strong>.</p>
 <ul>
 <li><strong>operation codes</strong> range from <strong>0 to 0xB</strong>.</li>
 <li><strong>function code</strong> have special values in integer operation, branch, and move instructions; 0 for rest instructions:</li>
@@ -932,9 +915,9 @@ It can be separated into two 4-bit parts, <strong>operation code</strong> and <s
     color: #999;
     padding: 0px;">Function codes for Y86-64 instruction set(CS: APP)</div>
 </center>
+
 <hr>
-<h2 id="32-register-identifier"><a class="markdownIt-Anchor" href="#32-register-identifier"></a> 3.2 Register Identifier</h2>
-<p>In Y86-64, some instruction has register operands, such as <code>rrmovq</code>, which associated with the Program Register, who also need to be encoded.</p>
+<h2 id="3-2-Register-Identifier"><a href="#3-2-Register-Identifier" class="headerlink" title="3.2 Register Identifier"></a>3.2 Register Identifier</h2><p>In Y86-64, some instruction has register operands, such as <code>rrmovq</code>, which associated with the Program Register, who also need to be encoded.</p>
 <ul>
 <li>Each Program Register has its <strong>Register Identifier</strong>, ranging from <strong>0 to 0xE</strong>.</li>
 </ul>
@@ -946,14 +929,14 @@ It can be separated into two 4-bit parts, <strong>operation code</strong> and <s
     color: #999;
     padding: 0px;">Y86-64 program register identifiers(CS: APP)</div>
 </center>
+
 <ul>
 <li>The <strong>0xF</strong> register will not be accessed.</li>
 <li>Some instruction <strong>do not require register specifier</strong>;</li>
 <li>Some instruction <strong>require only one register specifier</strong>, such as <code>irmovq</code>, which need to set another register specifier to <strong>0xF</strong> for easy implementation.</li>
 </ul>
 <hr>
-<h2 id="33-constant-word-encoding"><a class="markdownIt-Anchor" href="#33-constant-word-encoding"></a> 3.3 Constant Word Encoding</h2>
-<p>3 types of 8-byte <strong>constant word</strong>:</p>
+<h2 id="3-3-Constant-Word-Encoding"><a href="#3-3-Constant-Word-Encoding" class="headerlink" title="3.3 Constant Word Encoding"></a>3.3 Constant Word Encoding</h2><p>3 types of 8-byte <strong>constant word</strong>:</p>
 <ul>
 <li>immediate data(<code>V</code>);</li>
 <li>displacement for address specifier(<code>D</code>);</li>
@@ -966,12 +949,9 @@ It can be separated into two 4-bit parts, <strong>operation code</strong> and <s
 <li>all constant integer is encoded in <strong>little-endian</strong> encoding, which means every <strong>byte</strong> should be <strong>reversed</strong> when encoding.</li>
 </ul>
 <blockquote>
-<p><strong>little-endian</strong> means the LSP(right-most) byte appears first;<br>
-For 0x 0A 0B 0C 0D <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 0D 0C 0B 0A (reversed)</p>
+<p><strong>little-endian</strong> means the LSP(right-most) byte appears first;<br>For 0x 0A 0B 0C 0D $\to$ 0D 0C 0B 0A (reversed)</p>
 </blockquote>
-<h2 id="34-example"><a class="markdownIt-Anchor" href="#34-example"></a> 3.4 Example</h2>
-<p>To encode:</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs py">.pos <span class="hljs-number">0x100</span>  <span class="hljs-comment"># Start code at address 0x100</span><br>    irmovq $<span class="hljs-number">15</span>,%rbx<br>    rrmovq %rbx,%rcx<br>loop:<br>    rmmovq %rcx,-<span class="hljs-number">3</span>(%rbx)<br>    addq %rbx,%rcx<br>    jmp loop<br></code></pre></td></tr></table></figure>
+<h2 id="3-4-Example"><a href="#3-4-Example" class="headerlink" title="3.4 Example"></a>3.4 Example</h2><p>To encode:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs py">.pos <span class="hljs-number">0x100</span>  <span class="hljs-comment"># Start code at address 0x100</span><br>    irmovq $<span class="hljs-number">15</span>,%rbx<br>    rrmovq %rbx,%rcx<br>loop:<br>    rmmovq %rcx,-<span class="hljs-number">3</span>(%rbx)<br>    addq %rbx,%rcx<br>    jmp loop<br></code></pre></td></tr></table></figure></p>
 <p><em>Practice Problem 4.1 (CS: APP)</em></p>
 <hr>
 <p>Solution steps:</p>
@@ -982,46 +962,42 @@ For 0x 0A 0B 0C 0D <span class="katex"><span class="katex-mathml"><math><semanti
 <hr>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-number">0x100</span>       irmovq $<span class="hljs-number">15</span>,%rbx <br></code></pre></td></tr></table></figure>
 <p><code>3|0|F|rB|V</code>:</p>
-<p><code>rB</code>: <code>%rbx</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 0x3</p>
-<p><code>V</code>: <code>$15</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 0x 00 00 00 00 00 00 00 0f <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 0x 0f 00 00 00 00 00 00 00</p>
+<p><code>rB</code>: <code>%rbx</code> $\to$ 0x3</p>
+<p><code>V</code>: <code>$15</code> $\to$ 0x 00 00 00 00 00 00 00 0f $\to$ 0x 0f 00 00 00 00 00 00 00</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">0x100       30 f3 0f 00 00 00 00 00 00 00  # irmovq $15,%rbx <br></code></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-number">0x10a</span>       rrmovq %rbx,%rcx<br></code></pre></td></tr></table></figure>
 <p><code>2|0|rA|rB</code>:</p>
-<p><code>rA</code>: <code>%rbx</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 3</p>
-<p><code>rB</code>: <code>%rcx</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 1</p>
+<p><code>rA</code>: <code>%rbx</code> $\to$ 3</p>
+<p><code>rB</code>: <code>%rcx</code> $\to$ 1</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">0x10a       20 31  # rrmovq %rbx,%rcx<br></code></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-number">0x10c</span>       rmmovq %rcx,-<span class="hljs-number">3</span>(%rbx)<br></code></pre></td></tr></table></figure>
 <p><code>4|0|rA|rB|D</code></p>
-<p><code>rA</code>: <code>%rcx</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 1</p>
-<p><code>rB</code>: <code>%rbx</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 3</p>
-<p><code>D</code>: -3 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 0000 0000 … 0011 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 1111 1111 … 1101 (2’s complement) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 0x ff ff ff ff ff ff ff fd <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> fd ff ff ff ff ff ff ff</p>
+<p><code>rA</code>: <code>%rcx</code> $\to$ 1</p>
+<p><code>rB</code>: <code>%rbx</code> $\to$ 3</p>
+<p><code>D</code>: -3 $\to$ 0000 0000 … 0011 $\to$ 1111 1111 … 1101 (2’s complement) $\to$ 0x ff ff ff ff ff ff ff fd $\to$ fd ff ff ff ff ff ff ff</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">0x10c       40 13 fd ff ff ff ff ff ff ff  # rmmovq %rcx,-3(%rbx)<br></code></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-number">0x116</span>       addq %rbx,%rcx<br></code></pre></td></tr></table></figure>
 <p><code>6|0|rA|rB</code></p>
-<p><code>rA</code>: <code>%rbx</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 3</p>
-<p><code>rB</code>: <code>%rcx</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 1</p>
+<p><code>rA</code>: <code>%rbx</code> $\to$ 3</p>
+<p><code>rB</code>: <code>%rcx</code> $\to$ 1</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">0x116       60 31  # addq %rbx,%rcx<br></code></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-number">0x118</span>       jmp loop<br></code></pre></td></tr></table></figure>
 <p><code>7|0|Dest</code></p>
-<p><code>Dest</code>: <code>loop</code> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 0x10a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 0x 00 00 00 00 00 00 01 0c <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 0c 01 00 00 00 00 00 00</p>
+<p><code>Dest</code>: <code>loop</code> $\to$ 0x10a $\to$ 0x 00 00 00 00 00 00 01 0c $\to$ 0c 01 00 00 00 00 00 00</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">0x118       70 0c 01 00 00 00 00 00 00  # jmp loop<br></code></pre></td></tr></table></figure>
 <hr>
 <p>Answer:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs txt">0x100       # .pos 0x100<br>0x100       30 f3 0f 00 00 00 00 00 00 00  # irmovq $15,%rbx <br>0x10a       20 31  # rrmovq %rbx,%rcx<br>0x10c       # loop:<br>0x10c       40 13 fd ff ff ff ff ff ff ff  # rmmovq %rcx,-3(%rbx)<br>0x116       60 31  # addq %rbx,%rcx<br>0x118       70 0c 01 00 00 00 00 00 00  # jmp loop<br></code></pre></td></tr></table></figure>
 <hr>
-<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
-<p>B. Randal, D. R. O’Hallaron, <em>Computer systems : a programmer’s perspective</em>, Third edition. Boston: Pearson, 2016.</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>B. Randal, D. R. O’Hallaron, <em>Computer systems : a programmer’s perspective</em>, Third edition. Boston: Pearson, 2016.</p>
 <hr>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>Y86-64相关的知识会继续学习，继续更新.<br>
-最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Y86-64相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
-<p><em><strong>原创文章，转载请标明出处</strong></em><br>
-<em><strong>Made by Mike_Zhang</strong></em></p>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
 <br>
@@ -1231,6 +1207,7 @@ For 0x 0A 0B 0C 0D <span class="katex"><span class="katex-mathml"><math><semanti
 
   
   
+
 
 
 
@@ -1537,6 +1514,44 @@ For 0x 0A 0B 0C 0D <span class="katex"><span class="katex-mathml"><math><semanti
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

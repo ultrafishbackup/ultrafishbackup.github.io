@@ -16,12 +16,12 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   所有文章: Introductory Probability Course Note Python Basic Note Limits and Continuity Note Calculus for Engineers Course Note Introduction to Data Analytics Course Note Introduction">
+    <meta name="description" content="Made by Mike_Zhang   所有文章:Introductory Probability Course NotePython Basic NoteLimits and Continuity NoteCalculus for Engineers Course NoteIntroduction to Data Analytics Course NoteIntroduction to Com">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python Basic Note">
 <meta property="og:url" content="https://ultrafish.cn/2021/12/18/Python-basic-note/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   所有文章: Introductory Probability Course Note Python Basic Note Limits and Continuity Note Calculus for Engineers Course Note Introduction to Data Analytics Course Note Introduction">
+<meta property="og:description" content="Made by Mike_Zhang   所有文章:Introductory Probability Course NotePython Basic NoteLimits and Continuity NoteCalculus for Engineers Course NoteIntroduction to Data Analytics Course NoteIntroduction to Com">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/python.png">
 <meta property="article:published_time" content="2021-12-18T07:42:32.000Z">
@@ -44,8 +44,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -874,59 +872,36 @@
             
             <div class="markdown-body">
               
-              <p><em><strong>Made by Mike_Zhang</strong></em></p>
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
 <blockquote>
-<p>所有文章:<br>
-<a href="https://ultrafish.cn/2021/12/12/introductory-probability-course-note/">Introductory Probability Course Note</a><br>
-<a href="https://ultrafish.cn/2021/12/18/Python-basic-note/">Python Basic Note</a><br>
-<a href="https://ultrafish.cn/2021/12/14/limits-continuity-note/">Limits and Continuity Note</a><br>
-<a href="https://ultrafish.cn/2022/04/28/calculus-for-engineers-course-note/">Calculus for Engineers Course Note</a><br>
-<a href="https://ultrafish.cn/2022/04/30/introduction-to-data-analytics-course-note/">Introduction to Data Analytics Course Note</a><br>
-<a href="https://ultrafish.cn/2022/04/30/introduction-to-computer-systems-course-note/">Introduction to Computer Systems Course Note</a></p>
+<p>所有文章:<br><a href="https://ultrafish.cn/2021/12/12/introductory-probability-course-note/">Introductory Probability Course Note</a><br><a href="https://ultrafish.cn/2021/12/18/Python-basic-note/">Python Basic Note</a><br><a href="https://ultrafish.cn/2021/12/14/limits-continuity-note/">Limits and Continuity Note</a><br><a href="https://ultrafish.cn/2022/04/28/calculus-for-engineers-course-note/">Calculus for Engineers Course Note</a><br><a href="https://ultrafish.cn/2022/04/30/introduction-to-data-analytics-course-note/">Introduction to Data Analytics Course Note</a><br><a href="https://ultrafish.cn/2022/04/30/introduction-to-computer-systems-course-note/">Introduction to Computer Systems Course Note</a></p>
 </blockquote>
 <hr>
-<p><em><strong>个人笔记，仅供参考</strong></em><br>
-<em><strong>FOR REFERENCE ONLY</strong></em></p>
+<p><strong><em>个人笔记，仅供参考</em></strong><br><strong><em>FOR REFERENCE ONLY</em></strong></p>
 <p>Course note of <strong>COMP1002 Computational Thinking and Problem Solving</strong>, The Hong Kong Polytechnic University, 2021.</p>
 <hr>
-<h1 id="1-identifiers"><a class="markdownIt-Anchor" href="#1-identifiers"></a> 1. Identifiers</h1>
-<blockquote>
-<p>Begin with a <strong>letter or underscore (“_”)</strong>, CAN NOT start with <strong>digits</strong>;<br>
-Followed by any sequence of <strong>letters</strong>, <strong>digits</strong>, or <strong>underscores(“_”)</strong> ;<br>
-“-”, “.” and many other symbols are not allowed;<br>
-<strong>Case sensitive</strong>;<br>
-CANNOT be Python’s keywords</p>
+<h1 id="1-Identifiers"><a href="#1-Identifiers" class="headerlink" title="1. Identifiers"></a>1. Identifiers</h1><blockquote>
+<p>Begin with a <strong>letter or underscore (“_”)</strong>, CAN NOT start with <strong>digits</strong>;<br>Followed by any sequence of <strong>letters</strong>, <strong>digits</strong>, or <strong>underscores(“_”)</strong> ;<br> “-”, “.” and many other symbols are not allowed;<br><strong>Case sensitive</strong>;<br>CANNOT be Python’s keywords<br><span id="more"></span><br><img src="/2021/12/18/Python-basic-note/py-keywords.png" srcset="/img/loading.gif" lazyload alt="Python’s keywords"></p>
 </blockquote>
-<span id="more"></span>
-<p><img src="/2021/12/18/Python-basic-note/py-keywords.png" srcset="/img/loading.gif" lazyload alt="Python’s keywords"></p>
 <hr>
-<h1 id="2-basic-data-types"><a class="markdownIt-Anchor" href="#2-basic-data-types"></a> 2. Basic Data Types</h1>
-<h2 id="21-rounding-functions"><a class="markdownIt-Anchor" href="#21-rounding-functions"></a> 2.1 Rounding functions</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><span class="hljs-comment">#1</span><br><span class="hljs-built_in">round</span>(x,n) <span class="hljs-comment"># built-in （“四舍五入” 不完全是）round to n decimal places</span><br><span class="hljs-comment">#2</span><br>math.ceil(x) <span class="hljs-comment"># round up</span><br>math.ceil(<span class="hljs-number">4.5</span>) = <span class="hljs-number">5</span><br><span class="hljs-comment">#3</span><br>math.floor(x) <span class="hljs-comment"># round down</span><br>math.floor(<span class="hljs-number">5.45</span>) = <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+<h1 id="2-Basic-Data-Types"><a href="#2-Basic-Data-Types" class="headerlink" title="2. Basic Data Types"></a>2. Basic Data Types</h1><h2 id="2-1-Rounding-functions"><a href="#2-1-Rounding-functions" class="headerlink" title="2.1 Rounding functions"></a>2.1 Rounding functions</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><span class="hljs-comment">#1</span><br><span class="hljs-built_in">round</span>(x,n) <span class="hljs-comment"># built-in （“四舍五入” 不完全是）round to n decimal places</span><br><span class="hljs-comment">#2</span><br>math.ceil(x) <span class="hljs-comment"># round up</span><br>math.ceil(<span class="hljs-number">4.5</span>) = <span class="hljs-number">5</span><br><span class="hljs-comment">#3</span><br>math.floor(x) <span class="hljs-comment"># round down</span><br>math.floor(<span class="hljs-number">5.45</span>) = <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>When using the floating point number representation, most decimal fractions can’t be represented exactly as a float, there may be infinite 0 and 1s.</strong></p>
 </blockquote>
-<h2 id="22-string"><a class="markdownIt-Anchor" href="#22-string"></a> 2.2 String</h2>
-<ol>
-<li>
-<p>Expressed inside <strong>double quotes or single quotes</strong>, usually single quote for char, double quote for string, but both ok.</p>
+<h2 id="2-2-String"><a href="#2-2-String" class="headerlink" title="2.2 String"></a>2.2 String</h2><ol>
+<li><p>Expressed inside <strong>double quotes or single quotes</strong>, usually single quote for char, double quote for string, but both ok.</p>
 </li>
-<li>
-<p>A string can be empty.</p>
+<li><p>A string can be empty. </p>
 </li>
-<li></li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">ord</span>() <span class="hljs-comment"># returns the numeric (ordinal) code of a single character</span><br><span class="hljs-built_in">ord</span>(<span class="hljs-string">&quot;A&quot;</span>) = <span class="hljs-number">65</span><br> <br><span class="hljs-built_in">chr</span>() <span class="hljs-comment"># converts a numeric code to the corresponding character</span><br><span class="hljs-built_in">chr</span>(<span class="hljs-number">65</span>) = <span class="hljs-string">&#x27;A&#x27;</span><br></code></pre></td></tr></table></figure>
-<ol start="4">
-<li>
-<p>ASCII table<br>
-<img src="/2021/12/18/Python-basic-note/ascii.png" srcset="/img/loading.gif" lazyload alt></p>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">ord</span>() <span class="hljs-comment"># returns the numeric (ordinal) code of a single character</span><br><span class="hljs-built_in">ord</span>(<span class="hljs-string">&quot;A&quot;</span>) = <span class="hljs-number">65</span><br> <br><span class="hljs-built_in">chr</span>() <span class="hljs-comment"># converts a numeric code to the corresponding character</span><br><span class="hljs-built_in">chr</span>(<span class="hljs-number">65</span>) = <span class="hljs-string">&#x27;A&#x27;</span><br></code></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Escape character</p>
+<li><p>ASCII table<br><img src="/2021/12/18/Python-basic-note/ascii.png" srcset="/img/loading.gif" lazyload alt></p>
+</li>
+<li><p>Escape character</p>
 </li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -936,11 +911,11 @@ CANNOT be Python’s keywords</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">\’</td>
+<td style="text-align:center">\‘</td>
 <td style="text-align:center">Single Quote</td>
 </tr>
 <tr>
-<td style="text-align:center">\&quot;</td>
+<td style="text-align:center">\“</td>
 <td style="text-align:center">Double Quote</td>
 </tr>
 <tr>
@@ -969,284 +944,211 @@ CANNOT be Python’s keywords</p>
 </tr>
 <tr>
 <td style="text-align:center">\ooo</td>
-<td style="text-align:center">ASCII character represented by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>o</mi><mi>o</mi><msub><mi>o</mi><mrow><mi>o</mi><mi>c</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">ooo_{oct}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">o</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, e.g. “\063” = “3”.</td>
+<td style="text-align:center">ASCII character represented by $ooo_{oct}$, e.g. “\063” = “3”. </td>
 </tr>
 <tr>
 <td style="text-align:center">\xhh</td>
-<td style="text-align:center">ASCII character represented by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><msub><mi>h</mi><mrow><mi>h</mi><mi>e</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">hh_{hex}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, e.g. “\x41” = “A”.</td>
+<td style="text-align:center">ASCII character represented by $hh_{hex}$, e.g. “\x41” = “A”. </td>
 </tr>
 <tr>
 <td style="text-align:center">\uhhhh</td>
-<td style="text-align:center">Unicode character represented by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>h</mi><mi>h</mi><msub><mi>h</mi><mrow><mi>h</mi><mi>e</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">hhhh_{hex}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">h</span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, e.g. “\u2190” = “&lt;-”,“\u5927” = “⼤”, “\u3042” = “あ”, “\u3184” = “ㆄ”.</td>
+<td style="text-align:center">Unicode character represented by $hhhh_{hex}$, e.g. “\u2190” = “&lt;-“,“\u5927” = “⼤”, “\u3042” = “あ”, “\u3184” = “ㆄ”.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="23-expression"><a class="markdownIt-Anchor" href="#23-expression"></a> 2.3 Expression</h2>
-<ol>
-<li>
-<p>Simultaneous Assignment</p>
+</div>
+<h2 id="2-3-Expression"><a href="#2-3-Expression" class="headerlink" title="2.3 Expression"></a>2.3 Expression</h2><ol>
+<li><p>Simultaneous Assignment</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 1 RHS and assign them to the variables on the LHS. </span><br>&lt;var&gt;, &lt;var&gt;, … = &lt;expr&gt;, &lt;expr&gt;, … <br><span class="hljs-comment"># 2</span><br>x, y = y, x <span class="hljs-comment"># swap</span><br><span class="hljs-comment"># 3</span><br><span class="hljs-built_in">sum</span>, diff = x+y, x-y <br><span class="hljs-comment"># 4</span><br>x, y = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Input the first and second numbers separated by a comma: &quot;</span>))<br></code></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Expressions Print</p>
+<li><p>Expressions Print</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;A&quot;</span>+<span class="hljs-string">&quot;B&quot;</span>+<span class="hljs-string">&quot;C&quot;</span>)<br>ABC<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;A&quot;</span>,<span class="hljs-string">&quot;B&quot;</span>,<span class="hljs-string">&quot;C&quot;</span>)<br>A B C<br><span class="hljs-meta">&gt;&gt;&gt; </span><br></code></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Python built-in numeric operations</p>
+<li><p>Python built-in numeric operations</p>
 </li>
 </ol>
 <p><img src="/2021/12/18/Python-basic-note/built-in-unm-op.png" srcset="/img/loading.gif" lazyload alt="Python built-in numeric operations"></p>
-<ol start="4">
+<ol>
 <li>Operator precedence and associativity</li>
 </ol>
 <p><img src="/2021/12/18/Python-basic-note/op-pre-asso.png" srcset="/img/loading.gif" lazyload alt="Operator precedence and associativity"></p>
-<h2 id="24-data-types"><a class="markdownIt-Anchor" href="#24-data-types"></a> 2.4 Data types</h2>
-<ol>
-<li></li>
+<h2 id="2-4-Data-types"><a href="#2-4-Data-types" class="headerlink" title="2.4 Data types"></a>2.4 Data types</h2><ol>
+<li> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-built_in">type</span>(x) <span class="hljs-comment"># returns the data type of x which could be a literal or variable. </span><br><br><span class="hljs-built_in">int</span>(x), <span class="hljs-built_in">float</span>(x) <span class="hljs-comment"># explicit type conversion</span><br><br><span class="hljs-comment"># [Example]</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">int</span>(<span class="hljs-number">2.2</span>) <span class="hljs-comment"># OK</span><br><span class="hljs-number">2</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;22&quot;</span>) <span class="hljs-comment"># OK</span><br><span class="hljs-number">22</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;2.2&quot;</span>) <span class="hljs-comment"># Error!</span><br>Traceback (most recent call last):<br>File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>ValueError: invalid literal <span class="hljs-keyword">for</span> <span class="hljs-built_in">int</span>() <span class="hljs-keyword">with</span> base <span class="hljs-number">10</span>: <span class="hljs-string">&#x27;2.2&#x27;</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">float</span>(<span class="hljs-number">2</span>) <span class="hljs-comment"># OK</span><br><span class="hljs-number">2.0</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">float</span>(<span class="hljs-number">1.2</span>) <span class="hljs-comment"># OK </span><br><span class="hljs-number">1.2</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">float</span>(<span class="hljs-string">&quot;2.2&quot;</span>) <span class="hljs-comment"># OK!</span><br><span class="hljs-number">2.2</span><br></code></pre></td></tr></table></figure>
+</li>
+<li> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-built_in">eval</span>() <span class="hljs-comment"># The arguments are a string</span><br><span class="hljs-comment"># The expression argument is parsed and evaluated as a Python expression</span><br><br><span class="hljs-comment">#[Example]</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">eval</span>(<span class="hljs-string">&quot;1.2&quot;</span>)<br><span class="hljs-number">1.2</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">eval</span>(<span class="hljs-string">&quot;1&quot;</span>)<br><span class="hljs-number">1</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">eval</span>(<span class="hljs-string">&quot;1+2&quot;</span>)<br><span class="hljs-number">3</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">eval</span>(<span class="hljs-number">1</span>)<br>Traceback (most recent call last):<br>File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>TypeError: <span class="hljs-built_in">eval</span>() arg <span class="hljs-number">1</span> must be a string, <span class="hljs-built_in">bytes</span> <span class="hljs-keyword">or</span> code <span class="hljs-built_in">object</span><br><span class="hljs-comment"># must be a String</span><br><br>x, y = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Input the first and second numbers separated by a comma: &quot;</span>))<br><span class="hljs-comment"># can not use int()</span><br></code></pre></td></tr></table></figure>
+</li>
+<li> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6</span>+<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;int&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>+<span class="hljs-number">3.0</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt; <span class="hljs-comment"># !!!</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>+<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.00</span>+<span class="hljs-number">3.00</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6</span>*<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;int&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>*<span class="hljs-number">3.0</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>*<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6</span>/<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt; <span class="hljs-comment"># !!!</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>/<span class="hljs-number">3.0</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>/<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt; <span class="hljs-comment"># !!!</span><br></code></pre></td></tr></table></figure>
+</li>
 </ol>
-<pre><code class="hljs"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-built_in">type</span>(x) <span class="hljs-comment"># returns the data type of x which could be a literal or variable. </span><br><br><span class="hljs-built_in">int</span>(x), <span class="hljs-built_in">float</span>(x) <span class="hljs-comment"># explicit type conversion</span><br><br><span class="hljs-comment"># [Example]</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">int</span>(<span class="hljs-number">2.2</span>) <span class="hljs-comment"># OK</span><br><span class="hljs-number">2</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;22&quot;</span>) <span class="hljs-comment"># OK</span><br><span class="hljs-number">22</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;2.2&quot;</span>) <span class="hljs-comment"># Error!</span><br>Traceback (most recent call last):<br>File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>ValueError: invalid literal <span class="hljs-keyword">for</span> <span class="hljs-built_in">int</span>() <span class="hljs-keyword">with</span> base <span class="hljs-number">10</span>: <span class="hljs-string">&#x27;2.2&#x27;</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">float</span>(<span class="hljs-number">2</span>) <span class="hljs-comment"># OK</span><br><span class="hljs-number">2.0</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">float</span>(<span class="hljs-number">1.2</span>) <span class="hljs-comment"># OK </span><br><span class="hljs-number">1.2</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">float</span>(<span class="hljs-string">&quot;2.2&quot;</span>) <span class="hljs-comment"># OK!</span><br><span class="hljs-number">2.2</span><br></code></pre></td></tr></table></figure>
-</code></pre>
-<ol start="2">
-<li></li>
-</ol>
-<pre><code class="hljs"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-built_in">eval</span>() <span class="hljs-comment"># The arguments are a string</span><br><span class="hljs-comment"># The expression argument is parsed and evaluated as a Python expression</span><br><br><span class="hljs-comment">#[Example]</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">eval</span>(<span class="hljs-string">&quot;1.2&quot;</span>)<br><span class="hljs-number">1.2</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">eval</span>(<span class="hljs-string">&quot;1&quot;</span>)<br><span class="hljs-number">1</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">eval</span>(<span class="hljs-string">&quot;1+2&quot;</span>)<br><span class="hljs-number">3</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">eval</span>(<span class="hljs-number">1</span>)<br>Traceback (most recent call last):<br>File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>TypeError: <span class="hljs-built_in">eval</span>() arg <span class="hljs-number">1</span> must be a string, <span class="hljs-built_in">bytes</span> <span class="hljs-keyword">or</span> code <span class="hljs-built_in">object</span><br><span class="hljs-comment"># must be a String</span><br><br>x, y = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Input the first and second numbers separated by a comma: &quot;</span>))<br><span class="hljs-comment"># can not use int()</span><br></code></pre></td></tr></table></figure>
-</code></pre>
-<ol start="3">
-<li></li>
-</ol>
-<pre><code class="hljs"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6</span>+<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;int&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>+<span class="hljs-number">3.0</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt; <span class="hljs-comment"># !!!</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>+<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.00</span>+<span class="hljs-number">3.00</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6</span>*<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;int&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>*<span class="hljs-number">3.0</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>*<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6</span>/<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt; <span class="hljs-comment"># !!!</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>/<span class="hljs-number">3.0</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">6.0</span>/<span class="hljs-number">3</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt; <span class="hljs-comment"># !!!</span><br></code></pre></td></tr></table></figure>
-</code></pre>
 <hr>
-<h1 id="3-condition"><a class="markdownIt-Anchor" href="#3-condition"></a> 3. Condition</h1>
-<p>boolean value: <code>True</code>, <code>False</code>, both in upper case.</p>
+<h1 id="3-Condition"><a href="#3-Condition" class="headerlink" title="3. Condition"></a>3. Condition</h1><p>boolean value: <code>True</code>, <code>False</code>, both in upper case.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-literal">True</span>))<br><span class="hljs-number">1</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-literal">False</span>))<br><span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 <ol>
 <li>Relational Operators</li>
 </ol>
 <p>Can be used for <strong>Number comparison</strong> and <strong>Lexicographical ordering for string comparison</strong></p>
 <p><img src="/2021/12/18/Python-basic-note/relation-op.png" srcset="/img/loading.gif" lazyload alt="Relational Operators"></p>
-<ol start="2">
-<li>
-<p><code>in</code> operator</p>
+<ol>
+<li><p><code>in</code> operator</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">10</span> <span class="hljs-keyword">in</span> [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>] <br><span class="hljs-literal">True</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">10</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>] <br><span class="hljs-literal">False</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;blue&quot;</span> <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;yellow&quot;</span>, <span class="hljs-string">&quot;black&quot;</span>] <br><span class="hljs-literal">False</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;blue&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;yellow&quot;</span>, <span class="hljs-string">&quot;black&quot;</span>] <br><span class="hljs-literal">True</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;o&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;peter paul and mary&quot;</span><br><span class="hljs-literal">False</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;p&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;peter paul and mary&quot;</span><br><span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Boolean operators<br>
-<img src="/2021/12/18/Python-basic-note/boolean-op.png" srcset="/img/loading.gif" lazyload alt="Boolean operators"></p>
+<li><p>Boolean operators<br><img src="/2021/12/18/Python-basic-note/boolean-op.png" srcset="/img/loading.gif" lazyload alt="Boolean operators"></p>
 </li>
-<li>
-<p>Operator Precedence<br>
-<img src="/2021/12/18/Python-basic-note/op-pre-2.png" srcset="/img/loading.gif" lazyload alt="Operator Precedence"></p>
+<li><p>Operator Precedence<br><img src="/2021/12/18/Python-basic-note/op-pre-2.png" srcset="/img/loading.gif" lazyload alt="Operator Precedence"></p>
 </li>
 </ol>
 <hr>
-<h1 id="4-iteration"><a class="markdownIt-Anchor" href="#4-iteration"></a> 4. Iteration</h1>
-<p>for loop:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> &lt;var&gt; <span class="hljs-keyword">in</span> &lt;sequence&gt;: <br>	&lt;body&gt;<br></code></pre></td></tr></table></figure>
-<p>while loop:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> &lt;condition&gt;:<br>	&lt;body&gt;<br></code></pre></td></tr></table></figure>
+<h1 id="4-Iteration"><a href="#4-Iteration" class="headerlink" title="4. Iteration"></a>4. Iteration</h1><p>for loop:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> &lt;var&gt; <span class="hljs-keyword">in</span> &lt;sequence&gt;: <br>	&lt;body&gt;<br></code></pre></td></tr></table></figure></p>
+<p>while loop:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> &lt;condition&gt;:<br>	&lt;body&gt;<br></code></pre></td></tr></table></figure></p>
 <ol>
-<li></li>
-</ol>
-<p><code>range(10)</code>: [0,10)</p>
-<blockquote>
+<li><code>range(10)</code>: [0,10)<blockquote>
 <p>range (<strong>inclusive start</strong>, <strong>exclusive stop</strong>, <strong>step</strong>)</p>
 </blockquote>
-<p><code>break</code>: immediately exit the deepest enclosing loop;<br>
-<code>continue</code>: immediately skip the current time of loop, go to the next time of loop;</p>
-<ol start="2">
-<li>Post-test loop</li>
+</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">repeat<br>	<span class="hljs-comment"># do sth</span><br>until x &gt; <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
-<p>NO post-test loop in Python.</p>
-<hr>
-<h1 id="5-string-data-type"><a class="markdownIt-Anchor" href="#5-string-data-type"></a> 5. String Data Type</h1>
+<p><code>break</code>: immediately exit the deepest enclosing loop;<br><code>continue</code>: immediately skip the current time of loop, go to the next time of loop;</p>
 <ol>
-<li>
-<p>String</p>
+<li>Post-test loop<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">repeat<br>	<span class="hljs-comment"># do sth</span><br>until x &gt; <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+NO post-test loop in Python.</li>
+</ol>
+<hr>
+<h1 id="5-String-Data-Type"><a href="#5-String-Data-Type" class="headerlink" title="5. String Data Type"></a>5. String Data Type</h1><ol>
+<li><p>String</p>
 <blockquote>
-<p>a sequence of characters enclosed within quotation marks (&quot;) or apostrophes (’).<br>
-String object are <strong>immutable</strong></p>
-</blockquote>
+<p>a sequence of characters enclosed within quotation marks (“) or apostrophes (‘).<br>String object are <strong>immutable</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">myName = <span class="hljs-string">&quot;Dennis Liu&quot;</span> <br>myName[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;C&quot;</span> <span class="hljs-comment"># Error!</span><br></code></pre></td></tr></table></figure>
+</blockquote>
 </li>
-<li>
-<p>String indexing<br>
-First character is indexed by 0,<br>
-<code>&lt;string&gt;[&lt;expr&gt;]</code>:value of <code>expr</code> determines which character is selected from the <code>string</code></p>
+<li><p>String indexing<br> First character is indexed by 0,<br> <code>&lt;string&gt;[&lt;expr&gt;]</code>:value of <code>expr</code> determines which character is selected from the <code>string</code></p>
 </li>
-<li>
-<p>String slicing<br>
-<code>&lt;string&gt;[&lt;start&gt;:&lt;end&gt;]</code>: [inclusive start, exclusive end)</p>
+<li><p>String slicing<br> <code>&lt;string&gt;[&lt;start&gt;:&lt;end&gt;]</code>: [inclusive start, exclusive end)</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">str</span>[:<span class="hljs-number">5</span>] = <span class="hljs-built_in">str</span>[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>]<br>   <span class="hljs-built_in">str</span>[<span class="hljs-number">5</span>:] = <span class="hljs-built_in">str</span>[<span class="hljs-number">5</span>:&lt;end&gt;]<br><br>   <span class="hljs-comment">#start from left to end at right</span><br><br><span class="hljs-built_in">str</span>[-<span class="hljs-number">3</span>:-<span class="hljs-number">1</span>]√<br>   <span class="hljs-built_in">str</span>[-<span class="hljs-number">1</span>:-<span class="hljs-number">3</span>]x<br><br><span class="hljs-built_in">str</span>[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]√<br><span class="hljs-built_in">str</span>[<span class="hljs-number">3</span>:<span class="hljs-number">1</span>]x<br></code></pre></td></tr></table></figure>
 </li>
-<li>
-<p>String operations<br>
-<img src="/2021/12/18/Python-basic-note/str-op.png" srcset="/img/loading.gif" lazyload alt="String operations"></p>
+<li><p>String operations<br><img src="/2021/12/18/Python-basic-note/str-op.png" srcset="/img/loading.gif" lazyload alt="String operations"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">str</span> = <span class="hljs-string">&#x27;Liu&#x27;</span><br>  <br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">str</span>[<span class="hljs-number">7</span>] <span class="hljs-comment"># Error!</span><br>IndexError: string index out of <span class="hljs-built_in">range</span><br>  <br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">str</span>[<span class="hljs-number">0</span>:<span class="hljs-number">7</span>] <span class="hljs-comment"># OK!</span><br><span class="hljs-string">&#x27;Liu&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">str</span>[<span class="hljs-number">7</span>:] <span class="hljs-comment"># OK!</span><br><span class="hljs-string">&#x27;&#x27;</span><br></code></pre></td></tr></table></figure>
 </li>
-<li>
-<p>String methods</p>
+<li><p>String methods</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python">split()<br>lower()<br>upper()<br>append()<br>capitalize()<br><br><span class="hljs-meta">&gt;&gt;&gt; </span>student = <span class="hljs-string">&quot;first_name last_names student_ID&quot;</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span>student.split()<br>[<span class="hljs-string">&#x27;first_name&#x27;</span>, <span class="hljs-string">&#x27;last_names&#x27;</span>, <span class="hljs-string">&#x27;student_ID&#x27;</span>]<br><br><span class="hljs-meta">&gt;&gt;&gt; </span>student.lower()<br><span class="hljs-string">&#x27;first_name last_names student_id&#x27;</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span>student.upper()<br><span class="hljs-string">&#x27;FIRST_NAME LAST_NAMES STUDENT_ID&#x27;</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span>student.capitalize()<br><span class="hljs-string">&#x27;First_name last_names student_id&#x27;</span><br></code></pre></td></tr></table></figure>
 </li>
 </ol>
 <hr>
-<h1 id="6-string-formatting"><a class="markdownIt-Anchor" href="#6-string-formatting"></a> 6. String formatting</h1>
-<p><code>&quot;&#123;&lt;index&gt;:&lt;width&gt;.&lt;precision&gt;&lt;type&gt;&#125;&quot;.format(&lt;values&gt;)</code></p>
+<h1 id="6-String-formatting"><a href="#6-String-formatting" class="headerlink" title="6. String formatting"></a>6. String formatting</h1><p><code>&quot;&#123;&lt;index&gt;:&lt;width&gt;.&lt;precision&gt;&lt;type&gt;&#125;&quot;.format(&lt;values&gt;)</code></p>
 <ul>
 <li><code>index</code>: indicate <strong>which</strong> parameter to insert here</li>
-<li><code>width</code>: the **number of spaces **for printing the parameter</li>
+<li><code>width</code>: the <strong>number of spaces </strong>for printing the parameter </li>
 <li><code>precision</code>: the number of <strong>decimal places</strong></li>
 <li><code>f</code>: will print out 0 to <strong>fill up</strong> the number of decimal places.</li>
 </ul>
 <p><img src="/2021/12/18/Python-basic-note/py-format.png" srcset="/img/loading.gif" lazyload alt="String formatting"></p>
 <hr>
-<h1 id="7-list"><a class="markdownIt-Anchor" href="#7-list"></a> 7. List</h1>
-<blockquote>
+<h1 id="7-List"><a href="#7-List" class="headerlink" title="7. List"></a>7. List</h1><blockquote>
 <p>a sequence(order) of arbitrary objects of any date type</p>
 </blockquote>
 <ol>
 <li>List operations</li>
 </ol>
 <p><img src="/2021/12/18/Python-basic-note/list-op.png" srcset="/img/loading.gif" lazyload alt="List operations"></p>
-<ol start="2">
-<li>
-<p>Common Sequence Operations<br>
-<img src="/2021/12/18/Python-basic-note/commmon-seq-op.png" srcset="/img/loading.gif" lazyload alt="Common Sequence Operations"></p>
+<ol>
+<li><p>Common Sequence Operations<br><img src="/2021/12/18/Python-basic-note/commmon-seq-op.png" srcset="/img/loading.gif" lazyload alt="Common Sequence Operations"></p>
 </li>
-<li>
-<p>Turning a list into a string</p>
+<li><p>Turning a list into a string</p>
 <blockquote>
 <p><code>s.join(list)</code>: concatenate <code>list</code> into a string, using <code>s</code> as a <strong>separator</strong></p>
-</blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>aList = [<span class="hljs-string">&quot;Hong-Va&quot;</span>, <span class="hljs-string">&quot;Leong&quot;</span>] <br><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;Dennis Liu&quot;</span>.join(aList) <br><span class="hljs-string">&#x27;Hong-VaDennis LiuLeong&#x27;</span><br>  <br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot; &quot;</span>.join(aList)<br><span class="hljs-string">&#x27;Hong-Va Leong&#x27;</span><br>  <br><span class="hljs-meta">&gt;&gt;&gt; </span>aList = [<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>]<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;&quot;</span>.join(aList)<br><span class="hljs-string">&#x27;ABCD&#x27;</span><br></code></pre></td></tr></table></figure>
+</blockquote>
 </li>
 </ol>
 <hr>
-<h1 id="8-tuple"><a class="markdownIt-Anchor" href="#8-tuple"></a> 8. Tuple</h1>
-<ol>
-<li>
-<p>An <em><strong>immutable</strong></em> linear data structure(has order).</p>
+<h1 id="8-Tuple"><a href="#8-Tuple" class="headerlink" title="8. Tuple"></a>8. Tuple</h1><ol>
+<li><p>An <strong><em>immutable</em></strong> linear data structure(has order).</p>
 </li>
-<li>
-<p>Tuples of one element <strong>must include a comma</strong>.</p>
+<li><p>Tuples of one element <strong>must include a comma</strong>.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>t = (<span class="hljs-number">1</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>t<br><span class="hljs-number">1</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>t = (<span class="hljs-number">1</span>,)<br><span class="hljs-meta">&gt;&gt;&gt; </span>t<br>(<span class="hljs-number">1</span>,)<br></code></pre></td></tr></table></figure>
 </li>
-<li>
-<p><strong>NO</strong> <code>append()</code>, <code>insert()</code>, <code>sort()</code>, <code>reverse()</code>, and <code>del()</code> on a tuple</p>
+<li><p><strong>NO</strong> <code>append()</code>, <code>insert()</code>, <code>sort()</code>, <code>reverse()</code>, and <code>del()</code> on a tuple</p>
 </li>
 </ol>
 <hr>
-<h1 id="9-dictionary"><a class="markdownIt-Anchor" href="#9-dictionary"></a> 9. Dictionary</h1>
-<ol>
+<h1 id="9-Dictionary"><a href="#9-Dictionary" class="headerlink" title="9. Dictionary"></a>9. Dictionary</h1><ol>
 <li>A <code>dictionary</code> is a <strong>mutable</strong>, associative data structure of variable length.</li>
 </ol>
 <ul>
-<li>The <strong>key</strong> can be of any <strong>immutable</strong> type.</li>
+<li>The <strong>key</strong> can be of any <strong>immutable</strong> type. </li>
 <li>The <strong>values</strong> can be of <strong>any type</strong> and are unordered.</li>
 </ul>
-<ol start="2">
-<li>Dictionary operators<br>
-<img src="/2021/12/18/Python-basic-note/dic-op.png" srcset="/img/loading.gif" lazyload alt="Dictionary operators"></li>
+<ol>
+<li>Dictionary operators<br><img src="/2021/12/18/Python-basic-note/dic-op.png" srcset="/img/loading.gif" lazyload alt="Dictionary operators"></li>
 </ol>
-<p><code>items()</code>: Returns all the key-values pairs as a list of tuples, <code>&lt;class 'dict_items'&gt;</code><br>
-<code>keys()</code>: Returns all the keys as a list, <code>&lt;class 'dict_keys'&gt;</code><br>
-<code>values()</code>: Returns all the values as a list, <code>&lt;class 'dict_values'&gt;</code></p>
+<p><code>items()</code>: Returns all the key-values pairs as a list of tuples, <code>&lt;class &#39;dict_items&#39;&gt;</code><br><code>keys()</code>: Returns all the keys as a list, <code>&lt;class &#39;dict_keys&#39;&gt;</code><br><code>values()</code>: Returns all the values as a list, <code>&lt;class &#39;dict_values&#39;&gt;</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>dictA = &#123;<span class="hljs-number">1</span>:<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-number">2</span>:<span class="hljs-string">&quot;b&quot;</span>,<span class="hljs-number">3</span>:<span class="hljs-string">&quot;c&quot;</span>&#125;<br><br><span class="hljs-meta">&gt;&gt;&gt; </span>dictA.items()<br>dict_items([(<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;a&#x27;</span>), (<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;b&#x27;</span>), (<span class="hljs-number">3</span>, <span class="hljs-string">&#x27;c&#x27;</span>)])<br><br><span class="hljs-meta">&gt;&gt;&gt; </span>dictA.keys()<br>dict_keys([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><br><span class="hljs-meta">&gt;&gt;&gt; </span>dictA.values()<br>dict_values([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>])<br></code></pre></td></tr></table></figure>
 <p>Returns are <strong>view object</strong> and <strong>iterable</strong>.</p>
 <hr>
-<h1 id="10-set"><a class="markdownIt-Anchor" href="#10-set"></a> 10. Set</h1>
-<ol>
-<li>
-<p>A <strong>mutable</strong> collection of <strong>non-mutable objects</strong> which are elements of the set.</p>
+<h1 id="10-Set"><a href="#10-Set" class="headerlink" title="10. Set"></a>10. Set</h1><ol>
+<li>A <strong>mutable</strong> collection of <strong>non-mutable objects</strong> which are elements of the set. </li>
+<li>Element: any <strong>non-mutable types</strong> (<strong>Numbers, strings, tuples</strong> are allowed, but NOT <strong>lists or sets</strong>)</li>
+<li><strong>NO order</strong> in set.</li>
+<li><strong>NO duplicate</strong> elements.</li>
+<li><p>Empty set: <code>set()</code>, NOT <code>&#123;&#125;</code> (a empty dictionary)</p>
 </li>
-<li>
-<p>Element: any <strong>non-mutable types</strong> (<strong>Numbers, strings, tuples</strong> are allowed, but NOT <strong>lists or sets</strong>)</p>
-</li>
-<li>
-<p><strong>NO order</strong> in set.</p>
-</li>
-<li>
-<p><strong>NO duplicate</strong> elements.</p>
-</li>
-<li>
-<p>Empty set: <code>set()</code>, NOT <code>&#123;&#125;</code> (a empty dictionary)</p>
-</li>
-<li>
-<p>Set operator<br>
-<img src="/2021/12/18/Python-basic-note/set-op.png" srcset="/img/loading.gif" lazyload alt="Set operator"></p>
-<p><code>|</code> = <code>intersection()</code><br>
-<code>&amp;</code> = <code>union()</code><br>
-<code>-</code> = <code>difference()</code><br>
-<code>^</code> = <code>symmetric_difference()</code></p>
+<li><p>Set operator<br><img src="/2021/12/18/Python-basic-note/set-op.png" srcset="/img/loading.gif" lazyload alt="Set operator"></p>
+<p><code>|</code> = <code>intersection()</code><br><code>&amp;</code> = <code>union()</code><br><code>-</code> = <code>difference()</code><br><code>^</code> = <code>symmetric_difference()</code></p>
 </li>
 </ol>
 <hr>
-<h1 id="11-function"><a class="markdownIt-Anchor" href="#11-function"></a> 11. Function</h1>
-<ol>
+<h1 id="11-Function"><a href="#11-Function" class="headerlink" title="11. Function"></a>11. Function</h1><ol>
 <li>non-value-returning function</li>
 </ol>
 <blockquote>
-<p><strong>no <code>return</code></strong> statement, but has <strong>side effect</strong><br>
-<strong>side effect</strong> is an action other than returning a function value, such as displaying output on the screen</p>
+<p><strong>no <code>return</code></strong> statement, but has <strong>side effect</strong><br><strong>side effect</strong> is an action other than returning a function value, such as displaying output on the screen</p>
 </blockquote>
-<ol start="2">
-<li>value-returning function</li>
-</ol>
+<ol>
+<li><p>value-returning function</p>
 <blockquote>
 <p>has <code>return</code> statement</p>
 </blockquote>
-<ol start="3">
-<li>allows a function to return more than one value (in terms of a <code>tuple</code>)</li>
-<li>Positional and keyword arguments</li>
-</ol>
-<blockquote>
-<p><strong>positional argument</strong>: based on the <strong>position</strong> in the argument list;<br>
-<strong>keyword argument</strong>:  specified by parameter <strong>name</strong></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">f(parameter = argument)<br>f(x = <span class="hljs-number">1</span>) <span class="hljs-comment"># keyword argument</span><br>f(<span class="hljs-number">1</span>) <span class="hljs-comment"># positional argument</span><br><br>f(na,n2,n3)<br>f(n1=<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) <span class="hljs-comment"># Error: SyntaxError: positional argument follows keyword argument</span><br>f(n1=<span class="hljs-number">1</span>,n2=<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) <span class="hljs-comment"># Error </span><br>f(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,n3=<span class="hljs-number">3</span>) <span class="hljs-comment"># OK</span><br></code></pre></td></tr></table></figure>
-<ol start="5">
-<li>
-<p>The use of <strong>global variables</strong> is considered <strong>BAD</strong> programming practice.</p>
 </li>
-<li>
-<p>docstring</p>
+<li><p>allows a function to return more than one value (in terms of a <code>tuple</code>) </p>
+</li>
+<li>Positional and keyword arguments<blockquote>
+<p><strong>positional argument</strong>: based on the <strong>position</strong> in the argument list;<br><strong>keyword argument</strong>:  specified by parameter <strong>name</strong></p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">f(parameter = argument)<br>f(x = <span class="hljs-number">1</span>) <span class="hljs-comment"># keyword argument</span><br>f(<span class="hljs-number">1</span>) <span class="hljs-comment"># positional argument</span><br><br>f(na,n2,n3)<br>f(n1=<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) <span class="hljs-comment"># Error: SyntaxError: positional argument follows keyword argument</span><br>f(n1=<span class="hljs-number">1</span>,n2=<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) <span class="hljs-comment"># Error </span><br>f(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,n3=<span class="hljs-number">3</span>) <span class="hljs-comment"># OK</span><br></code></pre></td></tr></table></figure>
+<ol>
+<li><p>The use of <strong>global variables</strong> is considered <strong>BAD</strong> programming practice.</p>
+</li>
+<li><p>docstring</p>
 </li>
 </ol>
 <p><code>function_name.__doc__</code> to get the docstring of a function.</p>
 <blockquote>
-<p>a string literal denoted by <strong>triple quotes</strong> used in Python for providing the specification of certain program elements.<br>
-MUST be indented at the <strong>same level</strong>.<br>
-The <strong>first block</strong> of quoted text to appear in the module.</p>
+<p>a string literal denoted by <strong>triple quotes</strong> used in Python for providing the specification of certain program elements.<br>MUST be indented at the <strong>same level</strong>.<br>The <strong>first block</strong> of quoted text to appear in the module. </p>
 </blockquote>
 <hr>
-<h1 id="12-file-processing"><a class="markdownIt-Anchor" href="#12-file-processing"></a> 12. File Processing</h1>
-<p><code>file = open(&quot;test.txt&quot;,&quot;r&quot;)</code></p>
+<h1 id="12-File-Processing"><a href="#12-File-Processing" class="headerlink" title="12. File Processing"></a>12. File Processing</h1><p><code>file = open(&quot;test.txt&quot;,&quot;r&quot;)</code></p>
 <p><img src="/2021/12/18/Python-basic-note/open-mode.png" srcset="/img/loading.gif" lazyload alt></p>
-<p><code>&lt;filevar&gt;.read()</code>:</p>
+<p>  <code>&lt;filevar&gt;.read()</code>: </p>
 <ul>
 <li>returns the <strong>entire remaining contents</strong> of the file as a single (possibly large, multi-line) <strong>string</strong>.</li>
 </ul>
-<p><code>&lt;filevar&gt;.readline()</code>:</p>
+<p><code>&lt;filevar&gt;.readline()</code>: </p>
 <ul>
 <li>returns the <strong>just one next line</strong> of the file. This is all text up to and <strong>including the next newline character</strong>.</li>
 </ul>
-<p><code>&lt;filevar&gt;.readlines()</code>:</p>
+<p><code>&lt;filevar&gt;.readlines()</code>: </p>
 <ul>
-<li>returns a <strong>list</strong> of the <strong>remaining lines</strong> in<br>
-the file. Each list <strong>item is a single line</strong> including the <strong>newline characters</strong>.</li>
+<li>returns a <strong>list</strong> of the <strong>remaining lines</strong> in<br>the file. Each list <strong>item is a single line</strong> including the <strong>newline characters</strong>.</li>
 </ul>
 <p><code>&lt;filevar&gt;.close()</code></p>
 <ul>
 <li>It is important to close the file.</li>
 </ul>
 <hr>
-<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
-<p>Slides of COMP1002 Computational Thinking and Problem Solving, The Hong Kong Polytechnic University</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>Slides of COMP1002 Computational Thinking and Problem Solving, The Hong Kong Polytechnic University</p>
 <hr>
-<p><em><strong>个人笔记，仅供参考，转载请标明出处</strong></em><br>
-<em><strong>FOR REFERENCE ONLY</strong></em></p>
-<p><em><strong>Made by Mike_Zhang</strong></em></p>
+<p><strong><em>个人笔记，仅供参考，转载请标明出处</em></strong><br><strong><em>FOR REFERENCE ONLY</em></strong></p>
+<p><strong><em>Made by Mike_Zhang</em></strong></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
               
             </div>
@@ -1453,6 +1355,7 @@ the file. Each list <strong>item is a single line</strong> including the <strong
 
   
   
+
 
 
 
@@ -1759,6 +1662,44 @@ the file. Each list <strong>item is a single line</strong> including the <strong
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

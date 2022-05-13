@@ -16,12 +16,12 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   所有文章: R学习1-基础 R学习2-I&#x2F;O R学习3-Vector List Matrix R学习4-Data Frame R学习5-Graphics    1 Formatted Print  1.1 print() print(x,digits&#x3D;y) digits参数用来声明有多少位数字，如下： 1234&gt; print(pi)[1] 3.141">
+    <meta name="description" content="Made by Mike_Zhang   所有文章:R学习1-基础R学习2-I&#x2F;OR学习3-Vector List MatrixR学习4-Data FrameR学习5-Graphics   1 Formatted Print1.1 print()print(x,digits&#x3D;y) digits参数用来声明有多少位数字，如下： 1234&gt; print(pi)[1] 3.141593&gt; p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R学习2-I&#x2F;O">
 <meta property="og:url" content="https://ultrafish.cn/2021/12/18/R-learning-2/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   所有文章: R学习1-基础 R学习2-I&#x2F;O R学习3-Vector List Matrix R学习4-Data Frame R学习5-Graphics    1 Formatted Print  1.1 print() print(x,digits&#x3D;y) digits参数用来声明有多少位数字，如下： 1234&gt; print(pi)[1] 3.141">
+<meta property="og:description" content="Made by Mike_Zhang   所有文章:R学习1-基础R学习2-I&#x2F;OR学习3-Vector List MatrixR学习4-Data FrameR学习5-Graphics   1 Formatted Print1.1 print()print(x,digits&#x3D;y) digits参数用来声明有多少位数字，如下： 1234&gt; print(pi)[1] 3.141593&gt; p">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/r.jpg">
 <meta property="article:published_time" content="2021-12-18T03:11:04.000Z">
@@ -44,8 +44,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -874,32 +872,22 @@
             
             <div class="markdown-body">
               
-              <p><em><strong>Made by Mike_Zhang</strong></em></p>
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
 <blockquote>
-<p>所有文章:<br>
-<a href="https://ultrafish.cn/2021/12/17/R-learning-1/">R学习1-基础</a><br>
-<a href="https://ultrafish.cn/2021/12/18/R-learning-2/">R学习2-I/O</a><br>
-<a href="https://ultrafish.cn/2021/12/21/R-learning-3/">R学习3-Vector List Matrix</a><br>
-<a href="https://ultrafish.cn/2021/12/22/R-learning-4/">R学习4-Data Frame</a><br>
-<a href="https://ultrafish.cn/2021/12/24/R-learning-5/">R学习5-Graphics</a></p>
+<p>所有文章:<br><a href="https://ultrafish.cn/2021/12/17/R-learning-1/">R学习1-基础</a><br><a href="https://ultrafish.cn/2021/12/18/R-learning-2/">R学习2-I/O</a><br><a href="https://ultrafish.cn/2021/12/21/R-learning-3/">R学习3-Vector List Matrix</a><br><a href="https://ultrafish.cn/2021/12/22/R-learning-4/">R学习4-Data Frame</a><br><a href="https://ultrafish.cn/2021/12/24/R-learning-5/">R学习5-Graphics</a></p>
 </blockquote>
 <hr>
-<h1 id="1-formatted-print"><a class="markdownIt-Anchor" href="#1-formatted-print"></a> 1 Formatted Print</h1>
-<h2 id="11-print"><a class="markdownIt-Anchor" href="#11-print"></a> 1.1 <code>print()</code></h2>
-<p><code>print(x,digits=y)</code></p>
+<h1 id="1-Formatted-Print"><a href="#1-Formatted-Print" class="headerlink" title="1 Formatted Print"></a>1 Formatted Print</h1><h2 id="1-1-print"><a href="#1-1-print" class="headerlink" title="1.1 print()"></a>1.1 <code>print()</code></h2><p><code>print(x,digits=y)</code></p>
 <p><code>digits</code>参数用来声明有多少位数字，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> print<span class="hljs-punctuation">(</span><span class="hljs-built_in">pi</span><span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3.141593</span><br><span class="hljs-operator">&gt;</span> print<span class="hljs-punctuation">(</span><span class="hljs-built_in">pi</span><span class="hljs-punctuation">,</span>digits<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3.14</span><br></code></pre></td></tr></table></figure>
 <span id="more"></span>
-<h2 id="12-cat"><a class="markdownIt-Anchor" href="#12-cat"></a> 1.2 <code>cat()</code></h2>
-<p>在<code>cat()</code>中先使用<code>format()</code>方法声明其digits参数，如下：</p>
+<h2 id="1-2-cat"><a href="#1-2-cat" class="headerlink" title="1.2 cat()"></a>1.2 <code>cat()</code></h2><p>在<code>cat()</code>中先使用<code>format()</code>方法声明其digits参数，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> cat<span class="hljs-punctuation">(</span>format<span class="hljs-punctuation">(</span><span class="hljs-built_in">pi</span><span class="hljs-punctuation">,</span>digits<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-string">&#x27;\n&#x27;</span><span class="hljs-punctuation">)</span><br><span class="hljs-number">3.14</span><br></code></pre></td></tr></table></figure>
-<h2 id="13-options"><a class="markdownIt-Anchor" href="#13-options"></a> 1.3 <code>options()</code></h2>
-<p>使用此方法会改变工作区内所有输出的格式，因此并不推荐使用，如下：</p>
+<h2 id="1-3-options"><a href="#1-3-options" class="headerlink" title="1.3 options()"></a>1.3 <code>options()</code></h2><p>使用此方法会改变工作区内所有输出的格式，因此并不推荐使用，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">pi</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3.141593</span><br><span class="hljs-operator">&gt;</span> options<span class="hljs-punctuation">(</span>digits<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">pi</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3.14</span><br></code></pre></td></tr></table></figure>
 <hr>
-<h1 id="2-write-to-file"><a class="markdownIt-Anchor" href="#2-write-to-file"></a> 2 Write to File</h1>
-<p><code>&gt; cat(&quot;something to write&quot;, file=&quot;filename&quot;)</code></p>
+<h1 id="2-Write-to-File"><a href="#2-Write-to-File" class="headerlink" title="2 Write to File"></a>2 Write to File</h1><p><code>&gt; cat(&quot;something to write&quot;, file=&quot;filename&quot;)</code></p>
 <p>此方法默认重写文件，若要在原文件后面加上内容，需要设置<code>append</code>参数为<code>TRUE</code>，如下：</p>
 <p><code>&gt; cat(&quot;something to write&quot;, file=&quot;filename&quot;, append=TRUE)</code></p>
 <p>或者可以使用变量名代替文件名，方便多次使用，如下：</p>
@@ -908,12 +896,10 @@
 <p>或者使用<strong>有参</strong><code>sink()</code>方法，可以使所有的<code>print</code>和<code>cat</code>方法输出到指定的文件内，完成输出后，使用<strong>无参</strong><code>sink()</code>方法，可以关闭输出文件并恢复输出到console，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> sink<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;filename&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># Begin write to file</span><br>...<br><span class="hljs-comment"># write something</span><br>...<br><span class="hljs-operator">&gt;</span> sink<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># End writing to file, back to console</span><br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>若要查看当前目录下有哪些文件，使用<code>&gt; list.files()</code>来查看，<br>
-或者<code>&gt; list.files(all.files=TRUE)</code>来查看包括<strong>隐藏</strong>的所有文件。</p>
+<p>若要查看当前目录下有哪些文件，使用<code>&gt; list.files()</code>来查看，<br>或者<code>&gt; list.files(all.files=TRUE)</code>来查看包括<strong>隐藏</strong>的所有文件。</p>
 </blockquote>
 <hr>
-<h1 id="3-read-from-fixed-width-file"><a class="markdownIt-Anchor" href="#3-read-from-fixed-width-file"></a> 3 Read from Fixed-Width File</h1>
-<p>使用<code>read.fwf()</code>方法，如下：</p>
+<h1 id="3-Read-from-Fixed-Width-File"><a href="#3-Read-from-Fixed-Width-File" class="headerlink" title="3 Read from Fixed-Width File"></a>3 Read from Fixed-Width File</h1><p>使用<code>read.fwf()</code>方法，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> records <span class="hljs-operator">&lt;-</span> read.fwf<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;filename&quot;</span><span class="hljs-punctuation">,</span> widths<span class="hljs-operator">=</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span>w1<span class="hljs-punctuation">,</span> w2<span class="hljs-punctuation">,</span> ...<span class="hljs-punctuation">,</span> wn<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 <p>Data:</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R">Fisher R.A. <span class="hljs-number">1890</span> <span class="hljs-number">1962</span><br>Pearson Karl <span class="hljs-number">1857</span> <span class="hljs-number">1936</span><br>Cox Gertrude <span class="hljs-number">1900</span> <span class="hljs-number">1978</span><br>Yates Frank <span class="hljs-number">1902</span> <span class="hljs-number">1994</span><br>Smith Kirstine <span class="hljs-number">1878</span> <span class="hljs-number">1939</span><br></code></pre></td></tr></table></figure>
@@ -924,8 +910,7 @@
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> records <span class="hljs-operator">&lt;-</span> read.fwf<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;fixed-width.txt&quot;</span><span class="hljs-punctuation">,</span> widths<span class="hljs-operator">=</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">10</span><span class="hljs-punctuation">,</span><span class="hljs-number">10</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-operator">-</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br><span class="hljs-operator">+</span> col.names<span class="hljs-operator">=</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Last&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;First&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;Born&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;Died&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> records<br>Last First Born Died<br><span class="hljs-number">1</span> Fisher R.A. <span class="hljs-number">1890</span> <span class="hljs-number">1962</span><br><span class="hljs-number">2</span> Pearson Karl <span class="hljs-number">1857</span> <span class="hljs-number">1936</span><br><span class="hljs-number">3</span> Cox Gertrude <span class="hljs-number">1900</span> <span class="hljs-number">1978</span><br><span class="hljs-number">4</span> Yates Frank <span class="hljs-number">1902</span> <span class="hljs-number">1994</span><br><span class="hljs-number">5</span> Smith Kirstine <span class="hljs-number">1878</span> <span class="hljs-number">1939</span><br></code></pre></td></tr></table></figure>
 <p>亦可设置<code>col.names</code>属性，为输出加上标题，如上。</p>
 <hr>
-<h1 id="4-read-from-table"><a class="markdownIt-Anchor" href="#4-read-from-table"></a> 4 Read from Table</h1>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> dfrm <span class="hljs-operator">&lt;-</span> read.table<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;filename&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<h1 id="4-Read-from-Table"><a href="#4-Read-from-Table" class="headerlink" title="4 Read from Table"></a>4 Read from Table</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> dfrm <span class="hljs-operator">&lt;-</span> read.table<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;filename&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 <p>被读取文件需满足：</p>
 <blockquote>
 <ol>
@@ -941,86 +926,55 @@
 <p>输出的表格会自动带上行号列号。</p>
 <p>可以通过行号列号访问到对应的单元，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">class</span><span class="hljs-punctuation">(</span>dfrm<span class="hljs-operator">$</span>V1<span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-string">&quot;factor&quot;</span><br></code></pre></td></tr></table></figure>
-<p>此方法会对<code>NA</code>数据直接输出为&quot;NA&quot;, 若要自定义，则可以修改<code>na.strings</code>属性，如下：</p>
+<p>此方法会对<code>NA</code>数据直接输出为”NA”, 若要自定义，则可以修改<code>na.strings</code>属性，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> dfrm <span class="hljs-operator">&lt;-</span> read.table<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;filename.txt&quot;</span><span class="hljs-punctuation">,</span> na.strings<span class="hljs-operator">=</span><span class="hljs-string">&quot;.&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 <p>若被读取的数据自带标题行，则可以通过设置<code>header</code>属性为<code>TRUE</code>，使输出结果使用自带的标题行，如下：</p>
-<p>Data:</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">lastname firstname born died<br>Fisher R.A. <span class="hljs-number">1890</span> <span class="hljs-number">1962</span><br>Pearson Karl <span class="hljs-number">1857</span> <span class="hljs-number">1936</span><br>Cox Gertrude <span class="hljs-number">1900</span> <span class="hljs-number">1978</span><br>Yates Frank <span class="hljs-number">1902</span> <span class="hljs-number">1994</span><br>Smith Kirstine <span class="hljs-number">1878</span> <span class="hljs-number">1939</span><br></code></pre></td></tr></table></figure>
+<p>Data:<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">lastname firstname born died<br>Fisher R.A. <span class="hljs-number">1890</span> <span class="hljs-number">1962</span><br>Pearson Karl <span class="hljs-number">1857</span> <span class="hljs-number">1936</span><br>Cox Gertrude <span class="hljs-number">1900</span> <span class="hljs-number">1978</span><br>Yates Frank <span class="hljs-number">1902</span> <span class="hljs-number">1994</span><br>Smith Kirstine <span class="hljs-number">1878</span> <span class="hljs-number">1939</span><br></code></pre></td></tr></table></figure></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> dfrm <span class="hljs-operator">&lt;-</span> read.table<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;statisticians.txt&quot;</span><span class="hljs-punctuation">,</span> header<span class="hljs-operator">=</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span> stringsAsFactor<span class="hljs-operator">=</span><span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> print<span class="hljs-punctuation">(</span>dfrm<span class="hljs-punctuation">)</span><br>lastname firstname born died<br><span class="hljs-number">1</span> Fisher R.A. <span class="hljs-number">1890</span> <span class="hljs-number">1962</span><br><span class="hljs-number">2</span> Pearson Karl <span class="hljs-number">1857</span> <span class="hljs-number">1936</span><br><span class="hljs-number">3</span> Cox Gertrude <span class="hljs-number">1900</span> <span class="hljs-number">1978</span><br><span class="hljs-number">4</span> Yates Frank <span class="hljs-number">1902</span> <span class="hljs-number">1994</span><br><span class="hljs-number">5</span> Smith Kirstine <span class="hljs-number">1878</span> <span class="hljs-number">1939</span><br></code></pre></td></tr></table></figure>
-<p>此方法会自动忽略被读文件中被’#'修饰的注释行。</p>
+<p>此方法会自动忽略被读文件中被’#’修饰的注释行。</p>
 <hr>
-<h1 id="5-read-from-csv"><a class="markdownIt-Anchor" href="#5-read-from-csv"></a> 5 Read from CSV</h1>
-<p>若CSV文件有标题行，则：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> tbl <span class="hljs-operator">&lt;-</span> read.csv<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;filename&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
-<p>若无标题行，则：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> tbl <span class="hljs-operator">&lt;-</span> read.csv<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;filename&quot;</span>，header<span class="hljs-operator">=</span><span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<h1 id="5-Read-from-CSV"><a href="#5-Read-from-CSV" class="headerlink" title="5 Read from CSV"></a>5 Read from CSV</h1><p>若CSV文件有标题行，则：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> tbl <span class="hljs-operator">&lt;-</span> read.csv<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;filename&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure></p>
+<p>若无标题行，则：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> tbl <span class="hljs-operator">&lt;-</span> read.csv<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;filename&quot;</span>，header<span class="hljs-operator">=</span><span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure></p>
 <p>类似于<code>read.table(&quot;filename&quot;)</code>方法，也会忽略注释行，若不要忽略，则设置参数<code>comment.char=&quot;&quot;</code>。</p>
 <hr>
-<h1 id="6-write-to-csv"><a class="markdownIt-Anchor" href="#6-write-to-csv"></a> 6 Write to CSV</h1>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> write.csv<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">,</span> file<span class="hljs-operator">=</span><span class="hljs-string">&quot;filename&quot;</span><span class="hljs-punctuation">,</span> row.names<span class="hljs-operator">=</span><span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
-<p>设置<code>row.names=FALSE</code>，取消行标题的显示。否则显示为设置的名字，默认为数字。<br>
-设置<code>col.names=FALSE</code>，取消列标题的显示。</p>
+<h1 id="6-Write-to-CSV"><a href="#6-Write-to-CSV" class="headerlink" title="6 Write to CSV"></a>6 Write to CSV</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> write.csv<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">,</span> file<span class="hljs-operator">=</span><span class="hljs-string">&quot;filename&quot;</span><span class="hljs-punctuation">,</span> row.names<span class="hljs-operator">=</span><span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p>设置<code>row.names=FALSE</code>，取消行标题的显示。否则显示为设置的名字，默认为数字。<br>设置<code>col.names=FALSE</code>，取消列标题的显示。</p>
 <blockquote>
-<p><strong>注意：此方法只能重写原文件，不能在原来文件后加上内容。</strong><br>
-<strong>若有此需求，使用<code>write.table()</code>方法。</strong></p>
+<p><strong>注意：此方法只能重写原文件，不能在原来文件后加上内容。</strong><br><strong>若有此需求，使用<code>write.table()</code>方法。</strong></p>
 </blockquote>
 <hr>
-<h1 id="7-read-from-web"><a class="markdownIt-Anchor" href="#7-read-from-web"></a> 7 Read from Web</h1>
-<p>R可以从网络上读取txt，csv等文件，如下：</p>
+<h1 id="7-Read-from-Web"><a href="#7-Read-from-Web" class="headerlink" title="7 Read from Web"></a>7 Read from Web</h1><p>R可以从网络上读取txt，csv等文件，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> tbl <span class="hljs-operator">&lt;-</span> read.csv<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;http://www.example.com/download/data.csv&quot;</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> tbl <span class="hljs-operator">&lt;-</span> read.table<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;ftp://ftp.example.com/download/data.txt&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 <hr>
-<h1 id="8-read-from-html"><a class="markdownIt-Anchor" href="#8-read-from-html"></a> 8 Read from HTML</h1>
-<p>R可以从网络上读取HTML文件，需要用到<code>XML</code>包，如下：</p>
+<h1 id="8-Read-from-HTML"><a href="#8-Read-from-HTML" class="headerlink" title="8 Read from HTML"></a>8 Read from HTML</h1><p>R可以从网络上读取HTML文件，需要用到<code>XML</code>包，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> library<span class="hljs-punctuation">(</span>XML<span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> url <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&#x27;http://www.example.com/data/table.html&#x27;</span><br><span class="hljs-operator">&gt;</span> tbls <span class="hljs-operator">&lt;-</span> readHTMLTable<span class="hljs-punctuation">(</span>url<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 <p>并且可以设置此方法的which属性来选取读取的页数，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> tbl <span class="hljs-operator">&lt;-</span> readHTMLTable<span class="hljs-punctuation">(</span>url<span class="hljs-punctuation">,</span> which<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 <hr>
-<h1 id="9-complex-reading"><a class="markdownIt-Anchor" href="#9-complex-reading"></a> 9 Complex Reading</h1>
-<h2 id="91-readlines"><a class="markdownIt-Anchor" href="#91-readlines"></a> 9.1 <code>readLines()</code></h2>
-<p>此方法从文件中读取每一行，并将其返回成字符串数组，如下：</p>
+<h1 id="9-Complex-Reading"><a href="#9-Complex-Reading" class="headerlink" title="9 Complex Reading"></a>9 Complex Reading</h1><h2 id="9-1-readLines"><a href="#9-1-readLines" class="headerlink" title="9.1 readLines()"></a>9.1 <code>readLines()</code></h2><p>此方法从文件中读取每一行，并将其返回成字符串数组，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> lines <span class="hljs-operator">&lt;-</span> readLines<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;file.txt&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 <p>也可以设置具体的读取行数，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> lines <span class="hljs-operator">&lt;-</span> readLines<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;file.txt&quot;</span><span class="hljs-punctuation">,</span> n<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
-<h2 id="92-scan"><a class="markdownIt-Anchor" href="#92-scan"></a> 9.2 <code>scan()</code></h2>
-<p>此方法可以返回包括满足要求的片段列表，如下：</p>
-<p>Data:</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-number">2355.09</span> <span class="hljs-number">2246.73</span> <span class="hljs-number">1738.74</span> <span class="hljs-number">1841.01</span> <span class="hljs-number">2027.85</span><br></code></pre></td></tr></table></figure>
+<h2 id="9-2-scan"><a href="#9-2-scan" class="headerlink" title="9.2 scan()"></a>9.2 <code>scan()</code></h2><p>此方法可以返回包括满足要求的片段列表，如下：</p>
+<p>Data:<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-number">2355.09</span> <span class="hljs-number">2246.73</span> <span class="hljs-number">1738.74</span> <span class="hljs-number">1841.01</span> <span class="hljs-number">2027.85</span><br></code></pre></td></tr></table></figure></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> singles <span class="hljs-operator">&lt;-</span> scan<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;singles.txt&quot;</span><span class="hljs-punctuation">,</span> what<span class="hljs-operator">=</span>numeric<span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> singles<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2355.09</span> <span class="hljs-number">2246.73</span> <span class="hljs-number">1738.74</span> <span class="hljs-number">1841.01</span> <span class="hljs-number">2027.85</span><br></code></pre></td></tr></table></figure>
 <p>第二个<code>what</code>参数用作规定读取的片段内容，如下：</p>
 <blockquote>
-<p><code>what=numeric(0)</code>: number.<br>
-<code>what=integer(0)</code>: integer.<br>
-<code>what=complex(0)</code>: complex number.<br>
-<code>what=character(0)</code>: character string.<br>
-<code>what=logical(0)</code>: logical value.</p>
+<p><code>what=numeric(0)</code>: number.<br><code>what=integer(0)</code>: integer.<br><code>what=complex(0)</code>: complex number.<br><code>what=character(0)</code>: character string.<br><code>what=logical(0)</code>: logical value.</p>
 </blockquote>
 <p>此方法也有其他的参数可以设置，如下：</p>
 <blockquote>
-<p><code>n=number</code>:<br>
-Stop after reading this many tokens. (Default: stop at end of file.)</p>
-</blockquote>
-<blockquote>
-<p><code>nlines=number</code>:<br>
-Stop after reading this many input lines. (Default: stop at end of file.)</p>
-</blockquote>
-<blockquote>
-<p><code>skip=number</code>:<br>
-Number of input lines to skip before reading data.</p>
-</blockquote>
-<blockquote>
-<p><code>na.strings=list</code>:<br>
-A list of strings to be interpreted as NA.</p>
+<p><code>n=number</code>:<br>Stop after reading this many tokens. (Default: stop at end of file.)</p>
+<p><code>nlines=number</code>:<br>Stop after reading this many input lines. (Default: stop at end of file.)</p>
+<p><code>skip=number</code>:<br>Number of input lines to skip before reading data.</p>
+<p><code>na.strings=list</code>:<br>A list of strings to be interpreted as NA.</p>
 </blockquote>
 <hr>
-<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
-<p>P. Teetor, <em>R Cookbook</em>. Sebastopol: O’Reilly Media, Incorporated, 2011.</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>P. Teetor, <em>R Cookbook</em>. Sebastopol: O’Reilly Media, Incorporated, 2011.</p>
 <hr>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>R语言相关的知识会继续学习，继续更新.<br>
-最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>R语言相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
-<p><em><strong>原创文章，转载请标明出处</strong></em><br>
-<em><strong>Made by Mike_Zhang</strong></em></p>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
 <br>
@@ -1227,6 +1181,7 @@ A list of strings to be interpreted as NA.</p>
 
   
   
+
 
 
 
@@ -1533,6 +1488,44 @@ A list of strings to be interpreted as NA.</p>
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

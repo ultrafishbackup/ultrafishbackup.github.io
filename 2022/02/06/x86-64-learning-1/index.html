@@ -16,12 +16,12 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   Computer System 相关文章: 有符号二进制数表示方法 Signed binary number representation 浮点数二进制数表示方法 Floating point numbers representation UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor">
+    <meta name="description" content="Made by Mike_Zhang   Computer System 相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representationUltraFish Plus - 有符号二进制数转换器 Signed binary number convertorUltr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation">
 <meta property="og:url" content="https://ultrafish.cn/2022/02/06/x86-64-learning-1/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   Computer System 相关文章: 有符号二进制数表示方法 Signed binary number representation 浮点数二进制数表示方法 Floating point numbers representation UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor">
+<meta property="og:description" content="Made by Mike_Zhang   Computer System 相关文章:有符号二进制数表示方法 Signed binary number representation浮点数二进制数表示方法 Floating point numbers representationUltraFish Plus - 有符号二进制数转换器 Signed binary number convertorUltr">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/x8664.png">
 <meta property="article:published_time" content="2022-02-06T07:56:13.000Z">
@@ -45,8 +45,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -313,7 +311,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          7.9k 字
+          7.7k 字
         
       </span>
     
@@ -325,7 +323,7 @@
         
         
           <!-- compatible with older versions-->
-          67 分钟
+          65 分钟
         
       </span>
     
@@ -568,26 +566,15 @@
             
             <div class="markdown-body">
               
-              <p><em><strong>Made by Mike_Zhang</strong></em></p>
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
 <blockquote>
-<p>Computer System 相关文章:<br>
-<a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/">有符号二进制数表示方法 Signed binary number representation</a><br>
-<a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/">浮点数二进制数表示方法 Floating point numbers representation</a><br>
-<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a><br>
-<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">UltraFish Plus - 浮点数表示方法转换器 Floating Point Numbers Representation Convertor</a><br>
-<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">UltraFish Plus - 多进制整数转换器 Multiple Bases Unsigned Integer Convertor</a><br>
-<a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/">Y86-64学习1-State &amp; Instruction &amp; Basic Encoding</a><br>
-<a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/">Y86-64学习2-Y86-64 SEQ Stages</a><br>
-<a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br>
-<a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/">x86-64学习2-Control</a></p>
+<p>Computer System 相关文章:<br><a href="http://ultrafish.cn/2020/09/19/Signed-binary-number-representation/">有符号二进制数表示方法 Signed binary number representation</a><br><a href="http://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/">浮点数二进制数表示方法 Floating point numbers representation</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor">UltraFish Plus - 有符号二进制数转换器 Signed binary number convertor</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">UltraFish Plus - 浮点数表示方法转换器 Floating Point Numbers Representation Convertor</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">UltraFish Plus - 多进制整数转换器 Multiple Bases Unsigned Integer Convertor</a><br><a href="https://ultrafish.cn/2022/01/04/Y86-64-learning-1/">Y86-64学习1-State &amp; Instruction &amp; Basic Encoding</a><br><a href="https://ultrafish.cn/2022/01/08/Y86-64-learning-2/">Y86-64学习2-Y86-64 SEQ Stages</a><br><a href="https://ultrafish.cn/2022/02/06/x86-64-learning-1/">x86-64学习1-Introduction &amp; Data Formats &amp; Information Accessing &amp; Arithmetic Logical Operation</a><br><a href="https://ultrafish.cn/2022/02/24/x86-64-learning-2/">x86-64学习2-Control</a></p>
 </blockquote>
 <hr>
-<h1 id="1-introduction"><a class="markdownIt-Anchor" href="#1-introduction"></a> 1 Introduction</h1>
-<p><strong>Machine-Level Language</strong>:</p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h1><p><strong>Machine-Level Language</strong>:</p>
 <ul>
-<li><strong>ISA</strong>: <em>Instruction Set Architecture</em>, defining:
-<ul>
+<li><strong>ISA</strong>: <em>Instruction Set Architecture</em>, defining:<ul>
 <li>the <strong>Processor State</strong>;</li>
 <li>the <strong>format of the instructions</strong>;</li>
 <li>the <strong>effect of each instruction on the state</strong>;</li>
@@ -602,15 +589,12 @@
 <p>Processor <strong>Visible State</strong> behind C programmer:</p>
 <ul>
 <li><strong>Program Counter</strong>: PC, <code>%rip</code> in x86-64, the address of the <strong>NEXT</strong> instruction to execute;</li>
-<li><strong>Register File</strong>: 16 location with 64-bit of each, stored addresses and integer data:
-<ul>
-<li>
-<ol>
+<li><strong>Register File</strong>: 16 location with 64-bit of each, stored addresses and integer data:<ul>
+<li><ol>
 <li>track the critical parts of the state;</li>
 </ol>
 </li>
-<li>
-<ol start="2">
+<li><ol>
 <li>store the temporary data, i.e., <strong>arguments</strong>, <strong>local variables</strong>, and <strong>return values</strong>;</li>
 </ol>
 </li>
@@ -628,8 +612,7 @@
 <li>allocated by <strong>user</strong>.</li>
 </ul>
 <hr>
-<h1 id="2-data-formats"><a class="markdownIt-Anchor" href="#2-data-formats"></a> 2 Data Formats</h1>
-<ul>
+<h1 id="2-Data-Formats"><a href="#2-Data-Formats" class="headerlink" title="2 Data Formats"></a>2 Data Formats</h1><ul>
 <li><code>word</code>: 16-bit (2-byte) data type;</li>
 <li><code>double word</code>: 32-bit (4-byte) data type;</li>
 <li><code>quad word</code>: 64-bit (8-byte) date type;</li>
@@ -644,9 +627,9 @@
     color: #999;
     padding: 0px;">Size of C data types in x86-64 (CS: APP)</div>
 </center>
+
 <hr>
-<h1 id="3-accessing-information"><a class="markdownIt-Anchor" href="#3-accessing-information"></a> 3 Accessing Information</h1>
-<center>
+<h1 id="3-Accessing-Information"><a href="#3-Accessing-Information" class="headerlink" title="3 Accessing Information"></a>3 Accessing Information</h1><center>
 <img src="/2022/02/06/x86-64-learning-1/2.png" srcset="/img/loading.gif" lazyload width="60%">
 <br>
     <div style="color:orange; 
@@ -655,11 +638,13 @@
     color: #999;
     padding: 0px;">Integer Register (CS: APP)</div>
 </center>
+
+
 <p>x86-64 CPU has a set of 16 64-bit <em>general-purpose register</em>, storing integer data and pointers(addresses):</p>
 <ul>
 <li>Start from <strong>8086</strong>, 8 <strong>16-bit</strong> register (in <font color="#f00"><b>RED</b></font> box): <code>%ax</code>to<code>%bp</code>;</li>
-<li>Then to <strong>IA32</strong>, extended to 8 <strong>32-bit</strong> register (in <font color="#00f"><b>BLUE</b></font> box) :<code>%eax</code>to<code>%ebp</code>;</li>
-<li>Finally to <strong>x86-64</strong>, extended to 8 <strong>64-bit</strong> register (in <strong>BLACK</strong> box): <code>%rax</code>to<code>%rbp</code>, as well as additional new 8 <strong>64-bit</strong> register (in DOT LINE box) :<code>%r8</code>to<code>%r15</code>;</li>
+<li>Then to <strong>IA32</strong>, extended to 8 <strong>32-bit</strong> register (in <font color="#00f"><b>BLUE</b></font> box) :<code>%eax</code>to<code>%ebp</code>; </li>
+<li>Finally to <strong>x86-64</strong>, extended to 8 <strong>64-bit</strong> register (in <strong>BLACK</strong> box): <code>%rax</code>to<code>%rbp</code>, as well as additional new 8 <strong>64-bit</strong> register (in DOT LINE box) :<code>%r8</code>to<code>%r15</code>; </li>
 </ul>
 <p>Different registers have different functions:</p>
 <ul>
@@ -674,8 +659,7 @@
 <li><strong>64-bit</strong> instruction: can access <strong>entire register</strong>;</li>
 </ul>
 <hr>
-<h2 id="31-operand-specifiers"><a class="markdownIt-Anchor" href="#31-operand-specifiers"></a> 3.1 Operand Specifiers</h2>
-<center>
+<h2 id="3-1-Operand-Specifiers"><a href="#3-1-Operand-Specifiers" class="headerlink" title="3.1 Operand Specifiers"></a>3.1 Operand Specifiers</h2><center>
 <img src="/2022/02/06/x86-64-learning-1/3.png" srcset="/img/loading.gif" lazyload width="60%">
 <br>
     <div style="color:orange; 
@@ -684,31 +668,28 @@
     color: #999;
     padding: 0px;">Operand Forms (CS: APP)</div>
 </center>
+
 <p>Three Types:</p>
 <ul>
-<li><strong>Immediate</strong>:
-<ul>
+<li><strong>Immediate</strong>: <ul>
 <li>constant <strong>value</strong>, started with <code>$</code>, followed by a integer in standard C notation;</li>
 </ul>
 </li>
-<li><strong>Register</strong>:
-<ul>
+<li><strong>Register</strong>: <ul>
 <li><strong>contents of a register</strong>, each bit length of instruction has its specific among of bits (e.g., 8-byte register:64 bits);</li>
-<li>Notation <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">r_a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> indicates the <strong>register <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span></strong> and <strong>its value in reference <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo stretchy="false">[</mo><msub><mi>r</mi><mi>a</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">R[r_a]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span></strong> indexed by the register identifiers in an array <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span>;</li>
+<li>Notation $r_a$ indicates the <strong>register $a$</strong> and <strong>its value in reference $R[r_a]$</strong> indexed by the register identifiers in an array $R$;</li>
 </ul>
 </li>
-<li><strong>Memory</strong>:
-<ul>
-<li>Access memory location based on the computed address - <em><strong>effective address</strong></em>;</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>M</mi><mi>b</mi></msub><mo stretchy="false">[</mo><mi>A</mi><mi>d</mi><mi>d</mi><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">M_b[Addr]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault">A</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>: reference to the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>-byte value in memory <em><strong>starting</strong></em> at address <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>d</mi><mi>d</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">Addr</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>;</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>m</mi><mi>m</mi><mo stretchy="false">(</mo><msub><mi>r</mi><mi>b</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo separator="true">,</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Imm(r_b,r_i,s)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault">m</span><span class="mord mathdefault">m</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">s</span><span class="mclose">)</span></span></span></span>: the most general form:
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>m</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Imm</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault">m</span><span class="mord mathdefault">m</span></span></span></span>: <strong>immediate offset</strong>;</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">r_b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: <strong>base register</strong>, 64-bit;</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">r_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: <strong>index register</strong>, 64-bit;</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>: <strong>scale factor</strong>, must be <strong>1,2,4, or 8</strong>;</li>
-<li><em><strong>effective address</strong></em> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>I</mi><mi>m</mi><mi>m</mi><mo>+</mo><mi>R</mi><mo stretchy="false">[</mo><msub><mi>r</mi><mi>b</mi></msub><mo stretchy="false">]</mo><mo>+</mo><mi>R</mi><mo stretchy="false">[</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo><mo>⋅</mo><mi>s</mi></mrow><annotation encoding="application/x-tex">=Imm+R[r_b]+R[r_i]\cdot s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault">m</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>;</li>
-<li>The value is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mo stretchy="false">[</mo><mi>I</mi><mi>m</mi><mi>m</mi><mo>+</mo><mi>R</mi><mo stretchy="false">[</mo><msub><mi>r</mi><mi>b</mi></msub><mo stretchy="false">]</mo><mo>+</mo><mi>R</mi><mo stretchy="false">[</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo><mo>⋅</mo><mi>s</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">M[Imm+R[r_b]+R[r_i]\cdot s]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault">m</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mclose">]</span></span></span></span>;</li>
+<li><strong>Memory</strong>:<ul>
+<li>Access memory location based on the computed address - <strong><em>effective address</em></strong>;</li>
+<li>$M_b[Addr]$: reference to the $b$-byte value in memory <strong><em>starting</em></strong> at address $Addr$;</li>
+<li>$Imm(r_b,r_i,s)$: the most general form:<ul>
+<li>$Imm$: <strong>immediate offset</strong>;</li>
+<li>$r_b$: <strong>base register</strong>, 64-bit;</li>
+<li>$r_i$: <strong>index register</strong>, 64-bit;</li>
+<li>$s$: <strong>scale factor</strong>, must be <strong>1,2,4, or 8</strong>;</li>
+<li><strong><em>effective address</em></strong> $=Imm+R[r_b]+R[r_i]\cdot s$;</li>
+<li>The value is $M[Imm+R[r_b]+R[r_i]\cdot s]$;</li>
 </ul>
 </li>
 <li>These complex addressing modes useful in <strong>Array and structure elements referencing</strong>.</li>
@@ -735,11 +716,10 @@
     color: #999;
     padding: 0px;">Solution to Problem 3.1 (CS: APP)</div>
 </center>
+
 <hr>
-<h2 id="32-data-movement-instructions"><a class="markdownIt-Anchor" href="#32-data-movement-instructions"></a> 3.2 Data Movement Instructions</h2>
-<h3 id="321-mov-instructions"><a class="markdownIt-Anchor" href="#321-mov-instructions"></a> 3.2.1 <code>MOV</code> Instructions</h3>
-<blockquote>
-<p>Copy data from a <strong>source</strong> location to a <strong>destination</strong> location, <strong>without transformation</strong>.</p>
+<h2 id="3-2-Data-Movement-Instructions"><a href="#3-2-Data-Movement-Instructions" class="headerlink" title="3.2 Data Movement Instructions"></a>3.2 Data Movement Instructions</h2><h3 id="3-2-1-MOV-Instructions"><a href="#3-2-1-MOV-Instructions" class="headerlink" title="3.2.1 MOV Instructions"></a>3.2.1 <code>MOV</code> Instructions</h3><blockquote>
+<p>Copy data from a <strong>source</strong> location to a <strong>destination</strong> location, <strong>without transformation</strong>. </p>
 </blockquote>
 <center>
 <img src="/2022/02/06/x86-64-learning-1/6.png" srcset="/img/loading.gif" lazyload width="60%">
@@ -750,6 +730,7 @@
     color: #999;
     padding: 0px;">Simple data movement instructions (CS: APP)</div>
 </center>
+
 <p>Source(S):</p>
 <ul>
 <li>value of <strong>immediate</strong>;</li>
@@ -762,8 +743,7 @@
 <li><strong>memory address</strong>.</li>
 </ul>
 <blockquote>
-<p>Copy from a memory to another memory:<br>
-<strong>Can not directly copy</strong>, first load the memory value to a <strong>register</strong>, then write the register value to the destination memory.</p>
+<p>Copy from a memory to another memory:<br><strong>Can not directly copy</strong>, first load the memory value to a <strong>register</strong>, then write the register value to the destination memory.</p>
 </blockquote>
 <p><code>movabsq</code>:</p>
 <ul>
@@ -787,9 +767,10 @@
     color: #999;
     padding: 0px;">Example of simple data movement instructions (CS: APP)</div>
 </center>
+
+
 <hr>
-<h3 id="322-movz-instructions"><a class="markdownIt-Anchor" href="#322-movz-instructions"></a> 3.2.2 <code>MOVZ</code> Instructions</h3>
-<blockquote>
+<h3 id="3-2-2-MOVZ-Instructions"><a href="#3-2-2-MOVZ-Instructions" class="headerlink" title="3.2.2 MOVZ Instructions"></a>3.2.2 <code>MOVZ</code> Instructions</h3><blockquote>
 <p>Copy a <strong>small source value to a larger destination</strong>, fill the remaining bytes in destination with <strong>zeros</strong>.</p>
 </blockquote>
 <center>
@@ -801,16 +782,16 @@
     color: #999;
     padding: 0px;">Zero-extending data movement instructions (CS: APP)</div>
 </center>
+
 <ul>
 <li>S: register, memory;</li>
 <li>D: register;</li>
 <li>Last 2 character: <strong>size of source</strong> and <strong>size of destination</strong>;</li>
-<li><strong>size of destination</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">\gt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span></span></span></span> <strong>size of source</strong>.</li>
-<li>NO <code>movzlq</code>, implemented by <code>movl</code>: with 4-byte register as destination, it will fill the upper 4-byte with zeros.</li>
+<li><strong>size of destination</strong> $\gt$ <strong>size of source</strong>.</li>
+<li>NO <code>movzlq</code>, implemented by <code>movl</code>: with 4-byte register as destination, it will fill the upper 4-byte with zeros. </li>
 </ul>
 <hr>
-<h3 id="323-movs-instructions"><a class="markdownIt-Anchor" href="#323-movs-instructions"></a> 3.2.3 <code>MOVS</code> Instructions</h3>
-<blockquote>
+<h3 id="3-2-3-MOVS-Instructions"><a href="#3-2-3-MOVS-Instructions" class="headerlink" title="3.2.3 MOVS Instructions"></a>3.2.3 <code>MOVS</code> Instructions</h3><blockquote>
 <p>Copy a <strong>small source value to a larger destination</strong>, fill the remaining bytes in destination by <strong>sign extension</strong> (copy the most significant bit).</p>
 </blockquote>
 <center>
@@ -822,11 +803,12 @@
     color: #999;
     padding: 0px;">Sign-extending data movement instructions (CS: APP)</div>
 </center>
+
 <ul>
 <li>S: register, memory;</li>
 <li>D: register;</li>
 <li>Last 2 character: <strong>size of source</strong> and <strong>size of destination</strong>;</li>
-<li><strong>size of destination</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">\gt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span></span></span></span> <strong>size of source</strong>.</li>
+<li><strong>size of destination</strong> $\gt$ <strong>size of source</strong>.</li>
 <li><code>cltq</code>: no operand, <code>%eax</code> as source, <code>%rax</code> as destination with sign-extended, as same as <code>movslq %eax, %rax</code>.</li>
 </ul>
 <hr>
@@ -840,6 +822,7 @@
     color: #999;
     padding: 0px;">Example of data movement instructions (CS: APP)</div>
 </center>
+
 <center>
 <img src="/2022/02/06/x86-64-learning-1/11.png" srcset="/img/loading.gif" lazyload width="40%">
 <br>
@@ -849,6 +832,7 @@
     color: #999;
     padding: 0px;">Solution of data movement instructions (CS: APP)</div>
 </center>
+
 <p><strong>[Example]</strong></p>
 <center>
 <img src="/2022/02/06/x86-64-learning-1/12.png" srcset="/img/loading.gif" lazyload width="60%">
@@ -859,6 +843,7 @@
     color: #999;
     padding: 0px;">Example of data movement instructions (CS: APP)</div>
 </center>
+
 <center>
 <img src="/2022/02/06/x86-64-learning-1/13.png" srcset="/img/loading.gif" lazyload width="60%">
 <br>
@@ -868,9 +853,9 @@
     color: #999;
     padding: 0px;">Solution of data movement instructions (CS: APP)</div>
 </center>
+
 <hr>
-<h2 id="33-push-pop-instructions"><a class="markdownIt-Anchor" href="#33-push-pop-instructions"></a> 3.3 Push &amp; Pop Instructions</h2>
-<center>
+<h2 id="3-3-Push-amp-Pop-Instructions"><a href="#3-3-Push-amp-Pop-Instructions" class="headerlink" title="3.3 Push &amp; Pop Instructions"></a>3.3 Push &amp; Pop Instructions</h2><center>
 <img src="/2022/02/06/x86-64-learning-1/14.png" srcset="/img/loading.gif" lazyload width="60%">
 <br>
     <div style="color:orange; 
@@ -879,6 +864,7 @@
     color: #999;
     padding: 0px;">Push and pop instructions (CS: APP)</div>
 </center>
+
 <center>
 <img src="/2022/02/06/x86-64-learning-1/15.png" srcset="/img/loading.gif" lazyload width="60%">
 <br>
@@ -888,6 +874,7 @@
     color: #999;
     padding: 0px;">Illustration of stack operation (CS: APP)</div>
 </center>
+
 <ul>
 <li><code>pushq %rbp</code>:</li>
 </ul>
@@ -897,12 +884,10 @@
 </ul>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">movq (%rsp), %rax    # Read %rax from stack<br>addq $8, %rsp        # Increment stack pointer<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>Stack is contained in the same memory with program code and other program data, <strong>it can be accessed arbitrary positions within the stack</strong>, by using the <strong>standard memory addressing method</strong>;<br>
-e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong> in the stack to <code>%rdx</code>.</p>
+<p>Stack is contained in the same memory with program code and other program data, <strong>it can be accessed arbitrary positions within the stack</strong>, by using the <strong>standard memory addressing method</strong>;<br>e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong> in the stack to <code>%rdx</code>.</p>
 </blockquote>
 <hr>
-<h1 id="4-arithmetic-logical-operations"><a class="markdownIt-Anchor" href="#4-arithmetic-logical-operations"></a> 4 Arithmetic &amp; Logical Operations</h1>
-<center>
+<h1 id="4-Arithmetic-amp-Logical-Operations"><a href="#4-Arithmetic-amp-Logical-Operations" class="headerlink" title="4 Arithmetic &amp; Logical Operations"></a>4 Arithmetic &amp; Logical Operations</h1><center>
 <img src="/2022/02/06/x86-64-learning-1/16.png" srcset="/img/loading.gif" lazyload width="60%">
 <br>
     <div style="color:orange; 
@@ -911,12 +896,12 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Integer arithmetic operations (CS: APP)</div>
 </center>
-<h2 id="41-leap-instructions"><a class="markdownIt-Anchor" href="#41-leap-instructions"></a> 4.1 <code>leap</code> Instructions</h2>
-<ul>
-<li><em><strong>load effective address</strong></em> instruction;</li>
+
+<h2 id="4-1-leap-Instructions"><a href="#4-1-leap-Instructions" class="headerlink" title="4.1 leap Instructions"></a>4.1 <code>leap</code> Instructions</h2><ul>
+<li><strong><em>load effective address</em></strong> instruction;</li>
 <li>read memory address to a register;</li>
 <li>NO access to the memory, just load the address;</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&amp;</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">\&amp;S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">&amp;</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>: C address operator, like a pointer;</li>
+<li>$\&amp;S$: C address operator, like a pointer;</li>
 </ul>
 <p><strong>[Example]</strong></p>
 <center>
@@ -937,9 +922,9 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Example of leap Instructions (CS: APP)</div>
 </center>
+
 <hr>
-<h2 id="42-unary-binary-instructions"><a class="markdownIt-Anchor" href="#42-unary-binary-instructions"></a> 4.2 Unary &amp; Binary Instructions</h2>
-<center>
+<h2 id="4-2-Unary-amp-Binary-Instructions"><a href="#4-2-Unary-amp-Binary-Instructions" class="headerlink" title="4.2 Unary &amp; Binary Instructions"></a>4.2 Unary &amp; Binary Instructions</h2><center>
 <img src="/2022/02/06/x86-64-learning-1/19.png" srcset="/img/loading.gif" lazyload width="50%">
 <br>
     <div style="color:orange; 
@@ -948,9 +933,10 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Integer arithmetic operations (Unary Instructions) (CS: APP)</div>
 </center>
+
 <p>Unary Instructions:</p>
 <ul>
-<li>Operand can be <strong>register</strong> or <strong>memory location</strong>.</li>
+<li>Operand can be <strong>register</strong> or <strong>memory location</strong>. </li>
 </ul>
 <hr>
 <center>
@@ -962,13 +948,14 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Integer arithmetic operations (Binary Instructions) (CS: APP)</div>
 </center>
+
 <p>Binary Instruction:</p>
 <ul>
 <li>S: <strong>immediate value</strong>, <strong>register</strong>, <strong>memory location</strong>;</li>
 <li>D: <strong>register</strong>, <strong>memory location</strong>;</li>
 <li>S, D can NOT both be memory;</li>
 <li>Source operand first, Destination second;</li>
-<li><code>Fun S, D</code> --&gt; <code>D = D fun S</code></li>
+<li><code>Fun S, D</code> —&gt; <code>D = D fun S</code></li>
 <li><code>subq %rax, %rdx</code>: <code>%rdx = %rdx - %rax</code> (Subtract <code>%rax</code> from <code>%rax</code>)</li>
 </ul>
 <p><strong>[Example]</strong></p>
@@ -981,6 +968,7 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Example of Unary & Binary Instructions (CS: APP)</div>
 </center>
+
 <center>
 <img src="/2022/02/06/x86-64-learning-1/22.png" srcset="/img/loading.gif" lazyload width="50%">
 <br>
@@ -990,9 +978,9 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Example of Unary & Binary Instructions (CS: APP)</div>
 </center>
+
 <hr>
-<h2 id="43-shift-instructions"><a class="markdownIt-Anchor" href="#43-shift-instructions"></a> 4.3 Shift Instructions</h2>
-<center>
+<h2 id="4-3-Shift-Instructions"><a href="#4-3-Shift-Instructions" class="headerlink" title="4.3 Shift Instructions"></a>4.3 Shift Instructions</h2><center>
 <img src="/2022/02/06/x86-64-learning-1/23.png" srcset="/img/loading.gif" lazyload width="50%">
 <br>
     <div style="color:orange; 
@@ -1001,21 +989,19 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Integer arithmetic operations (Shift Instructions) (CS: APP)</div>
 </center>
-<p>Source and Destination can be <strong>register</strong> or <strong>memory location</strong>.</p>
+
+<p>Source and Destination can be <strong>register</strong> or <strong>memory location</strong>. </p>
 <p>Shift amount (2 ways):</p>
 <ul>
 <li>immediate value: <code>k</code></li>
-<li>single-byte register <code>%cl</code>:
-<ul>
+<li>single-byte register <code>%cl</code>:<ul>
 <li>based data: <strong>w</strong>-bit (i.e. 8,16,32,64);</li>
-<li>shift amount: value of low-order <strong>m</strong>-bit of <code>%cl</code>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>m</mi></msup><mo>=</mo><mi>w</mi><mo separator="true">,</mo><mi>m</mi><mo>=</mo><msub><mo><mi>log</mi><mo>⁡</mo></mo><mn>2</mn></msub><mi>w</mi></mrow><annotation encoding="application/x-tex">2^m=w,m=\log_2w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.93858em;vertical-align:-0.24414em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>;
-<ul>
+<li>shift amount: value of low-order <strong>m</strong>-bit of <code>%cl</code>, $2^m=w,m=\log_2w$;<ul>
 <li>e.g. 8-bit: lower 3-bit value of <code>%cl</code>;</li>
 <li>64-bit: lower 6-bit value of <code>%cl</code>;</li>
 </ul>
 </li>
-<li>Example: <code>%cl</code> = 0xFF = 1111 1111:
-<ul>
+<li>Example: <code>%cl</code> = 0xFF = 1111 1111:<ul>
 <li><code>salb</code>: 8-bit, shift lower 3-bit value = 111 = 7;</li>
 <li><code>salw</code>: 16-bit, shift lower 4-bit value = 1111 = 15;</li>
 </ul>
@@ -1053,9 +1039,9 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Example of Shift Instructions (CS: APP)</div>
 </center>
+
 <hr>
-<h2 id="44-special-arithmetic-instructions"><a class="markdownIt-Anchor" href="#44-special-arithmetic-instructions"></a> 4.4 Special Arithmetic Instructions</h2>
-<center>
+<h2 id="4-4-Special-Arithmetic-Instructions"><a href="#4-4-Special-Arithmetic-Instructions" class="headerlink" title="4.4 Special Arithmetic Instructions"></a>4.4 Special Arithmetic Instructions</h2><center>
 <img src="/2022/02/06/x86-64-learning-1/26.png" srcset="/img/loading.gif" lazyload width="60%">
 <br>
     <div style="color:orange; 
@@ -1064,6 +1050,7 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Special arithmetic operations (CS: APP)</div>
 </center>
+
 <p>Multiply:</p>
 <ul>
 <li>Different from 2-operand <code>imul</code> (generating 64-bit from two 64-bit operand);</li>
@@ -1072,7 +1059,7 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
 <li><code>mulq</code>: unsigned multiply;</li>
 <li>One argument <strong>must</strong> be in register <code>%rax</code>;</li>
 <li>Other one is <strong>given</strong> as <code>S</code>;</li>
-<li>Stored in high-order 64-bit: <code>%rdx</code>, and low-order 64-bit: <code>%rax</code>.</li>
+<li>Stored in high-order 64-bit: <code>%rdx</code>, and low-order 64-bit: <code>%rax</code>. </li>
 </ul>
 <p><strong>[Example]</strong></p>
 <center>
@@ -1093,6 +1080,7 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
     color: #999;
     padding: 0px;">Example of Multiply (CS: APP)</div>
 </center>
+
 <hr>
 <p>Division:</p>
 <ul>
@@ -1107,18 +1095,14 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
 <ul>
 <li>NO operand;</li>
 <li>Copy <code>%rax</code> and extends it to <code>%rdx</code>;</li>
-<li>Convert it to oct word.</li>
+<li>Convert it to oct word. </li>
 </ul>
 <hr>
-<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
-<p>B. Randal, D. R. O’Hallaron, <em>Computer systems : a programmer’s perspective</em>, Third edition. Boston: Pearson, 2016.</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>B. Randal, D. R. O’Hallaron, <em>Computer systems : a programmer’s perspective</em>, Third edition. Boston: Pearson, 2016.</p>
 <hr>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>x86-64相关的知识会继续学习，继续更新.<br>
-最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>x86-64相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
-<p><em><strong>原创文章，转载请标明出处</strong></em><br>
-<em><strong>Made by Mike_Zhang</strong></em></p>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
 <br>
@@ -1328,6 +1312,7 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
 
   
   
+
 
 
 
@@ -1634,6 +1619,44 @@ e.g., <code>movq 8(%rsp), %rdx</code>, copy the <strong>second quad word</strong
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
