@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/disjoint-set.png">
 <meta property="article:published_time" content="2022-03-25T07:26:37.000Z">
-<meta property="article:modified_time" content="2022-05-08T05:57:47.698Z">
+<meta property="article:modified_time" content="2022-05-13T07:21:15.061Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="数据结构">
@@ -382,7 +382,7 @@
         aria-expanded="true"
       >
         Data Structure and Algorithm
-        <span class="list-group-count">(7)</span>
+        <span class="list-group-count">(8)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -409,7 +409,7 @@
         aria-expanded="false"
       >
         Algorithm
-        <span class="list-group-count">(2)</span>
+        <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -436,6 +436,15 @@
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">多米诺配对问题 Domino Matching with Python</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/05/13/algorithm-analysis-introduction/" title="Algorithm Analysis Introduction - 算法分析简介"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Algorithm Analysis Introduction - 算法分析简介</span>
         </a>
       
     
@@ -662,7 +671,7 @@
 <blockquote>
 <p>Problem Set:<br><a href="https://ultrafish.cn/2022/03/08/linked-list-problems/">Linked List Problems (持续更新)</a><br><a href="https://ultrafish.cn/2022/03/08/binary-tree-problems/">Binary Tree Problems (持续更新)</a><br><a href="https://ultrafish.cn/2022/03/14/array-problems/">Array Problems (持续更新)</a></p>
 </blockquote>
-<p>Algorithm:<br><a href="https://ultrafish.cn/2020/08/05/josephus-problem/">约瑟夫问题的高效解决方法 Josephus Problem with Python</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Josephus-Problem">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a><br><a href="https://ultrafish.cn/2021/11/04/domino-matching/">多米诺配对问题 Domino Matching with Python</a></p>
+<p>Algorithm:<br><a href="https://ultrafish.cn/2022/05/13/algorithm-analysis-introduction/">Algorithm Analysis Introduction - 算法分析简介</a><br><a href="https://ultrafish.cn/2020/08/05/josephus-problem/">约瑟夫问题的高效解决方法 Josephus Problem with Python</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Josephus-Problem">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a><br><a href="https://ultrafish.cn/2021/11/04/domino-matching/">多米诺配对问题 Domino Matching with Python</a></p>
 </blockquote>
 <hr>
 <p>本文记录并查集(Disjoint Set)的学习，包括Graph的简介，Union和Find的实现，以及其的优化。</p>
@@ -1375,5 +1384,25 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+        "HTML-CSS": {
+            preferredFont: "TeX", 
+            availableFonts: ["STIX","TeX"]
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 </body>
 </html>
