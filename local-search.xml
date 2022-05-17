@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>Stack Introduction - 栈简介</title>
+    <link href="/2022/05/17/stack-introduction/"/>
+    <url>/2022/05/17/stack-introduction/</url>
+    
+    <content type="html"><![CDATA[<p><strong><em>Made by Mike_Zhang</em></strong></p><hr><p>数据结构与算法相关文章：</p><blockquote><p>Data Structure:<br><a href="https://ultrafish.cn/2022/03/25/disjoint-set-introduction/">Disjoint Set Introduction - 并查集简介</a><br><a href="https://ultrafish.cn/2022/05/08/linked-list-introduction/">Linked List Introduction - 链表简介</a></p><blockquote><p>Problem Set:<br><a href="https://ultrafish.cn/2022/03/08/linked-list-problems/">Linked List Problems (持续更新)</a><br><a href="https://ultrafish.cn/2022/03/08/binary-tree-problems/">Binary Tree Problems (持续更新)</a><br><a href="https://ultrafish.cn/2022/03/14/array-problems/">Array Problems (持续更新)</a></p></blockquote><p>Algorithm:<br><a href="https://ultrafish.cn/2022/05/13/algorithm-analysis-introduction/">Algorithm Analysis Introduction - 算法分析简介</a><br><a href="https://ultrafish.cn/2020/08/05/josephus-problem/">约瑟夫问题的高效解决方法 Josephus Problem with Python</a><br><a href="https://plus.ultrafish.cn/Josephus-Problem">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a><br><a href="https://ultrafish.cn/2021/11/04/domino-matching/">多米诺配对问题 Domino Matching with Python</a></p></blockquote><span id="more"></span><hr><h1 id="1-Introduction-to-Stack"><a href="#1-Introduction-to-Stack" class="headerlink" title="1 Introduction to Stack"></a>1 Introduction to Stack</h1><hr><h1 id="2-Stack-Abstract-Data-Type"><a href="#2-Stack-Abstract-Data-Type" class="headerlink" title="2 Stack Abstract Data Type"></a>2 Stack Abstract Data Type</h1><hr><h1 id="3-java-util-Stack-Class"><a href="#3-java-util-Stack-Class" class="headerlink" title="3 java.util.Stack Class"></a>3 java.util.Stack Class</h1><hr><h1 id="4-Stack-ADT-Implementations"><a href="#4-Stack-ADT-Implementations" class="headerlink" title="4 Stack ADT Implementations"></a>4 Stack ADT Implementations</h1><h2 id="4-1-Stack-Using-Array"><a href="#4-1-Stack-Using-Array" class="headerlink" title="4.1 Stack Using Array"></a>4.1 Stack Using Array</h2><hr><h2 id="4-2-Stack-Using-Linked-List"><a href="#4-2-Stack-Using-Linked-List" class="headerlink" title="4.2 Stack Using Linked List"></a>4.2 Stack Using Linked List</h2><hr><h1 id="5-Stack-Applications"><a href="#5-Stack-Applications" class="headerlink" title="5 Stack Applications"></a>5 Stack Applications</h1><hr><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>Goodrich, M., Tamassia, R., &amp; O’reilly, A. (2014). <em>Data Structures and Algorithms in Java, 6th Edition.</em> John Wiley &amp; Sons.</p><hr><h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Stack 相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p><hr><p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p><center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" width height><br><br></center><center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" width="25%" height><br>    <div style="color:orange;     border-bottom: 15px solid rgba(0,0,0,0);    display: inline-block;    color: #999;    padding: 0px;">感谢你的支持</div></center>]]></content>
+    
+    
+    <categories>
+      
+      <category>Data Structure and Algorithm</category>
+      
+      <category>Data Structure</category>
+      
+      <category>Stack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>数据结构</tag>
+      
+      <tag>Stack</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Algorithm Analysis Introduction - 算法分析简介</title>
     <link href="/2022/05/13/algorithm-analysis-introduction/"/>
     <url>/2022/05/13/algorithm-analysis-introduction/</url>
