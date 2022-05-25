@@ -16,16 +16,16 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang  数据结构与算法相关文章：  Data Structure:Disjoint Set Introduction - 并查集简介Linked List Introduction - 链表简介Stack Introduction - 栈简介 Algorithm:Algorithm Analysis Introduction - 算法分析简介约瑟夫问题的高效解决方法">
+    <meta name="description" content="Made by Mike_Zhang  数据结构与算法主题：      Definition for a binary tree node:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Binary Tree Problems (持续更新)">
 <meta property="og:url" content="https://ultrafish.cn/2022/03/08/binary-tree-problems/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang  数据结构与算法相关文章：  Data Structure:Disjoint Set Introduction - 并查集简介Linked List Introduction - 链表简介Stack Introduction - 栈简介 Algorithm:Algorithm Analysis Introduction - 算法分析简介约瑟夫问题的高效解决方法">
+<meta property="og:description" content="Made by Mike_Zhang  数据结构与算法主题：      Definition for a binary tree node:">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/binary-tree.png">
 <meta property="article:published_time" content="2022-03-08T15:00:48.000Z">
-<meta property="article:modified_time" content="2022-05-18T08:45:37.687Z">
+<meta property="article:modified_time" content="2022-05-25T06:41:32.000Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="数据结构">
@@ -311,7 +311,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          10k 字
+          9.9k 字
         
       </span>
     
@@ -323,7 +323,7 @@
         
         
           <!-- compatible with older versions-->
-          86 分钟
+          83 分钟
         
       </span>
     
@@ -381,7 +381,7 @@
         aria-expanded="true"
       >
         Data Structure and Algorithm
-        <span class="list-group-count">(9)</span>
+        <span class="list-group-count">(10)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -408,7 +408,7 @@
         aria-expanded="false"
       >
         Algorithm
-        <span class="list-group-count">(3)</span>
+        <span class="list-group-count">(4)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -444,6 +444,15 @@
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">Algorithm Analysis Introduction - 算法分析简介</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/05/25/sorting-algorithm-introduction/" title="Sorting Algorithm Introduction - 排序算法简介"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Sorting Algorithm Introduction - 排序算法简介</span>
         </a>
       
     
@@ -673,12 +682,11 @@
               
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
-<p>数据结构与算法相关文章：</p>
-<blockquote>
-<p>Data Structure:<br><a href="https://ultrafish.cn/2022/03/25/disjoint-set-introduction/">Disjoint Set Introduction - 并查集简介</a><br><a href="https://ultrafish.cn/2022/05/08/linked-list-introduction/">Linked List Introduction - 链表简介</a><br><a href="https://ultrafish.cn/2022/05/18/stack-introduction/">Stack Introduction - 栈简介</a></p>
-<p>Algorithm:<br><a href="https://ultrafish.cn/2022/05/13/algorithm-analysis-introduction/">Algorithm Analysis Introduction - 算法分析简介</a><br><a href="https://ultrafish.cn/2020/08/05/josephus-problem/">约瑟夫问题的高效解决方法 Josephus Problem with Python</a><br><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Josephus-Problem">UltraFish Plus - 在线约瑟夫问题计算器 Online Josephus Problem Calculator</a><br><a href="https://ultrafish.cn/2021/11/04/domino-matching/">多米诺配对问题 Domino Matching with Python</a></p>
-<p>Problem Set:<br><a href="https://ultrafish.cn/2022/03/08/linked-list-problems/">Linked List Problems (持续更新)</a><br><a href="https://ultrafish.cn/2022/03/08/binary-tree-problems/">Binary Tree Problems (持续更新)</a><br><a href="https://ultrafish.cn/2022/03/14/array-problems/">Array Problems (持续更新)</a></p>
-</blockquote>
+<p>数据结构与算法主题：</p>
+<iframe name="ifr" width="100%" src="/content/dsa.html" frameborder="0" onresize="this.height=this.contentWindow.document.body.scrollHeight" onload="this.height=this.contentWindow.document.body.scrollHeight" scrolling="no" allowfullscreen>
+ </iframe>
+
+<hr>
 <p><strong>Definition for a binary tree node:</strong></p>
 <span id="more"></span>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TreeNode</span> &#123;<br>    <span class="hljs-type">int</span> val;<br>    TreeNode left;<br>    TreeNode right;<br>    TreeNode() &#123;&#125;<br>    TreeNode(<span class="hljs-type">int</span> val) &#123; <span class="hljs-built_in">this</span>.val = val; &#125;<br>    TreeNode(<span class="hljs-type">int</span> val, TreeNode left, TreeNode right) &#123;<br>        <span class="hljs-built_in">this</span>.val = val;<br>        <span class="hljs-built_in">this</span>.left = left;<br>        <span class="hljs-built_in">this</span>.right = right;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
