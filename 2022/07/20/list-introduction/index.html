@@ -1,0 +1,1126 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
+  
+    <meta name="description" content="Made by Mike_Zhang  数据结构与算法主题：      1. Introduction to ListList is a more general Abstract Data Type than Stack and Queue mentioned before, which has more general method in adding or removing elements">
+<meta property="og:type" content="article">
+<meta property="og:title" content="List Introduction - 列表简介">
+<meta property="og:url" content="https://ultrafish.cn/2022/07/20/list-introduction/index.html">
+<meta property="og:site_name" content="UltraFish">
+<meta property="og:description" content="Made by Mike_Zhang  数据结构与算法主题：      1. Introduction to ListList is a more general Abstract Data Type than Stack and Queue mentioned before, which has more general method in adding or removing elements">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ultrafish.cn/img/list.png">
+<meta property="article:published_time" content="2022-07-20T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-20T09:23:59.686Z">
+<meta property="article:author" content="Mike_Zhang">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="List">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ultrafish.cn/img/list.png">
+  
+  
+  
+  <title>List Introduction - 列表简介 - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ultrafish.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VXQrzMqOSkaPcbILQ3sQJyhw-gzGzoHsz","app_key":"y6z7EoVjISdQPvN4meqBOkvy","server_url":"https://vxqrzmqo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>UltraFish</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/">
+                <i class="iconfont icon-books"></i>
+                项目
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn">
+                    <i class="iconfont icon-home-fill"></i>
+                    UltraFish Plus 主页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/GPA-Calculator">
+                    <i class="iconfont icon-briefcase"></i>
+                    GPA计算器
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">
+                    <i class="iconfont icon-briefcase"></i>
+                    多进制转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    IEEE 754
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    有符号数转换
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-more"></i>
+                更多
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/">
+                    <i class="iconfont icon-friends"></i>
+                    伙伴
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collection/">
+                    <i class="iconfont icon-th-large"></i>
+                    收藏夹
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/list.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="List Introduction - 列表简介"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-20 17:00" pubdate>
+          2022年7月20日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          117 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          阅读数：<span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">List Introduction - 列表简介</h1>
+            
+            <div class="markdown-body">
+              
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<p>数据结构与算法主题：</p>
+<iframe name="ifr" width="100%" src="/content/dsa.html" frameborder="0" onresize="this.height=this.contentWindow.document.body.scrollHeight" onload="this.height=this.contentWindow.document.body.scrollHeight" scrolling="no" allowfullscreen>
+ </iframe>
+
+<hr>
+<h1 id="1-Introduction-to-List"><a href="#1-Introduction-to-List" class="headerlink" title="1. Introduction to List"></a>1. Introduction to List</h1><p><strong>List</strong> is a more general <a href="https://ultrafish.cn/2022/05/18/stack-introduction/#2-Stack-Abstract-Data-Type">Abstract Data Type</a> than <a href="https://ultrafish.cn/2022/05/18/stack-introduction/">Stack</a> and <a href="https://ultrafish.cn/2022/06/24/queue-introduction/">Queue</a> mentioned before, which has more general method in adding or removing elements at arbitrary positions.</p>
+<span id="more"></span>
+<p>Locating an element is very important in linear data structure. </p>
+<p>In <a href="https://ultrafish.cn/2022/03/14/array-problems/">Array</a>, it is easy to locate with a integer <strong><em>index</em></strong>.</p>
+<blockquote>
+<p><strong>Index</strong>: for an element <code>e</code>, its index in a sequence is the number of elements <strong>before</strong> it in that sequence. </p>
+</blockquote>
+<p>In <a href="https://ultrafish.cn/2022/05/08/linked-list-introduction/">LinkedList</a>, it is not easy to locate an element with a integer index, since we have to traverse all elements before that element.</p>
+<p>Based on index, Java has a more general interface, <code>java.util.List</code>.</p>
+<hr>
+<h1 id="2-List-ADT"><a href="#2-List-ADT" class="headerlink" title="2. List ADT"></a>2. List ADT</h1><p>Some methods in <code>java.util.List</code> Interface:</p>
+<ul>
+<li><code>size()</code>: Returns the number of elements in the list.</li>
+<li><code>isEmpty()</code> : Returns <code>true</code> if the list contains no elements, <code>false</code> otherwise.</li>
+<li><code>get(i)</code>: Returns the element at the specified position in the list, error if the index is out of range.</li>
+<li><code>set(i,e)</code>: Replace the element at index <code>i</code> with <code>e</code>, return the old element in that position, error if the index is out of range.</li>
+<li><code>add(i,e)</code>: Inserts the element <code>e</code> at index <code>i</code> by moving all the elements after <code>i</code> one position to the right, error if the index is out of range.</li>
+<li><code>remove(i)</code>: Removes and return the element at index <code>i</code> by moving all the elements after <code>i</code> one position to the left, error if the index is out of range.</li>
+</ul>
+<p><strong>Notice</strong>: </p>
+<ul>
+<li>The index of an element may be changed after adding or removing an element.</li>
+<li>Adding and removing an element requires shifting the elements after the index.</li>
+</ul>
+<p>Some List ADT Java implementations:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">List</span>&lt;E&gt; &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-title function_">size</span><span class="hljs-params">()</span>;<br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEmpty</span><span class="hljs-params">()</span>;<br>    E <span class="hljs-title function_">get</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException;<br>    E <span class="hljs-title function_">set</span><span class="hljs-params">(<span class="hljs-type">int</span> i, E e)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> i, E e)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException;<br>    E <span class="hljs-title function_">remove</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="3-List-Implementations"><a href="#3-List-Implementations" class="headerlink" title="3. List Implementations"></a>3. List Implementations</h1><p>List ADT can be easily implemented by Array and optimized by Dynamic Array.</p>
+<hr>
+<h2 id="3-1-Array-Implementation"><a href="#3-1-Array-Implementation" class="headerlink" title="3.1 Array Implementation"></a>3.1 Array Implementation</h2><p>Implementation in Array is a intuitive way for List implementation.</p>
+<p>For method <code>get(i)</code> and <code>set(i,e)</code>, they can be easily implemented by indexing the array, <code>A[i]</code>.<br>However, for method <code>add(i,e)</code> and <code>remove(i)</code>, we need to shift the elements after index <code>i</code>.</p>
+<p><img src="https://src.ultrafish.cn/storage/list_shift.png" srcset="/img/loading.gif" lazyload alt="add and remove in List (Goodrich et al., 2014)"></p>
+<p>In above figure, (a) is the shifting process for adding an element into index <code>i</code>; (b) is the shifting process for removing an element from index <code>i</code>.</p>
+<p>ArrayList Java implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ArrayList</span>&lt;E&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">List</span>&lt;E&gt; &#123;<br>    <span class="hljs-keyword">private</span> E[] data;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">CAPACITY</span> <span class="hljs-operator">=</span> <span class="hljs-number">16</span>; <span class="hljs-comment">// default capacity 16</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ArrayList</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-built_in">this</span>(CAPACITY);<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ArrayList</span><span class="hljs-params">(<span class="hljs-type">int</span> capacity)</span> &#123;<br>        data = (E[]) <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>[capacity];<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">size</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> size;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEmpty</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">return</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span>= <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> E <span class="hljs-title function_">get</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException &#123;<br>        checkIndex(i, size);<br>        <span class="hljs-keyword">return</span> data[i];<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> E <span class="hljs-title function_">set</span><span class="hljs-params">(<span class="hljs-type">int</span> i, E e)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException &#123;<br>        checkIndex(i, size);<br>        <span class="hljs-type">E</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> data[i];<br>        data[i] = e;<br>        <span class="hljs-keyword">return</span> temp;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> i, E e)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException &#123;<br>        checkIndex(i, size + <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">if</span> (size == data.length) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalStateException</span>(<span class="hljs-string">&quot;Array is full&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=size-<span class="hljs-number">1</span>; j&gt;=i; j--) &#123;<br>            data[j + <span class="hljs-number">1</span>] = data[j];<br>        &#125;<br>        data[i] = e;<br>        size++;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> E <span class="hljs-title function_">remove</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException &#123;<br>        checkIndex(i, size);<br>        <span class="hljs-type">E</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> data[i];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i; j &lt; size - <span class="hljs-number">1</span>; j++) &#123;<br>            data[j] = data[j + <span class="hljs-number">1</span>];<br>        &#125;<br>        data[size] = <span class="hljs-literal">null</span>;<br>        size--;<br>        <span class="hljs-keyword">return</span> temp;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">checkIndex</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> n)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException &#123;<br>        <span class="hljs-keyword">if</span> (i &lt; <span class="hljs-number">0</span> || i &gt;= n) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IndexOutOfBoundsException</span>(<span class="hljs-string">&quot;Illegal index: &quot;</span> + i);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>ArrayList Performance</strong>:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Running time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>size()</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>isEmpty()</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>get(i)</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>set(i,e)</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>add(i,e)</code></td>
+<td style="text-align:center">$O(n)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>remove(i)</code></td>
+<td style="text-align:center">$O(n)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>Easy to implement.</li>
+<li>Constant time in getting and setting elements due to direct access.</li>
+</ul>
+<p><strong>Drawbacks</strong>:</p>
+<ul>
+<li>More time required to add and remove elements. Because all element after the position need to be shifted. On average, $\frac{n}{2}$ elements need to be shifted, which results in the time complexity of $O(n)$.</li>
+<li>The maximum capacity of the ArrayList is fixed, which means that it cannot be resized.</li>
+</ul>
+<p>In fact, Java’s <strong>ArrayList</strong> has no pre-requisite on the capacity, which is implemented by the <strong>dynamic array</strong>.</p>
+<hr>
+<h2 id="3-2-Dynamic-Array-Implementation"><a href="#3-2-Dynamic-Array-Implementation" class="headerlink" title="3.2 Dynamic Array Implementation"></a>3.2 Dynamic Array Implementation</h2><p>Dynamic Array is still implemented by the traditional array with fixed capacity but with some special strategies.</p>
+<p><strong>Key points:</strong></p>
+<ol>
+<li>Keep the internal array’s capacity greater than the current length of the array;</li>
+<li>If the array is full, Java requires a new and larger array, and copy all elements into the new array for extension.</li>
+<li>With enlarged ArrayList, more elements can be added.</li>
+</ol>
+<p>So, the main step is to “enlarge” the array: </p>
+<ol>
+<li>Create a new <code>Array B</code> with larger capacity (Step a);</li>
+<li>Set $B[0,1,2,…,n]=A[0,1,2,…,n]$ where $n$ is the current length of the <code>array A</code> (Step b);</li>
+<li><code>A = B</code>, Array A is now the reference to the new larger array (Step c).</li>
+</ol>
+<p><img src="https://src.ultrafish.cn/storage/dynamic_array.png" srcset="/img/loading.gif" lazyload alt="Dynamic Array (Goodrich et al., 2014)"></p>
+<p>Some optimization of ArrayList with Dynamic Array:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-comment">// ...</span><br><span class="hljs-comment">// Dynamic Array Resizing</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">resize</span><span class="hljs-params">(<span class="hljs-type">int</span> capacity)</span> &#123;<br>    E[] temp = (E[]) <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>[capacity];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; size; i++) &#123;<br>        temp[i] = data[i];<br>    &#125;<br>    data = temp;<br>&#125;<br><span class="hljs-comment">// ...</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> i, E e)</span> <span class="hljs-keyword">throws</span> IndexOutOfBoundsException &#123;<br>    checkIndex(i, size + <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">if</span> (size == data.length) &#123;<br>        <span class="hljs-comment">// throw new IllegalStateException(&quot;Array is full&quot;);</span><br>        resize(<span class="hljs-number">2</span> * data.length); <span class="hljs-comment">// Dynamic Array Resizing without throwing exception</span><br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=size-<span class="hljs-number">1</span>; j&gt;=i; j--) &#123;<br>        data[j + <span class="hljs-number">1</span>] = data[j];<br>    &#125;<br>    data[i] = e;<br>    size++;<br>&#125;<br><span class="hljs-comment">// ...</span><br></code></pre></td></tr></table></figure>
+<p>With the help of <strong>Dynamic Array</strong>, the List capacity will not be limited. However, user can also set a proper capacity in the constructor, which can improve the performance due to less resizing time.</p>
+<hr>
+<h1 id="4-Introduction-to-Positional-List"><a href="#4-Introduction-to-Positional-List" class="headerlink" title="4. Introduction to Positional List"></a>4. Introduction to Positional List</h1><p>There are two problems in traditional linear data structures:</p>
+<ol>
+<li>Numeric indices are not good for linked list because it need to <strong>traverse</strong> all elements from the beginning to that index, which is <strong>expensive</strong>.</li>
+<li>Index may be <strong>changed</strong> due to the <strong>insertion</strong> or <strong>deletion</strong> of elements.</li>
+</ol>
+<p>The solution is the <strong>positional list</strong>, which can easily refer to any element in the sequence, as well as perform arbitrary insertions and deletions in $O(1)$.</p>
+<blockquote>
+<p>Actually, the similar ADT is <a href="https://ultrafish.cn/2022/05/08/linked-list-introduction/#4-Doubly-Linked-List">DoublyLinkedList</a>, where all element are stored in the node who indicates element’s position. However, the <code>Node</code> field is private, which cannot be accessed by the user directly.</p>
+</blockquote>
+<p>The solution is to create our own “Node” which is the <strong>Position</strong>.</p>
+<hr>
+<h1 id="5-Position-ADT"><a href="#5-Position-ADT" class="headerlink" title="5. Position ADT"></a>5. Position ADT</h1><p>Position ADT offers a more general way to describe the location of an element in the sequence. The association between the element and its position is immutable.</p>
+<p>Position Interface only contains one method:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Position</span>&lt;E&gt; &#123;<br>    E <span class="hljs-title function_">getElement</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IllegalStateException;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="6-Positional-List-ADT"><a href="#6-Positional-List-ADT" class="headerlink" title="6. Positional List ADT"></a>6. Positional List ADT</h1><p>Positional List is a collection of Positions.</p>
+<p>Methods defined in Positional List:</p>
+<ul>
+<li><code>first()</code>: Return the position of the first element in the List, or <code>null</code> if the List is empty;</li>
+<li><code>last()</code>: Return the position of the last element in the List, or <code>null</code> if the List is empty;</li>
+<li><code>before(p)</code>: Return the position of the element immediately before the position <code>p</code>, or <code>null</code> if <code>p</code> is the first position;</li>
+<li><code>after(p)</code>: Return the position of the element immediately after the position <code>p</code>, or <code>null</code> if <code>p</code> is the last position;</li>
+<li><code>isEmpty()</code>: Return <code>true</code> if the List is empty, otherwise <code>false</code>;</li>
+<li><code>size()</code>: Return the number of elements in the List;</li>
+<li><code>addFirst(e)</code>: Insert an element to the front of the List, return the position of the new element;</li>
+<li><code>addLast(e)</code>: Insert an element to the end of the List, return the position of the new element;</li>
+<li><code>addBefore(p, e)</code>: Insert an element before the position <code>p</code>, return the position of the new element;</li>
+<li><code>addAfter(p, e)</code>: Insert an element after the position <code>p</code>, return the position of the new element;</li>
+<li><code>set(p, e)</code>: Replace the element at the position <code>p</code> with <code>e</code>, return the element previously at <code>p</code>;</li>
+<li><code>remove(p)</code>: Remove and return the element at the position <code>p</code>, invalidating position <code>p</code>;</li>
+</ul>
+<p><strong>Notice</strong>: “Return the position” means the position instance is returned, not the element inside.</p>
+<p>PositionalList Java Interface:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">PositionList</span>&lt;E&gt; &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-title function_">size</span><span class="hljs-params">()</span>;<br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEmpty</span><span class="hljs-params">()</span>;<br>    Position&lt;E&gt; <span class="hljs-title function_">first</span><span class="hljs-params">()</span>;<br>    Position&lt;E&gt; <span class="hljs-title function_">last</span><span class="hljs-params">()</span>;<br>    Position&lt;E&gt; <span class="hljs-title function_">before</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalStateException;<br>    Position&lt;E&gt; <span class="hljs-title function_">after</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalStateException;<br>    Position&lt;E&gt; <span class="hljs-title function_">addFirst</span><span class="hljs-params">(E e)</span>;<br>    Position&lt;E&gt; <span class="hljs-title function_">addLast</span><span class="hljs-params">(E e)</span>;<br>    Position&lt;E&gt; <span class="hljs-title function_">addBefore</span><span class="hljs-params">(Position&lt;E&gt; p, E e)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>    Position&lt;E&gt; <span class="hljs-title function_">addAfter</span><span class="hljs-params">(Position&lt;E&gt; p, E e)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>    E <span class="hljs-title function_">set</span><span class="hljs-params">(Position&lt;E&gt; p, E e)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>    E <span class="hljs-title function_">remove</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="7-Positional-List-Implementations"><a href="#7-Positional-List-Implementations" class="headerlink" title="7. Positional List Implementations"></a>7. Positional List Implementations</h1><p>Positional List can be implemented by Doubly Linked List and pure Array.</p>
+<hr>
+<h2 id="7-1-Doubly-Linked-List-Implementation"><a href="#7-1-Doubly-Linked-List-Implementation" class="headerlink" title="7.1 Doubly Linked List Implementation"></a>7.1 Doubly Linked List Implementation</h2><p>It is intuitive that the <strong>Doubly Linked List</strong> is used to implement <strong>PositionalList</strong>.</p>
+<p>The <strong>Node</strong> reference in <strong>Doubly Linked List</strong> can be seen as the <strong>Position</strong> of the element. </p>
+<p>However, the <strong>Node</strong> reference is private in <strong>Doubly Linked List</strong>, which cannot be accessed by the user directly. We need to design our own <strong>Node</strong> who implements <strong>Position</strong>.</p>
+<p>Positional List Java Implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkedPositionalList</span>&lt;E&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">PositionList</span>&lt;E&gt; &#123;<br><br>    <span class="hljs-comment">// Nested Node Class to implement position</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span>&lt;E&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Position</span>&lt;E&gt; &#123;<br>        <span class="hljs-keyword">private</span> E element;<br>        <span class="hljs-keyword">private</span> Node&lt;E&gt; prev;<br>        <span class="hljs-keyword">private</span> Node&lt;E&gt; next;<br>        <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(E e, Node&lt;E&gt; p, Node&lt;E&gt; n)</span> &#123;<br>            element = e;<br>            prev = p;<br>            next = n;<br>        &#125;<br>        <span class="hljs-keyword">public</span> E <span class="hljs-title function_">getElement</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IllegalStateException &#123;<br>            <span class="hljs-keyword">if</span> (next == <span class="hljs-literal">null</span>) &#123;<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalStateException</span>(<span class="hljs-string">&quot;Position no longer valid&quot;</span>);<br>            &#125;<br>            <span class="hljs-keyword">return</span> element;<br>        &#125;<br>        <span class="hljs-keyword">public</span> Node&lt;E&gt; <span class="hljs-title function_">getPrev</span><span class="hljs-params">()</span> &#123;<br>            <span class="hljs-keyword">return</span> prev;<br>        &#125;<br>        <span class="hljs-keyword">public</span> Node&lt;E&gt; <span class="hljs-title function_">getNext</span><span class="hljs-params">()</span> &#123;<br>            <span class="hljs-keyword">return</span> next;<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPrev</span><span class="hljs-params">(Node&lt;E&gt; p)</span> &#123;<br>            prev = p;<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setNext</span><span class="hljs-params">(Node&lt;E&gt; n)</span> &#123;<br>            next = n;<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setElement</span><span class="hljs-params">(E e)</span> &#123;<br>            element = e;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> Node&lt;E&gt; header;<br>    <span class="hljs-keyword">private</span> Node&lt;E&gt; trailer;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LinkedPositionalList</span><span class="hljs-params">()</span> &#123;<br>        header = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>&lt;E&gt;(<span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);<br>        trailer = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>&lt;E&gt;(<span class="hljs-literal">null</span>, header, <span class="hljs-literal">null</span>);<br>        header.setNext(trailer);<br>    &#125;<br><br>    <span class="hljs-comment">// Implicitly cast Position parameter instance to a Node instance</span><br>    <span class="hljs-comment">// while check the position is invalid or not.</span><br>    <span class="hljs-keyword">private</span> Node&lt;E&gt; <span class="hljs-title function_">validate</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        <span class="hljs-keyword">if</span> (!(p <span class="hljs-keyword">instanceof</span> Node)) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">&quot;Invalid position&quot;</span>);<br>        &#125;<br>        Node&lt;E&gt; node = (Node&lt;E&gt;) p; <span class="hljs-comment">// safe cast !!!</span><br>        <span class="hljs-keyword">if</span> (node.getNext() == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">&quot;Position no longer in the list&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">return</span> node;<br>    &#125;<br><br>    <span class="hljs-comment">// Return a Position to the user from Node</span><br>    <span class="hljs-comment">// while hide the header and trailer sentinel nodes from the user.</span><br>    <span class="hljs-keyword">private</span> Position&lt;E&gt; <span class="hljs-title function_">position</span><span class="hljs-params">(Node&lt;E&gt; node)</span> &#123;<br>        <span class="hljs-keyword">if</span> (node == header || node == trailer) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; <span class="hljs-comment">// Keep sentinel node unseen by users</span><br>        &#125;<br>        <span class="hljs-keyword">return</span> node;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">size</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> size;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEmpty</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">return</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span>= <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Position&lt;E&gt; <span class="hljs-title function_">first</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> position(header.getNext());<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Position&lt;E&gt; <span class="hljs-title function_">last</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> position(trailer.getPrev());<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Position&lt;E&gt; <span class="hljs-title function_">before</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        Node&lt;E&gt; node = validate(p);<br>        <span class="hljs-keyword">return</span> position(node.getPrev());<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Position&lt;E&gt; <span class="hljs-title function_">after</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        Node&lt;E&gt; node = validate(p);<br>        <span class="hljs-keyword">return</span> position(node.getNext());<br>    &#125;<br><br>    <span class="hljs-comment">// Keep addBetween() method private to prevent client from calling it directly, it is a dangerous operation!!!</span><br>    <span class="hljs-comment">// As well as unify the implementation of insertion methods</span><br>    <span class="hljs-keyword">private</span> Position&lt;E&gt; <span class="hljs-title function_">addBetween</span><span class="hljs-params">(E e, Node&lt;E&gt; before, Node&lt;E&gt; after)</span> &#123;<br>        Node&lt;E&gt; node = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>&lt;E&gt;(e, before, after);<br>        before.setNext(node);<br>        after.setPrev(node);<br>        size++;<br>        <span class="hljs-keyword">return</span> node;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Position&lt;E&gt; <span class="hljs-title function_">addFirst</span><span class="hljs-params">(E e)</span> &#123;<br>        <span class="hljs-keyword">return</span> addBetween(e, header, header.getNext());<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Position&lt;E&gt; <span class="hljs-title function_">addLast</span><span class="hljs-params">(E e)</span> &#123;<br>        <span class="hljs-keyword">return</span> addBetween(e, trailer.getPrev(), trailer);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Position&lt;E&gt; <span class="hljs-title function_">addBefore</span><span class="hljs-params">(Position&lt;E&gt; p, E e)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        Node&lt;E&gt; node = validate(p);<br>        <span class="hljs-keyword">return</span> addBetween(e, node.getPrev(), node);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Position&lt;E&gt; <span class="hljs-title function_">addAfter</span><span class="hljs-params">(Position&lt;E&gt; p, E e)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        Node&lt;E&gt; node = validate(p);<br>        <span class="hljs-keyword">return</span> addBetween(e, node, node.getNext());<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> E <span class="hljs-title function_">set</span><span class="hljs-params">(Position&lt;E&gt; p, E e)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        Node&lt;E&gt; node = validate(p);<br>        <span class="hljs-type">E</span> <span class="hljs-variable">ele</span> <span class="hljs-operator">=</span> node.getElement();<br>        node.setElement(e);<br>        <span class="hljs-keyword">return</span> ele;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> E <span class="hljs-title function_">remove</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        Node&lt;E&gt; node = validate(p);<br>        Node&lt;E&gt; before = node.getPrev();<br>        Node&lt;E&gt; after = node.getNext();<br>        before.setNext(after);<br>        after.setPrev(before);<br>        size--;<br>        <span class="hljs-type">E</span> <span class="hljs-variable">ele</span> <span class="hljs-operator">=</span> node.getElement();<br>        node.setElement(<span class="hljs-literal">null</span>); <span class="hljs-comment">// GC</span><br>        node.setPrev(<span class="hljs-literal">null</span>); <span class="hljs-comment">// GC</span><br>        node.setNext(<span class="hljs-literal">null</span>); <span class="hljs-comment">// GC</span><br>        <span class="hljs-keyword">return</span> ele;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>        sb.append(<span class="hljs-string">&quot;Header -&gt; &quot;</span>);<br>        Position&lt;E&gt; p = first();<br>        <span class="hljs-keyword">while</span> (p != <span class="hljs-literal">null</span>) &#123;<br>            sb.append(p.getElement());<br>            p = after(p);<br>            <span class="hljs-keyword">if</span> (p != <span class="hljs-literal">null</span>) &#123;<br>                sb.append(<span class="hljs-string">&quot;, &quot;</span>);<br>            &#125;<br>        &#125;<br>        sb.append(<span class="hljs-string">&quot; &lt;- Trailer&quot;</span>);<br>        <span class="hljs-keyword">return</span> sb.toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Test:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    LinkedPositionalList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedPositionalList</span>&lt;Integer&gt;();<br>    Position&lt;Integer&gt; p1 = list.addFirst(<span class="hljs-number">1</span>);<br>    Position&lt;Integer&gt; p2 = list.addAfter(p1, <span class="hljs-number">2</span>);<br>    Position&lt;Integer&gt; p3 = list.addAfter(p2, <span class="hljs-number">3</span>);<br>    System.out.println(list.toString());<br>    System.out.println(list.size());<br>    System.out.println(list.isEmpty());<br>    System.out.println(list.first().getElement());<br>    System.out.println(list.last().getElement());<br>    System.out.println(list.before(p3).getElement());<br>    System.out.println(list.after(p1).getElement());<br>    Position&lt;Integer&gt; p5 = list.addLast(<span class="hljs-number">5</span>);<br>    System.out.println(list.toString());<br>    list.addBefore(p5, <span class="hljs-number">4</span>);<br>    System.out.println(list.toString());<br>    list.set(p5, <span class="hljs-number">6</span>);<br>    System.out.println(list.toString());<br>    list.remove(p3);<br>    System.out.println(list.toString());<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Output:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java">Header -&gt; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> &lt;- Trailer<br><span class="hljs-number">3</span><br><span class="hljs-literal">false</span><br><span class="hljs-number">1</span><br><span class="hljs-number">3</span><br><span class="hljs-number">2</span><br><span class="hljs-number">2</span><br>Header -&gt; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span> &lt;- Trailer<br>Header -&gt; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> &lt;- Trailer<br>Header -&gt; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span> &lt;- Trailer<br>Header -&gt; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span> &lt;- Trailer<br></code></pre></td></tr></table></figure>
+<p><strong>Performance</strong>:</p>
+<p>With the help of <strong>DoublyLinkedList</strong>, all methods in <strong>Positional List ADT</strong> run in $O(1)$ time in <strong>LinkedPositionalList</strong>.</p>
+<hr>
+<h2 id="7-2-Array-Implementation"><a href="#7-2-Array-Implementation" class="headerlink" title="7.2 Array Implementation"></a>7.2 Array Implementation</h2><p>Since pure Array uses index for position, we have to store the block of <code>[index, element]</code> inside to store the Position objects.</p>
+<p><img src="https://src.ultrafish.cn/storage/array-positional-list.png" srcset="/img/loading.gif" lazyload alt="Array Positional List (Goodrich et al., 2014)"></p>
+<ul>
+<li>When inserting and deleting elements, we have to update all shifted positions inside the block iteratively.</li>
+<li>Comparing with the Positional List, array implementation is slower due to shifting takes $O(n)$ time.</li>
+</ul>
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>Goodrich, M., Tamassia, R., &amp; O’reilly, A. (2014). <em>Data Structures and Algorithms in Java, 6th Edition.</em> John Wiley &amp; Sons.</p>
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>List 相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">感谢你的支持</div></center>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Data-Structure-and-Algorithm/" class="category-chain-item">Data Structure and Algorithm</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Data-Structure-and-Algorithm/Data-Structure/" class="category-chain-item">Data Structure</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Data-Structure-and-Algorithm/Data-Structure/List/" class="category-chain-item">List</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
+      
+        <a href="/tags/List/">#List</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>List Introduction - 列表简介</div>
+      <div>https://ultrafish.cn/2022/07/20/list-introduction/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mike_Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月20日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/18/summer-break-2022/" title="2022暑期回顾 - Summer Break 2022 Review">
+                        <span class="hidden-mobile">2022暑期回顾 - Summer Break 2022 Review</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","path":"window.location.pathname","placeholder":"说点什么吧(记得填写你的昵称哦！选填邮箱可更快收到回复哦！)","avatar":"mp","meta":["nick","mail"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <footer class="text-center mt-5 py-3" style="font-size:small;">
+<div class="footer-inner">
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  <div class="footer" >
+    Copyright &copy; 2020-2022 <a href="https://ultrafish.cn/about">Mike_Zhang</a>. All rights reserved.
+  </div>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2020036956号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>浙公网安备33042102000661号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+
+</div>
+</footer>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
