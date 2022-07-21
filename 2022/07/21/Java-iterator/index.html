@@ -1,0 +1,1069 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
+  
+    <meta name="description" content="Made by Mike_ZhangJava主题：      1. IntroLet’s first have a look at the example code of the following program: 12345678910public static void main(String[] args) &amp;#123;    ArrayList&lt;Integer&gt; arr &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Iterator - Java 迭代器">
+<meta property="og:url" content="https://ultrafish.cn/2022/07/21/Java-iterator/index.html">
+<meta property="og:site_name" content="UltraFish">
+<meta property="og:description" content="Made by Mike_ZhangJava主题：      1. IntroLet’s first have a look at the example code of the following program: 12345678910public static void main(String[] args) &amp;#123;    ArrayList&lt;Integer&gt; arr &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ultrafish.cn/img/java.jpeg">
+<meta property="article:published_time" content="2022-07-21T09:54:00.000Z">
+<meta property="article:modified_time" content="2022-07-21T09:55:20.621Z">
+<meta property="article:author" content="Mike_Zhang">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="Iterator">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ultrafish.cn/img/java.jpeg">
+  
+  
+  
+  <title>Java Iterator - Java 迭代器 - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ultrafish.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VXQrzMqOSkaPcbILQ3sQJyhw-gzGzoHsz","app_key":"y6z7EoVjISdQPvN4meqBOkvy","server_url":"https://vxqrzmqo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>UltraFish</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/">
+                <i class="iconfont icon-books"></i>
+                项目
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn">
+                    <i class="iconfont icon-home-fill"></i>
+                    UltraFish Plus 主页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/GPA-Calculator">
+                    <i class="iconfont icon-briefcase"></i>
+                    GPA计算器
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">
+                    <i class="iconfont icon-briefcase"></i>
+                    多进制转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    IEEE 754
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    有符号数转换
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-more"></i>
+                更多
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/">
+                    <i class="iconfont icon-friends"></i>
+                    伙伴
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collection/">
+                    <i class="iconfont icon-th-large"></i>
+                    收藏夹
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/java.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Java Iterator - Java 迭代器"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-21 17:54" pubdate>
+          2022年7月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          10k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          88 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          阅读数：<span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java Iterator - Java 迭代器</h1>
+            
+            <div class="markdown-body">
+              
+              <h2 id="Made-by-Mike-Zhang"><a href="#Made-by-Mike-Zhang" class="headerlink" title="Made by Mike_Zhang"></a><strong><em>Made by Mike_Zhang</em></strong></h2><p>Java主题：</p>
+<iframe name="ifr" width="100%" src="/content/java.html" frameborder="0" onresize="this.height=this.contentWindow.document.body.scrollHeight" onload="this.height=this.contentWindow.document.body.scrollHeight" scrolling="no" allowfullscreen>
+ </iframe>
+
+<hr>
+<h1 id="1-Intro"><a href="#1-Intro" class="headerlink" title="1. Intro"></a>1. Intro</h1><p>Let’s first have a look at the example code of the following program:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    ArrayList&lt;Integer&gt; arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>    arr.add(<span class="hljs-number">1</span>);<br>    arr.add(<span class="hljs-number">2</span>);<br>    arr.add(<span class="hljs-number">3</span>);<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j : arr) &#123;<br>        System.out.println(j);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>Output:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<p>It has a classical <code>For-Each</code> loop in Java. But why Java knows how to iterate through the ArrayList based on <code>for (int j : arr)</code>?</p>
+<hr>
+<p>Actually, Java has compiled the above loop part code into:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// ...</span><br><span class="hljs-type">Iterator</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> arr.iterator();<br><span class="hljs-keyword">while</span> (i.hasNext()) &#123;<br>    System.out.println(i.next());<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>With the help of the <code>Iterator</code> class, Java can reach each element in the ArrayList, as well as know the next element of current one in the sequence.</p>
+<blockquote>
+<p>An <strong>iterator</strong> is a <em>soft design pattern</em> that describe <strong>the process of scanning through a sequence of elements, once element a time</strong>, in which the element includes container, streaming from network, or a serial of computation, etc.</p>
+</blockquote>
+<p>In Java, iterator is abstracted in <code>java.util.Iterator</code> interface.</p>
+<hr>
+<h1 id="2-Iterator-Interface"><a href="#2-Iterator-Interface" class="headerlink" title="2. Iterator Interface"></a>2. Iterator Interface</h1><p>There are three methods in the <code>java.util.Iterator</code> interface:</p>
+<p><em>At the beginning, there is a reference points to the first element in the sequence.</em></p>
+<ul>
+<li><code>hasNext()</code>: Return <code>true</code> if the current reference <strong>has</strong> a next element, otherwise return <code>false</code>.</li>
+<li><code>next()</code>: Return the <strong>current</strong> pointing reference and update the reference to the <strong>next</strong> element.</li>
+<li><code>remove()</code>: Remove the element that returned by the <strong>most recently</strong> called by <code>next()</code> method. Return <strong>exception</strong> if that element <strong>has already been removed</strong> or <strong>no element has been returned</strong> by <code>next()</code> method.</li>
+</ul>
+<p>With first two method, we can use general loop to iterate through the iterator sequence.</p>
+<p>For a <code>Iterator&lt;Integer&gt; i</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">while</span> (i.hasNext()) &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">val</span> <span class="hljs-operator">=</span> i.next();<br>    System.out.println(val);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>The above code will print out the sequence of elements in the iterator <code>i</code>.</p>
+<hr>
+<h1 id="3-Iterable-Interface"><a href="#3-Iterable-Interface" class="headerlink" title="3. Iterable Interface"></a>3. Iterable Interface</h1><ul>
+<li><strong><code>Iterator</code></strong> contains the <strong>content</strong> of the iterator sequence to be processed, as well as some method to control the iterator. One iterator instance only supports once traversal, and there is not way to restart the iterator from the beginning. </li>
+</ul>
+<p>However, multiple iteration is commonly used in program. </p>
+<ul>
+<li><strong><code>Iterable</code></strong> Interface can help us to create more new iterator instances for multiple iteration, which describes the <strong>ability</strong> of a class to be iterated.</li>
+</ul>
+<p>The <code>Iterable</code> interface contains only a single method:</p>
+<ul>
+<li><code>iterator()</code>: Return an <strong><code>iterator</code></strong> instance of collection.</li>
+</ul>
+<p>Once the method <code>iterator()</code> is called, a new Iterator instance will be created and returned.</p>
+<hr>
+<p>One of the most important usage of <code>Iterable</code> interface is the <code>For-Each</code> loop in Java.</p>
+<p>Any instance or collection of a class implementing the <code>Iterable</code> interface can be iterated in the For-each loop.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (ElementType variable : collection) &#123;<br>    <span class="hljs-comment">// loopBody</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>where </p>
+<ul>
+<li><code>ElementType</code> is the type of the element in the instance or collection, which is returned by <code>next()</code> method in the <code>Iterator</code> interface; </li>
+<li><code>variable</code> is one element with the type of <code>ElementType</code> in the collection;</li>
+<li><code>collection</code> is the instance or collection of the class implementing the <code>Iterable</code> interface.</li>
+</ul>
+<p>Above code can be translated into:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">Iterator&lt;ElementType&gt; i = collection.iterator(); <span class="hljs-comment">// return an iterator instance of collection</span><br>    <span class="hljs-keyword">while</span> (i.hasNext( )) &#123;<br>        <span class="hljs-type">ElementType</span> <span class="hljs-variable">variable</span> <span class="hljs-operator">=</span> i.next( );<br>        <span class="hljs-comment">// loopBody</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="4-Iterator-Implementation"><a href="#4-Iterator-Implementation" class="headerlink" title="4. Iterator Implementation"></a>4. Iterator Implementation</h1><p>With the help of the <strong><code>Iterable</code></strong> interface, any class implemented the <code>Iterable</code> interface can be iterated easily after creating instances implemented <strong><code>iterator</code></strong> interface.</p>
+<p>However, there two different way to implement an <strong><code>iterator</code></strong> interface: </p>
+<ul>
+<li><strong>snapshot iterator</strong>; and</li>
+<li><strong>lazy iterator</strong>.</li>
+</ul>
+<blockquote>
+<p>The mainly different if whether the subsequent <strong>changes</strong> in the collection will <strong>affect</strong> the iterator or not.</p>
+</blockquote>
+<ul>
+<li><p><strong>snapshot iterator</strong>:</p>
+<ul>
+<li>Initially, maintains a <strong>private copy</strong> of the <strong>primary</strong> collection of elements. All traversals are based on that copy, which will <strong>not be affected</strong> by any subsequent <strong>changes</strong>, due to the primary collection is immutable. </li>
+<li>Since a copy need to be made at the beginning, this approach is <strong>slow</strong> as running in the $O(n)$ time.</li>
+</ul>
+</li>
+<li><p><strong>lazy iterator</strong>:</p>
+<ul>
+<li>No copy is made. It performs a piecewise traversal when <code>next()</code> is called based on the current content of the collection. So the lazy iterator is <strong>fast</strong> (in $O(1)$) but will be <strong>affected</strong> by any subsequent <strong>changes</strong> in the collection.</li>
+</ul>
+</li>
+</ul>
+<p>Following are the <strong>snapshot iterator</strong> Implementations with <code>ArrayList</code> and <code>LinkedPositionalList</code>.</p>
+<hr>
+<h2 id="4-1-Implementation-with-ArrayList"><a href="#4-1-Implementation-with-ArrayList" class="headerlink" title="4.1 Implementation with ArrayList"></a>4.1 Implementation with ArrayList</h2><p>Refer to the <a href="https://ultrafish.cn/2022/07/20/list-introduction/#3-1-Array-Implementation">original ArrayList in previous post</a>.</p>
+<p>Key steps:</p>
+<ol>
+<li>Make the <code>ArrayList</code> implement the <strong><code>Iterable&lt;E&gt;</code> interface</strong> (default in Java);</li>
+<li>Add a <strong><code>iterator()</code> method</strong> to the <code>ArrayList</code> class to return an <code>Iterator</code> instance;</li>
+<li>Add a <code>ArrayIterator</code> inner class to the <code>ArrayList</code> class to implement the <strong><code>Iterator</code> interface</strong>.</li>
+</ol>
+<p>Java Implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ArrayList</span>&lt;E&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">List</span>&lt;E&gt;, Iterable&lt;E&gt; &#123; <span class="hljs-comment">// Step 1</span><br>    <br>    <span class="hljs-comment">// ... original ArrayList in previous post</span><br><br>    <span class="hljs-comment">// Step 3</span><br>    <span class="hljs-comment">// Nested ArrayIterator Class</span><br>    <span class="hljs-comment">// Lazy implementation of Iterator of List&lt;E&gt;</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ArrayIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Iterator</span>&lt;E&gt; &#123;<br>        <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">current</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">isMoved</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;<br><br>        <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasNext</span><span class="hljs-params">()</span> &#123;<br>            <span class="hljs-keyword">return</span> current &lt; size;<br>        &#125;<br>        <span class="hljs-keyword">public</span> E <span class="hljs-title function_">next</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> NoSuchElementException &#123;<br>            <span class="hljs-keyword">if</span> (!hasNext()) &#123;<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">NoSuchElementException</span>();<br>            &#125;<br><br>            <span class="hljs-keyword">return</span> data[current++];<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">remove</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IllegalStateException &#123;<br>            <span class="hljs-keyword">if</span> (isMoved) &#123;<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalStateException</span>();<br>            &#125;<br>            ArrayList.<span class="hljs-built_in">this</span>.remove(--current);<br>            isMoved = <span class="hljs-literal">true</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// Step 2</span><br>    <span class="hljs-comment">// Override the `iterator()` method to return an `ArrayIterator` instance</span><br>    <span class="hljs-keyword">public</span> Iterator&lt;E&gt; <span class="hljs-title function_">iterator</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayIterator</span>();<br>    &#125;<br><br>    <span class="hljs-comment">// ... original ArrayList in previous post</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Test:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    ArrayList&lt;Integer&gt; arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt; ();<br>    arr.add(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);<br>    arr.add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);<br>    arr.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br><br>    <span class="hljs-comment">// Method 1: traversal the elements with intuitive loop</span><br>    System.out.println(<span class="hljs-string">&quot;Method 1:&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i : arr) &#123;<br>        System.out.println(i);<br>    &#125;<br><br>    <span class="hljs-comment">// Method 2: In fact, the same as Method 1, using iterator() to traverse the elements</span><br>    System.out.println(<span class="hljs-string">&quot;Method 2:&quot;</span>);<br>    Iterator&lt;Integer&gt; iter = arr.iterator();<br>    <span class="hljs-keyword">while</span> (iter.hasNext()) &#123;<br>        System.out.println(iter.next());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Output:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">Method <span class="hljs-number">1</span>:<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br>Method <span class="hljs-number">2</span>:<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="4-2-Implementation-with-LinkedPositionalList"><a href="#4-2-Implementation-with-LinkedPositionalList" class="headerlink" title="4.2 Implementation with LinkedPositionalList"></a>4.2 Implementation with LinkedPositionalList</h2><p>Refer to the <a href="https://ultrafish.cn/2022/07/20/list-introduction/#7-1-Doubly-Linked-List-Implementation">original LinkedPositionalList in previous post</a>.</p>
+<p>Due to the LinkedPositionalList uses <code>Position</code> ADT, its iterator can be implemented in two different ways: <strong>iterate the elements</strong> or <strong>iterate the positions</strong>.</p>
+<p>We have both of them:</p>
+<blockquote>
+<p>We will define the <code>iterator()</code> method return the <strong>iterator</strong> of <code>element</code> in the LinkedPositionalList. In addition, a new <code>positions()</code> method will be added to return the <strong>iterable</strong> instance of <code>Position</code> in the LinkedPositionalList.</p>
+</blockquote>
+<p>Key steps:</p>
+<ol>
+<li>Make the <code>LinkedPositionalList</code> implement the <strong><code>Iterable&lt;E&gt;</code> interface</strong>;</li>
+<li>Add a <code>PositionIterator</code> inner class to the <code>LinkedPositionalList</code> class to implement the <strong><code>Iterator</code> interface</strong>, in order to realize all iterator functions on the <strong>position</strong> of the elements;</li>
+<li>To let our <code>positions()</code> method return a <strong>Iterable instance</strong> on <strong>position</strong>, we need to add a <code>PositionIterable</code> inner class implementing the <code>Iterable</code> interface, in which we add a <code>iterator()</code> method to return a <code>PositionIterator</code> instance. Afterwards, the <code>positions()</code> method will return a <code>PositionIterable</code> instance. <em>(What a perfect encapsulation!!! Why? The most outer class <code>LinkedPositionalList</code> implements the Iterable interface but returning the element, so we have a new Iterable class to return position, so the PositionIterable comes!);</em></li>
+<li>Add a <code>ElementIterator</code> inner class to the <code>LinkedPositionalList</code> class to implement the <strong><code>Iterator</code> interface</strong> to realize all iterator functions on the <strong>element</strong> of the sequence, which only need to adapt from the <code>PositionIterator</code> class by returning the <strong>element</strong> of the position.</li>
+<li>Add a <code>iterate()</code> method in the <code>LinkedPositionalList</code> class to return an <code>ElementIterator</code> instance for the iterator of elements.</li>
+</ol>
+<p>Java Implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkedPositionalList</span>&lt;E&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">PositionList</span>&lt;E&gt;, Iterable&lt;E&gt; &#123; <span class="hljs-comment">// Step 1</span><br><br>    <span class="hljs-comment">// ... original LinkedPositionalList in previous post</span><br><br>    <span class="hljs-comment">// Step 2</span><br>    <span class="hljs-comment">// Lazy iterator implementation for positions</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PositionIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Iterator</span>&lt;Position&lt;E&gt;&gt; &#123;<br>        <span class="hljs-keyword">private</span> Position&lt;E&gt; current = first();<br>        <span class="hljs-keyword">private</span> Position&lt;E&gt; oneMoved = <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasNext</span><span class="hljs-params">()</span> &#123;<br>            <span class="hljs-keyword">return</span> current != <span class="hljs-literal">null</span>;<br>        &#125;<br>        <span class="hljs-keyword">public</span> Position&lt;E&gt; <span class="hljs-title function_">next</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> NoSuchElementException &#123;<br>            <span class="hljs-keyword">if</span> (current == <span class="hljs-literal">null</span>) &#123;<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">NoSuchElementException</span>();<br>            &#125;<br>            oneMoved = current;<br>            current = after(current);<br>            <span class="hljs-keyword">return</span> oneMoved;<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">remove</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IllegalStateException &#123;<br>            <span class="hljs-keyword">if</span> (oneMoved == <span class="hljs-literal">null</span>) &#123;<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalStateException</span>();<br>            &#125;<br>            LinkedPositionalList.<span class="hljs-built_in">this</span>.remove(oneMoved);<br>            oneMoved = <span class="hljs-literal">null</span>;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UnsupportedOperationException</span>();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// Step 3</span><br>    <span class="hljs-comment">// constructs and returns a new PositionIterator object</span><br>    <span class="hljs-comment">// each time its iterator( ) method is called</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PositionIterable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Iterable</span>&lt;Position&lt;E&gt;&gt; &#123;<br>        <span class="hljs-keyword">public</span> Iterator&lt;Position&lt;E&gt;&gt; <span class="hljs-title function_">iterator</span><span class="hljs-params">()</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PositionIterator</span>();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// Step 3</span><br>    <span class="hljs-comment">// returns an Iterable object that can be used to iterate over the positions of the list</span><br>    <span class="hljs-keyword">public</span> Iterable&lt;Position&lt;E&gt;&gt; <span class="hljs-title function_">positions</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PositionIterable</span>();<br>    &#125;<br><br>    <span class="hljs-comment">// Step 4</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ElementIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Iterator</span>&lt;E&gt; &#123;<br>        <span class="hljs-keyword">private</span> Iterator&lt;Position&lt;E&gt;&gt; posIterator = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PositionIterator</span>();<br>        <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasNext</span><span class="hljs-params">()</span> &#123;<br>            <span class="hljs-keyword">return</span> posIterator.hasNext();<br>        &#125;<br>        <span class="hljs-keyword">public</span> E <span class="hljs-title function_">next</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> NoSuchElementException &#123;<br>            <span class="hljs-keyword">return</span> posIterator.next().getElement();<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">remove</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IllegalStateException &#123;<br>            posIterator.remove();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// Step 5</span><br>    <span class="hljs-keyword">public</span> Iterator&lt;E&gt; <span class="hljs-title function_">iterator</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ElementIterator</span>();<br>    &#125;<br><br>    <span class="hljs-comment">// ... original LinkedPositionalList in previous post</span><br><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Test:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    LinkedPositionalList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedPositionalList</span>&lt;Integer&gt;();<br>    Position&lt;Integer&gt; p1 = list.addFirst(<span class="hljs-number">1</span>);<br>    Position&lt;Integer&gt; p2 = list.addAfter(p1, <span class="hljs-number">2</span>);<br>    Position&lt;Integer&gt; p3 = list.addAfter(p2, <span class="hljs-number">3</span>);<br>    <br>    <span class="hljs-comment">// Method 1: traversal the elements with intuitive loop</span><br>    System.out.println(<span class="hljs-string">&quot;Method 1:&quot;</span>);<br>    <span class="hljs-keyword">for</span> (Integer i : list) &#123;<br>        System.out.println(i);<br>    &#125;<br><br>    <span class="hljs-comment">// Method 2: In fact, the same as Method 1, using iterator() to traverse the elements</span><br>    System.out.println(<span class="hljs-string">&quot;Method 2:&quot;</span>);<br>    Iterator&lt;Integer&gt; it = list.iterator();<br>    <span class="hljs-keyword">while</span> (it.hasNext()) &#123;<br>        System.out.println(it.next());<br>    &#125;<br><br>    <span class="hljs-comment">// Method 3: traversal the positions with intuitive loop</span><br>    System.out.println(<span class="hljs-string">&quot;Method 3:&quot;</span>);<br>    <span class="hljs-keyword">for</span> (Position&lt;Integer&gt; p : list.positions()) &#123;<br>        System.out.println(p.getElement());<br>    &#125;<br><br>    <span class="hljs-comment">// Method 4: In fact, the same as Method 3, using positions().iterator() to traverse the positions</span><br>    System.out.println(<span class="hljs-string">&quot;Method 4:&quot;</span>);<br>    Iterator&lt;Position&lt;Integer&gt;&gt; pt = list.positions().iterator();<br>    <span class="hljs-keyword">while</span> (pt.hasNext()) &#123;<br>        System.out.println(pt.next());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Output:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java">Method <span class="hljs-number">1</span>:<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br>Method <span class="hljs-number">2</span>:<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br>Method <span class="hljs-number">3</span>:<br>LinkedPositionalList$Node@5a39699c<br>LinkedPositionalList$Node@3cb5cdba<br>LinkedPositionalList$Node@56cbfb61<br>Method <span class="hljs-number">4</span>:<br>LinkedPositionalList$Node@5a39699c<br>LinkedPositionalList$Node@3cb5cdba<br>LinkedPositionalList$Node@56cbfb61<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>Goodrich, M., Tamassia, R., &amp; O’reilly, A. (2014). <em>Data Structures and Algorithms in Java, 6th Edition.</em> John Wiley &amp; Sons.</p>
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Java相关的基础知识十分重要，会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">感谢你的支持</div></center>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Programming/" class="category-chain-item">Programming</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Programming/Java/" class="category-chain-item">Java</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+      
+        <a href="/tags/Iterator/">#Iterator</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Java Iterator - Java 迭代器</div>
+      <div>https://ultrafish.cn/2022/07/21/Java-iterator/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mike_Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月21日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/20/list-introduction/" title="List Introduction - 列表简介">
+                        <span class="hidden-mobile">List Introduction - 列表简介</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","path":"window.location.pathname","placeholder":"说点什么吧(记得填写你的昵称哦！选填邮箱可更快收到回复哦！)","avatar":"mp","meta":["nick","mail"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <footer class="text-center mt-5 py-3" style="font-size:small;">
+<div class="footer-inner">
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  <div class="footer" >
+    Copyright &copy; 2020-2022 <a href="https://ultrafish.cn/about">Mike_Zhang</a>. All rights reserved.
+  </div>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2020036956号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>浙公网安备33042102000661号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+
+</div>
+</footer>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
