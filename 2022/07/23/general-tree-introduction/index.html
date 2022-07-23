@@ -16,26 +16,26 @@
   <meta name="author" content="Mike_Zhang">
   <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
   
-    <meta name="description" content="Made by Mike_Zhang   所有文章:使用Markdown制作演示文稿 reveal-md使用Markdown制作演示文稿 Slidev                    以上视频是我对之前文章-有符号二进制数表示方法Signed binary number representation中一部分内容的演示。">
+    <meta name="description" content="Made by Mike_Zhang  数据结构与算法主题：      1. Introduction1.1 Tree DefinitionTree is one of the most important non-linear data structures. Each element in a tree sequence has a hierarchial relationship, whic">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Markdown制作演示文稿 reveal-md">
-<meta property="og:url" content="https://ultrafish.cn/2022/01/15/Markdown-presentation/index.html">
+<meta property="og:title" content="General Tree Introduction - 一般树简介">
+<meta property="og:url" content="https://ultrafish.cn/2022/07/23/general-tree-introduction/index.html">
 <meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="Made by Mike_Zhang   所有文章:使用Markdown制作演示文稿 reveal-md使用Markdown制作演示文稿 Slidev                    以上视频是我对之前文章-有符号二进制数表示方法Signed binary number representation中一部分内容的演示。">
+<meta property="og:description" content="Made by Mike_Zhang  数据结构与算法主题：      1. Introduction1.1 Tree DefinitionTree is one of the most important non-linear data structures. Each element in a tree sequence has a hierarchial relationship, whic">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ultrafish.cn/img/markdown.png">
-<meta property="article:published_time" content="2022-01-15T05:13:09.000Z">
-<meta property="article:modified_time" content="2022-03-21T13:45:41.241Z">
+<meta property="og:image" content="https://ultrafish.cn/img/tree.png">
+<meta property="article:published_time" content="2022-07-23T08:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-23T08:16:00.208Z">
 <meta property="article:author" content="Mike_Zhang">
-<meta property="article:tag" content="Markdown">
-<meta property="article:tag" content="reveal-md">
-<meta property="article:tag" content="presentation">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="Tree">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://ultrafish.cn/img/markdown.png">
+<meta name="twitter:image" content="https://ultrafish.cn/img/tree.png">
   
   
   
-  <title>使用Markdown制作演示文稿 reveal-md - UltraFish</title>
+  <title>General Tree Introduction - 一般树简介 - UltraFish</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -288,13 +288,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/markdown.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/tree.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="使用Markdown制作演示文稿 reveal-md"></span>
+            <span id="subtitle" data-typed-text="General Tree Introduction - 一般树简介"></span>
           
         </div>
 
@@ -305,8 +305,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-01-15 13:13" pubdate>
-          2022年1月15日 下午
+        <time datetime="2022-07-23 16:00" pubdate>
+          2022年7月23日 下午
         </time>
       </span>
     
@@ -318,7 +318,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          668 字
+          6.9k 字
         
       </span>
     
@@ -330,7 +330,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          58 分钟
         
       </span>
     
@@ -376,53 +376,135 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">使用Markdown制作演示文稿 reveal-md</h1>
+            <h1 style="display: none">General Tree Introduction - 一般树简介</h1>
             
             <div class="markdown-body">
               
               <p><strong><em>Made by Mike_Zhang</em></strong></p>
 <hr>
-<blockquote>
-<p>所有文章:<br><a href="https://ultrafish.cn/2022/01/15/Markdown-presentation/">使用Markdown制作演示文稿 reveal-md</a><br><a href="https://ultrafish.cn/2022/02/02/Markdown-presentation-slidev/">使用Markdown制作演示文稿 Slidev</a></p>
-</blockquote>
-<hr>
-<video id="video" controls preload="none" allowfullscreen="true" position="absolute" width="100%" poster="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/Negative_Binary_Number_Representation_720p.mp4?versionId=CAEQKhiBgIC25qHz8hciIDRlNGM5ZjhhZDc4ODRjNTNhODNkMjIxMmZiYzkzMTI4">
-      <source id="mp4" src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/Negative_Binary_Number_Representation_720p.mp4?versionId=CAEQKhiBgIC25qHz8hciIDRlNGM5ZjhhZDc4ODRjNTNhODNkMjIxMmZiYzkzMTI4" type="video/mp4">
-      </video>
+<p>数据结构与算法主题：</p>
+<iframe name="ifr" width="100%" src="/content/dsa.html" frameborder="0" onresize="this.height=this.contentWindow.document.body.scrollHeight" onload="this.height=this.contentWindow.document.body.scrollHeight" scrolling="no" allowfullscreen>
+ </iframe>
 
 <hr>
-<p>以上视频是我对之前文章-<a href="https://ultrafish.cn/2020/09/19/Signed-binary-number-representation/">有符号二进制数表示方法Signed binary number representation</a>中一部分内容的演示。<br><span id="more"></span><br>这用到了一款基于<a target="_blank" rel="noopener" href="https://revealjs.com/">reveal.js</a>框架的<a target="_blank" rel="noopener" href="https://github.com/webpro/reveal-md">reveal-md</a>工具，可以使用Markdown来生成演示文稿（类似于PPT）。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/webpro/reveal-md">reveal-md GitHub主页</a></p>
-<hr>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>使用方法：</p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><h2 id="1-1-Tree-Definition"><a href="#1-1-Tree-Definition" class="headerlink" title="1.1 Tree Definition"></a>1.1 Tree Definition</h2><p>Tree is one of the most important <strong>non-linear</strong> data structures. Each element in a tree sequence has a <strong>hierarchial</strong> relationship, which means that, expect the top element, each element has a parent element and zero or more children elements (each element can be “above” or “below” the other). Usually, the top element is called the <strong>root</strong> element (<em>Node 1</em> is the root element in the figure below).</p>
+<span id="more"></span>
+<p><img src="https://src.ultrafish.cn/storage/tree.png" srcset="/img/loading.gif" lazyload alt="Tree Example"></p>
+<p><strong>Tree Definition</strong>:</p>
+<p>For a <strong>tree</strong> $T$, it is a set of <strong>nodes</strong> storing elements that have a <strong>hierarchical (parent-child)</strong> relationship with following rules:</p>
 <ul>
-<li>参考<a target="_blank" rel="noopener" href="https://github.com/webpro/reveal-md">reveal-md GitHub主页</a>，使用命令行运行：</li>
-</ul>
-<p>安装：<br><code>npm install -g reveal-md</code></p>
-<p>运行：<br><code>reveal-md slides.md</code><br>（<code>slides.md</code>为目标Markdown文件）</p>
-<p>随后可用浏览器打开本地端口进行演示。</p>
-<hr>
-<ul>
-<li>使用VS Code插件运行：</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=evilz.vscode-reveal">vscode-reveal插件</a></p>
-<p>可实时渲染：</p>
-<p><img src="/2022/01/15/Markdown-presentation/1.png" srcset="/img/loading.gif" lazyload alt></p>
-<hr>
-<h2 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h2><p>特点：</p>
-<ul>
-<li>使用Markdown编写，可用<code>---</code>分隔每页演示文稿，或自定义分隔符；</li>
-<li>使内容与排版分离，实时渲染演示文稿，能让创作者更加专注于表达的内容；</li>
-<li>有多种主题可以使用；</li>
-<li>支持HTML和CSS，可高度自定义页面样式；</li>
-<li>可导出为PDF文档。</li>
+<li>For a <strong>non-empty</strong> tree, it has a top node, which is called the <strong><em>root</em></strong> of $T$, and the root node is the only node that has <strong>no parent node</strong>;</li>
+<li>Expect the <strong><em>root</em></strong>, each node $n$ of $T$ has a unique <strong><em>parent</em></strong> node $p$, each node with parent node $p$ is the <strong><em>child</em></strong> node of $p$;</li>
+<li>A tree with zero node is empty;</li>
 </ul>
 <hr>
-<p>引用:<br><a target="_blank" rel="noopener" href="https://github.com/webpro/reveal-md">reveal-md - GitHub</a></p>
+<h2 id="1-2-Tree-Properties"><a href="#1-2-Tree-Properties" class="headerlink" title="1.2 Tree Properties"></a>1.2 Tree Properties</h2><p><img src="https://src.ultrafish.cn/storage/tree3.png" srcset="/img/loading.gif" lazyload alt="Tree Example"></p>
+<p><strong>Node Relationships</strong>:</p>
+<ul>
+<li><strong>siblings</strong>: If two nodes have the same parent node, they are <strong><em>siblings</em></strong>;<ul>
+<li>(Node 2 and Node 3, Node 4 and Node 5, Node 6 and Node 7 are siblings);</li>
+</ul>
+</li>
+<li><strong>external</strong>: A node is <strong><em>external</em></strong> if it has no child node, which is also called a <strong><em>leaf</em></strong>;<ul>
+<li>(Node 4, 6, 7 and 8 are external, leaves);</li>
+</ul>
+</li>
+<li><strong>internal</strong>: A node is <strong><em>internal</em></strong> if it has at least one child node;<ul>
+<li>(Node 1, 2, 3 and 5 are internal);</li>
+</ul>
+</li>
+<li><strong>ancestor</strong>: A node $a$ is the <strong><em>ancestor</em></strong> of a node $b$ if $a=b$ or $a$ is the ancestor of the parent of $b$, which means $a$ is the ancestor of all node <strong>connected below</strong> $a$.<ul>
+<li>(Node 2 is the ancestor of Node 8);</li>
+</ul>
+</li>
+<li><strong>descendant</strong>: A node $b$ is the <strong><em>descendant</em></strong> of a node $a$ if $a$ is the <strong><em>ancestor</em></strong> of a node $b$, which means that all node <strong>connected below</strong> $a$ are the descendent of $a$.<ul>
+<li>(Node 8 is the descendant of Node 1);</li>
+</ul>
+</li>
+<li><strong>subtree</strong>: A subtree of a tree $T$ rooted at node $n$ is the tree contains all descendants of $n$ including $n$ itself;<ul>
+<li>(A tree with Node 3, 6 and 7 rooted at Node 3 is the subtree of this Tree);</li>
+</ul>
+</li>
+</ul>
+<p><strong>Edges and Paths</strong>:</p>
+<ul>
+<li><strong>edge</strong>: The pair of node $(a,b)$, where $a$ is the parent node of $b$;<ul>
+<li>(pair of Node 1 and Node 2 is the edge of Tree);</li>
+</ul>
+</li>
+<li><strong>path</strong>: The sequence of nodes, where two consecutive nodes are connected by an edge;<ul>
+<li>(Path 1-2-5-8 is a path of Tree);</li>
+</ul>
+</li>
+</ul>
 <hr>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>reveal-md工具十分方便，可快速且精简的生成演示文稿，但是其只能做简单的演示，不能进行稍复杂的排版。</p>
-<p>但是一款名为<a target="_blank" rel="noopener" href="https://sli.dev/">Slidev</a>的演示文稿工具更加专业更加强大，专为开发者设计，之后会用文章记录。</p>
-<p>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<h1 id="2-Tree-ADT"><a href="#2-Tree-ADT" class="headerlink" title="2. Tree ADT"></a>2. Tree ADT</h1><p>Based on the <a href="https://ultrafish.cn/2022/07/20/list-introduction/#5-Position-ADT">Position ADT</a> in the <a href="https://ultrafish.cn/2022/07/20/list-introduction/">previous post</a>, we can build the <strong>Tree</strong> ADT using the <strong>Position</strong> representing the Node in tree, and the Position has the <strong>parent-child relationship</strong> to fulfill the tree definition.</p>
+<ul>
+<li><code>getElement()</code>: Return the element stored in the node (position);</li>
+<li><code>root()</code>: Return the root node (position) of the tree, null if the tree is empty;</li>
+<li><code>parent(p)</code>: Return the parent node (position) of the node $p$, null if $p$ is the root node;</li>
+<li><code>children(p)</code>: Return an <strong>iterable instance</strong> of the children nodes (position) of the node $p$, null if $p$ has no child node;</li>
+<li><code>numChildren(p)</code>: Return the number of children of the node $p$;</li>
+<li><code>isInternal(p)</code>: Return true if $p$ is an internal node;</li>
+<li><code>isExternal(p)</code>: Return true if $p$ is an external node;</li>
+<li><code>isRoot(p)</code>: Return true if $p$ is the root node;</li>
+<li><code>size()</code>: Return the number of nodes (positions or elements) in the tree;</li>
+<li><code>isEmpty()</code>: Return true if the tree is empty (no nodes, no positions);</li>
+<li><code>iterator()</code>: Return an <strong>iterator</strong> of the <strong>elements</strong> in the tree;</li>
+<li><code>positions()</code>: Return an <strong>iterable instance</strong> of the <strong>positions (nodes)</strong> in the tree;</li>
+</ul>
+<hr>
+<h2 id="2-1-Tree-Interface-in-Java"><a href="#2-1-Tree-Interface-in-Java" class="headerlink" title="2.1 Tree Interface in Java"></a>2.1 Tree Interface in Java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Tree</span>&lt;E&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Iterable</span>&lt;E&gt; &#123;<br>    Position&lt;E&gt; <span class="hljs-title function_">root</span><span class="hljs-params">()</span>;<br>    Position&lt;E&gt; <span class="hljs-title function_">parent</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>    Iterable&lt;Position&lt;E&gt;&gt; <span class="hljs-title function_">children</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>    <span class="hljs-type">int</span> <span class="hljs-title function_">numChildren</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isInternal</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isExternal</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isRoot</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException;<br>    <span class="hljs-type">int</span> <span class="hljs-title function_">size</span><span class="hljs-params">()</span>;<br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEmpty</span><span class="hljs-params">()</span>;<br>    Iterator&lt;E&gt; <span class="hljs-title function_">iterator</span><span class="hljs-params">()</span>;<br>    Iterable&lt;Position&lt;E&gt;&gt; <span class="hljs-title function_">positions</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="3-Abstract-Tree-Base-Class"><a href="#3-Abstract-Tree-Base-Class" class="headerlink" title="3. Abstract Tree Base Class"></a>3. Abstract Tree Base Class</h1><p><a href="https://ultrafish.cn/2021/10/05/Java-oop-interface/#Abstract-class-amp-method">Abstract class</a> may contain some concrete methods, as well as leave some method body empty.</p>
+<blockquote>
+<p>Ths main purpose of the abstract class is to be the base class. Because it has some concrete methods, which may be used on some common functions, so less work is needed when implementing the abstract class through inheritance.</p>
+</blockquote>
+<p>The Tree Interface is now leaving all methods body empty, which hides all low-level implementation details. However, there are some trivial methods that can be implemented without knowing the details of the other low-level implementation. </p>
+<p>Therefore we can build a AbstractTree base class as a abstract class, and implement the trivial methods of Tree, which are <strong><code>isInternal(p)</code></strong>, <strong><code>isExternal(p)</code></strong>, <strong><code>isRoot(p)</code></strong>, and <strong><code>isEmpty()</code></strong>. Thus, once a concrete class derives from <code>AbstractTree</code>, as well as implement the rest of the methods, all methods are implemented.</p>
+<p>Java Implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AbstractTree</span>&lt;E&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Tree</span>&lt;E&gt; &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isInternal</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        <span class="hljs-keyword">return</span>  numChildren(p) &gt; <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isExternal</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        <span class="hljs-keyword">return</span> numChildren(p) == <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isRoot</span><span class="hljs-params">(Position&lt;E&gt; p)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException &#123;<br>        <span class="hljs-type">return</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span>= root();<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEmpty</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> size() == <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h1 id="4-Depth-of-Tree"><a href="#4-Depth-of-Tree" class="headerlink" title="4. Depth of Tree"></a>4. Depth of Tree</h1><blockquote>
+<p>The depth of the node $p$ is the number of <strong>ancestor</strong> of node $p$, expect itself. (Thus, the depth of the root node is 0.)</p>
+</blockquote>
+<p>Recursively Definition of Depth of node $p$:</p>
+<ul>
+<li>If $p$ is the root node, the depth of $p$ is 0;</li>
+<li>Or, the depth of $p$ is one plus the depth of its parent node.</li>
+</ul>
+<p>Java Implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">depth</span><span class="hljs-params">(Position&lt;E&gt; p)</span> &#123;<br>    <span class="hljs-keyword">if</span> (isRoot(p)) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + depth(parent(p));<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Running time: $O(d_p+1)$, where $d_p$ is the depth of node $p$.<br>Worst-case running time: $O(n)$, where $n$ is the number of nodes in the tree.</p>
+<hr>
+<h1 id="5-Height-of-Tree"><a href="#5-Height-of-Tree" class="headerlink" title="5. Height of Tree"></a>5. Height of Tree</h1><blockquote>
+<p>The height of tree is the maximum of the depths of all nodes (positions) in the tree, where the node with maximum depth must be a leaf.</p>
+</blockquote>
+<p>Intuitive Implementation in Java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">heightBad</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (Position&lt;E&gt; p : positions()) &#123;<br>        <span class="hljs-keyword">if</span> (isExternal(p)) &#123;<br>            h = Math.max(h, depth(p));<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> h;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>However, this approach is not efficient for traversing all leave node in the Tree. </p>
+<p>The running time is $O(n+\sum_{p \in L}(d_p+1))$, where $L$ is the set of all leaf nodes.<br>The worst-case running time is $O(n^2)$, where $n$ is the number of nodes in the tree.</p>
+<hr>
+<p>The more <strong>efficient</strong> way is implementing in a <strong>recursive</strong> way as the tree is defined recursively.</p>
+<p>To find the height of a node $p$:</p>
+<ul>
+<li>If $p$ is a leaf, its heigh is 0;</li>
+<li>Or, the height of $p$ is one plus the <strong>maximum</strong> of the <strong>heights of its children.</strong></li>
+</ul>
+<p>To calculate the height of Tree, we only need to get the height of its root through above recursive way.</p>
+<p>Java Implementation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">height</span><span class="hljs-params">(Position&lt;E&gt; p)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; <span class="hljs-comment">// Default height of a leaf is 0</span><br>    <span class="hljs-comment">// leaf nodes will skip the loop for no children</span><br>    <span class="hljs-keyword">for</span> (Position&lt;E&gt; c : children(p)) &#123;<br>        h = <span class="hljs-number">1</span> + Math.max(h, height(c));<br>    &#125;<br>    <span class="hljs-keyword">return</span> h;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// calculate the height of the tree by passing root node as parameter</span><br><span class="hljs-type">int</span> <span class="hljs-variable">treeHeight</span> <span class="hljs-operator">=</span> height(root());<br></code></pre></td></tr></table></figure>
+<p>The running time is $O(c_p+1)$, where $c_p$ is the number of children of node $p$.<br>When calculate the height of the tree, the worst-case running time is $O(n)$, where $n$ is the number of nodes in the tree.</p>
+<hr>
+<h1 id="6-Time-for-Binary-Tree"><a href="#6-Time-for-Binary-Tree" class="headerlink" title="6. Time for Binary Tree"></a>6. Time for Binary Tree</h1><p>In the previous posts, we have discussed about the <a href="https://ultrafish.cn/2022/07/20/list-introduction/#2-List-ADT"><strong>general linear data structure - List</strong></a>, as well as <a href="https://ultrafish.cn/2022/07/20/list-introduction/#5-Position-ADT"><strong>important concept of Position</strong></a>.</p>
+<p>And in the last post, we have introduced the <a href="https://ultrafish.cn/2022/07/21/Java-iterator/"><strong>iterator</strong></a> and its applications, which is powerful for <strong>traversing process</strong>.</p>
+<p>In this sharing post, we studied the basis concept of <strong>general tree</strong> based on the abovementioned <strong><code>Position</code></strong> ADT and <strong><code>iterator</code></strong>.</p>
+<p>Next, with all background knowledge, we are able to discuss about a much more important tree data structure - <strong>Binary Tree</strong>. See you next time!</p>
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>Goodrich, M., Tamassia, R., &amp; O’reilly, A. (2014). <em>Data Structures and Algorithms in Java, 6th Edition.</em> John Wiley &amp; Sons.</p>
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Tree 相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
 <hr>
 <p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
 <center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
@@ -433,6 +515,8 @@
     display: inline-block;
     color: #999;
     padding: 0px;">感谢你的支持</div></center>
+
+
               
             </div>
             <hr/>
@@ -449,17 +533,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Programming/" class="category-chain-item">Programming</a>
+  <a href="/categories/Data-Structure-and-Algorithm/" class="category-chain-item">Data Structure and Algorithm</a>
   
   
     <span>></span>
     
-  <a href="/categories/Programming/Markdown/" class="category-chain-item">Markdown</a>
+  <a href="/categories/Data-Structure-and-Algorithm/Data-Structure/" class="category-chain-item">Data Structure</a>
   
   
     <span>></span>
     
-  <a href="/categories/Programming/Markdown/Presentation/" class="category-chain-item">Presentation</a>
+  <a href="/categories/Data-Structure-and-Algorithm/Data-Structure/Tree/" class="category-chain-item">Tree</a>
   
   
 
@@ -478,11 +562,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Markdown/">#Markdown</a>
+        <a href="/tags/Java/">#Java</a>
       
-        <a href="/tags/reveal-md/">#reveal-md</a>
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
       
-        <a href="/tags/presentation/">#presentation</a>
+        <a href="/tags/Tree/">#Tree</a>
       
     </div>
   
@@ -494,8 +578,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>使用Markdown制作演示文稿 reveal-md</div>
-      <div>https://ultrafish.cn/2022/01/15/Markdown-presentation/</div>
+      <div>General Tree Introduction - 一般树简介</div>
+      <div>https://ultrafish.cn/2022/07/23/general-tree-introduction/</div>
     </div>
     <div class="license-meta">
       
@@ -507,7 +591,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年1月15日</div>
+          <div>2022年7月23日</div>
         </div>
       
       
@@ -543,18 +627,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/02/02/Markdown-presentation-slidev/" title="使用Markdown制作演示文稿 Slidev">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用Markdown制作演示文稿 Slidev</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/01/08/Y86-64-learning-2/" title="Y86-64学习2-Y86-64 SEQ Stages">
-                        <span class="hidden-mobile">Y86-64学习2-Y86-64 SEQ Stages</span>
+                      <a href="/2022/07/21/Java-iterator/" title="Java Iterator - Java 迭代器">
+                        <span class="hidden-mobile">Java Iterator - Java 迭代器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
