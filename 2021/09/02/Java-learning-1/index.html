@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/java.jpeg">
 <meta property="article:published_time" content="2021-09-02T00:32:23.000Z">
-<meta property="article:modified_time" content="2022-07-21T04:56:36.088Z">
+<meta property="article:modified_time" content="2022-07-30T05:11:23.864Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="学习">
@@ -152,7 +152,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/project/">
                 <i class="iconfont icon-books"></i>
-                项目
+                研究
               </a>
             </li>
           
@@ -250,7 +250,7 @@
                   
                   <a class="dropdown-item" href="/links/">
                     <i class="iconfont icon-friends"></i>
-                    伙伴
+                    伙伴及留言
                   </a>
                 
                   
@@ -281,6 +281,17 @@
         
       </ul>
     </div>
+    
+    <!-- <div id="google_translate_element"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'zh'
+          }, 'google_translate_element');
+      }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
   </div>
 </nav>
 
@@ -393,7 +404,7 @@
 <p><strong><em>Tool.java</em></strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">package</span> ultrafsih;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Tool</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Book</span> <span class="hljs-variable">myBook</span>  <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>(<span class="hljs-string">&quot;My Book Name&quot;</span>);<br>        System.out.println(myBook.name); <span class="hljs-comment">//</span><br>        System.out.println(myBook.page); <span class="hljs-comment">//</span><br>        <span class="hljs-comment">//System.out.println(myBook.id); // Error</span><br>        System.out.println(myBook.subBookId); <span class="hljs-comment">//</span><br>        System.out.println(Book.totalBookUnm); <span class="hljs-comment">//</span><br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 <hr>
-<h2 id="1-声明-Declarations-和初始化-Initialization"><a href="#1-声明-Declarations-和初始化-Initialization" class="headerlink" title="1. 声明 (Declarations)和初始化 (Initialization)"></a>1. 声明 (Declarations)和初始化 (Initialization)</h2><h3 id="1-1-属性声明与初始化"><a href="#1-1-属性声明与初始化" class="headerlink" title="1.1 属性声明与初始化"></a>1.1 属性声明与初始化</h3><p>在<a href="https://ultrafish.cn/2021/03/07/Java-oop-encapsulation/#1-%E7%B1%BB%E7%9A%84%E5%B1%9E%E6%80%A7-Field">之前文章的章节中</a>有大致介绍了类的属性。<br>属性又称成员变量，有不同的数据类型：</p>
+<h2 id="1-声明-Declarations-和初始化-Initialization"><a href="#1-声明-Declarations-和初始化-Initialization" class="headerlink" title="1. 声明 (Declarations)和初始化 (Initialization)"></a>1. 声明 (Declarations)和初始化 (Initialization)</h2><h3 id="1-1-属性声明与初始化"><a href="#1-1-属性声明与初始化" class="headerlink" title="1.1 属性声明与初始化"></a>1.1 属性声明与初始化</h3><p>在<a href="https://ultrafish.cn/2021/03/07/Java-oop-class-object/#1-%E7%B1%BB%E7%9A%84%E5%B1%9E%E6%80%A7-Field">之前文章的章节中</a>有大致介绍了类的属性。<br>属性又称成员变量，有不同的数据类型：</p>
 <div class="table-container">
 <table>
 <thead>
@@ -466,7 +477,7 @@
 </table>
 </div>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">boolean</span> <span class="hljs-variable">safe</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;<br><span class="hljs-type">char</span> <span class="hljs-variable">word</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;A&quot;</span>;<br><span class="hljs-type">byte</span> <span class="hljs-variable">page</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; <br><span class="hljs-type">short</span> <span class="hljs-variable">pageNum</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">bookNum</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;<br><span class="hljs-type">long</span> <span class="hljs-variable">loogNum</span> <span class="hljs-operator">=</span> <span class="hljs-number">10000L</span>; <span class="hljs-comment">//followed by an &quot;L&quot; or &quot;l&quot;</span><br><span class="hljs-type">float</span> <span class="hljs-variable">floatNum</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.3333F</span>; <span class="hljs-comment">//followed by an &quot;F&quot; or &quot;f&quot;</span><br><span class="hljs-type">double</span> <span class="hljs-variable">doubleNum</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.3333e30D</span>; <span class="hljs-comment">//followed by a &quot;D&quot; or &quot;d&quot;</span><br></code></pre></td></tr></table></figure>
-<h3 id="1-2-方法声明与初始化"><a href="#1-2-方法声明与初始化" class="headerlink" title="1.2 方法声明与初始化"></a>1.2 方法声明与初始化</h3><p>参考<a href="https://ultrafish.cn/2021/03/07/Java-oop-encapsulation/#2-%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95-Method">之前的文章章节</a>。</p>
+<h3 id="1-2-方法声明与初始化"><a href="#1-2-方法声明与初始化" class="headerlink" title="1.2 方法声明与初始化"></a>1.2 方法声明与初始化</h3><p>参考<a href="https://ultrafish.cn/2021/03/07/Java-oop-class-object/#2-%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95-Method">之前的文章章节</a>。</p>
 <h3 id="1-3-Initialization-type"><a href="#1-3-Initialization-type" class="headerlink" title="1.3 Initialization type"></a>1.3 Initialization type</h3><blockquote>
 <ol>
 <li>static field initializer</li>
@@ -822,7 +833,7 @@
     Fluid.utils.loadComments('#valine', function() {
       Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
         var options = Object.assign(
-          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","path":"window.location.pathname","placeholder":"说点什么吧(记得填写你的昵称哦！选填邮箱可更快收到回复哦！)","avatar":"mp","meta":["nick","mail"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","path":"window.location.pathname","placeholder":"说点什么吧(记得填写你的昵称哦！选填邮箱可更快收到回复哦！)","avatar":"mp","meta":["nick","mail"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
           {
             el: "#valine",
             path: window.location.pathname

@@ -1,0 +1,1187 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
+  
+    <meta name="description" content="Made by Mike_Zhang  1. Intro1. 引入 思考：  我想把大象放进冰箱，该怎么做？  很简单。  第一步让大象走到冰箱前面； 第二步让冰箱门打开； 第三部让大象走进去并站在里面； 最后一步让冰箱门关上。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面向对象编程详细介绍 - Java OOP Detailed Introduction">
+<meta property="og:url" content="https://ultrafish.cn/2022/07/31/Java-oop-detailed-introduction/index.html">
+<meta property="og:site_name" content="UltraFish">
+<meta property="og:description" content="Made by Mike_Zhang  1. Intro1. 引入 思考：  我想把大象放进冰箱，该怎么做？  很简单。  第一步让大象走到冰箱前面； 第二步让冰箱门打开； 第三部让大象走进去并站在里面； 最后一步让冰箱门关上。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ultrafish.cn/img/java.jpeg">
+<meta property="article:published_time" content="2022-07-31T08:20:40.000Z">
+<meta property="article:modified_time" content="2022-07-31T08:41:36.533Z">
+<meta property="article:author" content="Mike_Zhang">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ultrafish.cn/img/java.jpeg">
+  
+  
+  
+  <title>Java面向对象编程详细介绍 - Java OOP Detailed Introduction - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ultrafish.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VXQrzMqOSkaPcbILQ3sQJyhw-gzGzoHsz","app_key":"y6z7EoVjISdQPvN4meqBOkvy","server_url":"https://vxqrzmqo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>UltraFish</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/">
+                <i class="iconfont icon-books"></i>
+                研究
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn">
+                    <i class="iconfont icon-home-fill"></i>
+                    UltraFish Plus 主页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/GPA-Calculator">
+                    <i class="iconfont icon-briefcase"></i>
+                    GPA计算器
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">
+                    <i class="iconfont icon-briefcase"></i>
+                    多进制转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    IEEE 754
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    有符号数转换
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-more"></i>
+                更多
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/">
+                    <i class="iconfont icon-friends"></i>
+                    伙伴及留言
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collection/">
+                    <i class="iconfont icon-th-large"></i>
+                    收藏夹
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+    
+    <!-- <div id="google_translate_element"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'zh'
+          }, 'google_translate_element');
+      }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/java.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Java面向对象编程详细介绍 - Java OOP Detailed Introduction"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-31 16:20" pubdate>
+          2022年7月31日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          7.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          59 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          阅读数：<span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java面向对象编程详细介绍 - Java OOP Detailed Introduction</h1>
+            
+            <div class="markdown-body">
+              
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<h1 id="1-Intro"><a href="#1-Intro" class="headerlink" title="1. Intro"></a>1. Intro</h1><p><strong>1. 引入</strong></p>
+<p><strong>思考</strong>：</p>
+<blockquote>
+<p>我想把大象放进冰箱，该怎么做？</p>
+</blockquote>
+<p>很简单。</p>
+<ol>
+<li>第一步让大象走到冰箱前面；</li>
+<li>第二步让冰箱门打开；</li>
+<li>第三部让大象走进去并站在里面；</li>
+<li>最后一步让冰箱门关上。</li>
+</ol>
+<span id="more"></span>
+<p>我们试着用Python来模拟一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">elephant.moveForward(<span class="hljs-number">5</span>) <span class="hljs-comment"># 大象向前走5步到冰箱前面</span><br>fridge.<span class="hljs-built_in">open</span>() <span class="hljs-comment"># 冰箱门打开</span><br>elephant.moveForward(<span class="hljs-number">2</span>) <span class="hljs-comment"># 大象向前走2步进冰箱</span><br>elephant.stop() <span class="hljs-comment"># 大象停下</span><br>fridge.close() <span class="hljs-comment"># 冰箱门关上</span><br></code></pre></td></tr></table></figure>
+<p>以上是常见的经典的 <strong><em>面向过程编程 (Procedural-Oriented Programming, POP)</em></strong> 。以过程为导向，把任务拆解成一个小的步骤。</p>
+<p>正如书 <em>Algorithms plus data structures equals programs</em> (Niklaus Wirth, 1976)中所描述的一样，POP首先设计算法，需要如何去操作数据，然后再去设计对应的数据结构。</p>
+<p><strong>再思考</strong>：</p>
+<blockquote>
+<p>我还想把大象放进电饭煲，该怎么做？</p>
+</blockquote>
+<p>还是很简单。</p>
+<ol>
+<li>第一步让大象走到电饭煲前面；</li>
+<li>第二步让电饭煲打开；</li>
+<li>第三部让大象跳进去站在里面；</li>
+<li>最后一步让电饭煲关上。</li>
+</ol>
+<p>但是我们发现，用POP设计的算法，一旦我们的需求有一点点变化，就需要修改整个算法，因为大象进入电饭煲的步骤是不一样的。</p>
+<hr>
+<p>而我们接下来讨论的<strong>面向对象编程</strong>恰恰相反，需要的数据结构事先被设计好，我们再需要设计的是算法，也就是如何操作这些数据。</p>
+<p>面向对象编程，顾名思义，首先你需要对象，以我们的<strong>大象放进冰箱</strong>为例子：</p>
+<ol>
+<li>确定这个问题有两个对象，<strong>大象</strong>和<strong>冰箱</strong>。</li>
+<li>接下来，我们操作大象这个对象，把它放到冰箱里，完成了。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 1</span><br>elephant = Elephant()<br>fridge = Fridge()<br><br><span class="hljs-comment"># 2</span><br>elephant.putIn(fridge)<br></code></pre></td></tr></table></figure>
+<p>至于大象是怎么运动的，冰箱是怎么开门的，作为大象和冰箱用户的我们并不需要关心，我们只需要知道怎么使用它们就可以。大象和冰箱实现运动的细节就交给大象和冰箱背后的程序员来负责。</p>
+<p>这样的好处就是，一旦任务需求有点变化，比如要把大象放进电饭煲，只要改变一点就可以：</p>
+<ol>
+<li>确定这个问题有两个对象，<strong>大象</strong>和<strong>电饭煲</strong>。</li>
+<li>接下来，我们操作大象这个对象，把它放到电饭煲里，完成了。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 1</span><br>elephant = Elephant()<br>cooker = Cooker()<br><br><span class="hljs-comment"># 2</span><br>elephant.putIn(cooker)<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="1-1-Object-Oriented-Programming"><a href="#1-1-Object-Oriented-Programming" class="headerlink" title="1.1 Object-Oriented Programming"></a>1.1 Object-Oriented Programming</h2><p><strong>1.1 面向对象编程</strong></p>
+<ul>
+<li><strong><em>面向对象编程 (Object-Oriented Programming, OOP)</em></strong> 是一种计算机编程架构，主要处理目标是 <strong>对象</strong> 。而 <strong>类</strong> 是对一群对象的 <strong>抽象</strong> ，类描述了其下对象的 <strong>变量数据</strong> 和 <strong>可执行的操作</strong> 。每一个对象只会对其用户 <strong>开放</strong> 一些 <strong>特定的操作</strong> ，同时 <strong>隐藏</strong> 了其 <strong>实现的细节</strong> 。</li>
+</ul>
+<p>主要价值：</p>
+<ul>
+<li><strong><em>可靠性 (Reliability)</em></strong> ：<ul>
+<li>面向对象编程基于不同的对象，每个对象只提供不同的功能给用户使用，而内部的原理和细节会被隐藏，使其收到保护，提高可靠性；</li>
+</ul>
+</li>
+<li><strong><em>可重用性 (Reusability)</em></strong> ：<ul>
+<li>能基于现有的对象，继承出新的类似的对象，并且能够直接拥有被继承对象的特点和方法，使其可以重复使用已有功能，提高可重用性；</li>
+</ul>
+</li>
+<li><strong><em>适应性 (Adaptability)</em></strong> ：<ul>
+<li>能基于现有的对象，拓展出新的类似的对象，并拥有额外的功能，使其可以适应新的需求，提高适应性；</li>
+</ul>
+</li>
+<li><strong><em>低耦合 (Low Coupling)</em></strong> ：<ul>
+<li>需求的实现过程被抽象成一个个对象，每个对象都是相对独立的，某一对象出现问题，不会影响其他对象，提高低耦合性；</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://src.ultrafish.cn/storage/pop_vs_oop.png" srcset="/img/loading.gif" lazyload alt="Procedural vs. OO programming (Horstmann, 2019.)"></p>
+<hr>
+<h1 id="2-Class-and-Object"><a href="#2-Class-and-Object" class="headerlink" title="2. Class and Object"></a>2. Class and Object</h1><p><strong>2. 类和对象</strong></p>
+<p>现实生活中，任意一个具体的事物都是一个 <strong><em>对象 (Object)</em></strong> 。</p>
+<ul>
+<li>而<strong>一群有着类似特征和行为</strong>的对象可以被抽象成一个 <strong><em>类 (Class)</em></strong> ，<strong>类</strong>就像是一个<strong>模版或模型</strong>，是对事物的一种<strong>抽象</strong>。在Java中，Class是一种数据类型。</li>
+<li>而从这一<strong>类</strong>中创造的<strong>具体</strong>的事物就会是一个<strong>对象</strong>，也被称为这此<strong>类</strong>的一个 <strong><em>实例 (Instance)</em></strong> 。一个<strong>类</strong>能够创建多个<strong>实例</strong>，它们类型相同，但是内部细节各不相同。</li>
+</ul>
+<p>举例来说：</p>
+<ul>
+<li><strong><em>人</em></strong> 是一种抽象的类，这一类规定了具体人的特征和行为，比如年龄和动作。<br>而 <strong><em>王某某</em></strong>，<strong><em>李某某</em></strong>，<strong><em>张某某</em></strong> 等具体的某一个人就是<strong>人</strong>这一类的<strong>对象</strong>或<strong>实例</strong>，<br>并且 <em>张某某</em> 这一具体的对象有<strong>具体的年龄特征</strong>和<strong>具体的动作行为</strong>，比如<strong>21岁</strong>和<strong>写博客</strong>。</li>
+</ul>
+<hr>
+<h2 id="2-1-Class-Definition"><a href="#2-1-Class-Definition" class="headerlink" title="2.1 Class Definition"></a>2.1 Class Definition</h2><p><strong>2.1 类的定义</strong></p>
+<p>一般来说，一个类被定义成两个部分，<strong>静态部分</strong>和<strong>动态部分</strong>。</p>
+<ul>
+<li><strong>静态部分</strong>：类的 <strong><em>属性 (field)</em></strong> 。用来描述此类实例的特征或状态，如，人的姓名、年龄、性别、身高等。这个部分会存储在此类实例的内存中。</li>
+<li><strong>动态部分</strong>：类的 <strong><em>方法 (method)</em></strong> 。定义了此类实例的行为，能够对此类实例进行的操作，如，人的动作、说话、走路等。这个部分<strong>不会</strong>存储在此类实例的内存中。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123; <span class="hljs-comment">// 人类</span><br><br>    <span class="hljs-comment">// 静态部分 - 属性</span><br>    String name; <span class="hljs-comment">// 姓名</span><br>    <span class="hljs-type">int</span> age; <span class="hljs-comment">// 年龄</span><br>    <span class="hljs-type">boolean</span> gender; <span class="hljs-comment">// 性别 true-男 false-女</span><br><br>    <span class="hljs-comment">// 动态部分 - 方法</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">walk</span><span class="hljs-params">()</span> &#123; <span class="hljs-comment">// 走路</span><br>        System.out.println(<span class="hljs-string">&quot;I&#x27;m walking.&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">speak</span><span class="hljs-params">()</span> &#123; <span class="hljs-comment">// 说话</span><br>        System.out.println(<span class="hljs-string">&quot;I&#x27;m speaking.&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">howOld</span><span class="hljs-params">()</span> &#123; <span class="hljs-comment">// 获取年龄</span><br>        System.out.println(age); <span class="hljs-comment">// 获取实例的age属性值</span><br>        <span class="hljs-keyword">return</span> age;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">updateName</span><span class="hljs-params">(String newName)</span> &#123; <span class="hljs-comment">// 更新姓名</span><br>        name = newName; <span class="hljs-comment">// 更新实例的name属性值</span><br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-2-Object-Creation"><a href="#2-2-Object-Creation" class="headerlink" title="2.2 Object Creation"></a>2.2 Object Creation</h2><p><strong>2.2 对象创建</strong></p>
+<p>上一节完成了类的定义，但是类只是一个抽象，只有真正此类的<strong>实例或对象</strong>才有意义。在Java中，我们可以通过<code>new</code>关键字来创建一个某类的<strong>实例</strong>或<strong>对象</strong>。</p>
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Person</span> <span class="hljs-variable">Mike</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(); <span class="hljs-comment">// 创建一个人类的实例，并由变量mike指向此实例</span><br></code></pre></td></tr></table></figure>
+<p>此处，</p>
+<ul>
+<li><code>Person mike</code>：是对<code>Mike</code>变量的 <strong><em>声明 (Declaration)</em></strong> ，声明了此变量的名字，类型，可选择性地规定初始值；</li>
+<li><code>new Person()</code>：是对<code>Person</code>类的 <strong><em>实例化 (Instantiation)</em></strong> 或 <strong><em>创建(Creation)</em></strong> ，创建了一个<code>Person</code>类的对象；</li>
+<li><code>Mike = new Person()</code>：是对<code>Mike</code>变量的 <strong><em>初始化 (initialization)</em></strong> 或 <strong><em>定义(Definition)</em></strong> ，将<code>Mike</code>变量指向此对象（把此对象赋值给<code>Mike</code>变量）。</li>
+</ul>
+<p>当然，我们可以创建多个实例，比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Person</span> <span class="hljs-variable">Mike</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br><span class="hljs-type">Person</span> <span class="hljs-variable">Alice</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br><span class="hljs-type">Person</span> <span class="hljs-variable">Bob</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-2-1-Object-Field-Access"><a href="#2-2-1-Object-Field-Access" class="headerlink" title="2.2.1 Object Field Access"></a>2.2.1 Object Field Access</h3><p><strong>2.2.1 对象属性访问</strong></p>
+<p>实例(或对象)的属性可以通过<code>实例名.属性名</code>的方式来访问和赋值，比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 承接上述代码...</span><br>Mike.name = <span class="hljs-string">&quot;Mike_Zhang&quot;</span>;<br>Alice.name = <span class="hljs-string">&quot;Alice_Wang&quot;</span>;<br>Bob.name = <span class="hljs-string">&quot;Bob_Li&quot;</span>;<br>System.out.println(Mike.name); <span class="hljs-comment">// 输出：&quot;Mike_Zhang&quot;</span><br></code></pre></td></tr></table></figure>
+<p>虽然这三个对象都是<code>Person</code>类的实例，但是他们同一个属性是相互独立，不会影响的。比如修改<code>Mike.name</code>，不会影响<code>Alice.name</code>和<code>Bob.name</code>。</p>
+<p>因为每一个实例的属性都是存储在它自己独有的空间内的。</p>
+<hr>
+<h3 id="2-2-2-Object-Method-Invocation"><a href="#2-2-2-Object-Method-Invocation" class="headerlink" title="2.2.2 Object Method Invocation"></a>2.2.2 Object Method Invocation</h3><p><strong>2.2.2 对象方法调用</strong></p>
+<p>实例(或对象)的行为(方法)可以通过<code>实例名.方法名(参数)</code>(参数可选) 的形式来调用，比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 承接上述代码...</span><br>Mike.walk();<br>Bob.howOld();<br>Alice.updateName(<span class="hljs-string">&quot;Alice_Li&quot;</span>);<br></code></pre></td></tr></table></figure>
+<p>一个类的的每个实例共享了此类的所有的方法，因此实例并不会存储其方法在内存空间中。但是每个实例会根据用户所调用的方法，来选择其对应的行为。</p>
+<hr>
+<h3 id="2-2-3-Object-Identity"><a href="#2-2-3-Object-Identity" class="headerlink" title="2.2.3 Object Identity"></a>2.2.3 Object Identity</h3><p><strong>2.2.3 对象的标识</strong></p>
+<p>上节说到每一个实例(或对象)只会储存其<strong>静态部分(属性)</strong>在其内存空间中，<br>那这是否意味着两个拥有<strong>相同属性和属性值</strong>的实例是相等的？</p>
+<p>并不是。属性并不能完全描述一个实例，每个实例是存储在不同的内存空间中的，都是独一无二的。<br>如，两个双胞胎，尽管他们的性别，年龄，姓名(假设相同)都相同，但是他们还是两个不同的个体。但他们的唯一标识（比如身份证）可以区分开来。</p>
+<hr>
+<h2 id="2-3-Class-Relationships"><a href="#2-3-Class-Relationships" class="headerlink" title="2.3 Class Relationships"></a>2.3 Class Relationships</h2><p><strong>2.3 类间关系</strong></p>
+<p><strong>Dependence (“uses–a”)</strong> 关系：</p>
+<ul>
+<li>比如，<strong>人</strong>类用到了<strong>天气</strong>类，因为一个<strong>人</strong>的行为会被<strong>天气</strong>影响到，有依托的关系；</li>
+</ul>
+<p><strong>Aggregation (“has–a”)</strong> 关系：</p>
+<ul>
+<li>一个A类包括了另一个B类。A类有B类的一个属性，或A类中创建了B类的一个实例，或A类的方法中有B类的一个参数。</li>
+<li>比如，<strong>人</strong>类中有一个<strong>工作</strong>类，因为一个人有<strong>工作</strong>这一属性。<strong>人</strong>类也可以有一个是<strong>人</strong>类，因为可以用来表示亲人、朋友这些属性。</li>
+</ul>
+<p><strong>Inheritance (“is–a”)</strong> 关系：</p>
+<ul>
+<li>能够表示<strong>相对一般的类</strong>和<strong>相对具体的类</strong>之间的关系，被称为 <strong><em>继承 (Inheritance)</em></strong> 的关系。<strong>继承类能</strong>够继承<strong>被继承类</strong>的属性和方法，同时也可以有自己特有的部分。</li>
+<li>比如，<strong><em>学生</em></strong> 类是<strong>人</strong>类中的一种相对具体的类，因此<strong>学生</strong>类可以继承<strong>人</strong>类。常识告诉我们，<strong>学生</strong>同时拥有<strong>人</strong>的属性和方法。与此同时，<strong>学生</strong>还能够拥有一些特有的属性和方法，比如，年纪、学校等<strong>属性</strong>，进入学校、更新学校等<strong>行为</strong>。</li>
+</ul>
+<hr>
+<p>以上我们初步了解了Java中<strong>面向对象编程</strong>的基本概念，以及<strong>类</strong>和<strong>对象</strong>的关系和应用。</p>
+<p>接下来我们介绍<strong>面向对象编程</strong>的三个经典<strong>特性</strong>：<br><strong>封装</strong>、<strong>继承</strong>、<strong>多态</strong>。</p>
+<hr>
+<h1 id="3-Encapsulation"><a href="#3-Encapsulation" class="headerlink" title="3. Encapsulation"></a>3. Encapsulation</h1><p><strong>3. 封装</strong></p>
+<ul>
+<li><strong><em>封装 (Encapsulation)</em></strong> 是指把对象的<strong>内部属性 和 行为的实现细节 隐藏</strong>起来，使得对象的内部属性和行为只能通过公共<strong>接口</strong>来访问。如图：</li>
+</ul>
+<p><img src="https://src.ultrafish.cn/storage/encapsulation_example.png" srcset="/img/loading.gif" lazyload alt="Encapsulation - Principles of object-oriented design (Goodrich et al., 2014). "></p>
+<p><strong>比如</strong>：</p>
+<ul>
+<li>大象装进冰箱只需要<code>elephant.putIn(fridge);</code>即可，不需要访问过程的实现细节；</li>
+<li>若用户直接能够操作<strong>冰箱对象内部的属性</strong>或者<strong>开门的实现细节</strong>，那我可以让冰箱永远打不开门或者让其断电(:P)。</li>
+</ul>
+<p><strong>目的</strong>：</p>
+<ul>
+<li>某一类的程序员可以自由设计类的<strong>内部属性</strong>和<strong>行为的实现方法</strong>，无需关心使用此类的其他类程序员会受到其内部实现细节的影响；</li>
+<li>此类的程序员只需关心此类的<strong>行为</strong>对外的<strong>开放接口</strong>，如此类行为的名称、参数类型、返回值类型、用法等，能够让其他程序员使用这些接口；</li>
+<li>能够提高<strong>可靠性</strong>和<strong>适应性</strong>，因为内部行为实现细节的<strong>改变</strong>不会影响到其他部分以及其用户。程序员只改变内部实现细节，就能方便的维护和增加新的功能。</li>
+</ul>
+<hr>
+<h1 id="4-Inheritance"><a href="#4-Inheritance" class="headerlink" title="4. Inheritance"></a>4. Inheritance</h1><p><strong>4. 继承</strong></p>
+<ul>
+<li><strong><em>继承 (Inheritance)</em></strong> 是一种用于<strong>多层级的类</strong>之间的机制。在这些类中，一些<strong>通用的方法</strong>可以被组合在一个<strong>最常规</strong>的类中，叫做 <strong><em>父类(super class)</em></strong> 。而有着一些<strong>额外</strong>功能或方法的<strong>特殊类</strong>，可以看作常规类的延伸，叫做 <strong><em>子类(sub class)</em></strong> 。我们称子类 <strong><em>继承 (extends)</em></strong> 父类，子类会同时继承父类的大部分的属性和方法。</li>
+</ul>
+<p><strong>比如</strong>：</p>
+<ul>
+<li>上文提到的<strong>人</strong>类，可以作为一个<strong>父类</strong>，包括类所有人的通用的属性和方法。而<strong>学生</strong>类可以作为其的一个<strong>子类</strong>，继承了<strong>人</strong>类。那么<strong>学生</strong>类拥有<strong>人</strong>类通用的<strong>属性</strong>和<strong>行为</strong>，同时还拥有<strong>学校</strong>和<strong>上学</strong>这些特有的<strong>属性</strong>和<strong>行为</strong>。这也是我们上文提到的<strong>Inheritance (“is–a”)</strong> 关系。</li>
+</ul>
+<p><strong>目的</strong>：</p>
+<ul>
+<li>能够提高代码的<strong>可重用性</strong>，因为子类能够直接继承父类中的属性和方法，这些相同的代码就不需要在子类中重新写一遍。子类中只需要加入其不同于父类的属性和方法即可；</li>
+<li>当然，子类也可以重写从父类继承过来的方法，成为自己的新的方法。</li>
+</ul>
+<blockquote>
+<p>在<strong>阅读完本文章后</strong>，你可以参考本博客中的<a href="https://ultrafish.cn/2020/09/13/Java-oop-inheritance/"> <em>Java面向对象编程(OOP)的继承性(Inheritance)</em> </a>这一文章，了解更多关于继承的内容。</p>
+</blockquote>
+<hr>
+<h1 id="5-Polymorphism"><a href="#5-Polymorphism" class="headerlink" title="5. Polymorphism"></a>5. Polymorphism</h1><p><strong>5. 多态</strong></p>
+<ul>
+<li><strong><em>多态 (Polymorphism)</em></strong> 是一种在<strong>继承</strong>中作用于<strong>方法</strong>的机制。一个多态的方法，在被不同<strong>子类</strong>的对象调用时，能灵活地做出不同的对应行为。能够使一个方法有<strong>多</strong>种状<strong>态</strong>。</li>
+</ul>
+<p><strong>比如</strong>：<br>1.我们创建两个<strong>人类</strong>的实例，<code>学生甲</code>和<code>老师乙</code>，分别为<strong>学生类</strong>和<strong>老师类</strong>，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Person</span> <span class="hljs-variable">studentA</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>();<br><span class="hljs-type">Person</span> <span class="hljs-variable">teacherB</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Teacher</span>();<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><em>注：Java允许一个子类的实例赋值给一个其父类类型的变量，称为<a href="https://ultrafish.cn/2021/10/02/Java-oop-polymorphism/#Condition3-Upcasting">向上转型</a>。</em></p>
+</blockquote>
+<p>2.并且我们在人类中定义一个方法，来让<strong>人类</strong>实例介绍自己，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123; <span class="hljs-comment">// 人类</span><br>    <span class="hljs-comment">// 省略其他代码</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">introduce</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;I am a person.&quot;</span>); <span class="hljs-comment">// 人类介绍自己为人类</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>3.并且分别在人类的子类<strong>学生类</strong>和<strong>老师类</strong>中定义同名的类似的方法，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Person</span> &#123; <span class="hljs-comment">// 学生类</span><br>    <span class="hljs-comment">// 省略其他代码</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">introduce</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;I am a student.&quot;</span>); <span class="hljs-comment">// 学生介绍自己为学生</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Teacher</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Person</span> &#123; <span class="hljs-comment">// 老师类</span><br>    <span class="hljs-comment">// 省略其他代码</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">introduce</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;I am a teacher.&quot;</span>); <span class="hljs-comment">// 老师介绍自己为老师</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>4.现在我们定义一个舞台，让人类可以介绍自己，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Stage</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">perform</span><span class="hljs-params">(Person person)</span> &#123; <span class="hljs-comment">// 注意：这里的参数是一个人类的实例</span><br>        person.introduce(); <span class="hljs-comment">// 调用人类的介绍方法</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>5.现在，邀请<code>学生甲</code>和<code>老师乙</code>在舞台上介绍自己：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Stage</span> <span class="hljs-variable">stage</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stage</span>();<br>stage.perform(studentA); <span class="hljs-comment">// I am a student.</span><br>stage.perform(teacherB); <span class="hljs-comment">// I am a teacher.</span><br></code></pre></td></tr></table></figure>
+<p>可以看到，<code>学生甲</code>和<code>老师乙</code>都能<strong>具体</strong>的介绍自己，不会只说“我是一个人类”，而是说“我是一个学生”或者“我是一个老师”。</p>
+<p>而这就是方法<code>introduce()</code><strong>多态</strong>的表现，能够根据不同类型的对象，做出对应的不同的表现。</p>
+<hr>
+<p><strong>目的</strong>：</p>
+<ul>
+<li>增加了代码的<strong>拓展性</strong>或<strong>适应性</strong>，使方法的调用更加灵活。</li>
+<li><strong>比如</strong>：<ul>
+<li>在<strong>舞台</strong>的<code>表演</code>方法中，只需要请<strong>人类</strong>上台，并让他们<code>介绍</code>就可以，不用判断是老师还是学生并设计不同的表演方式。</li>
+<li>如果新的<strong>人类</strong>子类出现，比如<code>医生</code>，我们只需要定义好<strong>医生类</strong>应该如何介绍自己，而不用修改<strong>舞台类</strong>，降低了拓展代码的成本。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>在<strong>阅读完本文章后</strong>，你可以参考本博客中的<a href="https://ultrafish.cn/2021/10/02/Java-oop-polymorphism/"> <em>Java面向对象编程(OOP)的多态性(Polymorphism)</em> </a>这一文章，了解更多关于多态的内容。</p>
+</blockquote>
+<hr>
+<h1 id="6-Outro"><a href="#6-Outro" class="headerlink" title="6. Outro"></a>6. Outro</h1><p><strong>6. 尾巴</strong></p>
+<p>面向对象编程是一种非常强大的编程方法，把现实生活中的对象引入计算机中，并进行一系列的抽象，并让不同模型和对象互相引用，使得程序模型更加灵活，强大，更好维护与拓展。</p>
+<blockquote>
+<p>但是，在带来一系列好处的同时，面向对象一定程度上增加了代码的复杂度。你应该不想为了只输出一句<code>Hello, World!</code>而写一个类，来实现这个功能吧？<br>因此，如果你的代码需求很明确，只是为了实现一个固定的功能，并不会有后期的拓展或者修改，不会有很复杂的结构，我推荐直接用POP来写代码。比如输出一句<code>Hello, World!</code>。</p>
+</blockquote>
+<p>希望本文章能够对你理解Java中的面向对象编程有一些帮助。</p>
+<p>如有任何疑问，或者发现本文任何错误，请在文章下方留言！</p>
+<p>若想了解更多有关Java及其面向对象编程，可参考：</p>
+<p>Java主题：</p>
+<iframe name="ifr" width="100%" src="/content/java.html" frameborder="0" onresize="this.height=this.contentWindow.document.body.scrollHeight" onload="this.height=this.contentWindow.document.body.scrollHeight" scrolling="no" allowfullscreen>
+</iframe>
+
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>C. S. Horstmann, <em>Core Java</em>. Boston: Pearson, 2019.<br>M. Goodrich, R. Tamassia, and A. O’reilly, <em>Data Structures and Algorithms in Java, 6th Edition</em>. John Wiley &amp; Sons, 2014.<br>Niklaus Wirth. (1976). <em>Algorithms plus data structures equals programs.</em> Englewood Cliffs, N.J. Prentice-Hall.<br><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744/1255943520012800">面向对象编程 - 廖雪峰的官方网站</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/305042684/answer/557460817">怎么从本质上理解面向对象的编程思想？</a></p>
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Java中OOP相关的知识是十分重要的, 会继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">感谢你的支持</div></center>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Programming/" class="category-chain-item">Programming</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Programming/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Programming/Java/OOP/" class="category-chain-item">OOP</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Java面向对象编程详细介绍 - Java OOP Detailed Introduction</div>
+      <div>https://ultrafish.cn/2022/07/31/Java-oop-detailed-introduction/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mike_Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月31日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/29/binary-tree-introduction/" title="Binary Tree Introduction - 二叉树简介">
+                        <span class="hidden-mobile">Binary Tree Introduction - 二叉树简介</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","path":"window.location.pathname","placeholder":"说点什么吧(记得填写你的昵称哦！选填邮箱可更快收到回复哦！)","avatar":"mp","meta":["nick","mail"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <footer class="text-center mt-5 py-3" style="font-size:small;">
+<div class="footer-inner">
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  <div class="footer" >
+    Copyright &copy; 2020-2022 <a href="https://ultrafish.cn/about">Mike_Zhang</a>. All rights reserved.
+  </div>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2020036956号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>浙公网安备33042102000661号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+
+</div>
+</footer>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
