@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish.cn/img/gameoflife.png">
 <meta property="article:published_time" content="2022-08-05T10:10:00.000Z">
-<meta property="article:modified_time" content="2022-08-05T10:32:38.997Z">
+<meta property="article:modified_time" content="2022-08-06T02:35:32.027Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="算法">
@@ -331,7 +331,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.6k 字
+          2.7k 字
         
       </span>
     
@@ -343,7 +343,7 @@
         
         
           <!-- compatible with older versions-->
-          22 分钟
+          23 分钟
         
       </span>
     
@@ -495,16 +495,28 @@
 <hr>
 <h1 id="4-Implementation"><a href="#4-Implementation" class="headerlink" title="4.  Implementation"></a>4.  Implementation</h1><p><strong>4. 实现</strong></p>
 <h2 id="4-1-Java"><a href="#4-1-Java" class="headerlink" title="4.1 Java"></a>4.1 Java</h2><p>基于上述的抽象，我们可以用Java对上述两个模型进行设计和封装。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Game_of_Life/tree/main/Java-Implementation/src">GitHub代码</a></p>
+<p>GitHub代码:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Data_Structure_and_Algorithm/blob/main/Algorithms/Game_of_Life/src/Cell.java"><em>Cell.java</em></a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Data_Structure_and_Algorithm/blob/main/Algorithms/Game_of_Life/src/CellWorld.java"><em>CellWorld.java</em></a></li>
+</ul>
 <div class="group-image-container"><div class="group-image-row"><div class="group-image-wrap"><img src="https://src.ultrafish.cn/storage/Cell-Java.png" srcset="/img/loading.gif" lazyload alt="Cell class in Java"></div><div class="group-image-wrap"><img src="https://src.ultrafish.cn/storage/CellWorld-Java.png" srcset="/img/loading.gif" lazyload alt="CellWorld class in Java"></div></div></div>
 <hr>
-<p>可运行<a target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Game_of_Life/blob/main/Java-Implementation/Test/CellWorldTest.java">测试文件</a>来模拟此游戏。</p>
+<p>可运行测试文件来模拟此游戏。</p>
+<p>GitHub代码:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Data_Structure_and_Algorithm/blob/main/Algorithms/Game_of_Life/Test/CellWorldTest.java"><em>CellWorldTest.java</em></a></li>
+</ul>
 <p><img src="https://src.ultrafish.cn/storage/CellWorldTest-Java.png" srcset="/img/loading.gif" lazyload alt="Test CellWorld class"></p>
 <hr>
 <h2 id="4-2-React"><a href="#4-2-React" class="headerlink" title="4.2 React"></a>4.2 React</h2><p>上述用Java实现的方式只是在命令行中实现的。为了能够让用户有更好的操作体验，我用<a target="_blank" rel="noopener" href="https://reactjs.org/">React</a>做了一个<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/gameoflife/">网页版本的康威生命游戏</a>，并用JavaScript封装了之前用Java实现的两个类。最后发布在<a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/">UltraFish Plus</a>上。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Game_of_Life/blob/main/React-Implementation/index.js">GitHub代码</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Game_of_Life.git">GitHub代码</a></li>
+</ul>
 <p><img src="https://src.ultrafish.cn/storage/GOL-React.png" srcset="/img/loading.gif" lazyload alt="Classed and Components in React with JavsScript"></p>
-<p><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/gameoflife/">UltraFish Plus中的康威生命游戏</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://plus.ultrafish.cn/gameoflife/">UltraFish Plus中的康威生命游戏</a></li>
+</ul>
 <p><img src="https://src.ultrafish.cn/storage/GOL-UltraFish_Plus.png" srcset="/img/loading.gif" lazyload alt="Conway&#39;s Game of Life in UltraFish Plus with React"></p>
 <p>用户作为这个世界的“上帝”，可以通过点击方块来创造或者消灭生命，便可设计自己的世界。点击开始后就可以使世界开始运作，观察世界中生命的变化。</p>
 <hr>
