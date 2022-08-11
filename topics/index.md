@@ -1,15 +1,14 @@
-[**Computer Science**](#computer-science) | [**Web Development**](#web-development) | [**Data Science**](#data-science) | [**Mathematics**](#mathematics) | [**Others**](#others)
+# Topics - UltraFish  
 
-
-### *Computer Science*
+*Computer Science*
 
 - **Programming**  
-  - [Java](/java.md) - Java Basic & Java Object-oriented Programming
+  - [Java](/java.md)
   - R
   - Markdown
   - C++
   - Python
-  - [SQL](/sql.md)  - SQL Basic
+  - [SQL](/sql.md)
 
 - **Data Structures and Algorithms**  
   - [Data Structures](/data-structures.md)  
@@ -21,19 +20,19 @@
 
 ---
 
-### *Web Development*
+*Web Development*
 
 ---
 
-### *Data Science*
+*Data Science*
 
 ---
 
-### *Mathematics*
+*Mathematics*
 
 ---
 
-### *Others*
+*Others*
 - [**My Life**](/life.md)
 - Hardwares
 - Applications
