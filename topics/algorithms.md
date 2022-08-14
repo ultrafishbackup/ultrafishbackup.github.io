@@ -1,4 +1,4 @@
-**Algorithms Topics**
+**Algorithms Topics ｜ 算法主题**
 
 * [康威生命游戏实现 - Conway's Game of Life Implementation](https://ultrafish.cn/2022/08/05/game-of-life-implementation/)  
 * [Sorting Algorithm Introduction - 排序算法简介](https://ultrafish.cn/2022/05/25/sorting-algorithm-introduction/)  
