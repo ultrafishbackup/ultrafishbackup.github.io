@@ -1,5 +1,5 @@
 - [**All Project & Research**](/ "All - Project & Research - UltraFish")
-- [Academic Projects](/?id=academic-projects)
+- [Academic Projects](/?id=academic-project)
   - [**- lighTag**](lightag.md "lighTag - Project & Research - UltraFish")
   - [**- CV Chain System**](cvchain.md "CV Chain System - Project & Research - UltraFish")
   - [**- Clevis**](clevis.md "Clevis - Project & Research - UltraFish")
@@ -10,7 +10,7 @@
   - [**- Josephus Problem with Python**](/josephus-problem.md "Josephus Problem with Python - Algorithms Study - UltraFish")  
   - [**- Collection of Data Structures and Algorithms**](https://github.com/zhangwengyu999/Data_Structure_and_Algorithm.git) 
   - [**- Say Happy New Year 2021 in C++**](/hny-cpp.md "Say Happy New Year 2021 in C++ - Algorithms Study - UltraFish")   
-- [Web Development](/?id=web-development)
+- [Web Development](/?id=web-development-project)
   - [**- UltraFish**](/ultrafish.md "UltraFish - Project & Research - UltraFish")
   - [**- UltraFish Plus**](/ultrafish-plus.md "UltraFish Plus - Project & Research - UltraFish")  
     - [**- Conway's Game of Life**](/ultrafish-plus.md?id=conway39s-game-of-life)
@@ -21,4 +21,3 @@
     - [**- Signed Binary Number Converter**](/ultrafish-plus.md?id=signed-binary-number-converter)
 - [Hardware Study](/?id=hardware-study)
   - [**- Arduino Bluetooth Transceiving**](/arduino-bluetooth-transceiving.md "Arduino Bluetooth Transceiving - Hardware Study - UltraFish")
-

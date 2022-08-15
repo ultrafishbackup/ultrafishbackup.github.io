@@ -1,6 +1,6 @@
 # Project & Research | 项目与研究
 
-### Academic Projects
+### Academic Project
 > [**lighTag**](/lightag.md)  
 > A Ultra-wideband (UWB) Positioning System Integrated in Lighting System and its Applications
 
@@ -30,7 +30,7 @@
 > A program to say happy new year by writing pixel words in C++
 
 
-### Web Development
+### Web Development Project
 > [**UltraFish**](/ultrafish.md)  
 > My personal blog website based on **Hexo blog framework** using **Node.js**
 
