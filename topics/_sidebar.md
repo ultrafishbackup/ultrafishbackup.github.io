@@ -32,4 +32,3 @@
   - [**- Life**](life.md "Life - Topics - UltraFish")
   - [**- Study Notes**](/study-note.md)
   - [**- Hardwares**](/hardware.md "Hardwares - Topics - UltraFish")
-- <a href="/"><img src="../img/logoUltraFish_re_nbg.png" height="40px"/></a>
