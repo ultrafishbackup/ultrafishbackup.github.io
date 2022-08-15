@@ -1,566 +1,72 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN,en,default" data-default-color-scheme=light>
-
-
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
-  <link rel="icon" href="/img/4.jpg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#000000">
-  <meta name="author" content="Mike_Zhang">
-  <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
-  
-    <meta name="description" content="🎓 Academic Projects:              lighTag - A Ultra-wideband (UWB) Positioning System Integrated in Lighting System and its ApplicationsFeatures: Solution to Power Issue; 3D Indoor Positioning; High">
-<meta property="og:type" content="website">
-<meta property="og:title" content="项目与研究">
-<meta property="og:url" content="https://ultrafish.cn/project/index.html">
-<meta property="og:site_name" content="UltraFish">
-<meta property="og:description" content="🎓 Academic Projects:              lighTag - A Ultra-wideband (UWB) Positioning System Integrated in Lighting System and its ApplicationsFeatures: Solution to Power Issue; 3D Indoor Positioning; High">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-09T08:35:17.000Z">
-<meta property="article:modified_time" content="2022-08-06T04:05:14.131Z">
-<meta property="article:author" content="Mike_Zhang">
-<meta property="article:tag" content="blog, Mike_Zhang, UltraFish">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>项目与研究 - UltraFish</title>
+  <title> Project & Research - UltraFish</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="icon" href="../img/4.jpg">
+</head>
+<body>
+  <nav>
+    <a href="/"><img src="../img/logoUltraFish_re_nbg.png" height="50px"/></a>
+  </nav>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      homepage: 'index.md',
+      name: '<b>Project & Research - UltraFish</b>',
+      repo: '',
+      loadSidebar: true,
+      mergeNavbar: true,
+      search: true,
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto', // or 'auto'
+        placeholder: 'Search',
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+        // 支持本地化
+        placeholder: {
+          '/zh-cn/': '搜索',
+          '/': 'Search'
+        },
 
+        noData: 'No Results!',
 
+        // 支持本地化
+        noData: {
+          '/zh-cn/': '找不到结果',
+          '/': 'No Results'
+        },
 
+        // 搜索标题的最大层级, 1 - 6
+        depth: 2,
 
+        hideOtherSidebarContent: false, // 是否隐藏其他侧边栏内容
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+        // 避免搜索索引冲突
+        // 同一域下的多个网站之间
+        namespace: 'website-1',
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+        // 使用不同的索引作为路径前缀（namespaces）
+        // 注意：仅适用于 paths: 'auto' 模式
+        //
+        // 初始化索引时，我们从侧边栏查找第一个路径
+        // 如果它与列表中的前缀匹配，我们将切换到相应的索引
+        pathNamespaces: ['/zh-cn', '/ru-ru', '/ru-ru/v1'],
 
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"ultrafish.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VXQrzMqOSkaPcbILQ3sQJyhw-gzGzoHsz","app_key":"y6z7EoVjISdQPvN4meqBOkvy","server_url":"https://vxqrzmqo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+        // 您可以提供一个正则表达式来匹配前缀。在这种情况下，
+        // 匹配到的字符串将被用来识别索引
+        pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/
+      },
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-
-  
-<meta name="generator" content="Hexo 6.1.0"></head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 60vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>UltraFish</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/topics/">
-                <i class="iconfont icon-category-fill"></i>
-                主题
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/project/">
-                <i class="iconfont icon-books"></i>
-                研究
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于我
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="iconfont icon-code"></i>
-                UltraFish Plus
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn">
-                    <i class="iconfont icon-home-fill"></i>
-                    UltraFish Plus 主页
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/gameoflife/">
-                    <i class="iconfont icon-briefcase"></i>
-                    Game of Life
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/GPA-Calculator">
-                    <i class="iconfont icon-briefcase"></i>
-                    GPA计算器
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">
-                    <i class="iconfont icon-briefcase"></i>
-                    多进制转换
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
-                    <i class="iconfont icon-briefcase"></i>
-                    IEEE 754
-                  </a>
-                
-              </div>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="iconfont icon-more"></i>
-                更多
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/links/">
-                    <i class="iconfont icon-friends"></i>
-                    伙伴及留言
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/collection/">
-                    <i class="iconfont icon-th-large"></i>
-                    收藏夹
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/archives/">
-                    <i class="iconfont icon-archive-fill"></i>
-                    文章
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/tags/">
-                    <i class="iconfont icon-tags-fill"></i>
-                    标签
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/categories/">
-                    <i class="iconfont icon-category-fill"></i>
-                    分类
-                  </a>
-                
-              </div>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-    
-    <!-- <div id="google_translate_element"></div>
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-          new google.translate.TranslateElement({
-              pageLanguage: 'zh'
-          }, 'google_translate_element');
-      }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
-
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/bgi2.jpg?versionId=CAEQGxiBgIDr5t2X1xciIGE4MjcwYjQ3MjU1ODRmZjE5N2UzMjA5NGRkZWEwMTAz') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="项目与研究"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<article class="page-content">
-  <p>🎓 <strong><em>Academic Projects:</em></strong></p>
-<div class="note note-secondary">
-            <h3 id="lighTag-A-Ultra-wideband-UWB-Positioning-System-Integrated-in-Lighting-System-and-its-Applications"><a href="#lighTag-A-Ultra-wideband-UWB-Positioning-System-Integrated-in-Lighting-System-and-its-Applications" class="headerlink" title="lighTag - A Ultra-wideband (UWB) Positioning System Integrated in Lighting System and its Applications"></a>lighTag - A Ultra-wideband (UWB) Positioning System Integrated in Lighting System and its Applications</h3><h6 id="Features-Solution-to-Power-Issue-3D-Indoor-Positioning-High-Accuracy-Area-of-Interest-AOI-Detection"><a href="#Features-Solution-to-Power-Issue-3D-Indoor-Positioning-High-Accuracy-Area-of-Interest-AOI-Detection" class="headerlink" title="Features: Solution to Power Issue; 3D Indoor Positioning; High Accuracy; Area of Interest (AOI) Detection."></a>Features: Solution to Power Issue; 3D Indoor Positioning; High Accuracy; Area of Interest (AOI) Detection.</h6><p>A research internship team project supported by <a target="_blank" rel="noopener" href="https://hkinnovationnode.mit.edu/"><strong>MIT Hong Kong Innovation Node</strong></a> and <a target="_blank" rel="noopener" href="https://www.polyu.edu.hk/"><strong>The Hong Kong Polytechnic University</strong></a>.</p><p>I am the co-founder of lighTag.</p><p><a class="btn" target="_blank" rel="noopener" href="https://github.com/lighTag-UWB/lighTag" style="color:#fff; background: #777" title="See in GitHub">See in GitHub</a> </p>
-          </div>
-<div class="note note-secondary">
-            <h3 id="CV-Chain-System-A-Curriculum-Vitae-System-based-on-Blockchain-Technology"><a href="#CV-Chain-System-A-Curriculum-Vitae-System-based-on-Blockchain-Technology" class="headerlink" title="CV Chain System - A Curriculum Vitae System based on Blockchain Technology"></a>CV Chain System - A Curriculum Vitae System based on Blockchain Technology</h3><h6 id="CV-Chain-is-a-system-based-on-blockchain-technology-Users-can-store-and-check-their-CVs-on-the-blockchain-which-is-difficult-to-hack-and-tamper-with-taking-full-advantage-of-the-features-to-ensure-the-confidentiality-of-the-information"><a href="#CV-Chain-is-a-system-based-on-blockchain-technology-Users-can-store-and-check-their-CVs-on-the-blockchain-which-is-difficult-to-hack-and-tamper-with-taking-full-advantage-of-the-features-to-ensure-the-confidentiality-of-the-information" class="headerlink" title="CV Chain is a system based on blockchain technology. Users can store and check their CVs on the blockchain, which is difficult to hack and tamper with, taking full advantage of the features to ensure the confidentiality of the information."></a>CV Chain is a system based on blockchain technology. Users can store and check their CVs on the blockchain, which is difficult to hack and tamper with, taking full advantage of the features to ensure the confidentiality of the information.</h6><p>A project of <a target="_blank" rel="noopener" href="https://unhackable.skyproton.org/">Team Unhackable</a> from <a target="_blank" rel="noopener" href="https://www.polyhack.net/">PolyHack2022 Hackathon</a> organized by <a target="_blank" rel="noopener" href="https://gdsc.community.dev/the-hong-kong-polytechnic-university/"> Google Developer Student Club in The Hong Kong Polytechnic University</a>.</p><p>I am the co-founder of CV Chain, one of the members of the <a target="_blank" rel="noopener" href="https://unhackable.skyproton.org/">Team Unhackable</a>.</p><p><a class="btn" target="_blank" rel="noopener" href="https://cvchain.skyproton.org/" style="color:#fff; background: #777" title="CV Chain">CV Chain</a> <a class="btn" target="_blank" rel="noopener" href="https://github.com/Team-Unhackable/CV-Chain.git" style="color:#fff; background: #777" title="See in GitHub">See in GitHub</a> </p>
-          </div>
-<div class="note note-secondary">
-            <h3 id="Command-Line-Vector-Graphics-Software-in-Java"><a href="#Command-Line-Vector-Graphics-Software-in-Java" class="headerlink" title="Command-Line Vector Graphics Software in Java"></a>Command-Line Vector Graphics Software in Java</h3><h6 id="Users-is-able-to-create-and-manipulate-vector-graphics-containing-shapes-like-line-segments-circles-rectangles-and-squares-using-Clevis"><a href="#Users-is-able-to-create-and-manipulate-vector-graphics-containing-shapes-like-line-segments-circles-rectangles-and-squares-using-Clevis" class="headerlink" title="Users is able to create and manipulate vector graphics containing shapes like line segments, circles, rectangles, and squares using Clevis."></a>Users is able to create and manipulate vector graphics containing shapes like line segments, circles, rectangles, and squares using Clevis.</h6><p>A group project in <a target="_blank" rel="noopener" href="https://www.polyu.edu.hk/">The Hong Kong Polytechnic University</a>.</p><p><a class="btn" target="_blank" rel="noopener" href="https://github.com/OOP-PROJECT-COMP2021/Command-Line_Vector_Graphics_Software.git" style="color:#fff; background: #777" title="See in GitHub">See in GitHub</a></p>
-          </div>
-<div class="note note-secondary">
-            <h3 id="Workshops-Enrollment-System-in-Python"><a href="#Workshops-Enrollment-System-in-Python" class="headerlink" title="Workshops Enrollment System in Python"></a>Workshops Enrollment System in Python</h3><h6 id="A-Workshops-Enrollment-System-for-Administrators-and-Students"><a href="#A-Workshops-Enrollment-System-for-Administrators-and-Students" class="headerlink" title="A Workshops Enrollment System for Administrators and Students."></a>A Workshops Enrollment System for Administrators and Students.</h6><p>A group project in <a target="_blank" rel="noopener" href="https://www.polyu.edu.hk/">The Hong Kong Polytechnic University</a>.</p><p><a class="btn" target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Workshops_Enrollment_System_Project.git" style="color:#fff; background: #777" title="See in GitHub">See in GitHub</a></p>
-          </div>
-<p>🌐 <strong><em>Web Development:</em></strong></p>
-<div class="note note-info">
-            <h3 id="UltraFish"><a href="#UltraFish" class="headerlink" title="UltraFish"></a>UltraFish</h3><h6 id="My-personal-blog-website-based-on-Hexo-blog-framework-using-Node-js"><a href="#My-personal-blog-website-based-on-Hexo-blog-framework-using-Node-js" class="headerlink" title="My personal blog website based on Hexo blog framework using Node.js."></a>My personal blog website based on <strong>Hexo blog framework</strong> using <strong>Node.js</strong>.</h6><p>I am the founder &amp; author of UltraFish</p><p><a class="btn" href="https://ultrafish.cn" style="color:#fff; background: #428bca" title="Go to UltraFish">https://ultrafish.cn</a></p>
-          </div>
-<div class="note note-info">
-            <h3 id="UltraFish-Plus"><a href="#UltraFish-Plus" class="headerlink" title="UltraFish Plus"></a>UltraFish Plus</h3><h6 id="A-interactive-page-associated-with-UltraFish-based-on-React-Bootstrap-framework-aiming-to-share-some-useful-projects-and-tools"><a href="#A-interactive-page-associated-with-UltraFish-based-on-React-Bootstrap-framework-aiming-to-share-some-useful-projects-and-tools" class="headerlink" title="A interactive page associated with UltraFish based on React Bootstrap framework, aiming to share some useful projects and tools."></a>A interactive page associated with UltraFish based on <strong>React Bootstrap framework</strong>, aiming to share some useful projects and tools.</h6><p>I am the founder &amp; author of UltraFish Plus</p><p><a class="btn" target="_blank" rel="noopener" href="https://plus.ultrafish.cn" style="color:#fff; background: #428bca" title="Go to UltraFish Plus">https://plus.ultrafish.cn</a></p>
-          </div>
-<p>🛠️ <strong><em>Interactive Tools:</em></strong></p>
-<div class="note note-secondary">
-            <h4 id="GPA-Calculator"><a href="#GPA-Calculator" class="headerlink" title="GPA Calculator"></a>GPA Calculator</h4><h6 id="Calculate-GPA-based-on-grade-points-and-credits"><a href="#Calculate-GPA-based-on-grade-points-and-credits" class="headerlink" title="Calculate GPA based on grade points and credits"></a>Calculate GPA based on grade points and credits</h6><p><a class="btn" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/GPA-Calculator" style="color:#fff; background: #777" title="Go to UltraFish Plus">GUI in UltraFish Plus</a></p>
-          </div>
-<div class="note note-secondary">
-            <h4 id="Multiple-Bases-Unsigned-Integer-Convertor"><a href="#Multiple-Bases-Unsigned-Integer-Convertor" class="headerlink" title="Multiple Bases Unsigned Integer Convertor"></a>Multiple Bases Unsigned Integer Convertor</h4><h6 id="Convert-unsigned-integer-between-multiple-bases-2-36"><a href="#Convert-unsigned-integer-between-multiple-bases-2-36" class="headerlink" title="Convert unsigned integer between multiple bases [2,36]"></a>Convert unsigned integer between multiple bases [2,36]</h6><p><a class="btn" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor" style="color:#fff; background: #777" title="Go to UltraFish Plus">GUI in UltraFish Plus</a></p>
-          </div>
-<div class="note note-secondary">
-            <h4 id="Floating-Point-Numbers-Convertor-IEEE-754"><a href="#Floating-Point-Numbers-Convertor-IEEE-754" class="headerlink" title="Floating Point Numbers Convertor (IEEE 754)"></a>Floating Point Numbers Convertor (IEEE 754)</h4><h6 id="Convert-floating-point-numbers-between-Binary-and-Decimal-based-on-IEEE-754"><a href="#Convert-floating-point-numbers-between-Binary-and-Decimal-based-on-IEEE-754" class="headerlink" title="Convert floating point numbers between Binary and Decimal based on IEEE 754"></a>Convert floating point numbers between Binary and Decimal based on IEEE 754</h6><p><a class="btn" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation" style="color:#fff; background: #777" title="Go to UltraFish Plus">GUI in UltraFish Plus</a> <a class="btn" href="https://ultrafish.cn/2020/12/20/floating%20point%20numbers%20representation/" style="color:#fff; background: #777" title="Go to UltraFish">Post</a></p>
-          </div>
-<div class="note note-secondary">
-            <h4 id="Signed-Binary-Number-Converter"><a href="#Signed-Binary-Number-Converter" class="headerlink" title="Signed Binary Number Converter"></a>Signed Binary Number Converter</h4><h6 id="Convert-signed-integer-between-Binary-and-Decimal-in-three-ways"><a href="#Convert-signed-integer-between-Binary-and-Decimal-in-three-ways" class="headerlink" title="Convert signed integer between Binary and Decimal in three ways"></a>Convert signed integer between Binary and Decimal in three ways</h6><p><a class="btn" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Signed-Binary-Number-Convertor" style="color:#fff; background: #777" title="Go to UltraFish Plus">GUI in UltraFish Plus</a> <a class="btn" href="https://ultrafish.cn/2020/09/19/Signed-binary-number-representation/" style="color:#fff; background: #777" title="Go to UltraFish">Post</a> <a class="btn" target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Signed_Binary_Number_Conversion" style="color:#fff; background: #777" title="Go to GitHub">Code</a></p>
-          </div>
-<div class="note note-secondary">
-            <h4 id="Say-Happy-New-Year-2021-in-C"><a href="#Say-Happy-New-Year-2021-in-C" class="headerlink" title="Say Happy New Year 2021 in C++"></a>Say Happy New Year 2021 in C++</h4><h6 id="A-program-to-say-happy-new-year-by-writing-pixel-words-in-C"><a href="#A-program-to-say-happy-new-year-by-writing-pixel-words-in-C" class="headerlink" title="A program to say happy new year by writing pixel words in C++"></a>A program to say happy new year by writing pixel words in C++</h6><p><a class="btn" href="https://ultrafish.cn/2021/01/02/1kcpphny/" style="color:#fff; background: #777" title="Go to UltraFish">Post</a> <a class="btn" target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/happy_new_year" style="color:#fff; background: #777" title="Go to GitHub">Code</a></p>
-          </div>
-<p>🧮 <strong><em>Algorithms Study:</em></strong></p>
-<div class="note note-info">
-            <h4 id="Conway’s-Game-of-Life"><a href="#Conway’s-Game-of-Life" class="headerlink" title="Conway’s Game of Life"></a>Conway’s Game of Life</h4><h6 id="Implementation-of-the-Conway’s-Game-of-Life-in-JavaScript-with-React"><a href="#Implementation-of-the-Conway’s-Game-of-Life-in-JavaScript-with-React" class="headerlink" title="Implementation of the Conway’s Game of Life in JavaScript with React"></a>Implementation of the Conway’s Game of Life in JavaScript with React</h6><p><a class="btn" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/gameoflife/" style="color:#fff; background: #428bca" title="Go to UltraFish Plus">GUI in UltraFish Plus</a> <a class="btn" href="https://ultrafish.cn/2022/08/05/game-of-life-implementation/" style="color:#fff; background: #428bca" title="Go to UltraFish">Post</a> <a class="btn" target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Game_of_Life.git" style="color:#fff; background: #428bca" title="Go to GitHub">Code</a></p>
-          </div>
-<div class="note note-info">
-            <h4 id="Domino-Matching-Problem"><a href="#Domino-Matching-Problem" class="headerlink" title="Domino Matching Problem"></a>Domino Matching Problem</h4><h6 id="A-efficient-algorithm-to-solve-Domino-Matching-Problem"><a href="#A-efficient-algorithm-to-solve-Domino-Matching-Problem" class="headerlink" title="A efficient algorithm to solve Domino Matching Problem"></a>A efficient algorithm to solve Domino Matching Problem</h6><p><a class="btn" href="https://ultrafish.cn/2021/11/04/domino-matching/" style="color:#fff; background: #428bca" title="Go to UltraFish">Post</a> <a class="btn" target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Domino_Matching_Problem.git" style="color:#fff; background: #428bca" title="Go to GitHub">Code</a></p>
-          </div>
-<div class="note note-info">
-            <h4 id="Josephus-Problem-with-Python"><a href="#Josephus-Problem-with-Python" class="headerlink" title="Josephus Problem with Python"></a>Josephus Problem with Python</h4><h6 id="A-efficient-algorithm-to-solve-Josephus-Problem-with-Python"><a href="#A-efficient-algorithm-to-solve-Josephus-Problem-with-Python" class="headerlink" title="A efficient algorithm to solve Josephus Problem with Python"></a>A efficient algorithm to solve Josephus Problem with Python</h6><p><a class="btn" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Josephus-Problem" style="color:#fff; background: #428bca" title="Go to UltraFish Plus">GUI in UltraFish Plus</a> <a class="btn" href="https://ultrafish.cn/2020/08/05/josephus-problem/" style="color:#fff; background: #428bca" title="Go to UltraFish">Post</a> <a class="btn" target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Josephus_Problem_with_Python" style="color:#fff; background: #428bca" title="Go to GitHub">Code</a></p>
-          </div>
-<p>⚙️ <strong><em>Hardware Study:</em></strong></p>
-<div class="note note-secondary">
-            <h4 id="Arduino-Bluetooth-Transceiving"><a href="#Arduino-Bluetooth-Transceiving" class="headerlink" title="Arduino Bluetooth Transceiving"></a>Arduino Bluetooth Transceiving</h4><h6 id="A-hardware-module-to-transceive-data-between-two-Arduinos"><a href="#A-hardware-module-to-transceive-data-between-two-Arduinos" class="headerlink" title="A hardware module to transceive data between two Arduinos"></a>A hardware module to transceive data between two Arduinos</h6><p><a class="btn" href="https://ultrafish.cn/2021/03/08/Arduino-bluetooth-transceiving/" style="color:#fff; background: #777" title="Go to UltraFish">Post</a> <a class="btn" target="_blank" rel="noopener" href="https://github.com/zhangwengyu999/Arduino_Bluetooth_Transceiving" style="color:#fff; background: #777" title="Go to GitHub">Code</a></p>
-          </div>
-
-  
-
-</article>
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <footer class="text-center mt-5 py-3" style="font-size:small;">
-<div class="footer-inner">
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="leancloud-site-pv-container" style="display: none">
-        总访问量 
-        <span id="leancloud-site-pv"></span>
-         次
-      </span>
-    
-    
-      <span id="leancloud-site-uv-container" style="display: none">
-        总访客数 
-        <span id="leancloud-site-uv"></span>
-         人
-      </span>
-    
-    
-
-  
-</div>
-
-  
-  <div class="footer" >
-    Copyright &copy; 2020-2022 <a href="https://ultrafish.cn/about">Mike_Zhang</a>. All rights reserved.
-  </div>
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      浙ICP备2020036956号
-    </a>
-  </span>
-  
-    
-      <span>
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
-          
-          <span>浙公网安备33042102000661号</span>
-        </a>
-      </span>
-    
-  
-</div>
-
-  
-  
-
-</div>
-</footer>
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-  
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
+
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 </body>
 </html>
