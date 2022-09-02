@@ -15,6 +15,6 @@
   * [Java面向对象编程(OOP)的多态性(Polymorphism)](https://ultrafish.cn/2021/10/02/Java-oop-polymorphism/)  
   * [Java面向对象编程(OOP)的继承性(Inheritance)](https://ultrafish.cn/2020/09/13/Java-oop-inheritance/)  
   * [Java面向对象编程之 类和对象 - Java OOP Class and Object](https://ultrafish.cn/2021/03/07/Java-oop-class-object/)  
-  <!--*  [Java面向对象编程(OOP)的封装性(Encapsulation)](https://ultrafish.cn/2021/03/07/Java-oop-encapsulation/) -->
+  * [Java面向对象编程之 封装性 | Java OOP Encapsulation](https://ultrafish.cn/2022/09/02/Java-oop-encapsulation/)
 
 [*All Topics | 全部主题*](https://ultrafish.cn/topics/#/)
