@@ -1,0 +1,1027 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
+  
+    <meta name="description" content="Made by Mike_Zhang  数据结构与算法题主题：      Valid Palindrome IILeetCode Problem #680   1234567891011121314151617181920212223242526272829class Solution &amp;#123;    public boolean validPalindrome(String s) &amp;#123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Two Pointers Problems">
+<meta property="og:url" content="https://ultrafish.cn/2022/11/25/two-pointers-problems/index.html">
+<meta property="og:site_name" content="UltraFish">
+<meta property="og:description" content="Made by Mike_Zhang  数据结构与算法题主题：      Valid Palindrome IILeetCode Problem #680   1234567891011121314151617181920212223242526272829class Solution &amp;#123;    public boolean validPalindrome(String s) &amp;#123">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ultrafish.cn/img/algo.png">
+<meta property="article:published_time" content="2022-11-25T07:04:01.000Z">
+<meta property="article:modified_time" content="2022-11-25T08:52:45.085Z">
+<meta property="article:author" content="Mike_Zhang">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Two Pointers">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ultrafish.cn/img/algo.png">
+  
+  
+  
+  <title>Two Pointers Problems - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ultrafish.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VXQrzMqOSkaPcbILQ3sQJyhw-gzGzoHsz","app_key":"y6z7EoVjISdQPvN4meqBOkvy","server_url":"https://vxqrzmqo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>UltraFish</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/topics/">
+                <i class="iconfont icon-category-fill"></i>
+                主题
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/">
+                <i class="iconfont icon-books"></i>
+                研究
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn">
+                    <i class="iconfont icon-home-fill"></i>
+                    UltraFish Plus 主页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/gameoflife/">
+                    <i class="iconfont icon-briefcase"></i>
+                    Game of Life
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/GPA-Calculator">
+                    <i class="iconfont icon-briefcase"></i>
+                    GPA计算器
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">
+                    <i class="iconfont icon-briefcase"></i>
+                    多进制转换
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    IEEE 754
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-more"></i>
+                更多
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/">
+                    <i class="iconfont icon-friends"></i>
+                    伙伴及留言
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collection/">
+                    <i class="iconfont icon-th-large"></i>
+                    收藏夹
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    文章
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+    
+    <!-- <div id="google_translate_element"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'zh'
+          }, 'google_translate_element');
+      }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/algo.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Two Pointers Problems"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-25 15:04" pubdate>
+          2022年11月25日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          7.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          65 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          阅读数：<span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Two Pointers Problems</h1>
+            
+            <div class="markdown-body">
+              
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<p>数据结构与算法题主题：</p>
+<iframe name="ifr" width="88%" src="/topics/#/problem-set" frameborder="0" onresize="this.height=this.contentWindow.document.body.scrollHeight" onload="this.height=this.contentWindow.document.body.scrollHeight" scrolling="no" allowfullscreen>
+ </iframe>
+
+<hr>
+<h2 id="Valid-Palindrome-II"><a href="#Valid-Palindrome-II" class="headerlink" title="Valid Palindrome II"></a>Valid Palindrome II</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-palindrome-ii/">LeetCode Problem #680</a></p>
+<center><img src="/2022/11/25/two-pointers-problems/1.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">validPalindrome</span><span class="hljs-params">(String s)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> s.length();<br>        <span class="hljs-keyword">if</span> (size == <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">front</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">end</span> <span class="hljs-operator">=</span> size-<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (front &lt; end) &#123;<br>            <span class="hljs-keyword">if</span> (s.charAt(front) != s.charAt(end)) &#123;<br>                <span class="hljs-keyword">return</span> isPalindrome(s,front, end-<span class="hljs-number">1</span>) || isPalindrome(s,front+<span class="hljs-number">1</span>,end);<br>            &#125;<br>            front++;<br>            end--;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    <br>    &#125;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPalindrome</span><span class="hljs-params">(String inStr, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>        <span class="hljs-keyword">while</span> (i&lt;j) &#123;<br>            <span class="hljs-keyword">if</span> (inStr.charAt(i) != inStr.charAt(j)) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            &#125;<br>            i++;<br>            j--;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Number-of-Segments-in-a-String"><a href="#Number-of-Segments-in-a-String" class="headerlink" title="Number of Segments in a String"></a>Number of Segments in a String</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-segments-in-a-string/">LeetCode Problem #434</a></p>
+<center><img src="/2022/11/25/two-pointers-problems/6.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">countSegments</span><span class="hljs-params">(String s)</span> &#123;<br>        <br>        <span class="hljs-comment">// M2: to check the beginning of a segment, 1) space + nonspace, or 2) i=0 + nonspace;</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> s.length();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;size;i++) &#123;<br>            <span class="hljs-keyword">if</span> ((i==<span class="hljs-number">0</span> &amp;&amp; s.charAt(i) != <span class="hljs-string">&#x27; &#x27;</span>) || s.charAt(i) != <span class="hljs-string">&#x27; &#x27;</span> &amp;&amp; s.charAt(i-<span class="hljs-number">1</span>) == <span class="hljs-string">&#x27; &#x27;</span>) &#123;<br>                out++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> out;<br>        <br>        <br>        <span class="hljs-comment">// M1: two pointer to locate a segment</span><br>        <span class="hljs-comment">// int size = s.length();</span><br>        <span class="hljs-comment">// int slow = 0;</span><br>        <span class="hljs-comment">// int out = 0;</span><br>        <span class="hljs-comment">// for (int i=0;i&lt;size;i++) &#123;</span><br>        <span class="hljs-comment">//     char fastChar = s.charAt(i);</span><br>        <span class="hljs-comment">//     char slowChar = s.charAt(slow);</span><br>        <span class="hljs-comment">//     if (fastChar == &#x27; &#x27;) &#123;</span><br>        <span class="hljs-comment">//         slow = i+1;</span><br>        <span class="hljs-comment">//     &#125;</span><br>        <span class="hljs-comment">//     if ((fastChar == &#x27; &#x27; &amp;&amp; slowChar != &#x27; &#x27;) || i == size-1 &amp;&amp; slowChar != &#x27; &#x27;) &#123;</span><br>        <span class="hljs-comment">//         out++;</span><br>        <span class="hljs-comment">//     &#125;</span><br>        <span class="hljs-comment">// &#125;</span><br>        <span class="hljs-comment">// return out;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="Intersection-of-Two-Arrays-II"><a href="#Intersection-of-Two-Arrays-II" class="headerlink" title="Intersection of Two Arrays II"></a>Intersection of Two Arrays II</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/intersection-of-two-arrays-ii/">LeetCode Problem #350</a></p>
+<center><img src="/2022/11/25/two-pointers-problems/23.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] intersect(<span class="hljs-type">int</span>[] nums1, <span class="hljs-type">int</span>[] nums2) &#123;<br>        <br>        <span class="hljs-comment">// M1 HashMap</span><br>        HashMap&lt;Integer,Integer&gt; hs = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i: nums1) &#123;<br>            <span class="hljs-keyword">if</span> (hs.containsKey(i)) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> hs.get(i);<br>                hs.put(i,temp+<span class="hljs-number">1</span>);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                hs.put(i,<span class="hljs-number">1</span>);<br>            &#125;<br>            <br>        &#125;<br>        <br>        List&lt;Integer&gt; out = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j: nums2) &#123;<br>            <span class="hljs-keyword">if</span> (hs.containsKey(j) &amp;&amp; hs.get(j)&gt;<span class="hljs-number">0</span>) &#123;<br>                out.add(j);<br>                <span class="hljs-type">int</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> hs.get(j);<br>                hs.put(j,temp-<span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br>        <br>        <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> out.size();<br>        <span class="hljs-type">int</span>[] outArr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[size];<br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (Integer s:out) &#123;<br>            outArr[k] = s;<br>            k+=<span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> outArr;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>2022-10-05</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] intersect(<span class="hljs-type">int</span>[] nums1, <span class="hljs-type">int</span>[] nums2) &#123;<br>        <span class="hljs-comment">// M2 Sort &amp; Two Pointer</span><br>        Arrays.sort(nums1);<br>        Arrays.sort(nums2);<br>        <br>        List&lt;Integer&gt; out = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        <br>        <span class="hljs-type">int</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> nums1.length;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> nums2.length;<br>        <br>        <span class="hljs-type">int</span> <span class="hljs-variable">p1</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">p2</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <br>        <span class="hljs-keyword">while</span> (p1&lt;s1 &amp;&amp; p2&lt;s2) &#123;<br>            <span class="hljs-keyword">if</span> (nums1[p1]==nums2[p2]) &#123;<br>                out.add(nums1[p1]);<br>                p1++;<br>                p2++;<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums1[p1]&lt;nums2[p2]) &#123;p1++;&#125;<br>            <span class="hljs-keyword">else</span> &#123;p2++;&#125;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> out.size();<br>        <span class="hljs-type">int</span>[] outArr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[size];<br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (Integer s:out) &#123;<br>            outArr[k] = s;<br>            k+=<span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> outArr;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>2022-10-06</p>
+<hr>
+<h2 id="Assign-Cookies"><a href="#Assign-Cookies" class="headerlink" title="Assign Cookies"></a>Assign Cookies</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/assign-cookies/">LeetCode Problem #455</a></p>
+<center><img src="/2022/11/25/two-pointers-problems/24.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">findContentChildren</span><span class="hljs-params">(<span class="hljs-type">int</span>[] g, <span class="hljs-type">int</span>[] s)</span> &#123;<br>        Arrays.sort(g);<br>        Arrays.sort(s);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">sizeG</span> <span class="hljs-operator">=</span> g.length;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">sizeS</span> <span class="hljs-operator">=</span> s.length;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ptrG</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ptrS</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (ptrG &lt; sizeG &amp;&amp; ptrS &lt; sizeS) &#123;<br>            <span class="hljs-keyword">if</span> (g[ptrG] &lt;= s[ptrS]) &#123;<br>                ptrG++;<br>                ptrS++;<br>                out++;<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                ptrS++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> out;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>2022-10-07</p>
+<hr>
+<h2 id="Count-Binary-Substrings"><a href="#Count-Binary-Substrings" class="headerlink" title="Count Binary Substrings"></a>Count Binary Substrings</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/count-binary-substrings/">LeetCode Problem #696</a></p>
+<center><img src="/2022/11/25/two-pointers-problems/8.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">countBinarySubstrings</span><span class="hljs-params">(String s)</span> &#123;<br>        <br>        <span class="hljs-comment">// </span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">curr</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>, prev = <span class="hljs-number">0</span>, ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; s.length(); i++)<br>            <span class="hljs-keyword">if</span> (s.charAt(i) == s.charAt(i-<span class="hljs-number">1</span>)) curr++;<br>            <span class="hljs-keyword">else</span> &#123;<br>                ans += Math.min(curr, prev);<br>                prev = curr;<br>                curr = <span class="hljs-number">1</span>;<br>            &#125;<br>        <span class="hljs-keyword">return</span> ans + Math.min(curr, prev);<br>        <br>        <span class="hljs-comment">// TL</span><br><span class="hljs-comment">//         int size = s.length();</span><br><span class="hljs-comment">//         int count = 0;</span><br><span class="hljs-comment">//         for (int i=0;i&lt;size;i++) &#123;</span><br><span class="hljs-comment">//             int nE = 1;</span><br><span class="hljs-comment">//             int nD = 0;</span><br><span class="hljs-comment">//             int fast = i+1;</span><br><span class="hljs-comment">//             while (fast&lt;size &amp;&amp; nE &gt; nD &amp;&amp; (size-fast)&gt;=nE) &#123;</span><br><span class="hljs-comment">//                 if (s.charAt(fast) == s.charAt(i)) &#123;</span><br><span class="hljs-comment">//                     if (nD&gt;0) &#123;break;&#125;</span><br><span class="hljs-comment">//                     nE++;</span><br><span class="hljs-comment">//                 &#125;</span><br><span class="hljs-comment">//                 else &#123;nD++;&#125;</span><br><span class="hljs-comment">//                 fast++;</span><br><span class="hljs-comment">//             &#125;</span><br><span class="hljs-comment">//             if ((nE&gt;0 || nD&gt;0) &amp;&amp; nE == nD) &#123;count++;&#125;</span><br>            <br><span class="hljs-comment">//         &#125;</span><br><span class="hljs-comment">//         return count;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>2022-10-16</p>
+<hr>
+<h2 id="Reverse-Only-Letters"><a href="#Reverse-Only-Letters" class="headerlink" title="Reverse Only Letters"></a>Reverse Only Letters</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-only-letters/">LeetCode Problem #917</a></p>
+<center><img src="/2022/11/25/two-pointers-problems/12.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">reverseOnlyLetters</span><span class="hljs-params">(String s)</span> &#123;<br>        <span class="hljs-type">char</span>[] c = s.toCharArray();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> s.length();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">front</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">end</span> <span class="hljs-operator">=</span> size-<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (front&lt;end) &#123;<br>            <span class="hljs-keyword">if</span> (((c[front]&gt;=<span class="hljs-string">&#x27;A&#x27;</span> &amp;&amp; c[front]&lt;=<span class="hljs-string">&#x27;Z&#x27;</span>) || (c[front]&gt;=<span class="hljs-string">&#x27;a&#x27;</span> &amp;&amp; c[front]&lt;=<span class="hljs-string">&#x27;z&#x27;</span>)) &amp;&amp;<br>                ((c[end]&gt;=<span class="hljs-string">&#x27;A&#x27;</span> &amp;&amp; c[end]&lt;=<span class="hljs-string">&#x27;Z&#x27;</span>) || (c[end]&gt;=<span class="hljs-string">&#x27;a&#x27;</span> &amp;&amp; c[end]&lt;=<span class="hljs-string">&#x27;z&#x27;</span>))) &#123;<br>                <span class="hljs-type">char</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> c[front];<br>                c[front] = c[end];<br>                c[end] = temp;<br>                front++;<br>                end--;<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c[front]&lt;<span class="hljs-string">&#x27;A&#x27;</span> || (c[front] &gt; <span class="hljs-string">&#x27;Z&#x27;</span> &amp;&amp; c[front]&lt;<span class="hljs-string">&#x27;a&#x27;</span>) || c[front]&gt;<span class="hljs-string">&#x27;z&#x27;</span>) &#123;<br>                front++;<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c[end]&lt;<span class="hljs-string">&#x27;A&#x27;</span> || (c[end] &gt; <span class="hljs-string">&#x27;Z&#x27;</span> &amp;&amp; c[end]&lt;<span class="hljs-string">&#x27;a&#x27;</span>) || c[end]&gt;<span class="hljs-string">&#x27;z&#x27;</span>) &#123;<br>                end--;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(c);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>2022-10-21</p>
+<hr>
+<h2 id="Long-Pressed-Name"><a href="#Long-Pressed-Name" class="headerlink" title="Long Pressed Name"></a>Long Pressed Name</h2><p><a href>LeetCode Problem #925</a></p>
+<center><img src="/2022/11/25/two-pointers-problems/13.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isLongPressedName</span><span class="hljs-params">(String name, String typed)</span> &#123;<br>        <span class="hljs-keyword">if</span> (name.charAt(<span class="hljs-number">0</span>) != typed.charAt(<span class="hljs-number">0</span>)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        &#125;<br>        <br>        <span class="hljs-comment">// Using two pointer to check until one to the end</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (left&lt;name.length() &amp;&amp; right&lt;typed.length()) &#123;<br>            <span class="hljs-keyword">if</span> (name.charAt(left) == typed.charAt(right)) &#123;<br>                left++;<br>                right++;<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (typed.charAt(right) == typed.charAt(right-<span class="hljs-number">1</span>)) &#123;<br>                right++;<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            &#125;<br>        &#125;<br>        <br>        <span class="hljs-comment">// Both to the end: true</span><br>        <span class="hljs-keyword">if</span> (left == name.length() &amp;&amp; right == typed.length()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>        <br>        <span class="hljs-comment">// typed is to the end only: must false, for the rest of char in name have not been checked yet</span><br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (left &lt; name.length() &amp;&amp; right == typed.length()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        &#125;<br>        <br>        <span class="hljs-comment">// name is to the end. </span><br>        <span class="hljs-comment">// Now to check whether the rest of char in typed are the chars as same as the last one</span><br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (left == name.length() &amp;&amp; right &lt; typed.length()) &#123;<br>            <span class="hljs-keyword">while</span> (right &lt; typed.length()) &#123;<br>                <span class="hljs-keyword">if</span> (typed.charAt(right) == typed.charAt(right-<span class="hljs-number">1</span>)) &#123;<br>                    right++;<br>                &#125;<br>                <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>2022-10-22</p>
+<hr>
+<h2 id="Max-Consecutive-Ones-II"><a href="#Max-Consecutive-Ones-II" class="headerlink" title="Max Consecutive Ones II"></a>Max Consecutive Ones II</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/max-consecutive-ones-ii/">LeetCode Problem #487</a></p>
+<center><img src="/2022/11/25/two-pointers-problems/34.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">findMaxConsecutiveOnes</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-comment">// M1: Two pointer</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> nums.length;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">nextFast</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">boolean</span> <span class="hljs-variable">fliped</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (fast&lt;size) &#123;<br>            <span class="hljs-keyword">if</span> (nums[fast] == <span class="hljs-number">0</span> &amp;&amp; !fliped) &#123;<br>                fliped = <span class="hljs-literal">true</span>;<br>                nextFast = fast;<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums[fast] == <span class="hljs-number">0</span> &amp;&amp; fliped) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> fast-slow;<br>                out = Math.max(temp,out);<br>                slow = nextFast+<span class="hljs-number">1</span>;<br>                fliped = <span class="hljs-literal">false</span>;<br>                fast = nextFast+<span class="hljs-number">1</span>;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br>            fast++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> Math.max(fast-slow,out);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">findMaxConsecutiveOnes</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-comment">// M2: DP</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">max</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">curr</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; <span class="hljs-comment">// #of ones after prev 0</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">prev</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; <span class="hljs-comment">// #of ones before prev 0</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">seenZero</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; <span class="hljs-comment">// whether see a zero</span><br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[i] == <span class="hljs-number">0</span>) &#123; <span class="hljs-comment">// if see a zero</span><br>                seenZero = <span class="hljs-number">1</span>; <span class="hljs-comment">// see</span><br>                prev = curr; <span class="hljs-comment">// now become the past</span><br>                curr = <span class="hljs-number">0</span>; <span class="hljs-comment">// new start</span><br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                curr++; <span class="hljs-comment">// else keep life going on</span><br>            &#125;<br><br>            max = Math.max(max, curr + prev + seenZero); <span class="hljs-comment">// now + past +(allow one miss)</span><br>        &#125;<br>        <span class="hljs-keyword">return</span> max;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>2022-11-10</p>
+<hr>
+<h2 id="Longest-Substring-Without-Repeating-Characters"><a href="#Longest-Substring-Without-Repeating-Characters" class="headerlink" title="Longest Substring Without Repeating Characters"></a>Longest Substring Without Repeating Characters</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">LeetCode Problem #3</a></p>
+<center><img src="/2022/11/25/two-pointers-problems/17.png" srcset="/img/loading.gif" lazyload width="100%"></center>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">lengthOfLongestSubstring</span><span class="hljs-params">(String s)</span> &#123;<br>        <br>        <span class="hljs-comment">// M1</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> s.length();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">max</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        Set&lt;Character&gt; hs = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();<br>        <span class="hljs-keyword">while</span> (fast&lt;size) &#123;<br>            <span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> s.charAt(fast);<br>            <span class="hljs-keyword">if</span> (hs.contains(c)) &#123;<br>                hs.clear();<br>                slow++;<br>                fast=slow;<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                hs.add(c);<br>                max = Math.max(max,hs.size());<br>                fast++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> max;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">lengthOfLongestSubstring</span><span class="hljs-params">(String s)</span> &#123;<br><br>        <span class="hljs-comment">// M2</span><br>        <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> s.length();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> [] repeat = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">128</span>];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, i = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            c = s.charAt(j);<br>            i = Math.max(repeat[c], i);<br>            len = Math.max(len, j - i +<span class="hljs-number">1</span>);<br>            repeat[c] = j+<span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> len;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>2022-11-25</p>
+<hr>
+<p>Last updated on 2022-11-25</p>
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a target="_blank" rel="noopener" href="https://leetcode.com/tag/two-pointers/">Two Pointers - LeetCode</a></p>
+<hr>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>Two Pointers相关的知识会继续学习，继续更新.<br>最后，希望大家一起交流，分享，指出问题，谢谢！</p>
+<hr>
+<p><strong><em>原创文章，转载请标明出处</em></strong><br><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/reward.jpg?versionId=CAEQGxiBgIDPm9ir1xciIGJkMDY1ZGMwYmViOTQ4ZTA5NGQ0MDMyMDg1OWQ2ZTZi" srcset="/img/loading.gif" lazyload width="25%" height>
+<br>
+    <div style="color:orange; 
+    border-bottom: 15px solid rgba(0,0,0,0);
+    display: inline-block;
+    color: #999;
+    padding: 0px;">感谢你的支持</div></center>
+
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Data-Structure-and-Algorithm/" class="category-chain-item">Data Structure and Algorithm</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Data-Structure-and-Algorithm/Problem-Set/" class="category-chain-item">Problem Set</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/Two-Pointers/">#Two Pointers</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Two Pointers Problems</div>
+      <div>https://ultrafish.cn/2022/11/25/two-pointers-problems/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mike_Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月25日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/11/25/sql-problems/" title="SQL Problems">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SQL Problems</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/25/stack-problems/" title="Stack Problems">
+                        <span class="hidden-mobile">Stack Problems</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","path":"window.location.pathname","placeholder":"说点什么吧(记得填写你的昵称哦！选填邮箱可更快收到回复哦！)","avatar":"mp","meta":["nick","mail"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <footer class="text-center mt-5 py-3" style="font-size:small;">
+<div class="footer-inner">
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  <div class="footer" >
+    Copyright &copy; 2020-2022 <a href="https://ultrafish.cn/about">Mike_Zhang</a>. All rights reserved.
+  </div>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2020036956号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>浙公网安备33042102000661号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+
+</div>
+</footer>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

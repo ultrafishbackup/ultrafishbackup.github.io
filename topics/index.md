@@ -8,6 +8,7 @@
 > >Data Structures and Algorithms | 数据结构与算法
 > > - [**Data Structures**](/data-structures.md)  
 > > - [**Algorithms**](/algorithms.md)  
+> > - [**Problem Set**](/problem-set.md)  
 > 
 > >Computer Organization | 计算机组成
 > > - [***Introduction to Computer Systems Course Note***](https://ultrafish.cn/2022/04/30/introduction-to-computer-systems-course-note/)  

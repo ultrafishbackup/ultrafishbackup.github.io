@@ -10,11 +10,5 @@
   * [Linked List Introduction - 链表简介](https://ultrafish.cn/2022/05/08/linked-list-introduction/)  
   * [Disjoint Set Introduction - 并查集简介](https://ultrafish.cn/2022/03/25/disjoint-set-introduction/)  
 
-* Problem Set:
-
-  * [Linked List Problems (持续更新)](https://ultrafish.cn/2022/03/08/linked-list-problems/)  
-  * [Binary Tree Problems (持续更新)](https://ultrafish.cn/2022/03/08/binary-tree-problems/)  
-  * [Array Problems (持续更新)](https://ultrafish.cn/2022/03/14/array-problems/)  
-
 
 [*All Topics | 全部主题*](https://ultrafish.cn/topics/#/)
