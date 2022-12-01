@@ -2,6 +2,7 @@
 
 * Calculus and Linear Algebra:
 
+  * [Mathematics I Course Note](https://ultrafish.cn/2022/12/01/mathematics-i-course-note/)
   * [Calculus for Engineers Course Note](https://ultrafish.cn/2022/04/28/calculus-for-engineers-course-note/)
   * [Limits and Continuity Note](https://ultrafish.cn/2021/12/14/limits-continuity-note/)
 

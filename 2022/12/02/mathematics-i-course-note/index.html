@@ -1,0 +1,2283 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/4.jpg">
+  <link rel="icon" href="/img/4.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="Mike_Zhang">
+  <meta name="keywords" content="blog, Mike_Zhang, UltraFish">
+  
+    <meta name="description" content="Made by Mike_Zhang  Notice | 提示  个人笔记，仅供参考PERSONAL COURSE NOTE, FOR REFERENCE ONLY Personal course note of AMA2111 Mathematics I, The Hong Kong Polytechnic University, Sem1, 2022.本文章为香港理工大学2022学年第一学期">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mathematics I Course Note">
+<meta property="og:url" content="https://ultrafish.cn/2022/12/02/mathematics-i-course-note/index.html">
+<meta property="og:site_name" content="UltraFish">
+<meta property="og:description" content="Made by Mike_Zhang  Notice | 提示  个人笔记，仅供参考PERSONAL COURSE NOTE, FOR REFERENCE ONLY Personal course note of AMA2111 Mathematics I, The Hong Kong Polytechnic University, Sem1, 2022.本文章为香港理工大学2022学年第一学期">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm">
+<meta property="article:published_time" content="2022-12-02T04:45:00.000Z">
+<meta property="article:modified_time" content="2022-12-01T08:53:54.910Z">
+<meta property="article:author" content="Mike_Zhang">
+<meta property="article:tag" content="Math Note">
+<meta property="article:tag" content="Complex Number">
+<meta property="article:tag" content="Linear Algebra">
+<meta property="article:tag" content="Ordinary Differential Equation">
+<meta property="article:tag" content="Partial Differentiation">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm">
+  
+  
+  
+  <title>Mathematics I Course Note - UltraFish</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ultrafish.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"VXQrzMqOSkaPcbILQ3sQJyhw-gzGzoHsz","app_key":"y6z7EoVjISdQPvN4meqBOkvy","server_url":"https://vxqrzmqo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>UltraFish</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/topics/">
+                <i class="iconfont icon-category-fill"></i>
+                主题 | Topics
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/">
+                <i class="iconfont icon-books"></i>
+                项目 | Project
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-code"></i>
+                UltraFish Plus
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn">
+                    <i class="iconfont icon-home-fill"></i>
+                    UltraFish Plus
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/gameoflife/">
+                    <i class="iconfont icon-briefcase"></i>
+                    Game of Life
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/GPA-Calculator">
+                    <i class="iconfont icon-briefcase"></i>
+                    GPA计算器 | GPA Calculator
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/Base-convertor">
+                    <i class="iconfont icon-briefcase"></i>
+                    多进制转换 | Base Convertor
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://plus.ultrafish.cn/IEEE-754-Single-Representation">
+                    <i class="iconfont icon-briefcase"></i>
+                    IEEE 754
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://mike.ultrafish.cn">
+                <i class="iconfont icon-user-fill"></i>
+                作者 | Author
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-addrcard"></i>
+                关于 | About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-more"></i>
+                更多 | More
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/">
+                    <i class="iconfont icon-friends"></i>
+                    伙伴及留言 | Friends & Discuss
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collection/">
+                    <i class="iconfont icon-th-large"></i>
+                    收藏夹 | Collection
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    文章 | Archive
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签 | Tag
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类 | Category
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+    
+    <!-- <div id="google_translate_element"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'zh'
+          }, 'google_translate_element');
+      }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Mathematics I Course Note"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-02 12:45" pubdate>
+          2022-12-02
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          20k 字 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          167 分钟 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          阅读数 | Page View：<span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Mathematics I Course Note</h1>
+            
+            <div class="markdown-body">
+              
+              <p><strong><em>Made by Mike_Zhang</em></strong></p>
+<hr>
+<p><strong><em>Notice | 提示</em></strong></p>
+<blockquote>
+<p><strong><em>个人笔记，仅供参考</em></strong><br><strong><em>PERSONAL COURSE NOTE, FOR REFERENCE ONLY</em></strong></p>
+<p>Personal course note of <strong>AMA2111 Mathematics I</strong>, The Hong Kong Polytechnic University, Sem1, 2022.<br>本文章为香港理工大学2022学年第一学期 <strong>AMA2111数学I(AMA2111 Mathematics I)</strong> 个人的课程笔记。</p>
+<p>Mainly focus on <strong>Complex Number</strong>, <strong>Linear Algebra</strong>, <strong>Ordinary Differential Equation</strong>, and <strong>Partial Differentiation</strong>.<br>主要内容包括<strong>复数</strong>、<strong>线性代数</strong>、<strong>常微分方程</strong> 以及 <strong>偏微分</strong>。</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<p><a id="title" onclick="onTileClick()">Unfold <strong>Math</strong> Topics | 展开<strong>数学</strong>主题 &gt;</a></p>
+<p><iframe id="ifr" width="100%" src="/topics/#/math-note" frameborder="0" onresize="this.height=this.contentWindow.document.body.scrollHeight/0.6" onload="this.height=0" scrolling="yes" allowfullscreen>
+</iframe></p>
+<script type="text/javascript">
+    var content = document.getElementById("ifr");
+  var flag = false;
+  const h = content.contentWindow.document.body.scrollHeight/0.5+'px'
+    function onTileClick() { 
+    content.height = flag ? 0 : h;
+    flag = !flag;
+    }
+</script>
+
+<hr>
+<h1 id="1-Complex-Number"><a href="#1-Complex-Number" class="headerlink" title="1. Complex Number"></a>1. Complex Number</h1><h2 id="1-1-Notations"><a href="#1-1-Notations" class="headerlink" title="1.1 Notations"></a>1.1 Notations</h2><p>$i$: <strong><em>imaginary unit</em></strong>, where $i^2=-1$</p>
+<p>A <strong><em>Complex Number</em></strong> $z=x+iy$</p>
+<p>where:</p>
+<ul>
+<li>$x,y$ are <strong>real numbers</strong>;</li>
+<li>$x$ is the <strong><em>real part</em></strong> of $z$, $x=Re(z)$;</li>
+<li>$y$ is the <strong><em>imaginary part</em></strong> of $z$, $y=Im(z)$.</li>
+</ul>
+<blockquote>
+<p>complex number is NOT a number, but $i^2$ is a real number;<br>No $&gt;,&lt;$ between complex number, only $=,\not ={}$;<br>Complex number can be treated as a <strong>point</strong> or <strong>vector</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="1-2-Propositions"><a href="#1-2-Propositions" class="headerlink" title="1.2 Propositions"></a>1.2 Propositions</h2><p>For $z=a+ib,w=c+id$:</p>
+<ul>
+<li>$z+w=(a+c)+i(b+d)$</li>
+<li>$z-w=(a-c)+i(b-d)$</li>
+<li>$zw=(ac-bd)+i(ad+bc)$</li>
+<li>$z^0=1,z^n=zz^{n-1}$, for $z\not ={0},n=1,2,3,…$</li>
+</ul>
+<hr>
+<h2 id="1-3-Conjugate"><a href="#1-3-Conjugate" class="headerlink" title="1.3 Conjugate"></a>1.3 Conjugate</h2><p>For $z=x+iy$, the <strong><em>conjugate</em></strong> of $z$ is $\bar{z}=x-iy$, where the real parts are same, imaginary parts are opposite.</p>
+<script type="math/tex; mode=display">Re(z)=\frac{z+\bar{z}}{2}</script><script type="math/tex; mode=display">Im(z)=\frac{z-\bar{z}}{2i}</script><script type="math/tex; mode=display">z\bar{z}=(x+iy)(x-iy)=x^2+y^2</script><center><img src="/2022/12/02/mathematics-i-course-note/1.png" srcset="/img/loading.gif" lazyload width="60%"></center>
+
+<p><strong>Propositions</strong>:</p>
+<ul>
+<li>$\bar{\bar{z}}=z$</li>
+<li>$\bar{z \pm w}=\bar{z}\pm \bar{w}$</li>
+<li>$\bar{zw}=\bar{z}\bar{w}$</li>
+<li>$\bar{(\frac{z}{w})}=\frac{\bar{z}}{\bar{w}},w\not ={0}$</li>
+</ul>
+<hr>
+<h2 id="1-4-Modulus"><a href="#1-4-Modulus" class="headerlink" title="1.4 Modulus"></a>1.4 Modulus</h2><p>For $z=x+iy$, the <strong><em>modulus</em></strong> of $z$ is $|z|=\sqrt{z\bar{z}}=\sqrt{x^2+y^2}$</p>
+<p><strong>Propositions</strong>:</p>
+<ul>
+<li>$|z|\ge 0$, and $|z|=0\iff z=0$</li>
+<li>$|\bar{z}|=|z|$</li>
+<li>$z\bar{z}=|z|^2$</li>
+<li>$\frac{1}{z}=\frac{\bar{z}}{|z|^2}$</li>
+<li>$|zw|=|z||w|$</li>
+<li>$|\frac{z}{w}|=\frac{|z|}{|w|}$</li>
+</ul>
+<hr>
+<h2 id="1-5-Polar-Form"><a href="#1-5-Polar-Form" class="headerlink" title="1.5 Polar Form"></a>1.5 Polar Form</h2><p>For $z=x+iy$:</p>
+<center><img src="/2022/12/02/mathematics-i-course-note/2.png" srcset="/img/loading.gif" lazyload width="40%"></center>
+
+<p>Where:</p>
+<ul>
+<li>$r=\sqrt{x^2+y^2}=|z|$, the modulus of $z$</li>
+<li>$x=r\cos\theta$</li>
+<li>$y=r\sin\theta$</li>
+</ul>
+<p>Thus the <strong><em>Polar Form</em></strong> of a nonzero complex number $z$ is:</p>
+<script type="math/tex; mode=display">z=r(\cos\theta+i\sin\theta)</script><p>and the <strong><em>Polar Coordinates</em></strong> is </p>
+<script type="math/tex; mode=display">(r,\theta)</script><p>Where $\theta$ is the <strong><em>argument</em></strong> of $z$, $\theta=arg(z)$</p>
+<hr>
+<h2 id="1-6-Complex-Exponential-Function"><a href="#1-6-Complex-Exponential-Function" class="headerlink" title="1.6 Complex Exponential Function"></a>1.6 Complex Exponential Function</h2><p>For $w=x+iy$, we have</p>
+<script type="math/tex; mode=display">e^w=e^{x+iy}=e^xe^{iy}=e^x(\cos y+i\sin y)</script><p>which is the <strong><em>Complex Exponential Function</em></strong> of $z$.</p>
+<p>In which $(\cos \theta+i\sin \theta)=e^{i\theta}$, therefore the <strong>Polar Form</strong> can be written as </p>
+<script type="math/tex; mode=display">z=r(\cos\theta+i\sin\theta) = re^{i\theta}</script><hr>
+<h2 id="1-7-De-Moirve"><a href="#1-7-De-Moirve" class="headerlink" title="1.7 De Moirve"></a>1.7 De Moirve</h2><p>Set<br>$z_1=r_1e^{i\theta_1}=r_1(\cos\theta_1+i\sin\theta_1)$,<br>$z_2=r_2e^{i\theta_2}=r_2(\cos\theta_2+i\sin\theta_2)\not ={0}$,</p>
+<p>then</p>
+<script type="math/tex; mode=display">z_1z_2=r_1r_2e^{i(\theta_1+\theta_2)}=r_1r_2(\cos(\theta_1+\theta_2)+i(\sin\theta_1+\theta_2)),</script><script type="math/tex; mode=display">\frac{z_1}{z_2}=\frac{z_1}{z_2}e^{i(\theta_1-\theta_2)}=\frac{z_1}{z_2}[\cos(\theta_1-\theta_2)+i(\sin\theta_1+\theta_2)]</script><script type="math/tex; mode=display">z^n=r^ne^{in\theta}=r^n[\cos (n\theta)+i\sin (n\theta)]</script><hr>
+<h2 id="1-8-n-th-Root"><a href="#1-8-n-th-Root" class="headerlink" title="1.8 $n^{th}$ Root"></a>1.8 $n^{th}$ Root</h2><p>For $n\ge 2$, $w$ as a non-zero complex number.</p>
+<p>Complex number $z$ is an $n^{th}$ root of $w$, if <script type="math/tex">z^n=w</script></p>
+<p>or</p>
+<script type="math/tex; mode=display">z=w^{\frac{1}{n}}</script><hr>
+<p>For complex number $w=re^{i\theta}$, the $n^{th}$ root of $w$ is </p>
+<script type="math/tex; mode=display">w^{\frac{1}{n}} = z_k=r^{\frac{1}{n}}e^{i\frac{\theta+2k\pi}{n}}=r^{\frac{1}{n}}(\cos\frac{\theta+2k\pi}{n}+i\sin\frac{\theta+2k\pi}{n})</script><p>where $k=0,1,…,n-1$($n^{th}$ root has $n$ roots)</p>
+<blockquote>
+<p>When $k=n-1$, it is the final one root. If moving forward to $k=n$, then $\frac{2k\pi}{n}=\frac{2n\pi}{n}=2\pi$, as same as the first one, starting repeat. So just stop at $k=n-1$;</p>
+<script type="math/tex; mode=display">\frac{\theta+2k\pi}{n}=\frac{\theta}{n}+k\frac{2\pi}{n}</script><p>Where $\frac{\theta}{n}$ is the initial position, and $k$ is the number of add up, from 0 to $n-1$;</p>
+</blockquote>
+<p><strong>nth roots of unity</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/3.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h1 id="2-Linear-Algebra"><a href="#2-Linear-Algebra" class="headerlink" title="2. Linear Algebra"></a>2. Linear Algebra</h1><h2 id="2-1-Matrix"><a href="#2-1-Matrix" class="headerlink" title="2.1 Matrix"></a>2.1 Matrix</h2><p><strong>Definition</strong>:</p>
+<p>Table, a rectangle array of numbers with finite number of rows and columns.</p>
+<p>An $m\times n$ matrix: $m$ rows and $n$ columns, $A<em>{m\times n}=[a</em>{ij}]_{m\times n}$</p>
+<ul>
+<li><strong>$2\times 3$ matrix</strong>:</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+\end{bmatrix}</script><hr>
+<h3 id="2-1-1-Special-Matrix"><a href="#2-1-1-Special-Matrix" class="headerlink" title="2.1.1 Special Matrix"></a>2.1.1 Special Matrix</h3><ul>
+<li><p><strong><em>Row vector</em></strong> ($1\times n$ matrix):</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1 & 2  \\
+\end{bmatrix}</script></li>
+<li><p><strong><em>Column vector</em></strong> ($n\times 1$ matrix):</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1 \\ 
+2 
+\end{bmatrix}</script><ul>
+<li><strong><em>Zero Matrix</em></strong>: All entries equal to zero, which is $0$</li>
+</ul>
+<script type="math/tex; mode=display">
+0=
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+\end{bmatrix}</script><ul>
+<li><strong><em>Square Matrix</em></strong>: <ul>
+<li>$n$ rows and $n$ columns, $n\times n$ matrix, square matrix of order $n$</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9 \\
+\end{bmatrix}</script><ul>
+<li><strong><em>Upper Triangular Matrix</em></strong>: <ul>
+<li>A <strong>Square Matrix</strong>, all entries <strong>below</strong> the main diagonal are zeros</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1 & 2 & 3 \\
+\bold{0} & 5 & 6 \\
+\bold{0} & \bold{0} & 9 \\
+\end{bmatrix}</script><ul>
+<li><strong><em>Lower Triangular Matrix</em></strong>: <ul>
+<li>A <strong>Square Matrix</strong>, all entries <strong>above</strong> the main diagonal are zeros</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1 & \bold{0} & \bold{0} \\
+4 & 5 & \bold{0} \\
+7 & 8 & 9 \\
+\end{bmatrix}</script><ul>
+<li><strong><em>Diagonal Matrix</em></strong>: <ul>
+<li>A <strong>Square Matrix</strong>, $a_{ij}=0$ whenever $i\not ={j}$, all entries expect diagonal all are zeros</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1 & \bold{0} & \bold{0} \\
+\bold{0} & 5 & \bold{0} \\
+\bold{0} & \bold{0} & 9 \\
+\end{bmatrix}</script><ul>
+<li><strong><em>Identity Matrix</em></strong>: <ul>
+<li>A <strong>Square Matrix</strong>, $a<em>{ij}=0$ whenever $i\not ={j}$ and $a</em>{ii}=1$. All entries expect diagonal all are zeros, and all entries on the diagonal are $1$</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1 & \bold{0} & \bold{0} \\
+\bold{0} & 1 & \bold{0} \\
+\bold{0} & \bold{0} & 1 \\
+\end{bmatrix}</script><hr>
+<h3 id="2-1-2-Matrix-Operation"><a href="#2-1-2-Matrix-Operation" class="headerlink" title="2.1.2 Matrix Operation"></a>2.1.2 Matrix Operation</h3><ul>
+<li><p><strong>Comparison</strong>:</p>
+<ul>
+<li><strong>Same size</strong> $m\times n$ Matrix $A, B$,</li>
+<li><script type="math/tex; mode=display">A=B\iff a_{ij}=b_{ij}, \forall i\in [1,m],\forall j\in [1,n]</script></li>
+</ul>
+</li>
+<li><p><strong>Addition &amp; Subtraction</strong>:</p>
+<ul>
+<li><strong>Same size</strong> $m\times n$ Matrix $A, B$,</li>
+<li><script type="math/tex; mode=display">A\pm B= [a_{ij}\pm b_{ij}]_{m\times n}, \forall i\in [1,m],\forall j\in [1,n]</script></li>
+</ul>
+</li>
+<li><p><strong>Scalar Multiplication</strong>:</p>
+<ul>
+<li>$m\times n$ Matrix $A$, Scalar $t$</li>
+<li><script type="math/tex; mode=display">tA=[ta_{ij}]_{m\times n}</script></li>
+</ul>
+</li>
+<li><p><strong>Matrix Multiplication</strong>:</p>
+<ul>
+<li>$m\times n$ Matrix $A$, $n\times k$ Matrix $B$, </li>
+<li><script type="math/tex; mode=display">C_{m\times k}=A_{m\times n}B_{n\times k}, c_{ij}=\sum_{s=1}^n a_{is}b_{sj},</script></li>
+<li><script type="math/tex; mode=display">\forall i\in [1,m],\forall j\in [1,n]</script></li>
+<li>In general, Row $\times$ Column, and # of columns = # of rows</li>
+</ul>
+</li>
+<li><p><strong>Rules of Matrix Algebra</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">A+0=A, A-A=0</script></li>
+<li><script type="math/tex; mode=display">A+B=B+A</script></li>
+<li><script type="math/tex; mode=display">A+(B+C)=(A+B)+C</script></li>
+<li><script type="math/tex; mode=display">t(A+B)=tA+tB, t(AB)=A(tB)</script></li>
+<li><script type="math/tex; mode=display">(t+s)A=tA+sA</script></li>
+<li><script type="math/tex; mode=display">(AB)C=A(BC)</script></li>
+<li><script type="math/tex; mode=display">(A+B)C=AC+BC, A(B+C)=AB+AC</script></li>
+<li><script type="math/tex; mode=display">A0=0,0B=0</script></li>
+<li><script type="math/tex; mode=display">AB\not ={BA}</script></li>
+<li><script type="math/tex">AI=A, IB=B</script>,<ul>
+<li>where $I$ is the <strong>identity matrix</strong></li>
+</ul>
+</li>
+<li><script type="math/tex">A^0=I,A^k=A^{k-1}</script>,<ul>
+<li>for all positive integer $k$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-1-3-Matrix-Transpose"><a href="#2-1-3-Matrix-Transpose" class="headerlink" title="2.1.3 Matrix Transpose"></a>2.1.3 Matrix Transpose</h3><p>For $m\times n$ Matrix $A$, the $n\times m$ Matrix $A^T$ is the <strong><em>transpose</em></strong> of $A$,<br>where $at<em>{ij}=a</em>{ji}, \forall i\in [1,n],\forall j\in [1,m]$</p>
+<p><strong>[Example]</strong></p>
+<script type="math/tex; mode=display">
+A=\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+\end{bmatrix}, 
+A^T=\begin{bmatrix}
+1 & 4  \\
+2 & 5  \\
+3 & 6 
+\end{bmatrix},</script><p><strong>Rules</strong>:</p>
+<ul>
+<li><script type="math/tex; mode=display">(A^T)^T=A</script></li>
+<li><script type="math/tex; mode=display">(A+B)^T=A^T+B^T</script></li>
+<li><script type="math/tex; mode=display">(kA)^T=kA^T</script></li>
+<li><script type="math/tex; mode=display">(AB)^T=B^TA^T\text{(reversed!!!)}</script></li>
+<li>A <strong>square</strong> matrix $A$ is <strong>symmetric</strong> if </li>
+</ul>
+<script type="math/tex; mode=display">A=A^T</script><hr>
+<h3 id="2-1-4-Matrix-Inverse"><a href="#2-1-4-Matrix-Inverse" class="headerlink" title="2.1.4 Matrix Inverse"></a>2.1.4 Matrix Inverse</h3><p>For square matrix $A$, it is nonsingular(invertible) if a square Matrix $A^{-1}$</p>
+<script type="math/tex; mode=display">AA^{-1}=I\text{ or }A^{-1}A=I</script><p>where $A^{-1}$ is the <strong><em>inverse</em></strong> of $A$.</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+3 & 2 \\
+7 & 5 \\
+\end{bmatrix} 
+\begin{bmatrix}
+5 & -2 \\
+-7 & 3 \\
+\end{bmatrix}=I, 
+\begin{bmatrix}
+5 & -2 \\
+-7 & 3 \\
+\end{bmatrix}
+\begin{bmatrix}
+3 & 2 \\
+7 & 5 \\
+\end{bmatrix} 
+=I</script><p>Thus,</p>
+<p>$\begin{bmatrix}<br>3 &amp; 2 \<br>7 &amp; 5 \<br>\end{bmatrix}$ is nonsingular, and its Inverse is $\begin{bmatrix}<br>5 &amp; -2 \<br>-7 &amp; 3 \<br>\end{bmatrix}$</p>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>$A^{-1}$ is unique, one-to-one;</li>
+<li>$(A^{-1})^{-1}=A$</li>
+<li>$(tA)^{-1}=\frac{1}{t}A^{-1}$</li>
+<li>$(AB)^{-1}=B^{-1}A^{-1}$<ul>
+<li>$A,B$ are nonsingular and same order</li>
+</ul>
+</li>
+<li>$(A^k)^{-1}=(A^{-1})^k$<ul>
+<li>$A$ is nonsingular</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-2-Determinant"><a href="#2-2-Determinant" class="headerlink" title="2.2 Determinant"></a>2.2 Determinant</h2><center><img src="/2022/12/02/mathematics-i-course-note/4.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<h3 id="2-2-1-Cofactor"><a href="#2-2-1-Cofactor" class="headerlink" title="2.2.1 Cofactor"></a>2.2.1 Cofactor</h3><ul>
+<li>Can take <strong><em>cofactor expansion</em></strong> along any <strong>row</strong> or any <strong>column</strong></li>
+<li>The sign pattern of cofactor is</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+{+} & {-} & {+} & - \dots  \\
+{-} & {+} & {-} & + \dots \\
+{+} & {-} & {+} & - \dots  \\
+{-} & {+} & {-} & + \dots \\
+\dots & \dots & \dots & \dots \\  
+\end{bmatrix}</script><p>$2\times 2$ Matrix $A$:</p>
+<script type="math/tex; mode=display">
+A=\begin{bmatrix}
+a & b \\
+c & d \\
+\end{bmatrix}</script><script type="math/tex; mode=display">
+|A|=ad-bc</script><p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/5.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h3 id="2-2-2-Proposition"><a href="#2-2-2-Proposition" class="headerlink" title="2.2.2 Proposition"></a>2.2.2 Proposition</h3><ul>
+<li><script type="math/tex; mode=display">|A^T|=|A|\tag{1}</script></li>
+<li><strong>Swap</strong> two row or column, $|A\prime|=-|A|$<ul>
+<li><script type="math/tex; mode=display">R_i \leftrightarrow R_j \implies |A\prime|=-|A|,</script></li>
+<li><script type="math/tex; mode=display">C_i \leftrightarrow C_j \implies |A\prime|=-|A| \tag{2}</script></li>
+</ul>
+</li>
+<li><p><strong>Multi</strong> one row or column, $|A\prime|=t|A|$</p>
+<ul>
+<li><script type="math/tex; mode=display">R_i = tR_i \implies |A\prime|=t|A|,</script></li>
+<li><script type="math/tex; mode=display">C_i = tC_i \implies |A\prime|=t|A|\tag{3}</script></li>
+<li><p><strong>[Example]</strong></p>
+<script type="math/tex; mode=display">
+\det \begin{vmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6 \\
+\end{vmatrix}=
+\bold{2} \begin{vmatrix}
+1 & 2 & 3 \\
+\bold{1} & \bold{2} & \bold{3} \\
+\end{vmatrix}</script></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Add</strong> a <strong>scalar</strong> row(column) to a row(column), $|A\prime|=|A|$<ul>
+<li><script type="math/tex; mode=display">R_i = R_i + tR_j \implies |A\prime|=|A|,</script></li>
+<li><script type="math/tex; mode=display">C_i = C_i+tC_j \implies |A\prime|=|A|\tag{4}</script></li>
+</ul>
+</li>
+<li>Containing <strong>two same</strong> rows(columns), <ul>
+<li><script type="math/tex; mode=display">|A|=0 \tag{5}</script></li>
+</ul>
+</li>
+<li>For <strong>Diagonal Matrix, Lower Triangular Matrix, Upper Triangular Matrix</strong> $A$, <ul>
+<li><script type="math/tex; mode=display">|A|=a_{11}a_{22}a_{33}\dots a_{nn} \tag{6}</script></li>
+<li>Multiplication of all diagonal entries.</li>
+</ul>
+</li>
+<li><script type="math/tex; mode=display">\text{Square Matrix A is nonsingular} \iff |A|\not ={0} \tag{7}</script></li>
+<li><script type="math/tex; mode=display">\tag{8}</script><center><img src="/2022/12/02/mathematics-i-course-note/6.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+</li>
+<li><p>For <strong>square</strong> matrices $A, B$, </p>
+<ul>
+<li><script type="math/tex; mode=display">|AB|=|A||B| \tag{9}</script></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/7.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<ul>
+<li>To get zeros as much as possible using propositions;</li>
+<li>Expand along the row or column with the most number of zeros.</li>
+</ul>
+<hr>
+<h2 id="2-3-System-of-Linear-Equations"><a href="#2-3-System-of-Linear-Equations" class="headerlink" title="2.3 System of Linear Equations"></a>2.3 System of Linear Equations</h2><p>Rewrite the system into matrix form as </p>
+<script type="math/tex; mode=display">
+A\bold{x}=\bold{b}</script><p>where </p>
+<ul>
+<li>$A$ is the <strong><em>coefficient matrix</em></strong>,</li>
+<li>$\bold{x}$ is the <strong><em>variable</em></strong>,</li>
+<li>$\bold{b}$ is the <strong><em>constant</em></strong>.</li>
+</ul>
+<hr>
+<h3 id="2-3-1-Row-Operation"><a href="#2-3-1-Row-Operation" class="headerlink" title="2.3.1 Row Operation"></a>2.3.1 Row Operation</h3><blockquote>
+<p><strong><em>Augmented matrix</em></strong>:<br>For $A\bold{x}=\bold{b}$, the <strong><em>augmented matrix</em></strong> for this system to be the $m \times (n + 1)$ matrix obtained by joining to the right of $A$ the column vector $\bold{b}$.</p>
+</blockquote>
+<p>Operation on <strong>ROW ONLY</strong></p>
+<ul>
+<li><strong>Swap</strong> 2 <strong>Rows</strong> of a augmented matrix:<ul>
+<li>$r_i \leftrightarrow r_j$</li>
+</ul>
+</li>
+<li><strong>Multiply</strong> a <strong>Row</strong> by a non-zero scalar:<ul>
+<li>$t\times r_i \rightarrow r_i$</li>
+</ul>
+</li>
+<li><strong>Add</strong> a scalar <strong>Multiple</strong> of one <strong>Row</strong> to <strong>another Row</strong>:<ul>
+<li>$tr_j+r_i\rightarrow r_i$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-3-2-Row-echelon-Form"><a href="#2-3-2-Row-echelon-Form" class="headerlink" title="2.3.2 Row-echelon Form"></a>2.3.2 Row-echelon Form</h3><center><img src="/2022/12/02/mathematics-i-course-note/9.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<center><img src="/2022/12/02/mathematics-i-course-note/8.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h3 id="2-3-3-Gaussian-Elimination"><a href="#2-3-3-Gaussian-Elimination" class="headerlink" title="2.3.3 Gaussian Elimination"></a>2.3.3 Gaussian Elimination</h3><blockquote>
+<ol>
+<li>Using <strong>row operation</strong> to reduce the <strong>augmented matrix</strong> $[A|\bold{b}]$ to the <strong>Row-echelon Form</strong> $[R|\bold{b}]$;</li>
+<li>Then the System of Linear Equations is equivalent to the $[R|\bold{b}]$, $R\bold{x}=\bold{c}$, then can be solved by backward substitutions;</li>
+</ol>
+</blockquote>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/10.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h3 id="2-3-4-Solution-Set"><a href="#2-3-4-Solution-Set" class="headerlink" title="2.3.4 Solution Set"></a>2.3.4 Solution Set</h3><p>A system of linear equations is either </p>
+<ul>
+<li><strong><em>Inconsistent</em></strong><ul>
+<li><strong>NO</strong> solution</li>
+</ul>
+</li>
+<li><strong><em>Consistent</em></strong><ul>
+<li><strong>1</strong> solution or,</li>
+<li><strong>Infinity</strong> solutions</li>
+</ul>
+</li>
+</ul>
+<center><img src="/2022/12/02/mathematics-i-course-note/11.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<ul>
+<li><p><strong>No Solution</strong> situation:</p>
+<script type="math/tex; mode=display">
+0=\text{non-zero}</script><ul>
+<li><strong>[Example]</strong></li>
+</ul>
+</li>
+</ul>
+<center><img src="/2022/12/02/mathematics-i-course-note/12.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<ul>
+<li><strong>1 Unique Solution</strong> situation:<ul>
+<li>NO zero row, all variables are there, no free one</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\text{\# of Equations} = \text{\# of Unknowns}</script><ul>
+<li><strong>[Example]</strong></li>
+</ul>
+<center><img src="/2022/12/02/mathematics-i-course-note/10.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<ul>
+<li><strong>Infinity Solutions</strong> situation:<ul>
+<li>Having free variables</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\text{\# of Equations} \lt \text{\# of Unknowns}</script><ul>
+<li><strong>[Example]</strong><center><img src="/2022/12/02/mathematics-i-course-note/13.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+</li>
+</ul>
+<hr>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/14.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h3 id="2-3-5-System-of-Homogeneous-Equations"><a href="#2-3-5-System-of-Homogeneous-Equations" class="headerlink" title="2.3.5 System of Homogeneous Equations"></a>2.3.5 System of Homogeneous Equations</h3><p>A System of Linear Equation in a form of:</p>
+<script type="math/tex; mode=display">
+A\bold{x}=\bold{0}</script><script type="math/tex; mode=display">
+\left[
+\begin{array}{ccc|c}
+  x&x&x&0\\
+  x&x&x&0\\
+  x&x&x&0
+\end{array}
+\right]</script><p>Its solution set either has <strong>ONLY</strong>:</p>
+<ul>
+<li>The <strong>trivial</strong> solution:<ul>
+<li>$n \times 1$ zero vector $\bold{0}$ </li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\left[
+\begin{array}{ccc|c}
+  1&x&x&0\\
+  0&2&x&0\\
+  0&0&3&0
+\end{array}
+\right] 
+\implies 
+\begin{bmatrix}
+0 \\
+0 \\
+0
+\end{bmatrix}</script><ul>
+<li><strong>Infinitely many</strong> solutions:<ul>
+<li><strong>Non-trivial</strong> solution</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\left[
+\begin{array}{ccc|c}
+  1&x&x&0\\
+  0&2&x&0\\
+  0&0&0&0
+\end{array}
+\right] 
+\implies 
+\text{Infinitely many solutions}</script><hr>
+<h3 id="2-3-6-Gauss-Jordan-Method"><a href="#2-3-6-Gauss-Jordan-Method" class="headerlink" title="2.3.6 Gauss-Jordan Method"></a>2.3.6 Gauss-Jordan Method</h3><blockquote>
+<ol>
+<li>Using <strong>row operation</strong> to reduce the <strong>augmented matrix</strong> $[A|\bold{b}]$ to the <strong><em>Reduced</em> Row-echelon Form</strong> $[R|\bold{b}]$;</li>
+<li>Then the System of Linear Equations is equivalent to the $[R|\bold{b}]$, $R\bold{x}=\bold{c}$, then can be obtained <strong>simply by inspection</strong>;</li>
+</ol>
+</blockquote>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/15.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+
+<h4 id="2-3-6-1-Gauss-Jordan-Method-for-Finding-Inverse"><a href="#2-3-6-1-Gauss-Jordan-Method-for-Finding-Inverse" class="headerlink" title="2.3.6.1 Gauss-Jordan Method for Finding Inverse"></a>2.3.6.1 Gauss-Jordan Method for Finding Inverse</h4><p>Solve $AX=I$ to get $X=A^{-1}$ as the inverse of $A$;</p>
+<script type="math/tex; mode=display">[A|I]\rightarrow [I|A^{-1}]</script><p>where $I$ is in the <strong><em>Reduced</em> Row-echelon Form</strong>.</p>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/16.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h2 id="2-4-Vector-Space"><a href="#2-4-Vector-Space" class="headerlink" title="2.4 Vector Space"></a>2.4 Vector Space</h2><p>For $\bold{v}_i \in R_n, t_i\in R$, for $i=1,2,…,k$</p>
+<ul>
+<li>The <strong>linear combination</strong> of $\bold{v}$ is </li>
+</ul>
+<script type="math/tex; mode=display">
+V\bold{t}=
+\begin{bmatrix}
+v_{11} & v_{12}&\dots\\
+v_{21} & v_{22}&\dots\\\
+v_{31} & v_{32}&\dots\\
+\dots &\dots
+\end{bmatrix}
+\begin{bmatrix}
+t_{1} \\
+t_{2} \\\
+t_{3} \\
+\dots
+\end{bmatrix}</script><blockquote>
+<p>where is similar to the <strong>system of linear equations</strong>, $V$ is the coefficient matrix, $\bold{t}$ is the <strong><em>variable</em></strong>,</p>
+</blockquote>
+<ul>
+<li>$\bold{v}$ are <strong>linearly dependent</strong>, if<ul>
+<li>$V\bold{t}=\bold{0}$ has <strong>infinitely many solutions</strong>;</li>
+</ul>
+</li>
+<li>$\bold{v}$ are <strong>linearly independent</strong>, if<ul>
+<li>$V\bold{t}=\bold{0}$ ONLY has a <strong>the trivial solution</strong>: $\bold{0}$;</li>
+</ul>
+</li>
+<li>$\text{span }{v_1,v_2,…v_m\in R_n}=R_n \iff$ there are <strong>$n$ linearly independent</strong> vectors in ${v_1,v_2,…v_m}$;</li>
+</ul>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/17.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/18.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/19.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h3 id="2-4-1-Rank"><a href="#2-4-1-Rank" class="headerlink" title="2.4.1 Rank"></a>2.4.1 Rank</h3><blockquote>
+<p>The rank of a matrix $A$ is the <strong>dimension of the vector space</strong> spanned by its columns. This corresponds to <strong>the maximal number of linearly independent columns</strong> of $A$.</p>
+</blockquote>
+<ul>
+<li><strong>The number of independent vector = the number of Equations in the row-echelon form;</strong><ul>
+<li>Thus, if no solution, then no Rank</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="SUM-1-Summary-of-Above-Matrix-Points"><a href="#SUM-1-Summary-of-Above-Matrix-Points" class="headerlink" title="SUM.1 Summary of Above Matrix Points"></a>SUM.1 Summary of Above Matrix Points</h2><p>For <strong>square</strong> Matrix $A_{n\times n}$, following are equivalent:</p>
+<ul>
+<li>$A$ is <strong>non</strong>singular;</li>
+<li>Homogeneous: $A\bold{x}=\bold{0}\implies$ <strong>ONLY trivial solution</strong> ($\bold{x}=\bold{0}$);</li>
+<li><strong>Non</strong>-homogeneous: $A\bold{x}=\bold{b}\implies$ has a <strong>un</strong>ique solution (#Eq = #Unk);</li>
+<li>$A$ can be reduced to $I$, $AX=I \implies X=A^{-1}$;</li>
+<li>$|A|\not ={0}$;</li>
+<li>Corresponding vectors are linearly <strong>in</strong>dependent;</li>
+<li>$Rank(A)=n$: #Eq=n</li>
+</ul>
+<p>If $A$ is <strong>singular</strong>, then take above statement’s <strong>negation</strong>.</p>
+<hr>
+<h2 id="2-5-Eigenvalue-and-Eigenvector"><a href="#2-5-Eigenvalue-and-Eigenvector" class="headerlink" title="2.5 Eigenvalue and Eigenvector"></a>2.5 Eigenvalue and Eigenvector</h2><p>For a square matrix $A_{n\times n}$, non-zero vector $\bold{d}$, if </p>
+<script type="math/tex; mode=display">
+A\bold{v}=\lambda\bold{v}</script><p>then $\bold{v}\in R$ is an <strong>eigenvector</strong> of $A$ with <strong>eigenvalue</strong> $\lambda \in R$.</p>
+<blockquote>
+<p>If $\bold{v}$ is an eigenvector of A <strong>corresponding</strong> to the eigenvalue $\lambda$, then</p>
+<script type="math/tex; mode=display">
+A(t\bold{v})=\lambda (t\bold{v}),t\not ={0}</script></blockquote>
+<hr>
+<h3 id="2-5-1-Eigenvalue"><a href="#2-5-1-Eigenvalue" class="headerlink" title="2.5.1 Eigenvalue"></a>2.5.1 Eigenvalue</h3><script type="math/tex; mode=display">
+\lambda \text{ is the eigenvalue of } A \iff |A-\lambda I|=0</script><blockquote>
+<p>$A\bold{v}=\lambda\bold{v}\implies(A-\lambda I)\bold{v}=\bold{0}$</p>
+<ul>
+<li>Explanation1: where is a <strong>non-homogeneous</strong> without trivial solution (as $\bold{v}\not ={\bold{0}}$), so it has a <strong>infinitely many solutions</strong>, thus $(A-\lambda I)$ is singular, then $|(A-\lambda I)|=0$</li>
+<li>Explanation2: $(A-\lambda I)$ is a transformation matrix, who transfers $\bold{v}$ to $\bold{0}$, which means its <strong>determinant</strong> is <strong>zero</strong>.</li>
+</ul>
+</blockquote>
+<p><strong>Note</strong>: </p>
+<blockquote>
+<p>Number of eigenvalue = n, dimension of $A_{n\times n}$;<br>Even there are some same value, write down them separately. e.g. $\lambda_1=1, \lambda_2 = 1, \lambda_3 = 1$, can not say $\lambda=1$ only.</p>
+</blockquote>
+<hr>
+<center><img src="/2022/12/02/mathematics-i-course-note/20.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h3 id="2-5-2-Eigenvector"><a href="#2-5-2-Eigenvector" class="headerlink" title="2.5.2 Eigenvector"></a>2.5.2 Eigenvector</h3><ol>
+<li><strong>Solve</strong> $|(A-\lambda I)|=0$ to get $\lambda_1,\lambda_2,…,\lambda_n$;</li>
+<li><strong>Submit</strong> $\lambda$ to the <strong>original</strong> $(A-\lambda I)\bold{v}=\bold{0}$, and solve it to get $\bold{v}_1,\bold{v}_2,…,\bold{v}_n$;</li>
+<li>Where $\bold{v}$ must have <strong>infinitely many solutions</strong>;<ul>
+<li>like:<script type="math/tex; mode=display">
+\begin{bmatrix}
+t\\
+2t\\
+3t\\
+\end{bmatrix}</script></li>
+</ul>
+</li>
+<li>Write down a <strong>particular</strong> solution $\bold{v}_p$<ul>
+<li>like:<script type="math/tex; mode=display">
+\begin{bmatrix}
+ 1\\
+ 2\\
+ 3\\
+\end{bmatrix}\text{ or }
+\begin{bmatrix}
+ 2\\
+ 4\\
+ 6\\
+\end{bmatrix}</script></li>
+</ul>
+</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/21.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/22.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<p>Note:</p>
+<blockquote>
+<p>The number of eigenvector = the number of DoF (i.e. the number of free variables)</p>
+</blockquote>
+<hr>
+<h3 id="2-5-3-Diagonalization"><a href="#2-5-3-Diagonalization" class="headerlink" title="2.5.3 Diagonalization"></a>2.5.3 Diagonalization</h3><p>For square matrix $A_{n\times n}$, it is <strong><em>diagonalizable</em></strong> if </p>
+<script type="math/tex; mode=display">
+P^{-1}AP=D \iff A=PDP^{-1} \iff AP=PD</script><ul>
+<li>Where $D$ is a <strong>diagonal</strong> matrix;</li>
+<li>May use the Gauss-Jordan to get $P^{-1}$;</li>
+<li>May find the $P^{-1}$ in the last step;</li>
+</ul>
+<p>For square matrix $A_{n\times n}$, it is <strong><em>diagonalizable</em></strong> if </p>
+<ul>
+<li>$A$ has <strong>n</strong> linearly <strong>independent</strong> <strong>eigenvectors</strong> $\bold{v}_1,\bold{v}_2,…,\bold{v}_n$;</li>
+<li>and <strong>n</strong> corresponding <strong>eigenvalues</strong> $\lambda_1,\lambda_2,…,\lambda_n$;</li>
+<li>The $D$ is </li>
+</ul>
+<script type="math/tex; mode=display">
+D = \begin{bmatrix}
+    \lambda_1 & 0 & \cdots & 0\\
+    0 & \lambda_2 & \cdots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \cdots & \lambda_n\\
+  \end{bmatrix}</script><ul>
+<li>The $P$ is</li>
+</ul>
+<script type="math/tex; mode=display">
+P = 
+\begin{bmatrix}
+    \bold{v}_1 & \bold{v}_2 & \cdots & \bold{v}_n\\
+\end{bmatrix}</script><hr>
+<h4 id="2-5-3-1-Application-Matrix-Power"><a href="#2-5-3-1-Application-Matrix-Power" class="headerlink" title="2.5.3.1 Application: Matrix Power"></a>2.5.3.1 Application: Matrix Power</h4><p>If $A$ is diagonalizable, $A=PDP^{-1}$, then $A^m=PD^mP^{-1}$</p>
+<ul>
+<li>where $D^m$ is </li>
+</ul>
+<script type="math/tex; mode=display">
+D^m = \begin{bmatrix}
+    \lambda_1^m & 0 & \cdots & 0\\
+    0 & \lambda_2^m & \cdots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \cdots & \lambda_n^m\\
+  \end{bmatrix}</script><p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/23.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h2 id="2-6-Inner-Product"><a href="#2-6-Inner-Product" class="headerlink" title="2.6 Inner Product"></a>2.6 Inner Product</h2><p>inner product (dot product) os $\bold{v}$ and $\bold{w}$ is</p>
+<script type="math/tex; mode=display">
+\bold{v}\cdot\bold{w}=<\bold{v},\bold{m}>\bold{v}^T\bold{w}=\sum_{i=1}^n v_iw_i = v_1w_1+v_2w_2+...+v_nw_n</script><p><strong>Proposition</strong>:</p>
+<ul>
+<li>$\bold{v}\cdot\bold{w}=\bold{w}\cdot\bold{v}$</li>
+<li>$\bold{v}\cdot(\bold{w}+\bold{u})=\bold{v}\cdot\bold{w}+\bold{v}\cdot\bold{u}$</li>
+<li>$t\bold{v}\cdot\bold{w}=t(\bold{v}\cdot\bold{w}) = (\bold{v}\cdot\bold{w})t$</li>
+<li>$ \bold{v}\cdot\bold{v}\geq 0$</li>
+<li>$ \bold{v}\cdot\bold{v}=0 \iff \bold{v}=\bold{0}$</li>
+<li>$ \bold{0}\cdot\bold{v}=\bold{0}$</li>
+</ul>
+<hr>
+<h3 id="2-6-1-Norm"><a href="#2-6-1-Norm" class="headerlink" title="2.6.1 Norm"></a>2.6.1 Norm</h3><p>The Eucilidean norm of $\bold{v}$ is</p>
+<script type="math/tex; mode=display">
+\|\bold{v}\|=\sqrt{\bold{v}\cdot\bold{v}}=\sqrt{v_1^2+v_2^2+...+v_n^2}</script><p><strong>Unit vector</strong>:</p>
+<script type="math/tex; mode=display">
+\|\bold{v}\|=1</script><p>For non-zero vector $\bold{v}$, a unit vector $\bold{u}$ is</p>
+<script type="math/tex; mode=display">
+\frac{\bold{v}}{\|v\|}</script><ul>
+<li>It is pure on direction, and the length is 1;</li>
+<li>Different unit vector has different direction;</li>
+</ul>
+<p>The <strong>angle</strong> between $\bold{v}$ and $\bold{w}$ is unique $\theta$ between $0$ and $\pi$:</p>
+<script type="math/tex; mode=display">
+\cos\theta = \frac{\bold{v}\cdot\bold{w}}{\|\bold{v}\|\|\bold{w}\|} = \frac{\bold{v}}{\|v\|}\cdot \frac{\bold{w}}{\|w\|}</script><script type="math/tex; mode=display">
+\bold{v}\cdot\bold{w} = \|\bold{v}\|\|\bold{w}\|\cos\theta</script><script type="math/tex; mode=display">
+\cos \theta = 0 \implies \theta = \frac{\pi}{2} \implies  \bold{v}\perp\bold{w} \implies \bold{v}\cdot\bold{w} = 0</script><hr>
+<h3 id="2-6-2-Orthogonality"><a href="#2-6-2-Orthogonality" class="headerlink" title="2.6.2 Orthogonality"></a>2.6.2 Orthogonality</h3><p><strong><em>Orthogonal</em></strong>: </p>
+<ul>
+<li>Two vectors $\bold{v}$ and $\bold{w}$ are orthogonal if</li>
+</ul>
+<script type="math/tex; mode=display">
+\bold{v}\cdot\bold{w}=0</script><ul>
+<li><ul>
+<li>$\cos \theta = 0$</li>
+</ul>
+</li>
+<li><ul>
+<li>They are must <strong>linearly independent</strong>;</li>
+</ul>
+</li>
+<li><ul>
+<li>$\bold{0}$ is orthogonal to any vectors;</li>
+</ul>
+</li>
+</ul>
+<p><strong><em>Orthogonal set</em></strong>:</p>
+<ul>
+<li>Orthogonal set of vectors if these vectors are <strong>mutually orthogonal to each other</strong>.</li>
+</ul>
+<p><strong><em>Orthonormal</em></strong>:</p>
+<ul>
+<li>Orthogonal set of vectors are <strong><em>orthonormal</em></strong> if these vectors are <strong>unit vectors</strong>.<ul>
+<li><ol>
+<li>They are <strong>mutually orthogonal to each other</strong>; $\perp$</li>
+</ol>
+</li>
+<li><ol>
+<li>They are <strong>unit vectors</strong>; $1$</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/24.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h4 id="2-6-2-1-Gram-Schmidt-Process"><a href="#2-6-2-1-Gram-Schmidt-Process" class="headerlink" title="2.6.2.1 Gram-Schmidt Process"></a>2.6.2.1 Gram-Schmidt Process</h4><ul>
+<li>Projection of $v$ onto $w$ is:</li>
+</ul>
+<script type="math/tex; mode=display">
+\text{proj}_w v = \frac{<v, w>}{\|w\|^2}w = \frac{<v,w>}{\|w\|}\times \frac{w}{\|w\|}</script><blockquote>
+<p>where </p>
+<ul>
+<li>$\frac{<v,w>}{|w|}$ is the <strong>length</strong> of the projection;<ul>
+<li>$=|v|\cos\theta= |v|\frac{<v,w>}{|v||w|}$;</v,w></li>
+</ul>
+</v,w></li>
+<li>$\frac{w}{|w|}$ is the <strong>direction</strong> of the projection, same as $w$;</li>
+</ul>
+</blockquote>
+<ul>
+<li>To construct an orthonormal vector $u$ from a vector $v$ to $w$:</li>
+</ul>
+<script type="math/tex; mode=display">
+u=v-\text{proj}_w v=v-\frac{<v, w>}{\|w\|^2}w</script><p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/25.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h4 id="2-6-2-2-Orthogonal-Matrix"><a href="#2-6-2-2-Orthogonal-Matrix" class="headerlink" title="2.6.2.2 Orthogonal Matrix"></a>2.6.2.2 Orthogonal Matrix</h4><p>Orthogonal Matrix contains set of <strong>orthonormal vectors</strong> as its columns.</p>
+<ul>
+<li>Each vector is <strong>mutually orthogonal</strong> to each other;</li>
+<li>Each vector is <strong>unit</strong> vector;</li>
+</ul>
+<hr>
+<p>For a symmetric matrix $A$, $A^T=A$:</p>
+<ul>
+<li>It is always <strong>diagonalizable</strong>;</li>
+<li>It has a <strong>matrix</strong> $P$ formed from its eigenvectors;</li>
+<li>If $P$ is independent, it can be transferred to <strong>orthogonal matrix</strong> $Q$ using G.S. method, where $Q$ is formed from its eigenvectors;</li>
+<li>Where $A=QDQ^{-1}$, $D$ is a <strong>diagonal matrix</strong> formed from its eigenvalues;</li>
+</ul>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/26.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h1 id="3-Ordinary-Differential-Equation"><a href="#3-Ordinary-Differential-Equation" class="headerlink" title="3. Ordinary Differential Equation"></a>3. Ordinary Differential Equation</h1><p><strong>(ODE)</strong></p>
+<p>Giving a function of $y^\prime$ or $y^{\prime\prime}$, to find the original function $y$.</p>
+<hr>
+<h2 id="3-1-1st-Order-ODE"><a href="#3-1-1st-Order-ODE" class="headerlink" title="3.1  1st Order ODE"></a>3.1  1st Order ODE</h2><p>Form:</p>
+<script type="math/tex; mode=display">
+y^\prime = \frac{dy}{dx} = f(x,y)</script><ul>
+<li>Only $y^\prime$, no $y^{\prime\prime}$,…</li>
+</ul>
+<hr>
+<h3 id="3-1-1-Variables-Separable-Type"><a href="#3-1-1-Variables-Separable-Type" class="headerlink" title="3.1.1 Variables Separable Type"></a>3.1.1 Variables Separable Type</h3><p>Type:</p>
+<script type="math/tex; mode=display">
+y^\prime = \frac{dy}{dx} = g(x)h(y)</script><p>$\implies$</p>
+<p>Solution:</p>
+<script type="math/tex; mode=display">
+\int \frac{1}{h(y)}dy = \int g(x)dx</script><p><strong>Steps</strong>:</p>
+<ol>
+<li>Write in $\frac{dy}{dx} = g(x)h(y)$ form, and <strong>separate</strong> them;</li>
+<li>Do the <strong>integration</strong>;</li>
+<li><strong>Solve</strong> the equation, and <strong>combine</strong> into one $C$</li>
+</ol>
+<hr>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/27.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/28.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/29.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h3 id="3-1-2-Reducible-to-Separable-Type"><a href="#3-1-2-Reducible-to-Separable-Type" class="headerlink" title="3.1.2 Reducible to Separable Type"></a>3.1.2 Reducible to Separable Type</h3><p>ODE in the form of </p>
+<script type="math/tex; mode=display">
+\frac{dy}{dx} = G(\frac{y}{x})</script><p><strong>Steps</strong>:</p>
+<ol>
+<li>Write the ODE in the above form with $\frac{y}{x}$ term;</li>
+<li>Let $v=\frac{y}{x}$;</li>
+<li>Get the differential:<script type="math/tex; mode=display">
+y=vx\implies \frac{dy}{dx}=x\frac{dv}{dx}+v</script></li>
+<li>Submit:<script type="math/tex; mode=display">x\frac{dv}{dx}+v=G(v)</script></li>
+<li>The we get the Separable Type:</li>
+</ol>
+<script type="math/tex; mode=display">
+\frac{dv}{dx}=\frac{G(v)-v}{x}</script><ol>
+<li>Use above Variables Separable Type method to solve it;</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/30.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h3 id="3-1-3-Integrating-Factor-Method"><a href="#3-1-3-Integrating-Factor-Method" class="headerlink" title="3.1.3 Integrating Factor Method"></a>3.1.3 Integrating Factor Method</h3><p><strong><em>(1st Order Linear ODE)</em></strong></p>
+<p>An ODE in the form of </p>
+<script type="math/tex; mode=display">
+\frac{dy}{dx} +p(x)y = q(x)</script><p>Analysis Step:</p>
+<ol>
+<li>multiply both sides by $\mu(x)$:</li>
+</ol>
+<script type="math/tex; mode=display">
+\mu \frac{dy}{dx} +\mu py = \mu q</script><ol>
+<li>Set the condition for the $\mu p$:</li>
+</ol>
+<script type="math/tex; mode=display">
+\mu p = \frac{d\mu}{dx} \tag{1}</script><ol>
+<li>Then we get:</li>
+</ol>
+<script type="math/tex; mode=display">
+\mu \frac{dy}{dx} +y\frac{d\mu}{dx} = \mu q</script><ol>
+<li>Which is:</li>
+</ol>
+<script type="math/tex; mode=display">
+(\mu y)^{\prime}= \mu q</script><ol>
+<li>Take the <strong>integral</strong> of both sides:</li>
+</ol>
+<script type="math/tex; mode=display">
+\mu y = \int (\mu y)^{\prime} = \int (\mu q) dx + C \tag{2}</script><ol>
+<li>Then we get:</li>
+</ol>
+<script type="math/tex; mode=display">
+y = \frac{\int \mu q dx + C}{\mu}</script><hr>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Write the ODE in the form of $\frac{dy}{dx} +p(x)y = q(x)$;</li>
+<li>Based on the above condition $(1)$, to write:</li>
+</ol>
+<script type="math/tex; mode=display">
+\frac{d\mu}{dx}=\mu p</script><script type="math/tex; mode=display">
+\text{or}</script><script type="math/tex; mode=display">
+\mu = e^{\int p(x)dx}</script><ol>
+<li>Then to calculate the $\mu$;</li>
+<li><p>Based on the above $(2)$, to write:</p>
+<script type="math/tex; mode=display">
+\mu y = \int (\mu q) dx + C</script></li>
+<li><p>Then to calculate the $y$:</p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+y = \frac{\int (\mu q) dx + C}{\mu}</script><p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/31.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h3 id="3-1-4-Bernoulli-Equation"><a href="#3-1-4-Bernoulli-Equation" class="headerlink" title="3.1.4 Bernoulli Equation"></a>3.1.4 Bernoulli Equation</h3><p><strong><em>(homogeneous)</em></strong></p>
+<p>An ODE in the form of </p>
+<script type="math/tex; mode=display">
+\frac{dy}{dx} +p(x)y = q(x)y^n</script><p><strong>Steps</strong>:</p>
+<ol>
+<li>Write the ODE in the form of $\frac{dy}{dx} +p(x)y = q(x)y^n$;</li>
+<li>Discuss the <strong>trivial</strong> solution $y=0$;</li>
+<li>Discuss the <strong>non-trivial</strong> solution $y\not ={0}$, and divide it by $y^n$:</li>
+</ol>
+<script type="math/tex; mode=display">
+\frac{dy}{y^n dx} +p(x)y^{1-n} = q(x)</script><ol>
+<li>Set:</li>
+</ol>
+<script type="math/tex; mode=display">
+v = \frac{1}{y^{n-1}}</script><ol>
+<li>Calculate the differential of $v$:</li>
+</ol>
+<script type="math/tex; mode=display">
+v^{\prime} = (1-n)y^{-n}\frac{dy}{dx}</script><ol>
+<li>Submit the differential of $v$ back:</li>
+</ol>
+<script type="math/tex; mode=display">
+v^{\prime}+ (1-n) p(x) v = (1-n)q(x)</script><ol>
+<li>Now it is in Linear ODE, solve it by <strong><em>Integrating Factor Method</em></strong> in 3.1.3;</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/32.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h2 id="3-2-System-of-1st-Order-Linear-ODE"><a href="#3-2-System-of-1st-Order-Linear-ODE" class="headerlink" title="3.2 System of 1st Order Linear ODE"></a>3.2 System of 1st Order Linear ODE</h2><p>System of 1st Order Linear ODE</p>
+<script type="math/tex; mode=display">\bold{y}^{\prime}=A\bold{y}</script><p><strong><em>Solution</em></strong>: </p>
+<script type="math/tex; mode=display">\bold{y}=Pw=c_1\bold{v}_1e^{\lambda_1x}+c_2\bold{v}_2e^{\lambda_2x}+...+c_n\bold{v}_ne^{\lambda_nx}</script><p>where $v$ is the <strong>eigenvectors</strong>, $\lambda$ is the <strong>eigenvalues</strong>, and $c_1,c_2,…,c_n$ are constants.</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Write the system of ODE in the form of $\bold{y}^{\prime}=A\bold{y}$, then get the $A$;</li>
+<li>Find the <strong>eigenvalues</strong> and <strong>eigenvectors</strong> of $A$;</li>
+<li>Use the above <strong><em>Solution</em></strong> to solve the system of ODE;</li>
+</ol>
+<hr>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/33.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h2 id="3-3-2nd-Order-Linear-ODE"><a href="#3-3-2nd-Order-Linear-ODE" class="headerlink" title="3.3 2nd Order Linear ODE"></a>3.3 2nd Order Linear ODE</h2><p>In the form of:</p>
+<script type="math/tex; mode=display">
+y^{\prime\prime}+P(x)y^{\prime}+Q(x)y=R(x)</script><p>We focus <strong>constant coefficient</strong> ODE:</p>
+<script type="math/tex; mode=display">
+y^{\prime\prime}+py^{\prime}+qy=R(x)</script><hr>
+<h3 id="3-3-1-Homogeneous-2nd-Order-Linear-ODE"><a href="#3-3-1-Homogeneous-2nd-Order-Linear-ODE" class="headerlink" title="3.3.1 Homogeneous 2nd Order Linear ODE"></a>3.3.1 Homogeneous 2nd Order Linear ODE</h3><p>In the form of:</p>
+<script type="math/tex; mode=display">
+y^{\prime\prime}+py^{\prime}+qy=0</script><p><strong>Septs</strong>:</p>
+<ol>
+<li>Write the equation in the above form, and write the $m$ form:</li>
+</ol>
+<script type="math/tex; mode=display">
+m^2+pm+q=0</script><ol>
+<li>Solve the $m$ as $a,b$;</li>
+<li>Write down the solution based on following table:</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Case</th>
+<th style="text-align:center">Root($a$,$b$)</th>
+<th style="text-align:center">Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Case 1</td>
+<td style="text-align:center">$a\not ={b}$</td>
+<td style="text-align:center">$y=c_1e^{a x}+c_2e^{b x}$</td>
+</tr>
+<tr>
+<td style="text-align:center">Case 2</td>
+<td style="text-align:center">$a=b$</td>
+<td style="text-align:center">$y=c_1e^{a x}+c_2xe^{a x}$</td>
+</tr>
+<tr>
+<td style="text-align:center">Case 3</td>
+<td style="text-align:center">$a=\alpha+i\beta$, $b=\alpha-i\beta$</td>
+<td style="text-align:center">$y=c_1e^{\alpha x}\cos\beta x+c_2e^{\alpha x}\sin \beta x$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/34.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<hr>
+<h3 id="3-3-2-Non-homogeneous-2nd-Order-Linear-ODE"><a href="#3-3-2-Non-homogeneous-2nd-Order-Linear-ODE" class="headerlink" title="3.3.2 Non-homogeneous 2nd Order Linear ODE"></a>3.3.2 Non-homogeneous 2nd Order Linear ODE</h3><p>In the form of:</p>
+<script type="math/tex; mode=display">
+y^{\prime\prime}+py^{\prime}+qy=R(x)</script><h4 id="3-3-2-1-Undetermined-Coefficients-Method"><a href="#3-3-2-1-Undetermined-Coefficients-Method" class="headerlink" title="3.3.2.1 Undetermined Coefficients Method"></a>3.3.2.1 Undetermined Coefficients Method</h4><script type="math/tex; mode=display">
+y = y_h+y_p</script><p>Where $y$ is the <strong>general</strong> solution, $y_h$ is the <strong>homogeneous</strong> solution, and $y_p$ is the <strong>particular</strong> solution.</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Find $y_h$ from $y^{\prime\prime}+py^{\prime}+qy=0$, $y_h=c_1y_1+c_2y_2$ based on 3.3.1;</li>
+<li>Guess $y_p$ based on the form of $R(x)$:<center><img src="/2022/12/02/mathematics-i-course-note/35.png" srcset="/img/loading.gif" lazyload width="60%"></center>
+
+</li>
+</ol>
+<p>!!! note Check the form of $R(x)$:</p>
+<center><img src="/2022/12/02/mathematics-i-course-note/38.png" srcset="/img/loading.gif" lazyload width="60%"></center>
+
+
+<p>!!! note <strong>Check whether $y_p$ is same as $y_1$ or $y_2$, if same, $y_p=y_p \times x$</strong>;</p>
+<ol>
+<li>Get $y_p,y_p^{\prime}, y_p^{\prime\prime}$;</li>
+<li>Submit back to the original equation, and get the <strong>Coefficients</strong>, then get $y_p$;</li>
+<li>$y = y_h+y_p$</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/36.png" srcset="/img/loading.gif" lazyload width="60%"></center>
+
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/37.png" srcset="/img/loading.gif" lazyload width="60%"></center>
+
+<hr>
+<h4 id="3-3-2-2-Variation-of-Parameters-Method"><a href="#3-3-2-2-Variation-of-Parameters-Method" class="headerlink" title="3.3.2.2 Variation of Parameters Method"></a>3.3.2.2 Variation of Parameters Method</h4><blockquote>
+<p>If the ODE is not in the 4 types of UC method, then use this method.</p>
+</blockquote>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Write the ODE in the form of $y^{\prime\prime}+py^{\prime}+qy=R(x)$, then get $y_h=c_1y_1+c_2y_2$;</li>
+<li>Write $y_p$:<script type="math/tex; mode=display">
+y_p=v_1y_1+v_2y_2</script>And a system of equation:<script type="math/tex; mode=display">
+\begin{bmatrix}
+y_1&y_2 \\
+y_1^{\prime}&y_2^{\prime} \\
+\end{bmatrix}
+\begin{bmatrix}
+v_1^{\prime}\\
+v_2^{\prime}\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+R(x)\\  
+\end{bmatrix}</script></li>
+<li>Submit and solve the system to get $v_1^{\prime},v_2^{\prime}$;</li>
+<li>Get $v_1$ and $v_2$ by integral;</li>
+<li>Get $y$:</li>
+</ol>
+<script type="math/tex; mode=display">
+y = y_h+y_p = c_1y_1+c_2y_2+v_1y_1+v_2y_2</script><p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/39.png" srcset="/img/loading.gif" lazyload width="60%"></center>
+
+
+<hr>
+<h2 id="3-4-Laplace-Transform"><a href="#3-4-Laplace-Transform" class="headerlink" title="3.4 Laplace Transform"></a>3.4 Laplace Transform</h2><p>For real function $f(t)$, $t\ge0$, the Laplace transform of $f(t)$ is defined as:</p>
+<script type="math/tex; mode=display">
+\mathcal{L}\{f(t)\}=F(S)=\int_0^{\infty}e^{-st}f(t)dt</script><p>Proposition:</p>
+<ul>
+<li>$\mathcal{L}{af(t)+bg(t)}= a\mathcal{L}{f(t)}+b\mathcal{L}{g(t)}$</li>
+</ul>
+<p>!!! note NO for $\mathcal{L}{af(t)\times bg(t)}$</p>
+<ul>
+<li>$f(t)=g(t)$ for $t\ge 0$ $\implies \mathcal{L}{f(t)} = \mathcal{L}{g(t)}$</li>
+<li>$\mathcal{L}{f^{\prime}(t)} = sF(s)-f(0)$</li>
+<li>$\mathcal{L}{f^{\prime\prime}(t)} = s^2F(s)-sf(0)-f^{\prime}(0)$</li>
+</ul>
+<hr>
+<h3 id="3-4-1-Application-on-ODE"><a href="#3-4-1-Application-on-ODE" class="headerlink" title="3.4.1 Application on ODE"></a>3.4.1 Application on ODE</h3><blockquote>
+<p>Using Laplace transform to solve <strong>linear differential equations with constant coefficients</strong>.</p>
+</blockquote>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Write the ODE in the form of $y^{\prime\prime}+py^{\prime}+qy=0$.</li>
+<li>$\mathcal{L}{ODE}$, get the <strong>Laplace transform</strong> of the ODE on both sides;</li>
+<li>Solve the equation, get $Y(s)$;</li>
+<li>Find the $\mathcal{L}^{-1}{Y(s)}$, get $y(t)$.</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/40.png" srcset="/img/loading.gif" lazyload width="60%"></center>
+
+<hr>
+<h3 id="3-4-2-Transform-of-a-Shift-in-t"><a href="#3-4-2-Transform-of-a-Shift-in-t" class="headerlink" title="3.4.2 Transform of a Shift in t"></a>3.4.2 Transform of a Shift in t</h3><ul>
+<li>Unit step function:</li>
+</ul>
+<script type="math/tex; mode=display">
+\mathcal{H}(t)=\left\{ \begin{matrix} 1, t\ge0 \\ 0, t<0 \end{matrix} \right.</script><center><img src="/2022/12/02/mathematics-i-course-note/41.png" srcset="/img/loading.gif" lazyload width="80%"></center>
+
+<ul>
+<li>Theorem:</li>
+</ul>
+<script type="math/tex; mode=display">
+\mathcal{L}\{f(t-a)\mathcal{H}(t-a)\} = F(s)e^{-as}</script><p>or </p>
+<script type="math/tex; mode=display">
+f(t-a)\mathcal{H}(t-a) = \mathcal{L}^{-1}\{F(s)e^{-as}\}</script><p>Step of solving inverse Laplace transform using this theorem:</p>
+<ol>
+<li>Write the inverse Laplace transform in the form of $F(s)e^{-as}$;</li>
+<li>Identify the $F(s)$, $e^{-as}$, $a$, and get $H(t-a)$;</li>
+<li>Get $f(t)=\mathcal{L}^{-1}{F(s)}$.</li>
+<li>Get $f(t-a)$.</li>
+<li>Get the final answer $f(t-a)\mathcal{H}(t-a)$.</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/42.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<p>!!! note If encounter any unit step function in solving $f(t)=\mathcal{L}^{-1}{F(s)}$, use definition of the Laplace transform to solve it.</p>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/43.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h1 id="4-Partial-Differentiation"><a href="#4-Partial-Differentiation" class="headerlink" title="4. Partial Differentiation"></a>4. Partial Differentiation</h1><h2 id="4-1-Partial-Derivative"><a href="#4-1-Partial-Derivative" class="headerlink" title="4.1 Partial Derivative"></a>4.1 Partial Derivative</h2><script type="math/tex; mode=display">
+w=f(x,y) \\</script><script type="math/tex; mode=display">
+w_x = \frac{\partial w}{\partial x} = \lim_{\Delta x \to 0} \frac{f(x+\Delta x,y)-f(x,y)}{\Delta x}</script><script type="math/tex; mode=display">
+w_y = \frac{\partial w}{\partial y} = \lim_{\Delta y \to 0} \frac{f(x,y+\Delta y)-f(x,y)}{\Delta y}</script><ul>
+<li>Using the $\partial$ not $d$;</li>
+<li>Taking another variable as <strong>constant</strong>;</li>
+</ul>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/44.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h3 id="4-1-1-Second-Order-Partial-Derivative"><a href="#4-1-1-Second-Order-Partial-Derivative" class="headerlink" title="4.1.1 Second Order Partial Derivative"></a>4.1.1 Second Order Partial Derivative</h3><script type="math/tex; mode=display">
+f_{xx} = {(f_{x})}_x = \frac{\partial^2 f}{\partial x^2}</script><script type="math/tex; mode=display">
+f_{yx} = {(f_{y})}_x = \frac{\partial^2 f}{\partial y\partial x}</script><p>If $w=f(x,w)$ is a $C^2$-function, then $w<em>{xy} = w</em>{yx}$</p>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/45.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h2 id="4-2-Chain-Rule"><a href="#4-2-Chain-Rule" class="headerlink" title="4.2 Chain Rule"></a>4.2 Chain Rule</h2><center><img src="/2022/12/02/mathematics-i-course-note/46.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<ul>
+<li>Draw the <strong>variable tree</strong> to analyze the chain rule;</li>
+<li>Change to $\partial$ to $d$ when only <strong>ONE</strong> variable is involved.</li>
+</ul>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/47.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h2 id="4-3-Implicit-Differentiation"><a href="#4-3-Implicit-Differentiation" class="headerlink" title="4.3 Implicit Differentiation"></a>4.3 Implicit Differentiation</h2><p>For $F(x,f(x))=0, f(x)=w$:</p>
+<ul>
+<li><p><strong>M1</strong>: differentiate both sides with respect to $x$:</p>
+</li>
+<li><p><strong>M2</strong>: </p>
+<script type="math/tex; mode=display">
+\frac{d w}{d x} = -\frac{F_x(x,y)}{F_w(x,y)}</script></li>
+</ul>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/48.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<p>For $F(x,y,f(x,y)), f(x,y)=w$</p>
+<p>M1: differentiate both sides with respect to $x$:<br>M2: </p>
+<script type="math/tex; mode=display">
+w_x = -\frac{F_{x}(x,y,w)}{F_w(x,y,w)}</script><script type="math/tex; mode=display">
+w_y = -\frac{F_{y}(x,y,w)}{F_w(x,y,w)}</script><p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/49.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h2 id="4-4-Linear-Approximation"><a href="#4-4-Linear-Approximation" class="headerlink" title="4.4 Linear Approximation"></a>4.4 Linear Approximation</h2><p>(Total Differential)</p>
+<p>For get the <strong>value</strong> of $f(x,y)$:</p>
+<script type="math/tex; mode=display">
+f(x,y) = f(x_0,y_0) + f_x\Delta x + f_y\Delta x</script><script type="math/tex; mode=display">
+= f(x_0,y_0) +f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)</script><p>For get the <strong>error</strong>:</p>
+<script type="math/tex; mode=display">
+\Delta w = f(x,y) - f(x_0,y_0) = f_x\Delta x + f_y\Delta x =</script><script type="math/tex; mode=display">
+f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)</script><p><strong>Steps</strong>:</p>
+<ol>
+<li>Set $f(x,y)$, get $x$, $y$ from question;</li>
+<li>Set $x_0$, $y_0$ close to $x$, $y$, and get $\Delta x=x-x_0$, $\Delta y=y-y_0$;</li>
+<li>$f<em>{x_0}$, $f</em>{y_0}$, $f(x_0,y_0)$;</li>
+<li>Submit to above formula to get $f(x,y)$.</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/50.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<ul>
+<li>Error: $|\Delta x|\le V$;</li>
+<li>Relative error: $|\frac{\Delta x}{x} |\le V$;</li>
+</ul>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Get the function $f(x,y)$;</li>
+<li>Get the Relative errors and the target;</li>
+<li>Apply the error formula;</li>
+<li>Apply enlarge;</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/51.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h2 id="4-5-Relative-Extremum"><a href="#4-5-Relative-Extremum" class="headerlink" title="4.5 Relative Extremum"></a>4.5 Relative Extremum</h2><ul>
+<li>relative minimum</li>
+<li>relative maximum</li>
+<li>saddle point</li>
+</ul>
+<center><img src="/2022/12/02/mathematics-i-course-note/52.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h3 id="4-5-1-2nd-Order-Derivative-Test"><a href="#4-5-1-2nd-Order-Derivative-Test" class="headerlink" title="4.5.1 2nd Order Derivative Test"></a>4.5.1 2nd Order Derivative Test</h3><p>for $f(x,y)$, a point $(x_0,y_0)$, that</p>
+<script type="math/tex; mode=display">
+f_{x}(x_0,y_0)=0, f_{y}(x_0,y_0)=0</script><p>this point is the <strong><em>stationary point</em></strong> of $f(x,y)$</p>
+<p>Then</p>
+<script type="math/tex; mode=display">
+H = \begin{vmatrix}
+f_{xx} & f_{xy} \\
+f_{yx} & f_{yy}
+\end{vmatrix} = f_{xx}f_{yy} - f_{xy}^2</script><ul>
+<li>$H&gt;0$, and $f<em>{xx}(\text{or }f</em>{yy})\gt 0$ $(x_0,y_0)$ is a <strong>relative minimum</strong> (all &gt;: smile face $\cup$);</li>
+<li>$H&gt;0$ ,and $f<em>{xx}(\text{or }f</em>{yy})\lt 0$, $(x_0,y_0)$ is a <strong>relative maximum</strong> (one &lt;: cry face $\cap$);</li>
+<li>$H&lt;0$: <strong>saddle</strong> point;</li>
+<li>$H=0$: <strong>inconclusive</strong>.</li>
+</ul>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Find the stationary point, $f_x=0,f_y=0$ to get $(x_0,y_0)$;</li>
+<li>Get $f<em>{xx},f</em>{yy},f<em>{xy}$, and get $H=f</em>{xx}f<em>{yy}-f</em>{xy}^2$;</li>
+<li>List the stationary table:</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$x,y$</th>
+<th style="text-align:center">$x_0, y_0$</th>
+<th style="text-align:center">…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$H$</td>
+<td style="text-align:center">&gt;0 or &lt;0</td>
+<td style="text-align:center">…</td>
+</tr>
+<tr>
+<td style="text-align:center">$f_{xx}$</td>
+<td style="text-align:center">&gt;0 or &lt;0</td>
+<td style="text-align:center">…</td>
+</tr>
+<tr>
+<td style="text-align:center">$f$</td>
+<td style="text-align:center">local minimum or maximum or saddle</td>
+<td style="text-align:center">…</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Note</strong>:</p>
+<ul>
+<li>Sometime need to <strong>build</strong> the equation first;</li>
+<li>If the stationary is <strong>unique</strong>, then the local one becomes the <strong>global</strong> one.</li>
+</ul>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/53.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/54.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h2 id="4-6-Directional-Derivative"><a href="#4-6-Directional-Derivative" class="headerlink" title="4.6 Directional Derivative"></a>4.6 Directional Derivative</h2><h3 id="4-6-1-Gradient"><a href="#4-6-1-Gradient" class="headerlink" title="4.6.1 Gradient"></a>4.6.1 Gradient</h3><p>For $f(x,y,x)$, the <strong>gradient</strong> is:</p>
+<script type="math/tex; mode=display">
+\nabla f(x,y) = \begin{bmatrix}
+f_x \\
+f_y\\
+f_z
+\end{bmatrix}</script><p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/55.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<p>Steps for find <strong>tangent plane</strong>:</p>
+<ol>
+<li>Find the $f=0$, if $P_0=(a,b,c)$ then has 3 variables;</li>
+<li>Find the gradient, $\nabla f$;</li>
+<li>Find $\textbf{r}=P-P_0$;</li>
+<li>Let $&lt;\nabla f, \textbf{r}&gt;=0$, find the tangent plane;</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/56.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h3 id="4-6-2-Directional-Derivative"><a href="#4-6-2-Directional-Derivative" class="headerlink" title="4.6.2 Directional Derivative"></a>4.6.2 Directional Derivative</h3><p>For $f(x,y,z)$, at a point $P(x<em>0,y_0,z_0)$, in the direction of a unit vector $\textbf{u}=\begin{bmatrix}a \ b\ c \end{bmatrix}$, the <strong>directional derivative</strong> is $D</em>{\textbf{u}}f(x_0,y_0,z_0)$= .</p>
+<script type="math/tex; mode=display">
+f_x(x_0,y_0,z_0)a + f_y(x_0,y_0,z_0)b + f_z(x_0,y_0,z_0)c =</script><script type="math/tex; mode=display">
+<\nabla f(x_0,y_0, z_0), \textbf{u}> =</script><script type="math/tex; mode=display">
+\frac{<\nabla f(x_0,y_0, z_0), \textbf{v}>}{||\text{v}||}</script><p>where $\textbf{v}$ is a unit vector in the direction of $\textbf{u}$.</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Find $\nabla f$;</li>
+<li>Find the $D_{\textbf{u}}f(x_0,y_0,z_0)=\frac{&lt;\nabla f(x_0,y_0, z_0), \textbf{v}&gt;}{||\text{v}||}$</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/57.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h3 id="4-6-3-Change-Mostly-Rapidly"><a href="#4-6-3-Change-Mostly-Rapidly" class="headerlink" title="4.6.3 Change Mostly Rapidly"></a>4.6.3 Change Mostly Rapidly</h3><ul>
+<li><strong>Increase</strong> most rapidly, <strong>max</strong> <em>rate of change</em> ($D_{\textbf{u}}f$):</li>
+</ul>
+<script type="math/tex; mode=display">
+\bold{v}=\nabla f, D_{\textbf{u}}f = ||\nabla f||</script><ul>
+<li><strong>Decrease</strong> most rapidly, <strong>min</strong> <em>rate of change</em> ($D_{\textbf{u}}f$):</li>
+</ul>
+<script type="math/tex; mode=display">
+\bold{v}=-\nabla f, D_{\textbf{u}}f = -||\nabla f||</script><p>Steps:</p>
+<ol>
+<li>Get the $\nabla f$, the direction;</li>
+<li>get the rate, $||\nabla f||$;</li>
+<li>Conclusion:<br> <strong><em>($\nabla f$) is the direction of the increase(decrease) most rapidly at the point (x,x), the rate of change is ($||\nabla f||$).</em></strong></li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/58.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h3 id="4-6-4-Lagrange-Multipliers"><a href="#4-6-4-Lagrange-Multipliers" class="headerlink" title="4.6.4 Lagrange Multipliers"></a>4.6.4 Lagrange Multipliers</h3><p>For function $f(x,y)$ has stationary point $(x_0,y_0)$, and it subjects to the constraint $g(x,y)=0$, then it satisfies:</p>
+<script type="math/tex; mode=display">
+\nabla f(x_0,y_0) = \lambda \nabla g(x_0,y_0),\text{and}</script><script type="math/tex; mode=display">
+g(x_0,y_0)=0</script><p>the $\lambda$ is called <strong>Lagrange multiplier</strong>.</p>
+<h4 id="4-6-4-1-General-Lagrange-Multipliers-Method"><a href="#4-6-4-1-General-Lagrange-Multipliers-Method" class="headerlink" title="4.6.4.1 General Lagrange Multipliers Method"></a>4.6.4.1 General Lagrange Multipliers Method</h4><center><img src="/2022/12/02/mathematics-i-course-note/59.png" srcset="/img/loading.gif" lazyload width="60%"></center>
+
+<p>Steps:</p>
+<ol>
+<li>Find $f$ and $g=C$;</li>
+<li>List $\nabla f=\lambda \nabla g,g=0$</li>
+<li>Solve the system, and get $f<em>{\text{min}}(x_0,y_0,z_0)=xxx$ or $f</em>{\text{max}}(x_0,y_0,z_0)=xxx$.</li>
+</ol>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/60.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+<hr>
+<h3 id="4-6-5-Absolute-Extremum"><a href="#4-6-5-Absolute-Extremum" class="headerlink" title="4.6.5 Absolute Extremum"></a>4.6.5 Absolute Extremum</h3><p>Separate the region into two part, equation and inequality, </p>
+<ul>
+<li>then use the <strong>Lagrange Multipliers Method</strong> to the <strong>equation</strong> part, </li>
+<li>and use the <strong>stationary point</strong> to the <strong>inequality</strong> part.</li>
+</ul>
+<p><strong>[Example]</strong></p>
+<center><img src="/2022/12/02/mathematics-i-course-note/61.png" srcset="/img/loading.gif" lazyload width="70%"></center>
+
+
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>Slides of AMA2111 Mathematics I, The Hong Kong Polytechnic University.</p>
+<hr>
+<p><strong><em>个人笔记，仅供参考，转载请标明出处</em></strong><br><strong><em>PERSONAL COURSE NOTE, FOR REFERENCE ONLY</em></strong></p>
+<p><strong><em>Made by Mike_Zhang</em></strong></p>
+<center><img src="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/blog3/logo3.gif?versionId=CAEQGxiBgIDY95eb1xciIGY2MzBlMTcyY2NlNzQ0MjE5Y2MyZGM5MGE0NDQ3YzQ2" srcset="/img/loading.gif" lazyload width height><br><br></center>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Mathematics/" class="category-chain-item">Mathematics</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Math-Note/">#Math Note</a>
+      
+        <a href="/tags/Complex-Number/">#Complex Number</a>
+      
+        <a href="/tags/Linear-Algebra/">#Linear Algebra</a>
+      
+        <a href="/tags/Ordinary-Differential-Equation/">#Ordinary Differential Equation</a>
+      
+        <a href="/tags/Partial-Differentiation/">#Partial Differentiation</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Mathematics I Course Note</div>
+      <div>https://ultrafish.cn/2022/12/02/mathematics-i-course-note/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者 | Author</div>
+          <div>Mike_Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于 | Posted on</div>
+          <div>2022年12月2日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议 | Licensed</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"xPfvtHmxSDcqGwKW6R8EEWXM-gzGzoHsz","appKey":"jVB4RsyHUFfRbEhhlssoxEVQ","path":"window.location.pathname","placeholder":"请先在上方填写 [昵称] 和 [邮箱(可选)] | Please enter [Name] & [Email(Opt)] above first","avatar":"mp","meta":["nick","mail"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录 | Content</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索 | Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词 | Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <footer class="text-center mt-5 py-3" style="font-size:small;">
+<div class="footer-inner">
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 | Page View 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 | Unique Visitor 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  <div class="footer" >
+    Copyright &copy; 2020-2022 <a href="https://ultrafish.cn/about">Mike_Zhang</a>. All rights reserved.
+  </div>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2020036956号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33042102000661"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>浙公网安备33042102000661号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+
+</div>
+</footer>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳|Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
