@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ultrafish-blog.oss-cn-hangzhou.aliyuncs.com/note.png?versionId=CAEQIxiBgMDCuYe37RciIGExYWZkNjg5MmIyYTRjYmFiNTk1MGZhMDBjNWVkNTZm">
 <meta property="article:published_time" content="2022-12-02T04:45:00.000Z">
-<meta property="article:modified_time" content="2022-12-01T08:53:54.910Z">
+<meta property="article:modified_time" content="2022-12-02T05:28:47.793Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="Math Note">
 <meta property="article:tag" content="Complex Number">
@@ -499,7 +499,8 @@
 <hr>
 <h1 id="2-Linear-Algebra"><a href="#2-Linear-Algebra" class="headerlink" title="2. Linear Algebra"></a>2. Linear Algebra</h1><h2 id="2-1-Matrix"><a href="#2-1-Matrix" class="headerlink" title="2.1 Matrix"></a>2.1 Matrix</h2><p><strong>Definition</strong>:</p>
 <p>Table, a rectangle array of numbers with finite number of rows and columns.</p>
-<p>An $m\times n$ matrix: $m$ rows and $n$ columns, $A<em>{m\times n}=[a</em>{ij}]_{m\times n}$</p>
+<p>An $m\times n$ matrix: m rows and n columns, </p>
+<p>$A_{m \times n}$</p>
 <ul>
 <li><strong>$2\times 3$ matrix</strong>:</li>
 </ul>
@@ -575,7 +576,11 @@
 \bold{0} & \bold{0} & 9 \\
 \end{bmatrix}</script><ul>
 <li><strong><em>Identity Matrix</em></strong>: <ul>
-<li>A <strong>Square Matrix</strong>, $a<em>{ij}=0$ whenever $i\not ={j}$ and $a</em>{ii}=1$. All entries expect diagonal all are zeros, and all entries on the diagonal are $1$</li>
+<li>A <strong>Square Matrix</strong>, </li>
+<li>$a_{i j}=0$ </li>
+<li>whenever $i\not ={j}$ </li>
+<li>and $a_{i i}=1$. </li>
+<li>All entries expect diagonal all are zeros, and all entries on the diagonal are 1</li>
 </ul>
 </li>
 </ul>
@@ -635,8 +640,11 @@
 </li>
 </ul>
 <hr>
-<h3 id="2-1-3-Matrix-Transpose"><a href="#2-1-3-Matrix-Transpose" class="headerlink" title="2.1.3 Matrix Transpose"></a>2.1.3 Matrix Transpose</h3><p>For $m\times n$ Matrix $A$, the $n\times m$ Matrix $A^T$ is the <strong><em>transpose</em></strong> of $A$,<br>where $at<em>{ij}=a</em>{ji}, \forall i\in [1,n],\forall j\in [1,m]$</p>
-<p><strong>[Example]</strong></p>
+<h3 id="2-1-3-Matrix-Transpose"><a href="#2-1-3-Matrix-Transpose" class="headerlink" title="2.1.3 Matrix Transpose"></a>2.1.3 Matrix Transpose</h3><p>For $m\times n$ Matrix $A$, the $n\times m$ Matrix $A^T$ is the <strong><em>transpose</em></strong> of $A$,<br>where </p>
+<script type="math/tex; mode=display">
+t_{ij}=a_{ji}</script><script type="math/tex; mode=display">
+\forall i\in [1,n]</script><script type="math/tex; mode=display">
+\forall j\in [1,m]</script><p><strong>[Example]</strong></p>
 <script type="math/tex; mode=display">
 A=\begin{bmatrix}
 1 & 2 & 3 \\
@@ -675,8 +683,16 @@ A^T=\begin{bmatrix}
 7 & 5 \\
 \end{bmatrix} 
 =I</script><p>Thus,</p>
-<p>$\begin{bmatrix}<br>3 &amp; 2 \<br>7 &amp; 5 \<br>\end{bmatrix}$ is nonsingular, and its Inverse is $\begin{bmatrix}<br>5 &amp; -2 \<br>-7 &amp; 3 \<br>\end{bmatrix}$</p>
-<p><strong>Rules</strong>:</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+3 & 2 \\
+7 & 5 \\
+\end{bmatrix}</script><p>is nonsingular, and its Inverse is </p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+5 & -2 \\
+-7 & 3 \\
+\end{bmatrix}</script><p><strong>Rules</strong>:</p>
 <ul>
 <li>$A^{-1}$ is unique, one-to-one;</li>
 <li>$(A^{-1})^{-1}=A$</li>
@@ -1169,16 +1185,12 @@ D^m = \begin{bmatrix}
 <li>Projection of $v$ onto $w$ is:</li>
 </ul>
 <script type="math/tex; mode=display">
-\text{proj}_w v = \frac{<v, w>}{\|w\|^2}w = \frac{<v,w>}{\|w\|}\times \frac{w}{\|w\|}</script><blockquote>
-<p>where </p>
-<ul>
-<li>$\frac{<v,w>}{|w|}$ is the <strong>length</strong> of the projection;<ul>
-<li>$=|v|\cos\theta= |v|\frac{<v,w>}{|v||w|}$;</v,w></li>
-</ul>
-</v,w></li>
-<li>$\frac{w}{|w|}$ is the <strong>direction</strong> of the projection, same as $w$;</li>
-</ul>
-</blockquote>
+\text{proj}_w v = \frac{<v, w>}{\|w\|^2}w = \frac{<v,w>}{\|w\|}\times \frac{w}{\|w\|}</script><p>where </p>
+<script type="math/tex; mode=display">
+\frac{<v,w>}{\|w\|}</script><p>is the <strong>length</strong> of the projection;</p>
+<script type="math/tex; mode=display">
+=\|v\|\cos\theta= \|v\|\frac{<v,w>}{\|v\|\|w\|}</script><script type="math/tex; mode=display">
+\frac{w}{\|w\|}</script><p>is the <strong>direction</strong> of the projection, same as w;</p>
 <ul>
 <li>To construct an orthonormal vector $u$ from a vector $v$ to $w$:</li>
 </ul>
@@ -1458,9 +1470,9 @@ y = y_h+y_p = c_1y_1+c_2y_2+v_1y_1+v_2y_2</script><p><strong>[Example]</strong><
 <script type="math/tex; mode=display">
 \mathcal{L}\{f(t)\}=F(S)=\int_0^{\infty}e^{-st}f(t)dt</script><p>Proposition:</p>
 <ul>
-<li>$\mathcal{L}{af(t)+bg(t)}= a\mathcal{L}{f(t)}+b\mathcal{L}{g(t)}$</li>
+<li>$\mathcal{L}{(af(t)+bg(t))}= a\mathcal{L}{f(t)}+b\mathcal{L}{g(t)}$</li>
 </ul>
-<p>!!! note NO for $\mathcal{L}{af(t)\times bg(t)}$</p>
+<p>!!! note NO for $\mathcal{L}{(af(t)\times bg(t))}$</p>
 <ul>
 <li>$f(t)=g(t)$ for $t\ge 0$ $\implies \mathcal{L}{f(t)} = \mathcal{L}{g(t)}$</li>
 <li>$\mathcal{L}{f^{\prime}(t)} = sF(s)-f(0)$</li>
@@ -1569,9 +1581,10 @@ f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)</script><p><strong>Steps</strong>:</p>
 <ol>
 <li>Set $f(x,y)$, get $x$, $y$ from question;</li>
 <li>Set $x_0$, $y_0$ close to $x$, $y$, and get $\Delta x=x-x_0$, $\Delta y=y-y_0$;</li>
-<li>$f<em>{x_0}$, $f</em>{y_0}$, $f(x_0,y_0)$;</li>
-<li>Submit to above formula to get $f(x,y)$.</li>
+<li></li>
 </ol>
+<script type="math/tex; mode=display">
+f_{x_0}, f_{y_0}, f(x_0,y_0)</script><p>4.Submit to above formula to get $f(x,y)$.</p>
 <p><strong>[Example]</strong></p>
 <center><img src="/2022/12/02/mathematics-i-course-note/50.png" srcset="/img/loading.gif" lazyload width="70%"></center>
 
@@ -1607,18 +1620,25 @@ f_{x}(x_0,y_0)=0, f_{y}(x_0,y_0)=0</script><p>this point is the <strong><em>stat
 H = \begin{vmatrix}
 f_{xx} & f_{xy} \\
 f_{yx} & f_{yy}
-\end{vmatrix} = f_{xx}f_{yy} - f_{xy}^2</script><ul>
-<li>$H&gt;0$, and $f<em>{xx}(\text{or }f</em>{yy})\gt 0$ $(x_0,y_0)$ is a <strong>relative minimum</strong> (all &gt;: smile face $\cup$);</li>
-<li>$H&gt;0$ ,and $f<em>{xx}(\text{or }f</em>{yy})\lt 0$, $(x_0,y_0)$ is a <strong>relative maximum</strong> (one &lt;: cry face $\cap$);</li>
+\end{vmatrix} = f_{xx}f_{yy} - f_{xy}^2</script><p>if $H&gt;0$, and </p>
+<script type="math/tex; mode=display">
+f_{xx}(\text{or }f_{yy})\gt 0</script><p>$(x_0,y_0)$ is a <strong>relative minimum</strong> (all &gt;: smile face $\cup$)</p>
+<p>if $H&gt;0$ ,and </p>
+<script type="math/tex; mode=display">
+f_{xx}(\text{or }f_{yy})\lt 0</script><p>$(x_0,y_0)$ is a <strong>relative maximum</strong> (one &lt;: cry face $\cap$);</p>
+<ul>
 <li>$H&lt;0$: <strong>saddle</strong> point;</li>
 <li>$H=0$: <strong>inconclusive</strong>.</li>
 </ul>
 <p><strong>Steps</strong>:</p>
 <ol>
 <li>Find the stationary point, $f_x=0,f_y=0$ to get $(x_0,y_0)$;</li>
-<li>Get $f<em>{xx},f</em>{yy},f<em>{xy}$, and get $H=f</em>{xx}f<em>{yy}-f</em>{xy}^2$;</li>
-<li>List the stationary table:</li>
+<li>Get </li>
 </ol>
+<script type="math/tex; mode=display">
+f_{xx},f_{yy},f_{xy}</script><p>and get </p>
+<script type="math/tex; mode=display">
+H=f_{xx}f_{yy}-f_{xy}^2</script><p>3.List the stationary table:</p>
 <div class="table-container">
 <table>
 <thead>
@@ -1679,8 +1699,11 @@ f_z
 <center><img src="/2022/12/02/mathematics-i-course-note/56.png" srcset="/img/loading.gif" lazyload width="70%"></center>
 
 <hr>
-<h3 id="4-6-2-Directional-Derivative"><a href="#4-6-2-Directional-Derivative" class="headerlink" title="4.6.2 Directional Derivative"></a>4.6.2 Directional Derivative</h3><p>For $f(x,y,z)$, at a point $P(x<em>0,y_0,z_0)$, in the direction of a unit vector $\textbf{u}=\begin{bmatrix}a \ b\ c \end{bmatrix}$, the <strong>directional derivative</strong> is $D</em>{\textbf{u}}f(x_0,y_0,z_0)$= .</p>
+<h3 id="4-6-2-Directional-Derivative"><a href="#4-6-2-Directional-Derivative" class="headerlink" title="4.6.2 Directional Derivative"></a>4.6.2 Directional Derivative</h3><p>For $f(x,y,z)$, at a point </p>
 <script type="math/tex; mode=display">
+P(x_0,y_0,z_0)</script><p>in the direction of a unit vector $\textbf{u}=\begin{bmatrix}a \ b\ c \end{bmatrix}$, the <strong>directional derivative</strong> is </p>
+<script type="math/tex; mode=display">
+D_{\textbf{u}}f(x_0,y_0,z_0) =</script><script type="math/tex; mode=display">
 f_x(x_0,y_0,z_0)a + f_y(x_0,y_0,z_0)b + f_z(x_0,y_0,z_0)c =</script><script type="math/tex; mode=display">
 <\nabla f(x_0,y_0, z_0), \textbf{u}> =</script><script type="math/tex; mode=display">
 \frac{<\nabla f(x_0,y_0, z_0), \textbf{v}>}{||\text{v}||}</script><p>where $\textbf{v}$ is a unit vector in the direction of $\textbf{u}$.</p>
@@ -1721,9 +1744,12 @@ g(x_0,y_0)=0</script><p>the $\lambda$ is called <strong>Lagrange multiplier</str
 <ol>
 <li>Find $f$ and $g=C$;</li>
 <li>List $\nabla f=\lambda \nabla g,g=0$</li>
-<li>Solve the system, and get $f<em>{\text{min}}(x_0,y_0,z_0)=xxx$ or $f</em>{\text{max}}(x_0,y_0,z_0)=xxx$.</li>
+<li>Solve the system, and get </li>
 </ol>
-<p><strong>[Example]</strong></p>
+<script type="math/tex; mode=display">
+f_{\text{min}}(x_0,y_0,z_0)=xxx</script><p>or </p>
+<script type="math/tex; mode=display">
+f_{\text{max}}(x_0,y_0,z_0)=xxx</script><p><strong>[Example]</strong></p>
 <center><img src="/2022/12/02/mathematics-i-course-note/60.png" srcset="/img/loading.gif" lazyload width="70%"></center>
 
 <hr>
@@ -1838,6 +1864,23 @@ g(x_0,y_0)=0</script><p>the $\lambda$ is called <strong>Lagrange multiplier</str
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/25/hashmap-problems/" title="HashMap Problems">
+                        <span class="hidden-mobile">HashMap Problems</span>
+                        <span class="visible-mobile">下一篇|Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
