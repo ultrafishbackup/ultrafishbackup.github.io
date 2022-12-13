@@ -17,6 +17,9 @@
     - [**- Data Representation**](/data-representation.md "Data Representation - Topics - UltraFish")  
     - [**- Instruction Set**](/instruction-set.md "Instruction Set - Topics - UltraFish")  
 
+  - [- Database](/)
+    - [**- Database Systems Course Note**](/database.md " Database Systems Course Note - Topics - UltraFish")
+
   - [- Machine Learning](/)
     - [**- Machine Learning Algorithm**](/ml-algo.md "Machine Learning Algorithm - Topics - UltraFish")
 
