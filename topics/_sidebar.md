@@ -20,6 +20,9 @@
   - [- Database](/)
     - [**- Database Systems Course Note**](/database.md " Database Systems Course Note - Topics - UltraFish")
 
+  - [- Software Engineering](/)
+    - [**- Software Engineering Course Note**](/software-engineering.md " Software Engineering Course Note - Topics - UltraFish")
+
   - [- Machine Learning](/)
     - [**- Machine Learning Algorithm**](/ml-algo.md "Machine Learning Algorithm - Topics - UltraFish")
 

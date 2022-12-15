@@ -18,6 +18,9 @@
 > >Database | 数据库
 > > - [**Database Systems Course Note**](/database.md)
 > 
+> >Software Engineering | 软件工程
+> > - [**Software Engineering Course Note**](/software-engineering.md)
+> 
 > >Machine Learning | 机器学习
 > >- [**Machine Learning Algorithm**](/ml-algo.md)
 
