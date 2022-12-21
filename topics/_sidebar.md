@@ -23,6 +23,9 @@
   - [- Software Engineering](/)
     - [**- Software Engineering Course Note**](/software-engineering.md " Software Engineering Course Note - Topics - UltraFish")
 
+  - [- Operating Systems](/)
+    - [**- Linux**](/os.md " Linux - Topics - UltraFish")
+
   - [- Machine Learning](/)
     - [**- Machine Learning Algorithm**](/ml-algo.md "Machine Learning Algorithm - Topics - UltraFish")
 
