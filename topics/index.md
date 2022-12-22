@@ -3,7 +3,7 @@
 > *Computer Science | 计算机科学*
 > 
 >>Programming | 编程
-> >- [**Java**](/java.md) | [**R**](/r.md) | [**Markdown**](/markdown.md) | [**C++**](/cpp.md) | [**SQL**](/sql.md) | [**Python**](/python.md)
+> >- [**Java**](/java.md) | [**R**](/r.md) | [**Markdown**](/markdown.md) | [**C/C++**](/cpp.md) | [**SQL**](/sql.md) | [**Python**](/python.md)
 > 
 > >Data Structures and Algorithms | 数据结构与算法
 > > - [**Data Structures**](/data-structures.md)  

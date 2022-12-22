@@ -1,4 +1,7 @@
-**C/C++ Topics ｜ C/C++主题**
+**C/C++ Topics ｜ C/C++ 主题**
+
+* Basic:
+  * [C Learning 1 - Data Type & IO](http://ultrafish.cn/2022/12/22/c-learning-1/)
 
 * Pointer:
   * [C++中的指针pointer2 - 指针运算, 指向空的指针与空类型指针, 指向常量的指针与指针常量](http://ultrafish.cn/2020/12/06/cpp-pointer2/)

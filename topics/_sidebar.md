@@ -4,7 +4,7 @@
     - [**- Java**](java.md "Java - Topics - UltraFish")
     - [**- R**](r.md "R - Topics - UltraFish")
     - [**- Markdown**](markdown.md "Markdown - Topics - UltraFish")
-    - [**- C++**](cpp.md "C++ - Topics - UltraFish")
+    - [**- C/C++**](cpp.md "C/C++ - Topics - UltraFish")
     - [**- SQL**](sql.md "SQL - Topics - UltraFish")
     - [**- Python**](python.md "Python - Topics - UltraFish")
 
