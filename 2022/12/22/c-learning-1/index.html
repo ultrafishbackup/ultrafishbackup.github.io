@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://src.ultrafish.cn/storage/c-cpp.png">
 <meta property="article:published_time" content="2022-12-22T08:42:40.000Z">
-<meta property="article:modified_time" content="2022-12-22T10:59:48.179Z">
+<meta property="article:modified_time" content="2022-12-24T07:12:33.684Z">
 <meta property="article:author" content="Mike_Zhang">
 <meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary_large_image">
@@ -331,7 +331,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          10k 字 words
+          12k 字 words
         
       </span>
     
@@ -343,7 +343,7 @@
         
         
           <!-- compatible with older versions-->
-          84 分钟 mins
+          101 分钟 mins
         
       </span>
     
@@ -793,7 +793,7 @@
 <center><img src="/2022/12/22/c-learning-1/2.png" srcset="/img/loading.gif" lazyload width="100%"></center>
 
 <hr>
-<h1 id="5-printf-and-scanf"><a href="#5-printf-and-scanf" class="headerlink" title="5 printf and scanf"></a>5 <code>printf</code> and <code>scanf</code></h1><h2 id="5-1-printf"><a href="#5-1-printf" class="headerlink" title="5.1 printf"></a>5.1 <code>printf</code></h2><p>Print a variable depend on the variable type.</p>
+<h1 id="5-I-O"><a href="#5-I-O" class="headerlink" title="5 I/O"></a>5 I/O</h1><h2 id="5-1-printf-and-scanf"><a href="#5-1-printf-and-scanf" class="headerlink" title="5.1 printf and scanf"></a>5.1 <code>printf</code> and <code>scanf</code></h2><h3 id="5-1-1-printf"><a href="#5-1-1-printf" class="headerlink" title="5.1.1 printf"></a>5.1.1 <code>printf</code></h3><p>Print a variable depend on the variable type.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(Control-<span class="hljs-built_in">string</span>, item1, item2,...);<br></code></pre></td></tr></table></figure>
 <p>Arguments for <code>printf()</code>:</p>
 <center><img src="/2022/12/22/c-learning-1/3.png" srcset="/img/loading.gif" lazyload width="100%"></center>
@@ -1003,7 +1003,7 @@
 <p>Output:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">*<span class="hljs-number">959</span>* <br>*<span class="hljs-number">959</span>* <br>*       <span class="hljs-number">959</span>*<br>*<span class="hljs-number">959</span>       *<br></code></pre></td></tr></table></figure>
 <hr>
-<h2 id="5-2-scanf"><a href="#5-2-scanf" class="headerlink" title="5.2 scanf"></a>5.2 <code>scanf</code></h2><p>It converts string input into various forms: integers, floating-point numbers, characters, and C strings.</p>
+<h3 id="5-1-2-scanf"><a href="#5-1-2-scanf" class="headerlink" title="5.1.2 scanf"></a>5.1.2 <code>scanf</code></h3><p>It converts string input into various forms: integers, floating-point numbers, characters, and C strings.</p>
 <p>The format of <code>scanf</code> is similar to <code>printf</code>:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">scanf</span>(Control-<span class="hljs-built_in">string</span>, item1, item2,...);<br></code></pre></td></tr></table></figure>
 <ul>
@@ -1028,6 +1028,83 @@
 <center><img src="/2022/12/22/c-learning-1/7.png" srcset="/img/loading.gif" lazyload width="100%"></center>
 <center><img src="/2022/12/22/c-learning-1/8.png" srcset="/img/loading.gif" lazyload width="100%"></center>
 
+<hr>
+<h2 id="5-2-getchar-and-putchar"><a href="#5-2-getchar-and-putchar" class="headerlink" title="5.2 getchar and putchar"></a>5.2 <code>getchar</code> and <code>putchar</code></h2><p><code>int getchar(void);</code></p>
+<blockquote>
+<p>Reads the next character from <code>stdin</code> buffer.</p>
+</blockquote>
+<ul>
+<li><p>Return value</p>
+<ul>
+<li>The obtained character on success or EOF on failure.</li>
+<li>If the failure has been caused by end-of-file condition, additionally sets the eof indicator (see feof()) on stdin. If the failure has been caused by some other error, sets the error indicator (see ferror()) on stdin.</li>
+</ul>
+</li>
+<li><p>If the buffer is <strong>empty</strong>: ask for user input, all the input characters are stored in the buffer;</p>
+</li>
+<li>If the buffer is <strong>not empty</strong>: read the <strong>first character</strong> in the buffer, no need to ask for user input.</li>
+</ul>
+<hr>
+<p><code>int putchar(int ch);</code></p>
+<blockquote>
+<p>Writes a character ch to <code>stdout</code>. Internally, the character is converted to unsigned char just before being written.</p>
+</blockquote>
+<ul>
+<li>Parameters <ul>
+<li><code>ch</code>    -    character to be written</li>
+</ul>
+</li>
+<li>Return value<ul>
+<li>On success, returns the written character.</li>
+<li>On failure, returns EOF and sets the error indicator (see ferror()) on stdout.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>Classical example:</p>
+<blockquote>
+<p>This process is called echoing the input. It uses a while loop that terminates when the # character is encountered.</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-type">char</span> ch;<br>    <span class="hljs-keyword">while</span> ((ch = getchar()) != <span class="hljs-string">&#x27;#&#x27;</span>) &#123;<br>        <span class="hljs-built_in">putchar</span>(ch);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Ouptut:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">Hello, World! <span class="hljs-comment">// input</span><br>Hello, World! <span class="hljs-comment">// output</span><br>Hello#World <span class="hljs-comment">// input</span><br>Hello <span class="hljs-comment">// output</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="5-3-gets-and-puts"><a href="#5-3-gets-and-puts" class="headerlink" title="5.3 gets and puts"></a>5.3 <code>gets</code> and <code>puts</code></h2><p><code>char* gets(char* str);</code></p>
+<blockquote>
+<p>Reads <code>stdin</code> into given character string until a newline character is found or end-of-file occurs.</p>
+</blockquote>
+<ul>
+<li>Parameters<ul>
+<li><code>str</code>    -    character string to be written</li>
+</ul>
+</li>
+<li>Return value<ul>
+<li>str on success, a null pointer on failure.<ul>
+<li>If the failure has been caused by end of file condition, additionally sets the eof indicator (see std::feof()) on stdin. If the failure has been caused by some other error, sets the error indicator (see std::ferror()) on stdin.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><code>int puts(const char *str);</code></p>
+<blockquote>
+<p>Writes every character from the null-terminated string str and one additional newline character ‘\n’ to the output stream stdout, as if by repeatedly executing fputc.<br>The terminating null character from str is not written.</p>
+</blockquote>
+<ul>
+<li>Parameters<ul>
+<li><code>str</code>    -    character string to be written</li>
+</ul>
+</li>
+<li>Return value<ul>
+<li>On success, returns a non-negative value</li>
+<li>On failure, returns EOF and sets the error indicator (see ferror()) on stream.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;   <br>    <span class="hljs-type">char</span> str[<span class="hljs-number">100</span>];<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Input: &quot;</span>);<br>    gets(str);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Output: \n&quot;</span>);<br>    <span class="hljs-built_in">puts</span>(str);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Output:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">Input: <br>Hello, World!<br>Output: <br>Hello, World!<br></code></pre></td></tr></table></figure>
 <hr>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>S. Prata, <em>C primer plus</em>. Upper Saddle, Nj: Addison-Wesley, 2014.</p>
 <hr>
@@ -1139,6 +1216,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/12/24/c-learning-2/" title="C Learning 2 - Operators &amp; Control Statements">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C Learning 2 - Operators &amp; Control Statements</span>
+                        <span class="visible-mobile">上一篇|Prev</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
