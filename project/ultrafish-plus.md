@@ -9,7 +9,16 @@ I am the founder & author of UltraFish Plus
 
 ---
 
-UltraFish Plus includes following interactive tools:
+**UltraFish Plus** includes following interactive tools:
+
+### Morse Code Translator
+> Implementation of the Morse Code Translator with **JavaScript** and **React**
+
+![Morse Code Translator](https://src.ultrafish.cn/storage/morse-code-translator.png)
+
+[Play in UltraFish Plus >>>](https://plus.ultrafish.cn/morse-code-translator/)   
+
+---
 
 ### Conway's Game of Life
 > Implementation of the Conway's Game of Life with **JavaScript** and **React**

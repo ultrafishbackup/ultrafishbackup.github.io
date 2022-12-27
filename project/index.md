@@ -38,6 +38,9 @@
 > A interactive page associated with UltraFish using **React**, aiming to share some useful projects and tools. It includes following **Interactive Tools**.
 > 
 > ***Interactive Tools in UltraFish Plus:***
+> > [**Morse Code Translator**](/ultrafish-plus.md?id=morse-code-translator)  
+> > Implementation of the Morse Code Translator in JavaScript with React
+> >
 > > [**Conway's Game of Life**](/ultrafish-plus.md?id=conway39s-game-of-life)  
 > > Implementation of the Conway's Game of Life in JavaScript with React
 > >

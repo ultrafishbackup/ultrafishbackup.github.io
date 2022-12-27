@@ -13,6 +13,7 @@
 - [Web Development](/?id=web-development-project)
   - [**- UltraFish**](/ultrafish.md "UltraFish - Project & Research - UltraFish")
   - [**- UltraFish Plus**](/ultrafish-plus.md "UltraFish Plus - Project & Research - UltraFish")  
+    - [**- Morse Code Translator**](/ultrafish-plus.md?id=morse-code-translator)
     - [**- Conway's Game of Life**](/ultrafish-plus.md?id=conway39s-game-of-life)
     - [**- GPA Calculator**](/ultrafish-plus.md?id=gpa-calculator)  
     - [**- Multiple Bases Unsigned Integer Convertor**](/ultrafish-plus.md?id=multiple-bases-unsigned-integer-convertor)  
