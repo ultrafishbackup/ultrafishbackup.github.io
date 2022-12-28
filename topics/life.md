@@ -2,7 +2,7 @@
 
 * 年回顾 - Annual Review:
 
-  * [2022 回顾 - 2022 Review](https://ultrafish.cn/2022/12/31/2022-review/)  
+  <!-- * [2022 回顾 - 2022 Review](https://ultrafish.cn/2022/12/31/2022-review/)   -->
   * [2021 回顾 - 2021 Review](https://ultrafish.cn/2021/12/31/2021-review/)  
 
 * 在香港 - In HK:
